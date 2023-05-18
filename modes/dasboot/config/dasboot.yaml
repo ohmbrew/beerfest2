@@ -1,0 +1,1402 @@
+#config_version=5
+##! mode: dasboot
+
+mode:
+  start_events: start_mode_dasboot
+  stop_events: stop_mode_dasboot, stop_missions   # NOT a timed round
+  events_when_started: mode_type_mission_started
+  events_when_stopped: mode_type_mission_stopped
+  priority: 400
+
+sound_player:
+  start_background_music:
+    music_bubbles:
+      action: play
+      loops: -1
+  mode_dasboot_will_stop:
+    music_bubbles:
+      action: stop
+  # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
+  shot_kicker_mode_hit:
+    voice_betterwhendrunk:
+      action: play
+      events_when_stopped: kicker_mode_eject
+  shot_kicker_rimrules_hit:
+    rimrules:
+      action: play
+      events_when_stopped: kicker_rimrules_eject
+  event_dasboot_success:
+    sureasschnitzel:
+      action: play
+      events_when_stopped: slide_event_result_complete
+  
+  # das boot specific audio
+  
+  shot_hj_hit:
+    voice_beerfest:
+      action: play
+  shot_bj_hit:
+    voice_beerfest:
+      action: play
+  shot_zj_hit:
+    voice_beerfest:
+      action: play
+  shot_chance_hit:
+    voice_beerfest:
+      action: play
+  shot_special_hit:
+    voice_beerfest:
+      action: play
+  shot_take_hit_hit:
+    voice_beerfest:
+      action: play
+  shot_chug_beer_hit:
+    voice_beerfest:
+      action: play
+  shot_do_shot_hit:
+    voice_beerfest:
+      action: play
+  shot_quarters_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_ramp_boot_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_rimrules_hit:
+    voice_beerfest:
+      action: play
+  shot_drinko_d_hit:
+    voice_beerfest:
+      action: play
+  shot_drinko_r_hit:
+    voice_beerfest:
+      action: play
+  shot_drinko_n_hit:
+    voice_beerfest:
+      action: play
+  shot_drinko_k_hit:
+    voice_beerfest:
+      action: play
+  shot_drinko_o_hit:
+    voice_beerfest:
+      action: play
+
+  # let base mode take care of these
+  #shot_drinko_i_hit:   # let base mode take care of this
+  #shot_tavern_hit:          
+  #shot_ramp_drinko_hit:
+  #shot_diverter_hit:  # use burp sound for that still
+  #enable_drinko_bonus2:
+  #enable_drinko_bonus3:
+  #drinko_hammered:
+  #bank_strikeout_complete:   # let base made take care of this
+  #spellbeer_group_hit_complete:
+    
+
+# timer used to animate das boot intro slide text. Counts up by 1 every 5 secs. Used to start text animations in slide_dasboot_intro
+timers:
+  dasboot_intro_timer:
+    start_value: 0
+    end_value: 4
+    direction: up
+    tick_interval: 7s
+    control_events:
+      - action: start
+        event: slide_slide_dasboot_intro_active
+  
+slides:
+  slide_dasboot_background:
+    - type: image
+      image: background
+  slide_dasboot_intro:
+    widgets:
+      - type: text
+        text: DAS BOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle
+        animations:
+          show_slide:
+            - property: font_size
+              value: 200
+              duration: 3s
+            - property: opacity
+              value: 0
+              duration: 3s
+              timing: after_previous
+      - type: text
+        text: BOOT RAMP 50M
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle
+        opacity: 0
+        animations:
+          dasboot_intro_slide_text1:
+            - property: opacity
+              value: 1
+            - property: font_size
+              value: 200
+              timing: after_previous
+              duration: 3s
+            - property: opacity
+              value: 0
+              duration: 3s
+              timing: after_previous
+      - type: text
+        text: ALL TARGETS 10M
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle
+        opacity: 0
+        animations:
+          dasboot_intro_slide_text2:
+            - property: opacity
+              value: 1
+            - property: font_size
+              value: 200
+              timing: after_previous
+              duration: 3s
+            - property: opacity
+              value: 0
+              duration: 3s
+              timing: after_previous
+      - type: text
+        text: ALL BONUSES 5X
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle
+        opacity: 0
+        animations:
+          dasboot_intro_slide_text3:
+            - property: opacity
+              value: 1
+            - property: font_size
+              value: 150
+              timing: after_previous
+              duration: 3s
+            - property: opacity
+              value: 0
+              duration: 3s
+              timing: after_previous
+      - type: video
+        video: dasboot-intro
+
+  slide_dasboot_main:
+    widgets:
+      - type: text
+        text: DAS BOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 300
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 35
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 1
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 125
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 450
+      - type: text
+        text: Ball (ball)
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 65
+        anchor_x: middle
+        anchor_y: bottom
+        x: middle
+        y: bottom + 35
+      - type: video
+        video: bubbles
+        end_behavior: loop
+  slide_dasboot_success:
+    widgets:
+      - type: text
+        text: DAS BOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 100
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 35
+      - type: text
+        text: SUCCESS
+        font_name: druillet
+        color: green
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: top - 250
+        animations:
+          show_slide:
+            - property: font_size
+              value: 100
+              duration: .5s
+      - type: text
+        text: (player|pts_dasboot_success)
+        number_grouping: true
+        min_digits: 1
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: top - 450
+        animations:
+          show_slide:
+            - property: font_size
+              value: 225
+              duration: .5s
+      - type: video
+        video: bubbles
+        end_behavior: loop
+  # Bonus slides
+  dasboot_slide_bonus_boot:
+    widgets:
+    - type: text
+      text: DAS BOOT
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_dasboot_boot_bonus)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_drinko1:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_drinkbonus1)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_drinko2:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_drinkbonus2)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_hammered:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: HAMMERED MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_hammered)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_monkeychug:
+    widgets:
+    - type: text
+      text: MONKEY CHUG
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_monkeychug)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .25s
+    - type: image
+      image: background
+  dasboot_slide_bonus_spellbeer:
+    widgets:
+    - type: text
+      text: Spell B-E-E-R
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_spellbeer)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_spellmunich:
+    widgets:
+    - type: text
+      text: Spell M-U-N-I-C-H
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_spellmunich)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  dasboot_slide_bonus_strikeout:
+    widgets:
+    - type: text
+      text: Strikeout
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|dasboot_bonustext_strikeoutcomplete)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+
+slide_player:
+  mode_dasboot_started:
+    slide_dasboot_intro:
+      action: play
+      expire: 30.1s
+      priority: 700
+  timer_dasboot_intro_timer_complete:   # there was like a 1 sec lag from loading main slide from intro. Used timer completion instead, which ends slightly sooner than video in intro slide
+    slide_dasboot_main:
+      priority: 700
+      action: play
+  event_dasboot_success:
+    slide_dasboot_main:
+      action: remove
+    slide_just_background:
+      action: play
+    slide_dasboot_success:
+      action: play
+  slide_event_result_complete:
+    slide_dasboot_success:
+      action: remove
+    slide_just_background:
+      action: remove
+
+  # Bonus slides
+  shot_diverter_hit:
+    dasboot_slide_bonus_boot:
+      priority: 1000
+      expire: 2s
+  drinko_bonus1_award:
+    dasboot_slide_bonus_drinko1:
+      priority: 1000
+      expire: 2s
+  drinko_bonus2_award:
+    dasboot_slide_bonus_drinko2:
+      priority: 1000
+      expire: 2s
+  drinko_hammered_award:
+    dasboot_slide_bonus_hammered:
+      priority: 1000
+      expire: 2s
+  shot_drinko_i_hit:
+    dasboot_slide_bonus_monkeychug:
+      priority: 1000
+      expire: 2s
+  bank_strikeout_complete:
+    dasboot_slide_bonus_strikeout:
+      priority: 1000
+      expire: 2s
+  spellbeer_group_hit_complete:
+    dasboot_slide_bonus_spellbeer:
+      priority: 1000
+      expire: 2s
+  spelled_munich:
+    dasboot_slide_bonus_spellmunich:
+      priority: 1000
+      expire: 2s
+
+queue_relay_player:
+  mode_dasboot_stopping:  # not a timed round, the ball drained
+    post: event_dasboot_success
+    wait_for: slide_slide_dasboot_success_removed
+  ball_ending:  # delay ball_ending until whichever slide is shown above finishes
+    post: nothing
+    wait_for: slide_event_done
+
+event_player:
+  timer_dasboot_intro_timer_complete: start_background_music
+  slide_slide_dasboot_main_active: kicker_mode_eject, kicker_rimrules_eject
+  slide_slide_dasboot_success_removed: slide_event_done
+  # used for slide animations
+  timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 1}: dasboot_intro_slide_text1
+  timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 2}: dasboot_intro_slide_text2
+  timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 3}: dasboot_intro_slide_text3
+  timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 4}: dasboot_intro_slide_text4
+
+shows:
+  init_lights_dasboot:
+    - time: 0
+      lights:
+        gi_left1: off
+        gi_right1: off
+        gi_left2: off
+        gi_right2: off
+        gi_left3: off
+        gi_right3: off
+        gi_left4: off
+        gi_right4: off
+        gi_back1: off
+        gi_back2: off
+        gi_back3: off
+        gi_back4: off
+        gi_back5: off
+        gi_back6: off
+
+        slingleft_upper: off
+        slingleft_lower: off
+        slingright_upper: off
+        slingright_lower: off
+        slingquarters_upper: off
+        slingquarters_lower: off
+        flipper_left: off
+        flipper_right: off
+
+        tavern_sign1: off
+        tavern_sign2: off
+        tavern_inside: off
+
+        drinko_o: off
+        drinko_k: off
+        drinko_n: off
+        drinko_d: off
+        drinko_r: off
+        drinko_i: off
+
+        arrow_orbit1: off
+        arrow_orbit2: off
+        arrow_orbit3: off
+        arrow_rimrules1: off
+        arrow_rimrules2: off
+        arrow_rimrules3: off
+        arrow_boot1: off
+        arrow_boot2: off
+        arrow_boot3: off
+        arrow_tavern3: off
+        arrow_tavern2: off
+        arrow_tavern1: off
+        arrow_mode1: off
+        arrow_mode2: off
+        arrow_mode3: off
+        arrow_drinko1: off
+        arrow_drinko2: off
+        arrow_drinko3: off
+
+        strikeout_shot: off
+        strikeout_beer: off
+        strikeout_bong: off
+
+        quarters: off
+
+        lane_left_outer: off
+        lane_left_inner: off
+        lane_right_inner: off
+        lane_right_outer: off
+
+        beermug7: off
+        beermug6: off
+        beermug5: off
+        beermug4: off
+        beermug3: off
+        beermug2: off
+        beermug1: off
+        ball_save: off
+        
+        special: off
+        chance: off
+        
+        zj: off
+        bj: off
+        hj: off
+        balls_locked3: off
+        balls_locked2: off
+        balls_locked1: off
+        drinko_bonus3: off
+        drinko_bonus2: off
+        drinko_bonus1: off
+
+        mode_dasboot: off
+        mode_volumechug: off
+        mode_longpour: off
+        mode_quarters: off
+        mode_strikeout: off
+        mode_trojankeg: off
+
+        l_pop_lower: off
+        l_pop_right: off
+        l_pop_left: off
+    - duration: -1
+
+  flash_dasboot_intro:
+    - duration: 3.75s
+      lights:
+        gi_left1:
+          color: 008ce5
+          fade: 3s
+        gi_right1: 
+          color: 008ce5
+          fade: 3s
+        gi_left2: 
+          color: 008ce5
+          fade: 3s
+        gi_right2: 
+          color: 008ce5
+          fade: 3s
+        gi_left3: 
+          color: 008ce5
+          fade: 3s
+        gi_right3: 
+          color: 008ce5
+          fade: 3s
+        gi_left4: 
+          color: 008ce5
+          fade: 3s
+        gi_right4: 
+          color: 008ce5
+          fade: 3s
+        gi_back1: 
+          color: 008ce5
+          fade: 3s
+        gi_back2: 
+          color: 008ce5
+          fade: 3s
+        gi_back3: 
+          color: 008ce5
+          fade: 3s
+        gi_back4: 
+          color: 008ce5
+          fade: 3s
+        gi_back5: 
+          color: 008ce5
+          fade: 3s
+        gi_back6: 
+          color: 008ce5
+          fade: 3s
+        slingleft_upper: 
+          color: 008ce5
+          fade: 3s
+        slingleft_lower: 
+          color: 008ce5
+          fade: 3s
+        slingright_upper: 
+          color: 008ce5
+          fade: 3s
+        slingright_lower: 
+          color: 008ce5
+          fade: 3s
+        slingquarters_upper: 
+          color: 008ce5
+          fade: 3s
+        slingquarters_lower: 
+          color: 008ce5
+          fade: 3s
+        flipper_left: 
+          color: 008ce5
+          fade: 3s
+        flipper_right: 
+          color: 008ce5
+          fade: 3s
+
+        tavern_sign1:  
+          color: 008ce5
+          fade: 3s
+        tavern_sign2:  
+          color: 008ce5
+          fade: 3s
+        tavern_inside:  
+          color: 008ce5
+          fade: 3s
+
+        drinko_o:  
+          color: 008ce5
+          fade: 3s
+        drinko_k:  
+          color: 008ce5
+          fade: 3s
+        drinko_n:  
+          color: 008ce5
+          fade: 3s
+        drinko_d:  
+          color: 008ce5
+          fade: 3s
+        drinko_r:  
+          color: 008ce5
+          fade: 3s
+        drinko_i:  
+          color: 008ce5
+          fade: 3s
+
+        arrow_orbit1:  
+          color: 008ce5
+          fade: 3s
+        arrow_orbit2:  
+          color: 008ce5
+          fade: 3s
+        arrow_orbit3:  
+          color: 008ce5
+          fade: 3s
+        arrow_rimrules1:  
+          color: 008ce5
+          fade: 3s
+        arrow_rimrules2:  
+          color: 008ce5
+          fade: 3s
+        arrow_rimrules3:  
+          color: 008ce5
+          fade: 3s
+        arrow_boot1:  
+          color: 008ce5
+          fade: 3s
+        arrow_boot2:  
+          color: 008ce5
+          fade: 3s
+        arrow_boot3:  
+          color: 008ce5
+          fade: 3s
+        arrow_tavern3:  
+          color: 008ce5
+          fade: 3s
+        arrow_tavern2:  
+          color: 008ce5
+          fade: 3s
+        arrow_tavern1:  
+          color: 008ce5
+          fade: 3s
+        arrow_mode1:  
+          color: 008ce5
+          fade: 3s
+        arrow_mode2:  
+          color: 008ce5
+          fade: 3s
+        arrow_mode3:  
+          color: 008ce5
+          fade: 3s
+        arrow_drinko1:  
+          color: 008ce5
+          fade: 3s
+        arrow_drinko2:  
+          color: 008ce5
+          fade: 3s
+        arrow_drinko3:  
+          color: 008ce5
+          fade: 3s
+
+        strikeout_shot:  
+          color: 008ce5
+          fade: 3s
+        strikeout_beer:  
+          color: 008ce5
+          fade: 3s
+        strikeout_bong:  
+          color: 008ce5
+          fade: 3s
+
+        quarters:  
+          color: 008ce5
+          fade: 3s
+
+        lane_left_outer:  
+          color: 008ce5
+          fade: 3s
+        lane_left_inner:  
+          color: 008ce5
+          fade: 3s
+        lane_right_inner:  
+          color: 008ce5
+          fade: 3s
+        lane_right_outer:  
+          color: 008ce5
+          fade: 3s
+
+        beermug7:  
+          color: 008ce5
+          fade: 3s
+        beermug6:  
+          color: 008ce5
+          fade: 3s
+        beermug5:  
+          color: 008ce5
+          fade: 3s
+        beermug4:  
+          color: 008ce5
+          fade: 3s
+        beermug3:  
+          color: 008ce5
+          fade: 3s
+        beermug2:  
+          color: 008ce5
+          fade: 3s
+        beermug1:  
+          color: 008ce5
+          fade: 3s
+
+        ball_save:  
+          color: 008ce5
+          fade: 3s
+        
+        special:  
+          color: 008ce5
+          fade: 3s
+        chance:  
+          color: 008ce5
+          fade: 3s
+        
+        zj:  
+          color: 008ce5
+          fade: 3s
+        bj:  
+          color: 008ce5
+          fade: 3s
+        hj:  
+          color: 008ce5
+          fade: 3s
+        balls_locked3:  
+          color: 008ce5
+          fade: 3s
+        balls_locked2:  
+          color: 008ce5
+          fade: 3s
+        balls_locked1:  
+          color: 008ce5
+          fade: 3s
+        drinko_bonus3:  
+          color: 008ce5
+          fade: 3s
+        drinko_bonus2:  
+          color: 008ce5
+          fade: 3s
+        drinko_bonus1:  
+          color: 008ce5
+          fade: 3s
+
+        mode_dasboot:  
+          color: 008ce5
+          fade: 3s
+        mode_volumechug:  
+          color: 008ce5
+          fade: 3s
+        mode_longpour:  
+          color: 008ce5
+          fade: 3s
+        mode_quarters:  
+          color: 008ce5
+          fade: 3s
+        mode_strikeout:  
+          color: 008ce5
+          fade: 3s
+        mode_trojankeg:  
+          color: 008ce5
+          fade: 3s
+
+    - duration: 3.75s
+      lights:
+        gi_left1:
+          color: off
+          fade: 3s
+        gi_right1: 
+          color: off
+          fade: 3s
+        gi_left2: 
+          color: off
+          fade: 3s
+        gi_right2: 
+          color: off
+          fade: 3s
+        gi_left3: 
+          color: off
+          fade: 3s
+        gi_right3: 
+          color: off
+          fade: 3s
+        gi_left4: 
+          color: off
+          fade: 3s
+        gi_right4: 
+          color: off
+          fade: 3s
+        gi_back1: 
+          color: off
+          fade: 3s
+        gi_back2: 
+          color: off
+          fade: 3s
+        gi_back3: 
+          color: off
+          fade: 3s
+        gi_back4: 
+          color: off
+          fade: 3s
+        gi_back5: 
+          color: off
+          fade: 3s
+        gi_back6: 
+          color: off
+          fade: 3s
+        slingleft_upper: 
+          color: off
+          fade: 3s
+        slingleft_lower: 
+          color: off
+          fade: 3s
+        slingright_upper: 
+          color: off
+          fade: 3s
+        slingright_lower: 
+          color: off
+          fade: 3s
+        slingquarters_upper: 
+          color: off
+          fade: 3s
+        slingquarters_lower: 
+          color: off
+          fade: 3s
+        flipper_left: 
+          color: off
+          fade: 3s
+        flipper_right: 
+          color: off
+          fade: 3s
+        tavern_sign1:
+          color: off
+          fade: 3s
+        tavern_sign2:
+          color: off
+          fade: 3s
+        tavern_inside:
+          color: off
+          fade: 3s
+
+        drinko_o: 
+          color: off
+          fade: 3s
+        drinko_k: 
+          color: off
+          fade: 3s
+        drinko_n: 
+          color: off
+          fade: 3s
+        drinko_d:  
+          color: off
+          fade: 3s
+        drinko_r:  
+          color: off
+          fade: 3s
+        drinko_i: 
+          color: off
+          fade: 3s
+
+        arrow_orbit1:  
+          color: off
+          fade: 3s
+        arrow_orbit2:  
+          color: off
+          fade: 3s
+        arrow_orbit3:  
+          color: off
+          fade: 3s
+        arrow_rimrules1:  
+          color: off
+          fade: 3s
+        arrow_rimrules2:  
+          color: off
+          fade: 3s
+        arrow_rimrules3:  
+          color: off
+          fade: 3s
+        arrow_boot1:  
+          color: off
+          fade: 3s  
+        arrow_boot2:  
+          color: off
+          fade: 3s
+        arrow_boot3:  
+          color: off
+          fade: 3s
+        arrow_tavern3:  
+          color: off
+          fade: 3s
+        arrow_tavern2:  
+          color: off
+          fade: 3s
+        arrow_tavern1:  
+          color: off
+          fade: 3s
+        arrow_mode1:  
+          color: off
+          fade: 3s
+        arrow_mode2:  
+          color: off
+          fade: 3s
+        arrow_mode3:  
+          color: off
+          fade: 3s
+        arrow_drinko1:  
+          color: off
+          fade: 3s
+        arrow_drinko2:  
+          color: off
+          fade: 3s
+        arrow_drinko3:  
+          color: off
+          fade: 3s
+
+        strikeout_shot:  
+          color: off
+          fade: 3s
+        strikeout_beer:  
+          color: off
+          fade: 3s
+        strikeout_bong: 
+          color: off
+          fade: 3s
+
+        quarters:  
+          color: off
+          fade: 3s
+
+        lane_left_outer:  
+          color: off
+          fade: 3s
+        lane_left_inner:  
+          color: off
+          fade: 3s
+        lane_right_inner:  
+          color: off
+          fade: 3s
+        lane_right_outer:  
+          color: off
+          fade: 3s
+
+        beermug7:  
+          color: off
+          fade: 3s
+        beermug6:  
+          color: off
+          fade: 3s
+        beermug5:  
+          color: off
+          fade: 3s
+        beermug4:  
+          color: off
+          fade: 3s
+        beermug3:  
+          color: off
+          fade: 3s
+        beermug2:  
+          color: off
+          fade: 3s
+        beermug1:  
+          color: off
+          fade: 3s
+        ball_save:  
+          color: off
+          fade: 3s
+        
+        special:  
+          color: off
+          fade: 3s
+        chance:  
+          color: off
+          fade: 3s
+        
+        zj:  
+          color: off
+          fade: 3s
+        bj:  
+          color: off
+          fade: 3s
+        hj:  
+          color: off
+          fade: 3s
+        balls_locked3:  
+          color: off
+          fade: 3s
+        balls_locked2:  
+          color: off
+          fade: 3s
+        balls_locked1:  
+          color: off
+          fade: 3s
+        drinko_bonus3:  
+          color: off
+          fade: 3s
+        drinko_bonus2:  
+          color: off
+          fade: 3s
+        drinko_bonus1:  
+          color: off
+          fade: 3s
+
+        mode_dasboot:  
+          color: off
+          fade: 3s
+        mode_volumechug:  
+          color: off
+          fade: 3s
+        mode_longpour:  
+          color: off
+          fade: 3s
+        mode_quarters:  
+          color: off
+          fade: 3s
+        mode_strikeout:  
+          color: off
+          fade: 3s
+        mode_trojankeg:  
+          color: off
+          fade: 3s
+
+  flash_dasboot_insert:
+    - duration: 1
+      lights:
+        mode_dasboot:
+          color: yellow
+          fade: .5s
+    - duration: 1
+      lights:
+        mode_dasboot: 
+          color: off
+          fade: .5s
+
+show_player:
+  mode_dasboot_started:
+    init_lights_dasboot:
+      loops: 0
+  slide_slide_dasboot_intro_active:
+    flash_dasboot_intro:
+      loops: 4
+    init_lights_dasboot:
+      action: stop
+  start_background_music:
+    flash_dasboot_intro:
+      action: stop
+    flash_dasboot_insert:
+      speed: 2
+
+variable_player:
+  shot_diverter_hit:
+    score: current_player.pts_dasboot_boot_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  # Target Bonuses (and Bonus Bonuses)
+  shot_hj_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numhjs: 1       # bonus tracker (HJs)
+  shot_bj_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numbjs: 1       # bonus tracker (BJs)
+  shot_zj_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numzjs: 1       # bonus tracker (ZJs)
+  shot_chance_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numchance: 1    # bonus tracker (chance multiplier)
+  shot_special_hit:
+    score: current_player.pts_dasboot_target_bonus
+
+  # strikeout
+  shot_take_hit_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_chug_beer_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_do_shot_hit:
+    score: current_player.pts_dasboot_target_bonus
+  bank_strikeout_complete:
+    score: current_player.pts_strikeout_complete * current_player.dasboot_bonus_multiplier
+    dasboot_bonustext_strikeoutcomplete:
+      int: current_player.pts_strikeout_complete * current_player.dasboot_bonus_multiplier
+      action: set
+    bonus_numstrikeouts: 1    # bonus tracker (strikeouts)
+
+  # quarters
+  shot_quarters_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numquarters: 1      # bonus tracker (quarters)
+
+  # longpour
+  shot_tavern_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  shot_ramp_drinko_hit:
+    score: current_player.pts_dasboot_target_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  shot_tgt_ramp_boot_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_tgt_rimrules_hit:
+    score: current_player.pts_dasboot_target_bonus
+  drinko_bonus1_award:
+    score: current_player.pts_drinko_bonus1 * current_player.dasboot_bonus_multiplier        # means we got bonus1
+    dasboot_bonustext_drinkbonus1:   # set text string for our bonus value
+      int: current_player.pts_drinko_bonus1 * current_player.dasboot_bonus_multiplier
+      action: set
+  drinko_bonus2_award:
+    score: current_player.pts_drinko_bonus2 * current_player.dasboot_bonus_multiplier           # means we got bonus2
+    dasboot_bonustext_drinkbonus2:   # set text string for our bonus value
+      int: current_player.pts_drinko_bonus2 * current_player.dasboot_bonus_multiplier
+      action: set
+  drinko_hammered_award:
+    score: current_player.pts_drinko_hammered * current_player.dasboot_bonus_multiplier
+    dasboot_bonustext_hammered:   # set text string for our bonus value
+      int: current_player.pts_drinko_hammered * current_player.dasboot_bonus_multiplier
+      action: set
+  shot_drinko_d_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_drinko_r_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_drinko_i_hit:          # horseshoe - hard shot!
+    score: current_player.pts_dasboot_target_bonus * current_player.dasboot_bonus_multiplier
+    dasboot_bonustext_monkeychug:   # set text string for our bonus value
+      int: current_player.pts_dasboot_target_bonus * current_player.dasboot_bonus_multiplier
+      action: set
+  shot_drinko_n_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_drinko_k_hit:
+    score: current_player.pts_dasboot_target_bonus
+  shot_drinko_o_hit:
+    score: current_player.pts_dasboot_target_bonus
+
+  spellbeer_group_hit_complete:
+    score: current_player.pts_spell_beer * current_player.dasboot_bonus_multiplier
+    dasboot_bonustext_spellbeer:   # set text string for our bonus value
+      int: current_player.pts_spell_beer * current_player.dasboot_bonus_multiplier
+      action: set
+
+  spelled_munich:
+    score: current_player.pts_spell_munich * current_player.dasboot_bonus_multiplier
+    dasboot_bonustext_spellmunich:
+      int: current_player.pts_spell_munich * current_player.dasboot_bonus_multiplier
+      action: set

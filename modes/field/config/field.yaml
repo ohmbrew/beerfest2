@@ -1,0 +1,76 @@
+#config_version=5
+##! mode: field
+
+mode:
+  start_events: start_mode_field
+  stop_events: stop_mode_field
+  priority: 300
+
+config:
+  - mug.yaml
+  - qualify.yaml
+
+sound_player:
+  mode_field_started{players[0].is_welcome_played == 0}:
+    voice_welcome:
+      action: play
+      loops: 0
+      events_when_stopped: start_base_theme
+  start_base_theme:
+    introrepeat:
+      action: play
+      track: music
+      loops: -1
+      volume: .5
+  mode_field_started{players[0].is_welcome_played == 1}:
+    introrepeat:
+      action: play
+      track: music
+      loops: -1
+      volume: .5
+  mode_field_will_stop:
+    introrepeat:
+      action: stop
+  play_betterwhendrunk_and_eject:
+    voice_betterwhendrunk:
+      action: play
+      events_when_stopped: kicker_mode_eject
+  play_rimrules_and_eject:
+    rimrules:
+      action: play
+      events_when_stopped: kicker_rimrules_eject
+
+# Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
+event_player:
+  shot_kicker_mode_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
+  shot_kicker_mode_hit{device.counters.count_mug_lights.value < 14}: play_betterwhendrunk_and_eject
+  shot_kicker_rimrules_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
+  shot_kicker_rimrules_hit{device.counters.count_mug_lights.value < 14}: play_rimrules_and_eject
+
+random_event_player:
+  launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
+    events:
+      - start_mode_longpour
+      - start_mode_quarters
+      - start_mode_strikeout
+  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
+    events:
+      - start_mode_volumechug
+      - start_mode_trojankeg
+  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
+    events:
+      - start_mode_dasboot  # Wizard Mode!
+
+show_player:
+  mode_field_started:
+    show_qualify_active:
+      speed: 4
+  qualified_for_mode_selection:
+    show_qualify_active:
+      action: stop
+
+variable_player:
+  start_base_theme:
+    is_welcome_played:
+      int: 1
+      action: set

@@ -1,0 +1,417 @@
+#config_version=5
+
+sound_player:
+  player_adding{number != 1}:
+    voice_newplayer:
+      action: play
+      loops: 0
+
+shows:
+  show_backglass_on:
+    - time: 0
+      lights:
+        l_backglass: on
+    - duration: -1
+
+show_player:
+  game_started: show_backglass_on
+  
+slides:
+  base_slide: []
+  multiplayer_slide: []
+
+slide_player:
+  single_player_ball_started: base_slide
+  multi_player_ball_started: multiplayer_slide
+  # If a second player joins during player 1's turn, swap base_slide for multiplayer
+  multiplayer_game:
+    base_slide:
+      action: remove
+    multiplayer_slide:
+      action: play
+    
+  ball_will_end:
+    base_slide:
+      action: remove
+    multiplayer_slide:
+      action: remove
+
+widget_player:
+  # First event, before additional players have a chance to enter
+  game_started:
+    base_score_widget:
+      slide: base_slide
+    base_ball_widget:
+      slide: base_slide
+    background_widget:
+      slide: base_slide
+  add_skillshot_widgets{game.num_players <= 1}:
+    skillshot_video_widget:
+      slide: base_slide
+    skillshot_title_widget:
+      slide: base_slide
+    skillshot_hitwhengreen:
+      slide: base_slide
+    skillshot_arrow1:
+      slide: base_slide
+    skillshot_arrow2:
+      slide: base_slide
+  add_skillshot_widgets{game.num_players >= 2}:
+    skillshot_video_widget:
+      slide: multiplayer_slide
+    skillshot_title_widget:
+      slide: multiplayer_slide   
+    skillshot_hitwhengreen:
+      slide: multiplayer_slide
+    skillshot_arrow1:
+      slide: multiplayer_slide
+    skillshot_arrow2:
+      slide: multiplayer_slide
+
+  mode_skillshot_stopped:
+    skillshot_video_widget:
+      action: remove
+    skillshot_title_widget:
+      action: remove
+    skillshot_hitwhengreen:
+      action: remove
+    skillshot_arrow1:
+      action: remove
+    skillshot_arrow2:
+      action: remove
+
+  mode_longpour_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_longpour_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+  mode_quarters_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_quarters_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+  mode_strikeout_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_strikeout_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+  mode_volumechug_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_volumechug_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+  mode_trojankeg_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_trojankeg_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+
+  # player 2 has entered the chat
+  player_added{num==2 and current_player.is_skillshot_active == 0}:
+    base_score_widget:
+      slide: multiplayer_slide
+    base_ball_widget:
+      slide: multiplayer_slide
+    # Start with player1 name and player2 score
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide
+    background_widget:
+      slide: multiplayer_slide
+  player_added{num==2 and current_player.is_skillshot_active == 1}:
+    base_score_widget:
+      slide: multiplayer_slide
+    base_ball_widget:
+      slide: multiplayer_slide
+    # Start with player1 name and player2 score
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide
+    background_widget:
+      slide: multiplayer_slide
+    skillshot_video_widget:
+      slide: multiplayer_slide
+    skillshot_title_widget:
+      slide: multiplayer_slide
+    skillshot_hitwhengreen:
+      slide: multiplayer_slide
+    skillshot_arrow1:
+      slide: multiplayer_slide
+    skillshot_arrow2:
+      slide: multiplayer_slide
+      
+  # Player 3 has entered the chat
+  player_added{num==3}:
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide
+
+  # Player 4 has entered the chat
+  player_added{num==4}:
+    mp_score_widget_p4_small:
+      slide: multiplayer_slide
+  
+  # Player Turns: Swap scores -> names when turn starts, revert when turn ends
+  player_turn_started{number==1}:
+    mp_score_widget_p1_small:
+      action: remove
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+  player_turn_ended{number==1}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p1_large:
+      action: remove
+  
+  player_turn_started{number==2}:
+    mp_score_widget_p2_small:
+      action: remove
+    mp_score_widget_p2_large:
+      slide: multiplayer_slide
+  player_turn_ended{number==2}:
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_large:
+      action: remove
+
+  player_turn_started{number==3}:
+    mp_score_widget_p3_small:
+      action: remove
+    mp_score_widget_p3_large:
+      slide: multiplayer_slide
+  player_turn_ended{number==3}:
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide
+    mp_score_widget_p3_large:
+      action: remove
+
+  player_turn_started{number==4}:
+    mp_score_widget_p4_small:
+      action: remove
+    mp_score_widget_p4_large:
+      slide: multiplayer_slide
+  player_turn_ended{number==4}:
+    mp_score_widget_p4_small:
+      slide: multiplayer_slide
+    mp_score_widget_p4_large:
+      action: remove
+
+widgets:
+  background_widget:
+    - type: video
+      video: bubbles
+      end_behavior: loop
+      z: 0
+
+  skillshot_video_widget:
+    - type: video
+      video: skillshot-intro
+      anchor_x: center
+      anchor_y: center
+      height: 400
+      width: 711
+      end_behavior: loop
+      z: 69
+  skillshot_title_widget:
+    - type: text
+      text: Timed Skill Shot
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 100
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top-35
+      z: 69
+  skillshot_hitwhengreen:
+    - type: image
+      image: hitwhengreen
+      anchor_x: left
+      anchor_y: top
+      x: left + 575
+      y: top - 350
+      z: 70
+  skillshot_arrow1:
+    - type: image
+      image: arrow-down
+      anchor_x: center
+      anchor_y: center
+      x: 708
+      y: 325
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+      z: 70
+  skillshot_arrow2:
+    - type: image
+      image: arrow-down
+      anchor_x: center
+      anchor_y: center
+      x: 773
+      y: 312
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+      z: 70
+
+  base_score_widget:
+    - type: text
+      text: (score)
+      number_grouping: true
+      min_digits: 1
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 200
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle
+      z: 1
+  base_ball_widget:
+    - type: text
+      text: Ball (ball)
+      x: middle
+      y: bottom + 35
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 65
+      anchor_x: middle
+      anchor_y: bottom
+      z: 1
+  # Player 1 score, for when they're not playing
+  mp_score_widget_p1_small:
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: top
+      x: 10
+      y: top - 35
+      font_size: 50
+      font_name: druillet
+      color: red
+      z: 1
+  # Player 2 score, for when they're not playing
+  mp_score_widget_p2_small:
+    - type: text
+      text: (player2|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: top
+      x: right - 10
+      y: top - 35
+      font_size: 50
+      font_name: druillet
+      color: red
+      z: 1
+  # Player 3 score, for when they're not playing
+  mp_score_widget_p3_small:
+    - type: text
+      text: (player3|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: bottom
+      x: 10
+      y: 35
+      font_size: 50
+      font_name: druillet
+      color: red
+      z: 1
+  # Player 4 score, for when they're not playing
+  mp_score_widget_p4_small:
+    - type: text
+      text: (player4|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: bottom
+      x: right-10
+      y: 35
+      font_size: 50
+      font_name: druillet
+      color: red
+      z: 1
+  # Player 1 score, for when they're PLAYING
+  mp_score_widget_p1_large:
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: top
+      x: 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5ff
+      z: 1
+  # Player 2 score, for when they're PLAYING
+  mp_score_widget_p2_large:
+    - type: text
+      text: (player2|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: top
+      x: right - 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5ff
+      z: 1
+  # Player 3 score, for when they're PLAYING
+  mp_score_widget_p3_large:
+    - type: text
+      text: (player3|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: bottom
+      x: 10
+      y: 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5ff
+      z: 1
+  # Player 4 score, for when they're PLAYING
+  mp_score_widget_p4_large:
+    - type: text
+      text: (player4|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: bottom
+      x: right - 10
+      y: 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5ff
+      z: 1
+

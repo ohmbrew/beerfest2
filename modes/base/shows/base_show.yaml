@@ -1,0 +1,49 @@
+#show_version=5
+- duration: 1
+  lights:
+    slingquarters_upper:
+      color: off
+      fade: .25s
+    slingquarters_lower:
+      color: 008ce5
+      fade: .25s
+    slingleft_upper: off
+    slingleft_lower:
+      color: 008ce5
+      fade: .25s
+    slingright_upper: off
+    slingright_lower:
+      color: 008ce5
+      fade: .25s
+    flipper_left:
+      color: 008ce5
+      fade: .25s
+    flipper_right:
+      color: 008ce5
+      fade: .25s
+- duration: 1
+  lights:
+    slingquarters_upper:
+      color: 008ce5
+      fade: .25s
+    slingquarters_lower:
+      color: off
+      fade: .25s
+    slingleft_upper:
+      color: 008ce5
+      fade: .25s
+    slingleft_lower:
+      color: off
+      fade: .25s
+    slingright_upper:
+      color: 008ce5
+      fade: .25s
+    slingright_lower:
+      color: off
+      fade: .25s
+    flipper_left:
+      color: off
+      fade: .25s
+    flipper_right:
+      color: off
+      fade: .25s

@@ -1,0 +1,201 @@
+#config_version=5
+##! mode: multiball
+
+mode:
+  start_events: mode_base_started
+  stop_events: game_ended
+
+queue_relay_player:
+  balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_pongsink_slide == 1}:
+    post: nothing
+    wait_for: multiball_ready_for_next_ball
+  
+slides:
+  multiball_sink1_clean:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: video
+      video: pongsink1-clean
+    expire: 5.5s
+  multiball_sink1_adult:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: video
+      video: pongsink1-adult
+    expire: 5.5s
+  multiball_sink2:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: video
+      video: pongsink2
+    expire: 3.5s
+  multiball_slide:
+    widgets:
+    - type: text
+      text: MULTIBALL
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle
+      y: middle
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+    
+slide_player:
+  multiball_sink1{device.switches.s_adult.state == 0}:
+    multiball_sink1_clean:
+      priority: 2000
+  multiball_sink1{device.switches.s_adult.state == 1}:
+    multiball_sink1_adult:
+      priority: 2000
+  multiball_sink2:
+    multiball_sink2:
+      priority: 2000
+  start_multiball:
+    multiball_slide:
+      priority: 2000
+      expire: 3s
+
+multiballs:
+  pt_multiball:
+    debug: true
+    ball_count: 3
+    ball_count_type: total
+    shoot_again: 5s
+    start_events: start_multiball
+    ball_locks: bd_pongcup1, bd_pongcup2
+
+multiball_locks:
+  pt_lock1:
+    debug: true
+    lock_devices: bd_pongcup1
+    balls_to_lock: 1
+    locked_ball_counting_strategy: physical_only
+    enable_events: enable_pt_lock
+    disable_events: start_multiball
+
+  pt_lock2:
+    debug: true
+    lock_devices: bd_pongcup2
+    balls_to_lock: 1
+    locked_ball_counting_strategy: physical_only
+    enable_events: enable_pt_lock
+    disable_events: start_multiball
+
+state_machines:
+  multiball:
+    states:
+      start:
+        label: PongTable lock not enabled
+      pongtable_cup1:
+        label: PongTable Cup 1 Active
+        events_when_started: enable_pt_lock
+        show_when_active:
+          show: pongtable_show
+          show_tokens:
+            cup: 1
+          loops: 0
+      pongtable_cup2:
+        label: PongTable Cup 2 Active
+        events_when_started: enable_pt_lock
+        show_when_active:
+          show: pongtable_show
+          show_tokens:
+            cup: 2
+          loops: 0
+      pongtable_cupNone:
+        label: PongTable Cup None Active
+        events_when_started: enable_pt_lock
+        show_when_active:
+          show: pongtable_show
+          show_tokens:
+            cup: 0
+          loops: 0
+      multiball_running:                      # pongcup balls are released automatically via MPF and are coordinated in machine config.yaml
+        label: PongTable multiball running
+        events_when_started: start_multiball
+
+    transitions:
+      # for reference - conditional event DEVICE. not DEVICES.
+      #- source: start, lock_enabled
+      #  target: multiball_available
+      #  events: mode_multiball_started{device.ball_devices.bd_lock.balls==2}
+      - source: start
+        target: pongtable_cup1
+        events: mode_multiball_started{device.switches.s_pongcup1.state == 0}
+      - source: start
+        target: pongtable_cup2
+        events: mode_multiball_started{device.switches.s_pongcup1.state == 1}
+      - source: start
+        target: pongtable_cupNone
+        events: mode_multiball_started{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1}    
+      - source: pongtable_cup1
+        target: pongtable_cup2
+        events: pongtable_movetocup2
+      - source: pongtable_cup2
+        target: pongtable_cupNone
+        events: pongtable_movetocupNone
+      - source: pongtable_cupNone
+        target: multiball_running
+        events: kicker_rimrules_eject, kicker_mode_eject
+      - source: multiball_running
+        target: pongtable_cup1
+        events: multiball_pt_multiball_ended
+
+sound_player:
+  slide_multiball_sink2_removed:
+    voice_hitthesaucers:
+      action: play
+  slide_multiball_slide_active:
+    voice_multiball:
+      action: play
+
+event_player:
+  shot_pongcup1_hit:
+    - pongtable_movetocup2
+    - multiball_sink1
+  shot_pongcup2_hit:
+    - pongtable_movetocupNone
+    - multiball_sink2
+  slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
+  slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
+  slide_multiball_sink2_removed: multiball_ready_for_next_ball
+
+variable_player:
+  slide_multiball_sink1_clean_created:
+    is_showing_pongsink_slide:
+      int: 1
+      action: set
+  slide_multiball_sink1_adult_created:
+    is_showing_pongsink_slide:
+      int: 1
+      action: set
+  slide_multiball_sink2_created:
+    is_showing_pongsink_slide:
+      int: 1
+      action: set
+  slide_multiball_sink1_clean_removed:
+    is_showing_pongsink_slide:
+      int: 0
+      action: set
+  slide_multiball_sink1_adult_removed:
+    is_showing_pongsink_slide:
+      int: 0
+      action: set
+  slide_multiball_sink2_removed:
+    is_showing_pongsink_slide:
+      int: 0
+      action: set    
+  start_multiball:
+    score: current_player.pts_multiball
+
