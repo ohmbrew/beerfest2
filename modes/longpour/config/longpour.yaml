@@ -356,13 +356,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: red
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -385,13 +385,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: red
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -414,13 +414,13 @@ shows:
         arrow_boot3:
           color: red
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: red
           fade: .5
 
@@ -444,13 +444,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: white
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -473,13 +473,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: white
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -502,13 +502,13 @@ shows:
         arrow_boot3:
           color: white
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: white
           fade: .5
 
@@ -532,13 +532,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: blue
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -561,13 +561,13 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: blue
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: off
           fade: .5  
     - duration: 1
@@ -590,13 +590,13 @@ shows:
         arrow_boot3:
           color: blue
           fade: .5
-        arrow_drinko1:
+        arrow_paddle1:
           color: off
           fade: .5
-        arrow_drinko2:
+        arrow_paddle2:
           color: off
           fade: .5
-        arrow_drinko3:
+        arrow_paddle3:
           color: blue
           fade: .5
   
@@ -664,8 +664,8 @@ variable_player:
       action: set
       int: 1
     bonus_numramps: 1         # bonus tracker (ramps)
-  shot_ramp_drinko_hit:
-    score: current_player.pts_ramp_drinko_themed
+  shot_ramp_paddle_hit:
+    score: current_player.pts_ramp_paddle_themed
     has_current_thememode:        # track that player has completed requirements for bonus
       action: set
       int: 1

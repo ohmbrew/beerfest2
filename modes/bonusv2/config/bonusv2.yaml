@@ -143,23 +143,20 @@ shows:
         slingright_lower: off
         slingquarters_upper: off
         slingquarters_lower: off
-        flipper_left: off
-        flipper_right: off
+        flipper_left_inner: off
+        flipper_right_inner: off
 
         tavern_sign1: off
         tavern_sign2: off
         tavern_inside: off
 
-        drinko_o: off
-        drinko_k: off
-        drinko_n: off
-        drinko_d: off
-        drinko_r: off
-        drinko_i: off
+        paddle_e: off
+        paddle_l: off
+        paddle_d2: off
+        paddle_p: off
+        paddle_a: off
+        paddle_d1: off
 
-        arrow_orbit1: off
-        arrow_orbit2: off
-        arrow_orbit3: off
         arrow_rimrules1: off
         arrow_rimrules2: off
         arrow_rimrules3: off
@@ -172,42 +169,28 @@ shows:
         arrow_mode1: off
         arrow_mode2: off
         arrow_mode3: off
-        arrow_drinko1: off
-        arrow_drinko2: off
-        arrow_drinko3: off
+        arrow_paddle1: off
+        arrow_paddle2: off
+        arrow_paddle3: off
 
         strikeout_shot: off
         strikeout_beer: off
         strikeout_bong: off
 
-        quarters: off
+        quarters1: off
 
         lane_left_outer: off
         lane_left_inner: off
         lane_right_inner: off
         lane_right_outer: off
 
-        beermug7: off
-        beermug6: off
-        beermug5: off
-        beermug4: off
-        beermug3: off
-        beermug2: off
-        beermug1: off
         ball_save: off
         
         special: off
         chance: off
-        
-        zj: off
-        bj: off
-        hj: off
-        balls_locked3: off
-        balls_locked2: off
-        balls_locked1: off
-        drinko_bonus3: off
-        drinko_bonus2: off
-        drinko_bonus1: off
+      
+        ball1_locked: off
+        ball2_locked: off
 
         mode_dasboot: off
         mode_volumechug: off
@@ -284,10 +267,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
 
@@ -301,34 +284,25 @@ shows:
           color: 008ce5
           fade: .25s
 
-        drinko_o:  
+        paddle_e:  
           color: 008ce5
           fade: .25s
-        drinko_k:  
+        paddle_l:  
           color: 008ce5
           fade: .25s
-        drinko_n:  
+        paddle_d2:  
           color: 008ce5
           fade: .25s
-        drinko_d:  
+        paddle_p:  
           color: 008ce5
           fade: .25s
-        drinko_r:  
+        paddle_a:  
           color: 008ce5
           fade: .25s
-        drinko_i:  
+        paddle_d1:  
           color: 008ce5
           fade: .25s
 
-        arrow_orbit1:  
-          color: 008ce5
-          fade: .25s
-        arrow_orbit2:  
-          color: 008ce5
-          fade: .25s
-        arrow_orbit3:  
-          color: 008ce5
-          fade: .25s
         arrow_rimrules1:  
           color: 008ce5
           fade: .25s
@@ -365,13 +339,13 @@ shows:
         arrow_mode3:  
           color: 008ce5
           fade: .25s
-        arrow_drinko1:  
+        arrow_paddle1:  
           color: 008ce5
           fade: .25s
-        arrow_drinko2:  
+        arrow_paddle2:  
           color: 008ce5
           fade: .25s
-        arrow_drinko3:  
+        arrow_paddle3:  
           color: 008ce5
           fade: .25s
 
@@ -385,7 +359,7 @@ shows:
           color: 008ce5
           fade: .25s
 
-        quarters:  
+        quarters1:  
           color: 008ce5
           fade: .25s
 
@@ -402,27 +376,6 @@ shows:
           color: 008ce5
           fade: .25s
 
-        beermug7:  
-          color: 008ce5
-          fade: .25s
-        beermug6:  
-          color: 008ce5
-          fade: .25s
-        beermug5:  
-          color: 008ce5
-          fade: .25s
-        beermug4:  
-          color: 008ce5
-          fade: .25s
-        beermug3:  
-          color: 008ce5
-          fade: .25s
-        beermug2:  
-          color: 008ce5
-          fade: .25s
-        beermug1:  
-          color: 008ce5
-          fade: .25s
 
         ball_save:  
           color: 008ce5
@@ -435,33 +388,13 @@ shows:
           color: 008ce5
           fade: .25s
         
-        zj:  
+        ball2_locked:  
           color: 008ce5
           fade: .25s
-        bj:  
+        ball1_locked:  
           color: 008ce5
           fade: .25s
-        hj:  
-          color: 008ce5
-          fade: .25s
-        balls_locked3:  
-          color: 008ce5
-          fade: .25s
-        balls_locked2:  
-          color: 008ce5
-          fade: .25s
-        balls_locked1:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus3:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus2:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus1:  
-          color: 008ce5
-          fade: .25s
+  
 
         mode_dasboot:  
           color: 008ce5
@@ -544,10 +477,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s
         tavern_sign1:
@@ -560,34 +493,26 @@ shows:
           color: off
           fade: .25s
 
-        drinko_o: 
+        paddle_e: 
           color: off
           fade: .25s
-        drinko_k: 
+        paddle_l: 
           color: off
           fade: .25s
-        drinko_n: 
+        paddle_d2: 
           color: off
           fade: .25s
-        drinko_d:  
+        paddle_p:  
           color: off
           fade: .25s
-        drinko_r:  
+        paddle_a:  
           color: off
           fade: .25s
-        drinko_i: 
+        paddle_d1: 
           color: off
           fade: .25s
 
-        arrow_orbit1:  
-          color: off
-          fade: .25s
-        arrow_orbit2:  
-          color: off
-          fade: .25s
-        arrow_orbit3:  
-          color: off
-          fade: .25s
+       
         arrow_rimrules1:  
           color: off
           fade: .25s
@@ -624,13 +549,13 @@ shows:
         arrow_mode3:  
           color: off
           fade: .25s
-        arrow_drinko1:  
+        arrow_paddle1:  
           color: off
           fade: .25s
-        arrow_drinko2:  
+        arrow_paddle2:  
           color: off
           fade: .25s
-        arrow_drinko3:  
+        arrow_paddle3:  
           color: off
           fade: .25s
 
@@ -644,7 +569,7 @@ shows:
           color: off
           fade: .25s
 
-        quarters:  
+        quarters1:  
           color: off
           fade: .25s
 
@@ -661,30 +586,6 @@ shows:
           color: off
           fade: .25s
 
-        beermug7:  
-          color: off
-          fade: .25s
-        beermug6:  
-          color: off
-          fade: .25s
-        beermug5:  
-          color: off
-          fade: .25s
-        beermug4:  
-          color: off
-          fade: .25s
-        beermug3:  
-          color: off
-          fade: .25s
-        beermug2:  
-          color: off
-          fade: .25s
-        beermug1:  
-          color: off
-          fade: .25s
-        ball_save:  
-          color: off
-          fade: .25s
         
         special:  
           color: off
@@ -693,34 +594,14 @@ shows:
           color: off
           fade: .25s
         
-        zj:  
+       
+        ball2_locked:  
           color: off
           fade: .25s
-        bj:  
+        ball1_locked:  
           color: off
           fade: .25s
-        hj:  
-          color: off
-          fade: .25s
-        balls_locked3:  
-          color: off
-          fade: .25s
-        balls_locked2:  
-          color: off
-          fade: .25s
-        balls_locked1:  
-          color: off
-          fade: .25s
-        drinko_bonus3:  
-          color: off
-          fade: .25s
-        drinko_bonus2:  
-          color: off
-          fade: .25s
-        drinko_bonus1:  
-          color: off
-          fade: .25s
-
+        
         mode_dasboot:  
           color: off
           fade: .25s
@@ -803,10 +684,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
 
@@ -820,34 +701,26 @@ shows:
           color: 008ce5
           fade: .25s
 
-        drinko_o:  
+        paddle_e:  
           color: 008ce5
           fade: .25s
-        drinko_k:  
+        paddle_l:  
           color: 008ce5
           fade: .25s
-        drinko_n:  
+        paddle_d2:  
           color: 008ce5
           fade: .25s
-        drinko_d:  
+        paddle_p:  
           color: 008ce5
           fade: .25s
-        drinko_r:  
+        paddle_a:  
           color: 008ce5
           fade: .25s
-        drinko_i:  
+        paddle_d1:  
           color: 008ce5
           fade: .25s
 
-        arrow_orbit1:  
-          color: 008ce5
-          fade: .25s
-        arrow_orbit2:  
-          color: 008ce5
-          fade: .25s
-        arrow_orbit3:  
-          color: 008ce5
-          fade: .25s
+        
         arrow_rimrules1:  
           color: 008ce5
           fade: .25s
@@ -884,13 +757,13 @@ shows:
         arrow_mode3:  
           color: 008ce5
           fade: .25s
-        arrow_drinko1:  
+        arrow_paddle1:  
           color: 008ce5
           fade: .25s
-        arrow_drinko2:  
+        arrow_paddle2:  
           color: 008ce5
           fade: .25s
-        arrow_drinko3:  
+        arrow_paddle3:  
           color: 008ce5
           fade: .25s
 
@@ -904,7 +777,7 @@ shows:
           color: 008ce5
           fade: .25s
 
-        quarters:  
+        quarters1:  
           color: 008ce5
           fade: .25s
 
@@ -921,27 +794,7 @@ shows:
           color: 008ce5
           fade: .25s
 
-        beermug7:  
-          color: 008ce5
-          fade: .25s
-        beermug6:  
-          color: 008ce5
-          fade: .25s
-        beermug5:  
-          color: 008ce5
-          fade: .25s
-        beermug4:  
-          color: 008ce5
-          fade: .25s
-        beermug3:  
-          color: 008ce5
-          fade: .25s
-        beermug2:  
-          color: 008ce5
-          fade: .25s
-        beermug1:  
-          color: 008ce5
-          fade: .25s
+        
 
         ball_save:  
           color: 008ce5
@@ -954,34 +807,14 @@ shows:
           color: 008ce5
           fade: .25s
         
-        zj:  
+        
+        ball2_locked:  
           color: 008ce5
           fade: .25s
-        bj:  
+        ball1_locked:  
           color: 008ce5
           fade: .25s
-        hj:  
-          color: 008ce5
-          fade: .25s
-        balls_locked3:  
-          color: 008ce5
-          fade: .25s
-        balls_locked2:  
-          color: 008ce5
-          fade: .25s
-        balls_locked1:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus3:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus2:  
-          color: 008ce5
-          fade: .25s
-        drinko_bonus1:  
-          color: 008ce5
-          fade: .25s
-
+        
         mode_dasboot:  
           color: 008ce5
           fade: .25s

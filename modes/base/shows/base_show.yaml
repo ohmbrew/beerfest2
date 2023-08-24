@@ -15,10 +15,10 @@
     slingright_lower:
       color: 008ce5
       fade: .25s
-    flipper_left:
+    flipper_left_inner:
       color: 008ce5
       fade: .25s
-    flipper_right:
+    flipper_right_inner:
       color: 008ce5
       fade: .25s
 - duration: 1
@@ -41,9 +41,9 @@
     slingright_lower:
       color: off
       fade: .25s
-    flipper_left:
+    flipper_left_inner:
       color: off
       fade: .25s
-    flipper_right:
+    flipper_right_inner:
       color: off
       fade: .25s

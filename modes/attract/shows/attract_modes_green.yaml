@@ -1,0 +1,29 @@
+#show_version=5
+- duration: 1s
+  lights:
+    mode_longpour:
+      color: green
+    mode_quarters:
+      color: green
+    mode_strikeout: 
+      color: green
+    mode_volumechug: 
+      color: green
+    mode_trojankeg: 
+      color: green
+    mode_dasboot: 
+      color: green
+- duration: 1s
+  lights:
+    mode_longpour: 
+      color: off
+    mode_quarters: 
+      color: off
+    mode_strikeout: 
+      color: off
+    mode_volumechug: 
+      color: off
+    mode_trojankeg: 
+      color: off
+    mode_dasboot: 
+      color: off

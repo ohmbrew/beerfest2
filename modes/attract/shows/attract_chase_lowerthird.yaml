@@ -1,0 +1,310 @@
+#show_version=5
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: off
+    flipper_right_inner: off
+    
+    flipper_left_outer: off
+    flipper_right_outer: off
+    
+    sausage_save: off
+    bad_rams_piss: off
+
+    slingleft_lower: off
+    slingright_lower: off
+
+    slingleft_upper: off
+    slingright_upper: off
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: off
+    flipper_right_outer: off
+    
+    sausage_save: off
+    bad_rams_piss: off
+
+    slingleft_lower: off
+    slingright_lower: off
+
+    slingleft_upper: off
+    slingright_upper: off
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: off
+    bad_rams_piss: off
+
+    slingleft_lower: off
+    slingright_lower: off
+
+    slingleft_upper: off
+    slingright_upper: off
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+  
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: off
+    slingright_lower: off
+
+    slingleft_upper: off
+    slingright_upper: off
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: off
+    slingright_upper: off
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: (color)
+    slingright_upper: (color)
+    
+    lane_left_inner: off
+    lane_right_inner: off
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: (color)
+    slingright_upper: (color)
+    
+    lane_left_inner: (color)
+    lane_right_inner: (color)
+
+    lane_left_outer: off
+    lane_right_outer: off
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: (color)
+    slingright_upper: (color)
+    
+    lane_left_inner: (color)
+    lane_right_inner: (color)
+
+    lane_left_outer: (color)
+    lane_right_outer: (color)
+
+    slingquarters_lower: off
+    special: off
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: (color)
+    slingright_upper: (color)
+    
+    lane_left_inner: (color)
+    lane_right_inner: (color)
+
+    lane_left_outer: (color)
+    lane_right_outer: (color)
+
+    slingquarters_lower: (color)
+    special: (color)
+
+    slingquarters_upper: off
+    chance: off
+
+- duration: 1s
+  lights:
+    ball_save: (color)
+
+    flipper_left_inner: (color)
+    flipper_right_inner: (color)
+    
+    flipper_left_outer: (color)
+    flipper_right_outer: (color)
+    
+    sausage_save: (color)
+    bad_rams_piss: (color)
+
+    slingleft_lower: (color)
+    slingright_lower: (color)
+
+    slingleft_upper: (color)
+    slingright_upper: (color)
+    
+    lane_left_inner: (color)
+    lane_right_inner: (color)
+
+    lane_left_outer: (color)
+    lane_right_outer: (color)
+
+    slingquarters_lower: (color)
+    special: (color)
+
+    slingquarters_upper: (color)
+    chance: (color)

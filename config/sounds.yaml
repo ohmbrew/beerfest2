@@ -373,23 +373,23 @@ sounds:
         attenuation: -10db
         release_point: .5 sec
         release: 1.5 sec
-  voice_drinko_d:
+  voice_paddle_p:
     file: Derek-D.wav
     track: voice
     volume: 1.0
-  voice_drinko_r:
+  voice_paddle_a:
     file: Derek-R.wav
     track: voice
     volume: 1.0
-  voice_drinko_n:
+  voice_paddle_d2:
     file: Derek-N.wav
     track: voice
     volume: 1.0
-  voice_drinko_k:
+  voice_paddle_l:
     file: Derek-K.wav
     track: voice
     volume: 1.0
-  voice_drinko_o:
+  voice_paddle_e:
     file: Derek-O.wav
     track: voice
     volume: 1.0

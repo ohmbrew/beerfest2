@@ -25,17 +25,17 @@ shot_profiles:
 
 shots:      
   shot_trojankeg_hj:
-    switch: s_hj
+    switch: s_open1
     profile: xjs_profile
     show_tokens:
       led: hj
   shot_trojankeg_bj:
-    switch: s_bj
+    switch: s_open2
     profile: xjs_profile
     show_tokens:
       led: bj
   shot_trojankeg_zj:
-    switch: s_zj
+    switch: s_open3
     profile: xjs_profile
     show_tokens:
       led: zj

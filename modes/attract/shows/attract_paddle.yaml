@@ -1,0 +1,123 @@
+#show_version=5
+- time: '+4'
+  lights:
+    paddle_p:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_a:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d1:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d2:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_l:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_e:
+      color: red
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_p:
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_a:
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d1: 
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d2: 
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_l: 
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_e: 
+      color: white
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_p:
+      color: blue
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_a: 
+      color: blue
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d1: 
+      color: blue
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_d2: 
+      color: blue
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_l: 
+      color: blue
+      fade: .25s
+- time: '+1'
+  lights:
+    paddle_e: 
+      color: blue
+      fade: .25s
+- time: '+4'
+  lights:
+    paddle_p: red
+    paddle_a: red
+    paddle_d1: red
+    paddle_d2: red
+    paddle_l: red
+    paddle_e: red
+- time: '+4'
+  lights:
+    paddle_p: white
+    paddle_a: white
+    paddle_d1: white
+    paddle_d2: white
+    paddle_l: white
+    paddle_e: white
+- time: '+4'
+  lights:
+    paddle_p: blue
+    paddle_a: blue
+    paddle_d1: blue
+    paddle_d2: blue
+    paddle_l: blue
+    paddle_e: blue
+- time: '+4'
+  lights:
+    paddle_p: off
+    paddle_a: off
+    paddle_d1: off
+    paddle_d2: off
+    paddle_l: off
+    paddle_e: off

@@ -334,12 +334,12 @@ shows:
   flash_quarters_prop:
     - duration: 1s
       lights:
-        quarters:
+        quarters1:
           color: red
           fade: .25s
     - duration: 1s
       lights:
-        quarters:
+        quarters1:
           color: off
           fade: .25s
 

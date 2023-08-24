@@ -13,16 +13,7 @@ shows:
         strikeout_bong: 
           color: red
           fade: .25s
-        quarters: 
-          color: red
-          fade: .25s
-        hj: 
-          color: red
-          fade: .25s
-        bj: 
-          color: red
-          fade: .25s
-        zj: 
+        quarters1: 
           color: red
           fade: .25s
         chance: 
@@ -49,13 +40,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: red
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -75,16 +66,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 
@@ -111,13 +93,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: red
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -137,16 +119,7 @@ shows:
         strikeout_bong: 
           color: red
           fade: .25s
-        quarters: 
-          color: red
-          fade: .25s
-        hj: 
-          color: red
-          fade: .25s
-        bj: 
-          color: red
-          fade: .25s
-        zj: 
+        quarters1: 
           color: red
           fade: .25s
         chance: 
@@ -173,13 +146,13 @@ shows:
         arrow_boot3: 
           color: red
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: red
           fade: .25s
         l_pop_left: 
@@ -200,16 +173,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 
@@ -236,13 +200,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: white
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -262,16 +226,7 @@ shows:
         strikeout_bong: 
           color: red
           fade: .25s
-        quarters: 
-          color: red
-          fade: .25s
-        hj: 
-          color: red
-          fade: .25s
-        bj: 
-          color: red
-          fade: .25s
-        zj: 
+        quarters1: 
           color: red
           fade: .25s
         chance: 
@@ -298,13 +253,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: white
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -324,16 +279,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 
@@ -360,13 +306,13 @@ shows:
         arrow_boot3: 
           color: white
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: white
           fade: .25s
         l_pop_left: 
@@ -387,16 +333,7 @@ shows:
         strikeout_bong: 
           color: red
           fade: .25s
-        quarters: 
-          color: red
-          fade: .25s
-        hj: 
-          color: red
-          fade: .25s
-        bj: 
-          color: red
-          fade: .25s
-        zj: 
+        quarters1: 
           color: red
           fade: .25s
         chance: 
@@ -423,13 +360,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: blue
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -449,16 +386,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 
@@ -485,13 +413,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: blue
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -511,16 +439,7 @@ shows:
         strikeout_bong: 
           color: red
           fade: .25s
-        quarters: 
-          color: red
-          fade: .25s
-        hj: 
-          color: red
-          fade: .25s
-        bj: 
-          color: red
-          fade: .25s
-        zj: 
+        quarters1: 
           color: red
           fade: .25s
         chance: 
@@ -547,13 +466,13 @@ shows:
         arrow_boot3: 
           color: blue
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: blue
           fade: .25s
         l_pop_left: 
@@ -574,16 +493,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 
@@ -610,13 +520,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_drinko1: 
+        arrow_paddle1: 
           color: off
           fade: .25s
-        arrow_drinko2: 
+        arrow_paddle2: 
           color: off
           fade: .25s
-        arrow_drinko3: 
+        arrow_paddle3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -638,16 +548,7 @@ shows:
         strikeout_bong: 
           color: off
           fade: .25s
-        quarters: 
-          color: off
-          fade: .25s
-        hj: 
-          color: off
-          fade: .25s
-        bj: 
-          color: off
-          fade: .25s
-        zj: 
+        quarters1: 
           color: off
           fade: .25s
         chance: 

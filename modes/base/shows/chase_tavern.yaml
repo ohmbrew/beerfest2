@@ -1,0 +1,49 @@
+#show_version=5
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: off
+    arrow_tavern3: off
+    arrow_tavern4: off
+    arrow_tavern5: off
+    arrow_tavern6: off
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: (color)
+    arrow_tavern3: off
+    arrow_tavern4: off
+    arrow_tavern5: off
+    arrow_tavern6: off
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: (color)
+    arrow_tavern3: (color)
+    arrow_tavern4: off
+    arrow_tavern5: off
+    arrow_tavern6: off
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: (color)
+    arrow_tavern3: (color)
+    arrow_tavern4: (color)
+    arrow_tavern5: off
+    arrow_tavern6: off
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: (color)
+    arrow_tavern3: (color)
+    arrow_tavern4: (color)
+    arrow_tavern5: (color)
+    arrow_tavern6: off
+- duration: 1
+  lights:
+    arrow_tavern1: (color)
+    arrow_tavern2: (color)
+    arrow_tavern3: (color)
+    arrow_tavern4: (color)
+    arrow_tavern5: (color)
+    arrow_tavern6: (color)

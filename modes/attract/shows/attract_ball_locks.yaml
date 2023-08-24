@@ -1,0 +1,37 @@
+#show_version=5
+- duration: 1s
+  lights:
+    ball1_locked: red
+    ball2_locked: off
+- duration: 1s
+  lights:
+    ball1_locked: red
+    ball2_locked: red
+- duration: 1s
+  lights:
+    ball1_locked: white
+    ball2_locked: off
+- duration: 1s
+  lights:
+    ball1_locked: white
+    ball2_locked: white
+- duration: 1s
+  lights:
+    ball1_locked: blue
+    ball2_locked: off
+- duration: 1s
+  lights:
+    ball1_locked: blue
+    ball2_locked: blue
+- duration: 1s
+  lights:
+    ball1_locked: red
+    ball2_locked: red
+- duration: 1s
+  lights:
+    ball1_locked: white
+    ball2_locked: white
+- duration: 1s
+  lights:
+    ball1_locked: blue
+    ball2_locked: blue

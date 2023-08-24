@@ -13,7 +13,7 @@ config:
 event_player:
   mode_base_started:
     - start_mode_global
-    - initialize_drinko_bonus
+    - initialize_paddle_bonus
     - strikeout_bank_reset
     - start_mode_spellbeer
     - start_mode_spellmunich
@@ -24,10 +24,10 @@ event_player:
     - stop_mode_global
   mode_type_wizard_stopped{not mode["base"].stopping}:
     - start_mode_global
-  timer_monkeychug_slide_timer_complete: show_queued_drinko_bonus   # tell Drinko Bonus mode that we're done showing Monkeychug slide, if it has queued Drinko Bonus slide
+  timer_monkeychug_slide_timer_complete: show_queued_paddle_bonus   # tell paddle Bonus mode that we're done showing Monkeychug slide, if it has queued paddle Bonus slide
 
 timers:
-  monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for drinko mode to show a Drinko Bonus if one is queued
+  monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for paddle mode to show a paddle Bonus if one is queued
     start_value: 2
     end_value: 0
     direction: down
@@ -221,7 +221,7 @@ slides:
       video: easteregg_adult
 
 slide_player:
-  shot_drinko_i_hit{mode.dasboot.active == False}:
+  shot_paddle_d1_hit{mode.dasboot.active == False}:
     slide_bonus_monkeychug:
       priority: 1500
       expire: 2s
@@ -238,7 +238,7 @@ slide_player:
     slide_play_easteregg_adult:
       priority: 20000
       expire: 11.16s
-# shows to light lights when drinko sensor has been hit
+# shows to light lights when paddle sensor has been hit
 shows:
   show_init_base:
     - time: 0
@@ -408,8 +408,8 @@ shows:
         slingright_lower: white
         slingquarters_upper: white
         slingquarters_lower: white
-        flipper_left: white
-        flipper_right: white
+        flipper_left_inner: white
+        flipper_right_inner: white
     - duration: -1
 
   flash_gi_themed:
@@ -475,10 +475,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s 
 
@@ -514,10 +514,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
 
@@ -553,10 +553,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s 
       
@@ -592,10 +592,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
 
@@ -631,10 +631,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s 
 
@@ -670,10 +670,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s
 
@@ -709,10 +709,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
     # second round
@@ -766,10 +766,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
 
@@ -805,10 +805,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
         
@@ -845,10 +845,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
       
@@ -884,10 +884,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
 
@@ -924,10 +924,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
 
@@ -963,10 +963,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: .25s
 
@@ -1002,10 +1002,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: .25s 
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: .25s 
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: .25s 
 
@@ -1013,7 +1013,7 @@ sound_player:
   shot_diverter_hit{mode.volumechug.active == False and device.counters.track_flipperflop.value < 2}:
     2burps:
       action: play  
-  shot_ramp_drinko_hit: 
+  shot_ramp_paddle_hit: 
     2burps:
       action: play
   spinner_tavern_spinner_active:
@@ -1078,7 +1078,7 @@ sound_player:
       track: music
       loops: -1
       volume: .5
-  shot_drinko_i_hit:
+  shot_paddle_d1_hit:
     voice_ohyea:
       action: play
   shot_slingquarters_hit:
@@ -1281,7 +1281,7 @@ show_player:
   shot_diverter_hit:
     show_shaker_1s:
       loops: 0
-  shot_ramp_drinko_hit:
+  shot_ramp_paddle_hit:
     show_shaker_1s:
       loops: 0
 
@@ -1512,8 +1512,8 @@ variable_player:
   shot_diverter_hit{mode.longpour.active == False and mode.volumechug.active == False and mode.dasboot.active == False}:  # longpour AND volumechug use this shot
     score: current_player.pts_ramp_boot
     bonus_numramps: 1         # bonus tracker (ramps)
-  shot_ramp_drinko_hit{mode.longpour.active == False and mode.dasboot.active == False}:
-    score: current_player.pts_ramp_drinko
+  shot_ramp_paddle_hit{mode.longpour.active == False and mode.dasboot.active == False}:
+    score: current_player.pts_ramp_paddle
     bonus_numramps: 1         # bonus tracker (ramps)
 
   # Trojan Keg
@@ -1554,16 +1554,16 @@ variable_player:
   random_pts_90:
     score: current_player.pts_rnd + 90
 
-  # monkeychug/drinko slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a Drinko Bonus slide from showing first.
+  # monkeychug/paddle slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a paddle Bonus slide from showing first.
   # set higher priority to make sure this processes first
-  shot_drinko_i_hit:
+  shot_paddle_d1_hit:
     priority: 10000
     is_slide_monkeychug_active:
         int: 1
-        action: set          # set player var to show we are showing drinko bonus slide
+        action: set          # set player var to show we are showing paddle bonus slide
   
   # when monkeychug slide timer (set to complete same length as showing Monkeychug bonus slide), clear the is_slide_monkeychug_active player var
   timer_monkeychug_slide_timer_complete:
     is_slide_monkeychug_active:
         int: 0
-        action: set          # set player var to show we are showing drinko bonus slide
+        action: set          # set player var to show we are showing paddle bonus slide

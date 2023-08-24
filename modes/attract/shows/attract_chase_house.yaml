@@ -1,0 +1,82 @@
+#show_version=5
+- duration: 1s
+  lights:
+    arrow_house1: (color)
+    arrow_house2: off
+    arrow_house3: off
+    strikeout_shot: off
+    strikeout_beer: off
+    strikeout_bong: off
+- duration: 1s
+  lights:
+    arrow_house1: (color)
+    arrow_house2: (color)
+    arrow_house3: off
+    strikeout_shot: off
+    strikeout_beer: off
+    strikeout_bong: off
+- duration: 1s
+  lights:
+    arrow_house1: (color)
+    arrow_house2: (color)
+    arrow_house3: (color)
+    strikeout_shot: off
+    strikeout_beer: off
+    strikeout_bong: off
+- duration: 1s
+  lights:
+    arrow_house1: (color)
+    arrow_house2: (color)
+    arrow_house3: (color)
+    strikeout_shot: off
+    strikeout_beer: (color)
+    strikeout_bong: off
+- duration: 1s
+  lights:
+    arrow_house1: (color)
+    arrow_house2: (color)
+    arrow_house3: (color)
+    strikeout_shot: (color)
+    strikeout_beer: (color)
+    strikeout_bong: (color)
+
+- duration: 1s
+  lights:
+    arrow_house1: off
+    arrow_house2: (color)
+    arrow_house3: (color)
+    strikeout_shot: (color)
+    strikeout_beer: (color)
+    strikeout_bong: (color)
+- duration: 1s
+  lights:
+    arrow_house1: off
+    arrow_house2: off
+    arrow_house3: (color)
+    strikeout_shot: (color)
+    strikeout_beer: (color)
+    strikeout_bong: (color)
+- duration: 1s
+  lights:
+    arrow_house1: off
+    arrow_house2: off
+    arrow_house3: off
+    strikeout_shot: (color)
+    strikeout_beer: (color)
+    strikeout_bong: (color)
+- duration: 1s
+  lights:
+    arrow_house1: off
+    arrow_house2: off
+    arrow_house3: off
+    strikeout_shot: (color)
+    strikeout_beer: off
+    strikeout_bong: (color)
+- duration: 1s
+  lights:
+    arrow_house1: off
+    arrow_house2: off
+    arrow_house3: off
+    strikeout_shot: off
+    strikeout_beer: off
+    strikeout_bong: off

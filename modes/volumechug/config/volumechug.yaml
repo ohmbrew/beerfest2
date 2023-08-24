@@ -489,15 +489,6 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_orbit1:
-          color: off
-          fade: .5
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off
@@ -593,112 +584,55 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_orbit1:
-          color: red
-          fade: .5
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
+        
         l_pop_lower: on
         l_pop_right: on
         l_pop_left: on
     - duration: 1
       lights:
-        arrow_orbit1:
-          color: off
-          fade: .5
-        arrow_orbit2:
-          color: red
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
+        
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off
     - duration: 1
       lights:
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: red
-          fade: .5
+        
         l_pop_lower: on
         l_pop_right: on
         l_pop_left: on
     - duration: 1
       lights:
-        arrow_orbit1:
-          color: white
-          fade: .5
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
+        
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off
     - duration: 1
       lights:
-        arrow_orbit1:
-          color: off
-          fade: .5
-        arrow_orbit2:
-          color: white
-          fade: .5
+        
         l_pop_lower: on
         l_pop_right: on
         l_pop_left: on
     - duration: 1
       lights:
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: white
-          fade: .5
+        
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off
     - duration: 1
       lights:
-        arrow_orbit1:
-          color: blue
-          fade: .5
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
+        
         l_pop_lower: on
         l_pop_right: on
         l_pop_left: on
     - duration: 1
       lights:
-        arrow_orbit1:
-          color: off
-          fade: .5
-        arrow_orbit2:
-          color: blue
-          fade: .5
+        
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off
     - duration: 1
       lights:
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: blue
-          fade: .5
+        
         l_pop_lower: on
         l_pop_right: on
         l_pop_left: on
@@ -724,15 +658,7 @@ shows:
         arrow_boot3:
           color: off
           fade: .5
-        arrow_orbit1:
-          color: off
-          fade: .5
-        arrow_orbit2:
-          color: off
-          fade: .5
-        arrow_orbit3:
-          color: off
-          fade: .5
+        
         l_pop_lower: off
         l_pop_right: off
         l_pop_left: off

@@ -1,0 +1,36 @@
+#show_version=5
+- duration: 1s
+  lights:
+    quarters1: (color)
+    quarters2: off
+    quarters3: off
+    quarters4: off
+    quarters5: off
+- duration: 1s
+  lights:
+    quarters1: off
+    quarters2: (color)
+    quarters3: off
+    quarters4: off
+    quarters5: off
+- duration: 1s
+  lights:
+    quarters1: off
+    quarters2: off
+    quarters3: (color)
+    quarters4: off
+    quarters5: off
+- duration: 1s
+  lights:
+    quarters1: off
+    quarters2: off
+    quarters3: off
+    quarters4: (color)
+    quarters5: off
+- duration: 1s
+  lights:
+    quarters1: off
+    quarters2: off
+    quarters3: off
+    quarters4: off
+    quarters5: (color)

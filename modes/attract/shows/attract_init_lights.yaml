@@ -1,65 +1,86 @@
 #show_version=5
-- time: 0
+- duration: .25
   lights:
-    drinko_d: off
-    drinko_r: off
-    drinko_i: off
-    drinko_n: off
-    drinko_k: off
-    drinko_o: off
-    arrow_orbit1: off
-    arrow_orbit2: off
-    arrow_orbit3: off
+    paddle_p: off
+    paddle_a: off
+    paddle_d1: off
+    paddle_d2: off
+    paddle_l: off
+    paddle_e: off
+    startevent_rimrules: off
     arrow_rimrules1: off
     arrow_rimrules2: off
     arrow_rimrules3: off
+    extra_ball: off
     arrow_boot1: off
     arrow_boot2: off
     arrow_boot3: off
     arrow_tavern1: off
     arrow_tavern2: off
     arrow_tavern3: off
+    arrow_tavern4: off
+    arrow_tavern5: off
+    arrow_tavern6: off
+    canada_left: off
+    canada_right: off
+    tobago_left: off
+    tobago_right: off
+    scotland_left: off
+    scotland_right: off
+    ireland_left: off
+    ireland_right: off
+    germany_left: off
+    germany_right: off
+    usa_left: off
+    usa_right: off
+    arrow_popo1: off
+    arrow_popo2: off
+    arrow_popo3: off
     strikeout_bong: off
     strikeout_beer: off
     strikeout_shot: off
-    quarters: off
+    arrow_house1: off
+    arrow_house2: off
+    arrow_house3: off
+    quarters1: off
+    quarters2: off
+    quarters3: off
+    quarters4: off
+    quarters5: off
+    2x: off
+    3x: off
+    4x: off
+    5x: off
+    6x: off
     slingquarters_upper: off
     slingquarters_lower: off
     lane_left_outer: off
     lane_left_inner: off
     slingleft_upper: off
     slingleft_lower: off
-    flipper_left: off
-    beermug1: off
-    beermug2: off
-    beermug3: off
-    beermug4: off
-    beermug5: off
-    beermug6: off
-    beermug7: off
+    flipper_left_outer: off
+    flipper_left_inner: off
+    sausage_save: off
     ball_save: off
-    flipper_right: off
+    flipper_right_inner: off
+    flipper_right_outer: off
     lane_right_inner: off
     lane_right_outer: off
     slingright_upper: off
     slingright_lower: off
+    bad_rams_piss: off
     chance: off
     special: off
+    startevent_mode: off
     arrow_mode1: off
     arrow_mode2: off
     arrow_mode3: off
-    arrow_drinko1: off
-    arrow_drinko2: off
-    arrow_drinko3: off
-    hj: off
-    bj: off
-    zj: off
-    drinko_bonus1: off
-    drinko_bonus2: off
-    drinko_bonus3: off
-    balls_locked1: off
-    balls_locked2: off
-    balls_locked3: off
+    lock: off
+    arrow_paddle1: off
+    arrow_paddle2: off
+    arrow_paddle3: off
+    ball1_locked: off
+    ball2_locked: off
     mode_longpour: off
     mode_quarters: off
     mode_strikeout: off

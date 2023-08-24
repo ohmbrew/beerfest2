@@ -7,8 +7,8 @@
     slingleft_lower: white
     slingright_upper: white
     slingright_lower: white
-    flipper_left: white
-    flipper_right: white
+    flipper_left_inner: white
+    flipper_right_inner: white
 - duration: 1
   lights:
     slingquarters_upper: off
@@ -17,5 +17,5 @@
     slingleft_lower: off
     slingright_upper: off
     slingright_lower: off
-    flipper_left: off
-    flipper_right: off
+    flipper_left_inner: off
+    flipper_right_inner: off

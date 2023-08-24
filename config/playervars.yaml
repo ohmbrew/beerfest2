@@ -125,7 +125,7 @@ player_vars:
   pts_ramp_boot:
     initial_value: 100000
     value_type: int
-  pts_ramp_drinko:
+  pts_ramp_paddle:
     initial_value: 100000
     value_type: int
   pts_tavern:
@@ -155,13 +155,13 @@ player_vars:
   
   # bonuses & awards
   
-  pts_drinko_bonus1:
+  pts_paddle_bonus1:
     initial_value: 1000000
     value_type: int
-  pts_drinko_bonus2:
+  pts_paddle_bonus2:
     initial_value: 3500000
     value_type: int
-  pts_drinko_hammered:
+  pts_paddle_hammered:
     initial_value: 5000000
     value_type: int
   pts_spell_beer:
@@ -184,7 +184,7 @@ player_vars:
   pts_ramp_boot_themed:
     initial_value: 500000
     value_type: int
-  pts_ramp_drinko_themed:
+  pts_ramp_paddle_themed:
     initial_value: 500000
     value_type: int
   pts_tavern_themed:
@@ -327,11 +327,11 @@ player_vars:
     initial_value: 5000000
     value_type: int
 
-  # track if we are displaying drinko bonus slide. This is used to enforce order of Monkeychug bonus slide/sound and Drinko bonus slide/sound
-  is_slide_drinko1_queued:
+  # track if we are displaying paddle bonus slide. This is used to enforce order of Monkeychug bonus slide/sound and paddle bonus slide/sound
+  is_slide_paddle1_queued:
     initial_value: 0
     value_type: int
-  is_slide_drinko2_queued:
+  is_slide_paddle2_queued:
     initial_value: 0
     value_type: int
   is_slide_hammered_queued:

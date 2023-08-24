@@ -1,0 +1,43 @@
+#show_version=5
+- duration: 1s
+  lights:
+    6x: (color)
+    3x: off
+    4x: off
+    2x: off
+    5x: off
+- duration: 1s
+  lights:
+    6x: (color)
+    3x: (color)
+    4x: (color)
+    2x: off
+    5x: off
+- duration: 1s
+  lights:
+    6x: (color)
+    3x: (color)
+    4x: (color)
+    2x: (color)
+    5x: (color)
+- duration: 1s
+  lights:
+    6x: off
+    3x: (color)
+    4x: (color)
+    2x: (color)
+    5x: (color)
+- duration: 1s
+  lights:
+    6x: off
+    3x: off
+    4x: off
+    2x: (color)
+    5x: (color)
+- duration: 1s
+  lights:
+    6x: off
+    3x: off
+    4x: off
+    2x: off
+    5x: off

@@ -1,0 +1,447 @@
+#config_version=5
+##! mode: paddle
+
+# The slides in this show are coordinated with base mode's monkeychug slide and audio activity.
+# Monkeychug bonus slide (and audio) take priority. This is accomplished using player vars and timers to track if Monkeychug Bonus slide is active
+# Monkeychug bonus slide active is set immediately when shot_paddle_d1 is hit. If we also completed a Drinko Bonus, that logic block (accrual and state machine)
+# will be processed *after* the Monkeychug bonus is recorded.
+# If Monkeychug target was not hit last in the drinko bonus accrual, the Drinko Bonus slides will show immediately (is_monkeychug_active will not be set)
+#   - so the is_slide_x_queued will still be set, but will be cleared when drinko bonus slide is removed. We'll also never get the show_queued_drinko_bonus event
+# If Monkeychug target was hit last in the drinko bonus accrual, the Monkeychug process will start first, and Drinko Bonus slides will *not* show immediately, because
+#   is_monkeychug_active will be set.
+#   - so the is_slide_x_queued will still be set while monkeychug bonus slide is active. When a timer in base mode completes (it is started when monkeychug slide is active),
+#     it will fire the show_queued_drinko_bonus event, and this drinko mode has conditional events on that event and if any drinko bonus slide is queued (there should only be one),
+#     it will show that slide. Upon slide removal, its is_slide_x_queued player var will be cleared.
+
+mode:
+  start_events: mode_base_started
+  stop_events: game_ended
+
+sound_player:
+  # these will play only when drinko bonus slides are active. There's arbitration that happens between Monkeychug and Drinko Bonus slides.
+  # Monkeychug bonus slide takes priority
+  slide_slide_bonus_drinko1_active:
+    voice_sink1left:
+      action: play
+  slide_slide_bonus_drinko2_active:
+    voice_sink1left:
+      action: play
+  slide_slide_bonus_hammered_active:
+    emchammered:
+      action: play
+  shot_paddle_p_hit:
+    voice_paddle_p:
+      action: play
+  shot_paddle_a_hit:
+    voice_paddle_a:
+      action: play
+  shot_paddle_d2_hit:
+    voice_paddle_d2:
+      action: play
+  shot_paddle_l_hit:
+    voice_paddle_l:
+      action: play
+  shot_paddle_e_hit:
+    voice_paddle_e:
+      action: play   
+
+accruals:
+  drinko_bonus_accrual:
+    persist_state: true
+    events:
+      - shot_paddle_p_hit
+      - shot_paddle_a_hit
+      - shot_paddle_d1_hit
+      - shot_paddle_d2_hit
+      - shot_paddle_l_hit
+      - shot_paddle_e_hit
+    events_when_complete: award_drinko_bonus
+    reset_on_complete: true
+    disable_on_complete: false
+
+state_machines:
+  drinko:
+    persist_state: true
+    states:
+      start:
+        label: Drinko Started
+      wait_for_drinko1:
+        label: Waiting for Drinko Accrual 1
+      wait_for_drinko2:
+        label: Waiting for Drinko Accrual 2
+        events_when_started: drinko_bonus1_award
+      wait_for_hammered:
+        label: Waiting for Drinko Hammered
+        events_when_started: drinko_bonus2_award
+      hammered_loop:
+        label: Waiting for another Drinko Hammered
+        events_when_started: drinko_hammered_award
+
+    transitions:
+      # for reference - conditional event DEVICE. not DEVICES.
+      #  events: mode_multiball_started{device.ball_devices.bd_lock.balls==2}
+      - source: start
+        target: wait_for_drinko1      # init
+        events: mode_drinko_started
+
+      - source: wait_for_drinko1      
+        target: wait_for_drinko2
+        events: award_drinko_bonus    # got drinko_bonus1
+
+      - source: wait_for_drinko2      
+        target: wait_for_hammered
+        events: award_drinko_bonus    # got drinko_bonus2
+
+      - source: wait_for_hammered
+        target: hammered_loop
+        events: award_drinko_bonus    # got drinko_hammered
+
+      - source: hammered_loop         # keep awarding for hammered
+        target: hammered_loop
+        events: award_drinko_bonus    # got drinko_hammered
+
+
+  
+
+slides:
+  slide_bonus_drinko1:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_drinko_bonus1)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  slide_bonus_drinko2:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_drinko_bonus2)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  slide_bonus_hammered:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: HAMMERED BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_drinko_hammered)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+
+slide_player:
+  # drinko_x_award events are fired when drinko bonus state machine changes states - meaning we should get a bonus.
+  # only show slide_bonus_x if not in das boot mode AND the monkeychug slide is not showing. Monkeychug slide gets preference
+  # is_slide_monkeychug_active player var is set right when monkeychug switch (paddle_d1) is hit.
+  # Monkeychug bonus slide takes priority over Drinko bonus slides.
+  drinko_bonus1_award{mode.dasboot.active == False and current_player.is_slide_monkeychug_active == 0}:
+    slide_bonus_drinko1:
+      priority: 1000
+      expire: 2s
+  drinko_bonus2_award{mode.dasboot.active == False and current_player.is_slide_monkeychug_active == 0}:
+    slide_bonus_drinko2:
+      priority: 1000
+      expire: 2s
+  drinko_hammered_award{mode.dasboot.active == False and current_player.is_slide_monkeychug_active == 0}:
+    slide_bonus_hammered:
+      priority: 1000
+      expire: 2s
+  # not sure I need this, but if monkeychug slide goes active, remove all slide_bonus_x if they were created.
+  # initial testing shows that the conditional event on is_slide_monkeychug_active prevents the drinko_x_award slides from showing
+  slide_slide_bonus_monkeychug_active:
+    slide_bonus_drinko1:
+      action: remove
+    slide_bonus_drinko2:
+      action: remove  
+    slide_bonus_hammered:
+      action: remove
+  # show appropriate slide_bonus_x Drinko bonus slides if they were queued for showing
+  show_queued_drinko_bonus{current_player.is_slide_drinko1_queued}:
+      slide_bonus_drinko1:
+        priority: 1000
+        expire: 2s
+  show_queued_drinko_bonus{current_player.is_slide_drinko2_queued}:
+      slide_bonus_drinko2:
+        priority: 1000
+        expire: 2s
+  show_queued_drinko_bonus{current_player.is_slide_hammered_queued}:
+      slide_bonus_hammered:
+        priority: 1000
+        expire: 2s
+
+shows:
+  show_light_d:
+    - time: 0
+      lights:
+        paddle_p: green
+    - duration: -1
+  show_light_r:
+    - time: 0
+      lights:
+        paddle_a: green
+    - duration: -1
+  show_light_i:
+    - time: 0
+      lights:
+        paddle_d1: green
+    - duration: -1
+  show_light_n:
+    - time: 0
+      lights:
+        paddle_d2: green
+    - duration: -1
+  show_light_k:
+    - time: 0
+      lights:
+        paddle_l: green
+    - duration: -1
+  show_light_o:
+    - time: 0
+      lights:
+        paddle_e: green
+    - duration: -1
+  show_light_drinko_bonus1:
+    - time: 0
+      lights:
+        quarters3: on
+    - duration: -1
+  show_light_drinko_bonus2:
+    - time: 0
+      lights:
+        quarters4: on
+    - duration: -1 
+  show_light_drinko_hammered:
+    - duration: 1s
+      lights:
+        quarters5: on
+    - duration: 1s
+      lights:
+        quarters5: off
+
+show_player:
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[0]}: show_light_d
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[0] == 0}:
+    show_light_d:
+      action: stop
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[1]}: show_light_r
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[1] == 0}:
+    show_light_r:
+      action: stop
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[2]}: show_light_i
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[2] == 0}:
+    show_light_i:
+      action: stop
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[3]}: show_light_n
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[3] == 0}:
+    show_light_n:
+      action: stop
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[4]}: show_light_k
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[4] == 0}:
+    show_light_k:
+      action: stop
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[5]}: show_light_o
+  mode_drinko_started{device.accruals.drinko_bonus_accrual.value[5] == 0}:
+    show_light_o:
+      action: stop
+
+  mode_drinko_started{device.state_machines.drinko.state == "wait_for_drinko1"}:
+    show_light_drinko_bonus1:
+      action: stop
+    show_light_drinko_bonus2:
+      action: stop
+    show_light_drinko_hammered:
+      action: stop  
+  mode_drinko_started{device.state_machines.drinko.state == "wait_for_drinko2"}: show_light_drinko_bonus1
+  mode_drinko_started{device.state_machines.drinko.state == "wait_for_hammered"}:
+    show_light_drinko_bonus1:
+      action: play
+    show_light_drinko_bonus2:
+      action: play  
+  mode_drinko_started{device.state_machines.drinko.state == "hammered_loop"}:
+    show_light_drinko_bonus1:
+      action: play
+    show_light_drinko_bonus2:
+      action: play 
+    show_light_drinko_hammered:
+      speed: 4
+
+  show_light_drinko_bonus1:
+    action: stop
+  show_light_drinko_bonus2:
+    action: stop
+  show_light_drinko_hammered:
+    action: stop
+  shot_paddle_p_hit:
+    show_light_d
+  shot_paddle_a_hit:
+    show_light_r
+  shot_paddle_d1_hit:
+    show_light_i
+  shot_paddle_d2_hit:
+    show_light_n
+  shot_paddle_l_hit:
+    show_light_k
+  shot_paddle_e_hit:
+    show_light_o
+  award_drinko_bonus:   # located in /drinko/shows folder
+    bonus_drinko_show:
+      speed: 4
+      loops: 0
+  drinko_bonus1_award: show_light_drinko_bonus1
+  drinko_bonus2_award: show_light_drinko_bonus2
+  award_drinko_bonus_show_complete:   # reset drinko lights
+    show_light_d:
+      action: stop
+    show_light_r:
+      action: stop
+    show_light_i:
+      action: stop
+    show_light_n:
+      action: stop
+    show_light_k:
+      action: stop
+    show_light_o:
+      action: stop
+  drinko_hammered_award:
+    show_light_drinko_hammered:
+      speed: 4
+
+variable_player:
+  shot_paddle_p_hit{mode.dasboot.active == False}:
+    score: current_player.pts_d
+  shot_paddle_a_hit{mode.dasboot.active == False}:
+    score: current_player.pts_r
+  shot_paddle_d1_hit{mode.dasboot.active == False}:          # horseshoe - hard shot!
+    score: current_player.pts_i
+  shot_paddle_d2_hit{mode.dasboot.active == False}:
+    score: current_player.pts_n
+  shot_paddle_l_hit{mode.dasboot.active == False}:
+    score: current_player.pts_k 
+  shot_paddle_e_hit{mode.dasboot.active == False}:
+    score: current_player.pts_o
+
+  # drinko_x_award events are fired when drinko bonus state machine changes states - meaning we should get a bonus
+  # give player the points immediately and set player var that we should queue drinko bonus slide for showing
+  drinko_bonus1_award{mode.dasboot.active == False}:  
+    score: current_player.pts_drinko_bonus1
+    is_slide_drinko1_queued:
+      int: 1
+      action: set
+  drinko_bonus2_award{mode.dasboot.active == False}:
+    score: current_player.pts_drinko_bonus2
+    is_slide_drinko2_queued:
+      int: 1
+      action: set
+  drinko_hammered_award{mode.dasboot.active == False}:
+    score: current_player.pts_drinko_hammered
+    is_slide_hammered_queued:
+      int: 1
+      action: set
+
+  # de-queue drinko bonus slide once it has been removed
+  slide_slide_bonus_drinko1_removed:
+    is_slide_drinko1_queued:
+      int: 0
+      action: set 
+  slide_slide_bonus_drinko2_removed:    
+    is_slide_drinko2_queued:
+      int: 0
+      action: set
+  slide_slide_bonus_hammered_removed:
+    is_slide_hammered_queued:
+      int: 0
+      action: set
+
+  
+
+  

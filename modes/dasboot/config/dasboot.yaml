@@ -59,36 +59,39 @@ sound_player:
   shot_quarters_hit:
     voice_beerfest:
       action: play
-  shot_tgt_ramp_boot_hit:
+  shot_tgt_ramp_boot_left_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_ramp_boot_right_hit:
     voice_beerfest:
       action: play
   shot_tgt_rimrules_hit:
     voice_beerfest:
       action: play
-  shot_drinko_d_hit:
+  shot_paddle_p_hit:
     voice_beerfest:
       action: play
-  shot_drinko_r_hit:
+  shot_paddle_a_hit:
     voice_beerfest:
       action: play
-  shot_drinko_n_hit:
+  shot_paddle_d2_hit:
     voice_beerfest:
       action: play
-  shot_drinko_k_hit:
+  shot_paddle_l_hit:
     voice_beerfest:
       action: play
-  shot_drinko_o_hit:
+  shot_paddle_e_hit:
     voice_beerfest:
       action: play
 
   # let base mode take care of these
-  #shot_drinko_i_hit:   # let base mode take care of this
+  #shot_paddle_d1_hit:   # let base mode take care of this
   #shot_tavern_hit:          
-  #shot_ramp_drinko_hit:
+  #shot_ramp_paddle_hit:
   #shot_diverter_hit:  # use burp sound for that still
-  #enable_drinko_bonus2:
-  #enable_drinko_bonus3:
-  #drinko_hammered:
+  #enable_paddle_bonus2:
+  #enable_paddle_bonus3:
+  #paddle_hammered:
   #bank_strikeout_complete:   # let base made take care of this
   #spellbeer_group_hit_complete:
     
@@ -314,7 +317,7 @@ slides:
             duration: .5s
     - type: image
       image: background
-  dasboot_slide_bonus_drinko1:
+  dasboot_slide_bonus_paddle1:
     widgets:
     - type: text
       text: D-R-I-N-K-O
@@ -352,7 +355,7 @@ slides:
             duration: .5s
     - type: image
       image: background
-  dasboot_slide_bonus_drinko2:
+  dasboot_slide_bonus_paddle2:
     widgets:
     - type: text
       text: D-R-I-N-K-O
@@ -609,19 +612,19 @@ slide_player:
     dasboot_slide_bonus_boot:
       priority: 1000
       expire: 2s
-  drinko_bonus1_award:
-    dasboot_slide_bonus_drinko1:
+  paddle_bonus1_award:
+    dasboot_slide_bonus_paddle1:
       priority: 1000
       expire: 2s
-  drinko_bonus2_award:
-    dasboot_slide_bonus_drinko2:
+  paddle_bonus2_award:
+    dasboot_slide_bonus_paddle2:
       priority: 1000
       expire: 2s
-  drinko_hammered_award:
+  paddle_hammered_award:
     dasboot_slide_bonus_hammered:
       priority: 1000
       expire: 2s
-  shot_drinko_i_hit:
+  shot_paddle_d1_hit:
     dasboot_slide_bonus_monkeychug:
       priority: 1000
       expire: 2s
@@ -681,23 +684,21 @@ shows:
         slingright_lower: off
         slingquarters_upper: off
         slingquarters_lower: off
-        flipper_left: off
-        flipper_right: off
+        flipper_left_inner: off
+        flipper_right_inner: off
 
         tavern_sign1: off
         tavern_sign2: off
         tavern_inside: off
 
-        drinko_o: off
-        drinko_k: off
-        drinko_n: off
-        drinko_d: off
-        drinko_r: off
-        drinko_i: off
+        paddle_e: off
+        paddle_l: off
+        paddle_d2: off
+        paddle_p: off
+        paddle_a: off
+        paddle_d1: off
 
-        arrow_orbit1: off
-        arrow_orbit2: off
-        arrow_orbit3: off
+        
         arrow_rimrules1: off
         arrow_rimrules2: off
         arrow_rimrules3: off
@@ -710,42 +711,30 @@ shows:
         arrow_mode1: off
         arrow_mode2: off
         arrow_mode3: off
-        arrow_drinko1: off
-        arrow_drinko2: off
-        arrow_drinko3: off
+        arrow_paddle1: off
+        arrow_paddle2: off
+        arrow_paddle3: off
 
         strikeout_shot: off
         strikeout_beer: off
         strikeout_bong: off
 
-        quarters: off
+        quarters1: off
 
         lane_left_outer: off
         lane_left_inner: off
         lane_right_inner: off
         lane_right_outer: off
 
-        beermug7: off
-        beermug6: off
-        beermug5: off
-        beermug4: off
-        beermug3: off
-        beermug2: off
-        beermug1: off
+        
         ball_save: off
         
         special: off
         chance: off
         
-        zj: off
-        bj: off
-        hj: off
-        balls_locked3: off
-        balls_locked2: off
-        balls_locked1: off
-        drinko_bonus3: off
-        drinko_bonus2: off
-        drinko_bonus1: off
+       
+        ball2_locked: off
+        ball1_locked: off
 
         mode_dasboot: off
         mode_volumechug: off
@@ -822,10 +811,10 @@ shows:
         slingquarters_lower: 
           color: 008ce5
           fade: 3s
-        flipper_left: 
+        flipper_left_inner: 
           color: 008ce5
           fade: 3s
-        flipper_right: 
+        flipper_right_inner: 
           color: 008ce5
           fade: 3s
 
@@ -839,34 +828,26 @@ shows:
           color: 008ce5
           fade: 3s
 
-        drinko_o:  
+        paddle_e:  
           color: 008ce5
           fade: 3s
-        drinko_k:  
+        paddle_l:  
           color: 008ce5
           fade: 3s
-        drinko_n:  
+        paddle_d2:  
           color: 008ce5
           fade: 3s
-        drinko_d:  
+        paddle_p:  
           color: 008ce5
           fade: 3s
-        drinko_r:  
+        paddle_a:  
           color: 008ce5
           fade: 3s
-        drinko_i:  
+        paddle_d1:  
           color: 008ce5
           fade: 3s
 
-        arrow_orbit1:  
-          color: 008ce5
-          fade: 3s
-        arrow_orbit2:  
-          color: 008ce5
-          fade: 3s
-        arrow_orbit3:  
-          color: 008ce5
-          fade: 3s
+        
         arrow_rimrules1:  
           color: 008ce5
           fade: 3s
@@ -903,13 +884,13 @@ shows:
         arrow_mode3:  
           color: 008ce5
           fade: 3s
-        arrow_drinko1:  
+        arrow_paddle1:  
           color: 008ce5
           fade: 3s
-        arrow_drinko2:  
+        arrow_paddle2:  
           color: 008ce5
           fade: 3s
-        arrow_drinko3:  
+        arrow_paddle3:  
           color: 008ce5
           fade: 3s
 
@@ -923,7 +904,7 @@ shows:
           color: 008ce5
           fade: 3s
 
-        quarters:  
+        quarters1:  
           color: 008ce5
           fade: 3s
 
@@ -940,27 +921,7 @@ shows:
           color: 008ce5
           fade: 3s
 
-        beermug7:  
-          color: 008ce5
-          fade: 3s
-        beermug6:  
-          color: 008ce5
-          fade: 3s
-        beermug5:  
-          color: 008ce5
-          fade: 3s
-        beermug4:  
-          color: 008ce5
-          fade: 3s
-        beermug3:  
-          color: 008ce5
-          fade: 3s
-        beermug2:  
-          color: 008ce5
-          fade: 3s
-        beermug1:  
-          color: 008ce5
-          fade: 3s
+        
 
         ball_save:  
           color: 008ce5
@@ -973,33 +934,14 @@ shows:
           color: 008ce5
           fade: 3s
         
-        zj:  
+       
+        ball2_locked:  
           color: 008ce5
           fade: 3s
-        bj:  
+        ball1_locked:  
           color: 008ce5
           fade: 3s
-        hj:  
-          color: 008ce5
-          fade: 3s
-        balls_locked3:  
-          color: 008ce5
-          fade: 3s
-        balls_locked2:  
-          color: 008ce5
-          fade: 3s
-        balls_locked1:  
-          color: 008ce5
-          fade: 3s
-        drinko_bonus3:  
-          color: 008ce5
-          fade: 3s
-        drinko_bonus2:  
-          color: 008ce5
-          fade: 3s
-        drinko_bonus1:  
-          color: 008ce5
-          fade: 3s
+        
 
         mode_dasboot:  
           color: 008ce5
@@ -1082,10 +1024,10 @@ shows:
         slingquarters_lower: 
           color: off
           fade: 3s
-        flipper_left: 
+        flipper_left_inner: 
           color: off
           fade: 3s
-        flipper_right: 
+        flipper_right_inner: 
           color: off
           fade: 3s
         tavern_sign1:
@@ -1098,34 +1040,26 @@ shows:
           color: off
           fade: 3s
 
-        drinko_o: 
+        paddle_e: 
           color: off
           fade: 3s
-        drinko_k: 
+        paddle_l: 
           color: off
           fade: 3s
-        drinko_n: 
+        paddle_d2: 
           color: off
           fade: 3s
-        drinko_d:  
+        paddle_p:  
           color: off
           fade: 3s
-        drinko_r:  
+        paddle_a:  
           color: off
           fade: 3s
-        drinko_i: 
+        paddle_d1: 
           color: off
           fade: 3s
 
-        arrow_orbit1:  
-          color: off
-          fade: 3s
-        arrow_orbit2:  
-          color: off
-          fade: 3s
-        arrow_orbit3:  
-          color: off
-          fade: 3s
+       
         arrow_rimrules1:  
           color: off
           fade: 3s
@@ -1162,13 +1096,13 @@ shows:
         arrow_mode3:  
           color: off
           fade: 3s
-        arrow_drinko1:  
+        arrow_paddle1:  
           color: off
           fade: 3s
-        arrow_drinko2:  
+        arrow_paddle2:  
           color: off
           fade: 3s
-        arrow_drinko3:  
+        arrow_paddle3:  
           color: off
           fade: 3s
 
@@ -1182,7 +1116,7 @@ shows:
           color: off
           fade: 3s
 
-        quarters:  
+        quarters1:  
           color: off
           fade: 3s
 
@@ -1199,27 +1133,7 @@ shows:
           color: off
           fade: 3s
 
-        beermug7:  
-          color: off
-          fade: 3s
-        beermug6:  
-          color: off
-          fade: 3s
-        beermug5:  
-          color: off
-          fade: 3s
-        beermug4:  
-          color: off
-          fade: 3s
-        beermug3:  
-          color: off
-          fade: 3s
-        beermug2:  
-          color: off
-          fade: 3s
-        beermug1:  
-          color: off
-          fade: 3s
+        
         ball_save:  
           color: off
           fade: 3s
@@ -1231,31 +1145,11 @@ shows:
           color: off
           fade: 3s
         
-        zj:  
+        
+        ball2_locked:  
           color: off
           fade: 3s
-        bj:  
-          color: off
-          fade: 3s
-        hj:  
-          color: off
-          fade: 3s
-        balls_locked3:  
-          color: off
-          fade: 3s
-        balls_locked2:  
-          color: off
-          fade: 3s
-        balls_locked1:  
-          color: off
-          fade: 3s
-        drinko_bonus3:  
-          color: off
-          fade: 3s
-        drinko_bonus2:  
-          color: off
-          fade: 3s
-        drinko_bonus1:  
+        ball1_locked:  
           color: off
           fade: 3s
 
@@ -1350,43 +1244,43 @@ variable_player:
     score: current_player.pts_dasboot_target_bonus
     bonus_numramps: 1         # bonus tracker (ramps)
 
-  shot_ramp_drinko_hit:
+  shot_ramp_paddle_hit:
     score: current_player.pts_dasboot_target_bonus
     bonus_numramps: 1         # bonus tracker (ramps)
 
-  shot_tgt_ramp_boot_hit:
+  shot_tgt_ramp_boot_right_hit:
     score: current_player.pts_dasboot_target_bonus
   shot_tgt_rimrules_hit:
     score: current_player.pts_dasboot_target_bonus
-  drinko_bonus1_award:
-    score: current_player.pts_drinko_bonus1 * current_player.dasboot_bonus_multiplier        # means we got bonus1
+  paddle_bonus1_award:
+    score: current_player.pts_paddle_bonus1 * current_player.dasboot_bonus_multiplier        # means we got bonus1
     dasboot_bonustext_drinkbonus1:   # set text string for our bonus value
-      int: current_player.pts_drinko_bonus1 * current_player.dasboot_bonus_multiplier
+      int: current_player.pts_paddle_bonus1 * current_player.dasboot_bonus_multiplier
       action: set
-  drinko_bonus2_award:
-    score: current_player.pts_drinko_bonus2 * current_player.dasboot_bonus_multiplier           # means we got bonus2
+  paddle_bonus2_award:
+    score: current_player.pts_paddle_bonus2 * current_player.dasboot_bonus_multiplier           # means we got bonus2
     dasboot_bonustext_drinkbonus2:   # set text string for our bonus value
-      int: current_player.pts_drinko_bonus2 * current_player.dasboot_bonus_multiplier
+      int: current_player.pts_paddle_bonus2 * current_player.dasboot_bonus_multiplier
       action: set
-  drinko_hammered_award:
-    score: current_player.pts_drinko_hammered * current_player.dasboot_bonus_multiplier
+  paddle_hammered_award:
+    score: current_player.pts_paddle_hammered * current_player.dasboot_bonus_multiplier
     dasboot_bonustext_hammered:   # set text string for our bonus value
-      int: current_player.pts_drinko_hammered * current_player.dasboot_bonus_multiplier
+      int: current_player.pts_paddle_hammered * current_player.dasboot_bonus_multiplier
       action: set
-  shot_drinko_d_hit:
+  shot_paddle_p_hit:
     score: current_player.pts_dasboot_target_bonus
-  shot_drinko_r_hit:
+  shot_paddle_a_hit:
     score: current_player.pts_dasboot_target_bonus
-  shot_drinko_i_hit:          # horseshoe - hard shot!
+  shot_paddle_d1_hit:          # horseshoe - hard shot!
     score: current_player.pts_dasboot_target_bonus * current_player.dasboot_bonus_multiplier
     dasboot_bonustext_monkeychug:   # set text string for our bonus value
       int: current_player.pts_dasboot_target_bonus * current_player.dasboot_bonus_multiplier
       action: set
-  shot_drinko_n_hit:
+  shot_paddle_d2_hit:
     score: current_player.pts_dasboot_target_bonus
-  shot_drinko_k_hit:
+  shot_paddle_l_hit:
     score: current_player.pts_dasboot_target_bonus
-  shot_drinko_o_hit:
+  shot_paddle_e_hit:
     score: current_player.pts_dasboot_target_bonus
 
   spellbeer_group_hit_complete:

@@ -1,0 +1,31 @@
+#show_version=5
+- duration: 1
+  lights:
+    arrow_popo1: (color)
+    arrow_popo2: off
+    arrow_popo3: off
+- duration: 1
+  lights:
+    arrow_popo1: (color)
+    arrow_popo2: (color)
+    arrow_popo3: off
+- duration: 1
+  lights:
+    arrow_popo1: (color)
+    arrow_popo2: (color)
+    arrow_popo3: (color)
+- duration: 1
+  lights:
+    arrow_popo1: off
+    arrow_popo2: (color)
+    arrow_popo3: (color)
+- duration: 1
+  lights:
+    arrow_popo1: off
+    arrow_popo2: off
+    arrow_popo3: (color)
+- duration: 1
+  lights:
+    arrow_popo1: off
+    arrow_popo2: off
+    arrow_popo3: off

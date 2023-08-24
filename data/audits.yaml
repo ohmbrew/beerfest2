@@ -31,12 +31,12 @@ shots:
   shot_chug_beer: 194
   shot_diverter: 253
   shot_do_shot: 193
-  shot_drinko_d: 393
-  shot_drinko_i: 474
-  shot_drinko_k: 366
-  shot_drinko_n: 369
-  shot_drinko_o: 364
-  shot_drinko_r: 375
+  shot_paddle_p: 393
+  shot_paddle_d1: 474
+  shot_paddle_l: 366
+  shot_paddle_d2: 369
+  shot_paddle_e: 364
+  shot_paddle_a: 375
   shot_hj: 145
   shot_kicker_mode: 859
   shot_kicker_rimrules: 126
@@ -53,7 +53,7 @@ shots:
   shot_pop_upper_right: 539
   shot_quarters: 2072
   shot_ramp_boot: 10
-  shot_ramp_drinko: 99
+  shot_ramp_paddle: 99
   shot_rightflipper: 85
   shot_sling_left: 1
   shot_sling_quarters: 26
@@ -88,12 +88,12 @@ switches:
   s_diverter: 256
   s_do_shot: 268
   s_drain: 1281
-  s_drinko_d: 251
-  s_drinko_i: 330
-  s_drinko_k: 385
-  s_drinko_n: 1032
-  s_drinko_o: 502
-  s_drinko_r: 342
+  s_paddle_p: 251
+  s_paddle_d1: 330
+  s_paddle_l: 385
+  s_paddle_d2: 1032
+  s_paddle_e: 502
+  s_paddle_a: 342
   s_flipper_left: 2293
   s_flipper_right: 2490
   s_hj: 146

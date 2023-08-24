@@ -1,18 +1,37 @@
 #show_version=5
-- duration: 2s
-  shows:
-    attract_modes_rainbow:
-      loops: 1
-      speed: 5
 - duration: 4s
   shows:
     attract_modes_build:
-      loops: 1
-      speed: 10
+      loops: 3
+      speed: 18
+
 - duration: 2s
   shows:
-    attract_RWB_sweep:
+    attract_modes_green:
+      loops: 2
+      speed: 2
+
+- duration: 1s
+  shows:
+    attract_sweepdown:
       loops: 0
+      show_tokens:
+        color: red
       speed: 30
       priority: 1000
-  
+- duration: 1s
+  shows:
+    attract_sweepdown:
+      loops: 0
+      show_tokens:
+        color: white
+      speed: 30
+      priority: 1000
+- duration: 1s
+  shows:
+    attract_sweepdown:
+      loops: 0
+      show_tokens:
+        color: blue
+      speed: 30
+      priority: 1000 

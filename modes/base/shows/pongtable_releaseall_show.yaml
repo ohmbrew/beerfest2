@@ -1,5 +1,5 @@
 #show_version=5
-# this show assumes we've locked both balls and so cup2 is active (below drinko)
+# this show assumes we've locked both balls and so cup2 is active (below paddle)
 # it first rotates to cup 2, then releases cup2, then rotates pong table 180 degrees to cup1, releases cup1
 # Not sure what will happen say, if game_ending and we have 0 or 1 balls locked. Might make an extra rotation...
 - time: 0
