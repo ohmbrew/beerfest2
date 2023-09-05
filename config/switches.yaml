@@ -3,46 +3,47 @@
 switches:
   # Bottom Left Switch (A0)
   # Bank A (J2) (A0-B0)
-  s_drain:
-    number: A0-B0-0
-  s_slingshot_left:
-    number: A0-B0-1
-  s_laneleft_inner:
-    number: A0-B0-2
-  s_laneleft_outer:
-    number: A0-B0-3
-  s_slingshot_quarters:
-    number: A0-B0-4
-  s_quarters:
-    number: A0-B0-5
-  s_take_hit:
-    number: A0-B0-6
-    type: NC
-  s_chug_beer:
-    number: A0-B0-7
-    type: NC
-  # Bank B (J6) (A0-B1)
   s_tgt_ramp_boot_left:
-    number: A0-B1-0
-  s_popo_deflect:
-    number: A0-B1-1
+    number: A0-B0-0
+  s_tgt_popo:
+    number: A0-B0-1
     type: NC
   s_tavern_spinner:
-    number: A0-B1-2
+    number: A0-B0-2
     tags: playfield_active
   s_kicker_rimrules:
-    number: A0-B1-3
+    number: A0-B0-3
     ignore_window_ms: 500
     type: NC
-  s_do_shot:
-    number: A0-B1-4
+  s_chug_beer:
+    number: A0-B0-4
     type: NC
   s_tgt_ramp_boot_right:
-    number: A0-B1-5
+    number: A0-B0-5
   s_target_rimrules:
+    number: A0-B0-6
+  s_popo:
+    number: A0-B0-7
+  # Bank B (J6) (A0-B1)
+  s_drain:
+    number: A0-B1-0
+  s_slingshot_left:
+    number: A0-B1-1
+  s_laneleft_inner:
+    number: A0-B1-2
+  s_laneleft_outer:
+    number: A0-B1-3
+  s_slingshot_quarters:
+    number: A0-B1-4
+  s_quarters:
+    number: A0-B1-5
+  s_do_shot:
     number: A0-B1-6
-  s_orbit_entry:              # currently not implemented (switch wire is installed tho)
+    type: NC
+  s_take_hit:
     number: A0-B1-7
+    type: NC
+  
 
 
   # Bottom Right Switch (A1)
@@ -67,8 +68,7 @@ switches:
   s_plunger_lane:
     number: A1-B0-7
   # Bank B (J6) (A1-B1)
-  s_popo:
-    number: A1-B1-0
+  
   s_open1:
     number: A1-B1-1
     tags: playfield_active
