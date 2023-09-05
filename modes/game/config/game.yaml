@@ -6,16 +6,6 @@ sound_player:
       action: play
       loops: 0
 
-shows:
-  show_backglass_on:
-    - time: 0
-      lights:
-        l_backglass: on
-    - duration: -1
-
-show_player:
-  game_started: show_backglass_on
-  
 slides:
   base_slide: []
   multiplayer_slide: []

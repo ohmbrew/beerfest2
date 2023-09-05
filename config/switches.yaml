@@ -69,7 +69,6 @@ switches:
   # Bank B (J6) (A1-B1)
   s_popo:
     number: A1-B1-0
-    tags: playfield_active
   s_open1:
     number: A1-B1-1
     tags: playfield_active

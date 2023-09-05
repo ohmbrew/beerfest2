@@ -1,18 +1,17 @@
 #show_version=5
 - duration: 1s
   lights:
-    # gi_right1: white
-    # gi_right2: white
-    # gi_right3: white
-    # gi_right4: white
+    gi_right1: white
+    gi_right2: white
+    gi_right3: white
+    gi_right4: white
     # tavern_sign1: white
     # tavern_sign2: white
     # tavern_inside: white
-    # gi_left1: white
-    # gi_left2: white
-    # gi_left3: white
-    # gi_left4: white
-    l_backglass: on
+    gi_left1: white
+    gi_left2: white
+    gi_left3: white
+    gi_left4: white
 - duration: 1s
   lights:
     # gi_right1: off
