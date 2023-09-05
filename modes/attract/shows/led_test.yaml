@@ -1,0 +1,372 @@
+#show_version=5
+
+# Test serial LEDs
+# - duration: .5
+#   lights:
+#     arrow_rimrules3: off
+#     arrow_tavern6: white
+# - duration: .5
+#   lights:
+#     arrow_tavern6: off
+#     arrow_tavern5: white
+# - duration: .5
+#   lights:
+#     arrow_tavern5: off
+#     arrow_tavern4: white
+# - duration: .5
+#   lights:
+#     arrow_tavern4: off
+#     arrow_tavern3: white
+# - duration: .5
+#   lights:
+#     arrow_tavern3: off
+#     arrow_tavern2: white
+# - duration: .5
+#   lights:
+#     arrow_tavern2: off
+#     arrow_tavern1: white
+# - duration: .5
+#   lights:
+#     arrow_tavern1: off
+#     canada_left: white
+# - duration: .5
+#   lights:
+#     canada_left: off
+#     canada_right: white
+# - duration: .5
+#   lights:
+#     canada_right: off
+#     ireland_right: white
+# - duration: .5
+#   lights:
+#     ireland_right: off
+#     ireland_left: white
+# - duration: .5
+#   lights:
+#     ireland_left: off
+#     arrow_popo3: white
+# - duration: .5
+#   lights:
+#     arrow_popo3: off
+#     arrow_popo2: white
+# - duration: .5
+#   lights:
+#     arrow_popo2: off
+#     arrow_popo1: white
+# - duration: .5
+#   lights:
+#     arrow_popo1: off
+#     germany_left: white
+# - duration: .5
+#   lights:
+#     germany_left: off
+#     germany_right: white
+# - duration: .5
+#   lights:
+#     germany_right: off
+#     quarters1: white
+# - duration: .5
+#   lights:
+#     quarters1: off
+#     quarters2: white
+# - duration: .5
+#   lights:
+#     quarters2: off
+#     quarters3: white
+# - duration: .5
+#   lights:
+#     quarters3: off
+#     quarters4: white
+# - duration: .5
+#   lights:
+#     quarters4: off
+#     quarters5: white
+# - duration: .5
+#   lights:
+#     quarters5: off
+#     slingquarters_upper: white
+# - duration: .5
+#   lights:
+#     slingquarters_upper: off
+#     slingquarters_lower: white
+# - duration: .5
+#   lights:
+#     arrow_rimrules3: off
+#     2x: white
+# - duration: .5
+#   lights:
+#     2x: off
+#     3x: white
+# - duration: .5
+#   lights:
+#     3x: off
+#     4x: white
+# - duration: .5
+#   lights:
+#     4x: off
+#     5x: white
+# - duration: .5
+#   lights:
+#     5x: off
+#     mode_dasboot: white
+# - duration: .5
+#   lights:
+#     mode_dasboot: off
+#     mode_trojankeg: white
+# - duration: .5
+#   lights:
+#     mode_trojankeg: off
+#     mode_strikeout: white
+# - duration: .5
+#   lights:
+#     mode_strikeout: off
+#     mode_quarters: white
+# - duration: .5
+#   lights:
+#     mode_quarters: off
+#     mode_longpour: white
+# - duration: .5
+#   lights:
+#     mode_longpour: off
+#     mode_volumechug: white
+# - duration: .5
+#   lights:
+#     mode_volumechug: off
+#     6x: white
+# - duration: .5
+#   lights:
+#     6x: off
+#     lane_left_outer: white
+# - duration: .5
+#   lights:
+#     lane_left_outer: off
+#     sausage_save: white
+# - duration: .5
+#   lights:
+#     sausage_save: off
+#     lane_left_inner: white
+# - duration: .5
+#   lights:
+#     lane_left_inner: off
+#     slingleft_upper: white
+# - duration: .5
+#   lights:
+#     slingleft_upper: off
+#     slingleft_lower: white
+# - duration: .5
+#   lights:
+#     slingleft_lower: off
+#     flipper_left_outer: white
+# - duration: .5
+#   lights:
+#     flipper_left_outer: off
+#     flipper_left_inner: white
+# - duration: .5
+#   lights:
+#     flipper_left_inner: off
+#     ball_save: white
+# - duration: .5
+#   lights:
+#     ball_save: off
+#     flipper_right_inner: white
+# - duration: .5
+#   lights:
+#     flipper_right_inner: off
+#     flipper_right_outer: white
+# - duration: .5
+#   lights:
+#     flipper_right_outer: off
+#     bad_rams_piss: white
+# - duration: .5
+#   lights:
+#     bad_rams_piss: off
+#     slingright_lower: white
+# - duration: .5
+#   lights:
+#     slingright_lower: off
+#     slingright_upper: white
+# - duration: .5
+#   lights:
+#     slingright_upper: off
+#     lane_right_inner: white
+# - duration: .5
+#   lights:
+#     lane_right_inner: off
+#     lane_right_outer: white
+# - duration: .5
+#   lights:
+#     lane_right_outer: off
+#     special: white
+# - duration: .5
+#   lights:
+#     special: off
+#     chance: white
+# - duration: .5
+#   lights:
+#     chance: off
+#     startevent_mode: white
+# - duration: .5
+#   lights:
+#     startevent_mode: off
+#     arrow_mode1: white
+# - duration: .5
+#   lights:
+#     arrow_mode1: off
+#     arrow_mode2: white
+# - duration: .5
+#   lights:
+#     arrow_mode2: off
+#     arrow_mode3: white
+# - duration: .5
+#   lights:
+#     arrow_mode3: off
+#     arrow_paddle3: white
+# - duration: .5
+#   lights:
+#     arrow_paddle3: off
+#     arrow_paddle2: white
+# - duration: .5
+#   lights:
+#     arrow_paddle2: off
+#     arrow_paddle1: white
+# - duration: .5
+#   lights:
+#     arrow_paddle1: off
+#     lock: white
+# - duration: .5
+#   lights:
+#     lock: off
+#     arrow_house1: white
+# - duration: .5
+#   lights:
+#     arrow_house1: off
+#     arrow_house2: white
+# - duration: .5
+#   lights:
+#     arrow_house2: off
+#     arrow_house3: white
+# - duration: .5
+#   lights:
+#     arrow_house3: off
+#     strikeout_shot: white
+# - duration: .5
+#   lights:
+#     strikeout_shot: off
+#     strikeout_beer: white
+# - duration: .5
+#   lights:
+#     strikeout_beer: off
+#     strikeout_bong: white
+# - duration: .5
+#   lights:
+#     strikeout_bong: off
+#     ball1_locked: white
+# - duration: .5
+#   lights:
+#     ball1_locked: off
+#     ball2_locked: white
+# - duration: .5
+#   lights:
+#     ball2_locked: off
+#     usa_right: white
+# - duration: .5
+#   lights:
+#     usa_right: off
+#     usa_left: white
+- duration: .5
+  lights:
+    usa_left: off
+    tobago_left: white
+- duration: .5
+  lights:
+    tobago_left: off
+    tobago_right: white
+- duration: .5
+  lights:
+    tobago_right: off
+    scotland_right: white
+- duration: .5
+  lights:
+    scotland_right: off
+    scotland_left: white
+- duration: .5
+  lights:
+    scotland_left: off
+    extra_ball: white
+- duration: .5
+  lights:
+    extra_ball: off
+    arrow_boot1: white
+- duration: .5
+  lights:
+    arrow_boot1: off
+    arrow_boot2: white
+- duration: .5
+  lights:
+    arrow_boot2: off
+    arrow_boot3: white
+- duration: .5
+  lights:
+    arrow_boot3: off
+    startevent_rimrules: white
+- duration: .5
+  lights:
+    startevent_rimrules: off
+    arrow_rimrules1: white
+- duration: .5
+  lights:
+    arrow_rimrules1: off
+    arrow_rimrules2: white
+- duration: .5
+  lights:
+    arrow_rimrules2: off
+    arrow_rimrules3: white
+
+# Test Chain 2
+- duration: .5
+  lights:
+    arrow_rimrules3: off
+    arrow_horseshoe3: white
+- duration: .5
+  lights:
+    arrow_horseshoe3: off
+    arrow_horseshoe2: white
+- duration: .5
+  lights:
+    arrow_horseshoe2: off
+    arrow_horseshoe1: white
+- duration: .5
+  lights:
+    arrow_horseshoe1: off
+    gi_left4: white
+- duration: .5
+  lights:
+    gi_left4: off
+    gi_left3: white
+- duration: .5
+  lights:
+    gi_left3: off
+    gi_left2: white
+- duration: .5
+  lights:
+    gi_left2: off
+    gi_left1: white
+- duration: .5
+  lights:
+    gi_left1: off
+    gi_right1: white
+- duration: .5
+  lights:
+    gi_right1: off
+    gi_right2: white
+- duration: .5
+  lights:
+    gi_right2: off
+    gi_right3: white
+- duration: .5
+  lights:
+    gi_right3: off
+    gi_right4: white
+- duration: .5
+  lights:
+    gi_right4: off 

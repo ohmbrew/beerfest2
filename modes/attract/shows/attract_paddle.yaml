@@ -1,123 +1,66 @@
 #show_version=5
 - time: '+4'
   lights:
-    paddle_p:
+    arrow_horseshoe3:
       color: red
       fade: .25s
 - time: '+1'
   lights:
-    paddle_a:
+    arrow_horseshoe2:
       color: red
       fade: .25s
 - time: '+1'
   lights:
-    paddle_d1:
+    arrow_horseshoe1:
       color: red
       fade: .25s
 - time: '+1'
   lights:
-    paddle_d2:
-      color: red
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_l:
-      color: red
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_e:
-      color: red
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_p:
+    arrow_horseshoe3:
       color: white
       fade: .25s
 - time: '+1'
   lights:
-    paddle_a:
+    arrow_horseshoe2:
       color: white
       fade: .25s
 - time: '+1'
   lights:
-    paddle_d1: 
+    arrow_horseshoe1: 
       color: white
       fade: .25s
 - time: '+1'
   lights:
-    paddle_d2: 
-      color: white
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_l: 
-      color: white
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_e: 
-      color: white
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_p:
+    arrow_horseshoe3:
       color: blue
       fade: .25s
 - time: '+1'
   lights:
-    paddle_a: 
+    arrow_horseshoe2: 
       color: blue
       fade: .25s
 - time: '+1'
   lights:
-    paddle_d1: 
-      color: blue
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_d2: 
-      color: blue
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_l: 
-      color: blue
-      fade: .25s
-- time: '+1'
-  lights:
-    paddle_e: 
+    arrow_horseshoe1: 
       color: blue
       fade: .25s
 - time: '+4'
   lights:
-    paddle_p: red
-    paddle_a: red
-    paddle_d1: red
-    paddle_d2: red
-    paddle_l: red
-    paddle_e: red
+    arrow_horseshoe3: red
+    arrow_horseshoe2: red
+    arrow_horseshoe1: red
 - time: '+4'
   lights:
-    paddle_p: white
-    paddle_a: white
-    paddle_d1: white
-    paddle_d2: white
-    paddle_l: white
-    paddle_e: white
+    arrow_horseshoe3: white
+    arrow_horseshoe2: white
+    arrow_horseshoe1: white
 - time: '+4'
   lights:
-    paddle_p: blue
-    paddle_a: blue
-    paddle_d1: blue
-    paddle_d2: blue
-    paddle_l: blue
-    paddle_e: blue
+    arrow_horseshoe3: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe1: blue
 - time: '+4'
   lights:
-    paddle_p: off
-    paddle_a: off
-    paddle_d1: off
-    paddle_d2: off
-    paddle_l: off
-    paddle_e: off
+    arrow_horseshoe3: off
+    arrow_horseshoe2: off
+    arrow_horseshoe1: off

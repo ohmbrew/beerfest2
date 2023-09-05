@@ -3,7 +3,7 @@
 hardware:
   platform: p3_roc
   driverboards: pdb
-  #servo_controllers: pololu_maestro
+  servo_controllers: pololu_maestro
 
 # tilt
 accelerometers:
@@ -20,10 +20,10 @@ accelerometers:
       5: accelerometer_level2x
 
 # define servo and min/max ranges
-#pololu_maestro:
-#  port: /dev/ttyACM0  # lower ttyACMX is the USB command port, higher one is for TTL serial port. We use lower.
-#  servo_min: 2300
-#  servo_max: 9700
+pololu_maestro:
+  port: /dev/ttyACM0  # lower ttyACMX is the USB command port, higher one is for TTL serial port. We use lower.
+  servo_min: 2300
+  servo_max: 9700
 
 # define display
 displays:
@@ -130,36 +130,41 @@ keyboard:
 
 # documentation: https://docs.missionpinball.org/en/latest/hardware/multimorphic/leds.html
 p_roc:
+  #debug: true
+  #trace_bus: true
   pd_led_boards:
-    0:
+    2:
       use_ws281x_0: true
       ws281x_0_first_address: 100
-      ws281x_0_last_address: 249
-      #use_ws281x_1: true
-      #ws281x_1_first_address: 400
-      #ws281x_1_last_address: 599
+      ws281x_0_last_address: 449
+      use_ws281x_2: true
+      ws281x_2_first_address: 450
+      ws281x_2_last_address: 599
 
-# servos:
-#   servo_diverter:
-#     number: 5
-#     servo_min: 0.35       # 1105 us, far right
-#     servo_max: 0.55       # 1480 us, far left
-#     positions:
-#       1.0: diverter_left
-#       0.0: diverter_right  
-#     reset_position: 0.0
-#     reset_events: mode_attract_started
-#     debug: true
-#   servo_pongtable:
-#     number: 3
-#     servo_min: 0.03
-#     servo_max: 1.0
-#     positions:
-#       0.0: pongcup_1
-#       0.5: pongcup_0
-#       1.0: pongcup_2
-#     reset_position: 0.0
-#     reset_events: machine_reset_phase_3, service_mode_entered
+servos:
+  servo_diverter:
+    number: 5
+    
+    # these have been visually calibrated and are good
+    servo_min: 0.35       # 1105 us, far right
+    servo_max: 0.55       # 1480 us, far left
+    positions:
+      1.0: diverter_left
+      0.0: diverter_right  
+    reset_position: 0.0
+    reset_events: mode_attract_started
+    debug: true
+  servo_pongtable:
+    number: 3
+    # these have been visually calibrated and are good
+    servo_min: 0.14    # at min, pong cup 1 is at front
+    servo_max: .87     # at max, pong cup 2 is at front
+    positions:
+      0.0: pongcup_1
+      0.5: pongcup_0
+      1.0: pongcup_2
+    reset_position: 0.0
+    reset_events: machine_reset_phase_3, service_mode_entered
 
 sound_system:
   tracks:

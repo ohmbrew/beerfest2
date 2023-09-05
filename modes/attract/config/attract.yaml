@@ -18,97 +18,6 @@ sound_player:
       action: stop
 
 shows:
-  led_test:
-    - duration: 4s
-      lights:
-        arrow_tavern1: off
-        arrow_tavern2: off
-        arrow_tavern3: off
-        arrow_tavern4: off
-        arrow_tavern5: off
-        arrow_tavern6: off
-        canada_left: off
-        canada_right: off
-        ireland_right: off
-        ireland_left: off
-        arrow_popo1: off
-        arrow_popo2: off
-        arrow_popo3: off
-        germany_left: off
-        germany_right: off
-        quarters1: off
-        quarters2: off
-        quarters3: off
-        quarters4: off
-        quarters5: off
-        slingquarters_upper: off
-        slingquarters_lower: off
-        2x: off
-        3x: off
-        4x: off
-        5x: off
-        mode_dasboot: off
-        mode_trojankeg: off
-        mode_strikeout: off
-        mode_quarters: off
-        mode_longpour: off
-        mode_volumechug: off
-        6x: off
-        
-    - duration: 1s
-      lights:
-        arrow_tavern6: red
-    - duration: 1s
-      lights:
-        arrow_tavern6: green
-    - duration: 1s
-      lights:
-        arrow_tavern6: blue
-    - duration: 1s
-      lights:
-        arrow_tavern5: red
-    - duration: 1s
-      lights:
-        arrow_tavern5: green
-    - duration: 1s
-      lights:
-        arrow_tavern5: blue
-    - duration: 1s
-      lights:
-        arrow_tavern4: red
-    - duration: 1s
-      lights:
-        arrow_tavern4: green
-    - duration: 1s
-      lights:
-        arrow_tavern4: blue
-    - duration: 1s
-      lights:
-        arrow_tavern3: red
-    - duration: 1s
-      lights:
-        arrow_tavern3: green
-    - duration: 1s
-      lights:
-        arrow_tavern3: blue
-    - duration: 1s
-      lights:
-        arrow_tavern2: red
-    - duration: 1s
-      lights:
-        arrow_tavern2: green
-    - duration: 1s
-      lights:
-        arrow_tavern2: blue
-    - duration: 1s
-      lights:
-        arrow_tavern1: red
-    - duration: 1s
-      lights:
-        arrow_tavern1: green
-    - duration: 1s
-      lights:
-        arrow_tavern1: blue
   chase_tavern_rwb:
     - duration: 1s
       shows:
@@ -259,68 +168,66 @@ shows:
             color: white
 
 show_player:
-  #mode_attract_started:
-  #  attract_init_lights:
-  #    loops: 0
   mode_attract_started:
-    led_test:
-      loops: -1
-
+    attract_init_lights:
+      loops: 0
   # mode_attract_started.1:
-  #   attract_display_loop:
-  #     loops: -1
-  # mode_attract_started.2:
-  #   attract_paddle:
-  #     loops: -1
-  #     speed: 4
-  # mode_attract_started.4:
-  #   chase_lowerthird_rwb:
-  #     loops: -1
-  # mode_attract_started.5:
-  #   chase_tavern_rwb:
-  #     loops: -1
-  # mode_attract_started.6:
-  #   chase_popo_rwb:
-  #     loops: -1
-  # mode_attract_started.7:
-  #   chase_arrows_rwb:
-  #     loops: -1
-  # mode_attract_started.8:
-  #   chase_house_rwb:
-  #     loops: -1
-  # mode_attract_started.9:
-  #   chase_quarters_white:
-  #     loops: -1
-  # mode_attract_started.10:
-  #   brackets_white:
-  #     loops: -1     
-  # mode_attract_started.11:
-  #   chase_bonus_rwb:
-  #     loops: -1       
-  # mode_attract_started.12:
-  #   attract_ball_locks:
-  #     loops: -1
-  #     speed: 4
-  # mode_attract_started.13:
-  #   attract_modes:
-  #     loops: -1
-  # mode_attract_started.14:
-  #   pongtable_releaseall_show:
-  #     loops: 0
-  # mode_attract_started.15:
-  #   attract_pops:
-  #     loops: -1
-  # mode_attract_started.16:
-  #   attra2ct_gi:
-  #     speed: 1
-  #     loops: -1
-  # mode_attract_started.17:
-  #   attract_gi_back:
-  #     speed: 2
-  #     loops: -1
-  # mode_attract_started.18:
-  #   attract_startbutton:
-  #     speed: 5
+  #   led_test:
   #     loops: -1
 
-  
+  mode_attract_started.1:
+    attract_display_loop:
+      loops: -1
+  mode_attract_started.2:
+    attract_paddle:
+      loops: -1
+      speed: 4
+  mode_attract_started.4:
+    chase_lowerthird_rwb:
+      loops: -1
+  mode_attract_started.5:
+    chase_tavern_rwb:
+      loops: -1
+  mode_attract_started.6:
+    chase_popo_rwb:
+      loops: -1
+  mode_attract_started.7:
+    chase_arrows_rwb:
+      loops: -1
+  mode_attract_started.8:
+    chase_house_rwb:
+      loops: -1
+  mode_attract_started.9:
+    chase_quarters_white:
+      loops: -1
+  mode_attract_started.10:
+    brackets_white:
+      loops: -1     
+  mode_attract_started.11:
+    chase_bonus_rwb:
+      loops: -1       
+  mode_attract_started.12:
+    attract_ball_locks:
+      loops: -1
+      speed: 4
+  mode_attract_started.13:
+    attract_modes:
+      loops: -1
+  mode_attract_started.14:
+    pongtable_releaseall_show:
+      loops: 0
+  mode_attract_started.15:
+    attract_pops:
+      loops: -1
+  mode_attract_started.16:
+    attract_gi:
+      speed: 1
+      loops: -1
+  mode_attract_started.17:
+    attract_gi_back:
+      speed: 2
+      loops: -1
+  mode_attract_started.18:
+    attract_startbutton:
+      speed: 5
+      loops: -1

@@ -4,7 +4,7 @@ coils:
   # 48V Coil Driver PCB: A0
   # Bank A (A0-B0)
   c_flipper_right:
-    number: A0-B0-0 # PD-16 Address 0, Bank A, Bit 1 for right flipper
+    number: A0-B0-0         # PD-16 Address 0, Bank A, Bit 1 for right flipper
     default_pulse_ms: 25
     default_hold_power: .125
   c_slingshot_right:
@@ -13,8 +13,6 @@ coils:
   c_kicker_mode:
     number: A0-B0-2
     default_pulse_ms: 8
-  
-  # A0-B0-3 and A0-B0-4 are unreliable now - probs with pong cup coils. May have burned out the outputs? Using A0-B1-5/6 now
 
   c_pop_lower:
     number: A0-B0-5 # verified
@@ -25,9 +23,10 @@ coils:
   c_pop_upper_right:
     number: A0-B0-7
     default_pulse_ms: 15
+
   # Bank B (A0-B1)
   c_flipper_left:
-    number: A0-B1-0 # PD-16 Address 0, Bank A, Bit 0 for left flipper
+    number: A0-B1-0         # PD-16 Address 0, Bank A, Bit 0 for left flipper
     default_pulse_ms: 25
     default_hold_power: .125
   c_slingshot_left:
@@ -40,10 +39,6 @@ coils:
     number: A0-B1-3
     default_pulse_ms: 35
 
-  # A0-B1-4 unreliable. RimRules coil stopped firing...moved to A0-B1-7. Works again...
-  
-
-  # B1-5, B1-6 open?
   c_flipper_upper:
     number: A0-B1-5
     default_pulse_ms: 13
@@ -52,54 +47,56 @@ coils:
     number: A0-B1-7
     default_pulse_ms: 10
 
-  # PD-LED is A1
 
-  # 12V Coil Driver PCB: A2-B0
-  cl_pop_lower:
-    number: A2-B0-0
-    allow_enable: true
-  cl_pop_right:
-    number: A2-B0-1
-    allow_enable: true
-  cl_pop_left:
-    number: A2-B0-2
-    allow_enable: true
-  c_trough_eject:
-    number: A2-B0-3
-    default_pulse_ms: 40
-    default_hold_power: .5
-  c_drain_eject:
-    number: A2-B0-4
-    default_pulse_ms: 40
-    default_hold_power: .5
-  cl_backglass:
-    number: A2-B0-5
-    allow_enable: true
-  cl_start:
-    number: A2-B0-6
-    allow_enable: true
 
-  # 24V Coil Driver PCB: A2-B1
+
+  # 24V Coil Driver PCB: A1-B0
   c_pongcup1:
-    number: A2-B1-1
+    number: A1-B0-1
     default_pulse_ms: 500
     default_hold_power: .5
     pulse_events: release_cup1 #, None    # adding this event removes the default pulse_event, which collecting_balls was using to fire the release coils too early.
   c_pongcup2:
-    number: A2-B1-0
+    number: A1-B0-0
     default_pulse_ms: 500
     default_hold_power: .5
     pulse_events: release_cup2 #, None   # adding this event removes the default pulse_event, which collecting_balls was using to fire the release coils too early.
-
   c_shaker:
-    number: A2-B1-2
+    number: A1-B0-2
     default_pulse_ms: 5
     default_hold_power: 0.3
 
   c_knocker:
-    number: A2-B1-3
+    number: A1-B0-3
     default_pulse_ms: 35
     default_hold_power: 0.125
+
+  # 12V Coil Driver PCB: A1-B1
+  cl_pop_lower:
+    number: A1-B1-0
+    allow_enable: true
+  cl_pop_right:
+    number: A1-B1-1
+    allow_enable: true
+  cl_pop_left:
+    number: A1-B1-2
+    allow_enable: true
+  c_trough_eject:
+    number: A1-B1-3
+    default_pulse_ms: 40
+    default_hold_power: .5
+  c_drain_eject:
+    number: A1-B1-4
+    default_pulse_ms: 40
+    default_hold_power: .5
+  cl_backglass:
+    number: A1-B1-5
+    allow_enable: true
+  cl_start:
+    number: A1-B1-6
+    allow_enable: true
+
+# PD-LED Driver PCB: A2-Bx-x
 
 autofire_coils:
   slingshot_left:

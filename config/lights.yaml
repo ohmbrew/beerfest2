@@ -1,12 +1,12 @@
 #config_version=5
 
-#light_settings:
-#  default_fade_ms: 75
+light_settings:
+  default_fade_ms: 250
 
 lights:
   # Chain #1 [J8-19: WS281x Serial Data 0]
   arrow_tavern6:
-    start_channel: 0-100
+    start_channel: 2-100
     type: grb
     tags: strip
   arrow_tavern5:
@@ -15,7 +15,7 @@ lights:
     tags: strip
   arrow_tavern4:
     previous: arrow_tavern5
-    type: rgrbgb
+    type: grb
     tags: strip
   arrow_tavern3:
     previous: arrow_tavern4
@@ -326,36 +326,37 @@ lights:
     type: grb
     tags: strip
 
-# to be done:
-
-  paddle_e:
-    previous: arrow_rimrules3
+# Chain 2 - WS281x Serial Channel 2 (PD-LED J8-17)
+  arrow_horseshoe3:
+    start_channel: 2-450
     type: grb
     tags: strip
-  paddle_l:
-    previous: paddle_e
+  arrow_horseshoe2:
+    previous: arrow_horseshoe3
     type: grb
     tags: strip
-  paddle_d2:
-    previous: paddle_l
+  arrow_horseshoe1:
+    previous: arrow_horseshoe2
     type: grb
     tags: strip
-  paddle_p:
-    previous: paddle_d2
+  gi_left4:
+    previous: arrow_horseshoe1
     type: grb
-    tags: strip
-  paddle_a:
-    previous: paddle_p
+    tags: gi 
+  gi_left3:
+    previous: gi_left4
     type: grb
-    tags: strip
-  paddle_d1:
-    previous: paddle_a
+    tags: gi 
+  gi_left2:
+    previous: gi_left3
     type: grb
-    tags: strip
-  
-  # chain 2
+    tags: gi 
+  gi_left1:
+    previous: gi_left2
+    type: grb
+    tags: gi 
   gi_right1:
-    start_channel: 1-450
+    previous: gi_left1
     type: grb
     tags: gi
   gi_right2:
@@ -406,23 +407,7 @@ lights:
     previous: tavern_sign2
     type: grb
     tags: tavern  
-  gi_left4:
-    previous: tavern_inside
-    type: grb
-    tags: gi 
-  gi_left3:
-    previous: gi_left4
-    type: grb
-    tags: gi 
-  gi_left2:
-    previous: gi_left3
-    type: grb
-    tags: gi 
-  gi_left1:
-    previous: gi_left2
-    type: grb
-    tags: gi 
-
+  
   # lights hooked to coil driver
   l_pop_lower:
     number: cl_pop_lower

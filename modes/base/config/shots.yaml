@@ -55,20 +55,14 @@ shots:
     switch: s_pongcup2
   shot_diverter:
     switch: s_diverter
-  shot_ramp_paddle:
-    switch: s_ramp_upf_entry
+  shot_ramp_upf:
+    switch: s_ramp_upf
   shot_paddle_p:
     switch: s_upf_tgt_left
   shot_paddle_a:
     switch: s_upf_tgt_right
   shot_paddle_d1:
     switch: s_horseshoe
-  shot_paddle_d2:
-    switch: s_paddle_d2
-  shot_paddle_l:
-    switch: s_paddle_l
-  shot_paddle_e:
-    switch: s_paddle_e
   shot_slingquarters:
     switch: s_slingshot_quarters
   shot_slingleft:

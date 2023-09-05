@@ -1,12 +1,9 @@
 #show_version=5
 - time: 0
   lights:
-    paddle_p: off
-    paddle_a: off
-    paddle_d1: off
-    paddle_d2: off
-    paddle_l: off
-    paddle_e: off
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
     startevent_rimrules: off
     arrow_rimrules1: off
     arrow_rimrules2: off
@@ -147,22 +144,18 @@
   lights:
     arrow_rimrules1: (color)
     arrow_tavern6: (color)
-    paddle_d1: (color)
-    paddle_a: (color)
+    arrow_horseshoe3: (color)
     startevent_rimrules: (color)
     
 - time: '+1'
   lights:
     arrow_tavern4: (color)
     arrow_tavern5: (color)
-    paddle_p: (color)
-    paddle_d2: (color)
+    arrow_horseshoe1: (color)
     
 - time: '+1'
   lights:
     arrow_boot3: (color)
-    paddle_l: (color)
-    paddle_e: (color)
     gi_left4: (color)
     gi_right4: (color)
     
