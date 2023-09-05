@@ -25,18 +25,28 @@ pololu_maestro:
   servo_min: 2300
   servo_max: 9700
 
-# define display
-displays:
-  window:
-    height: 768
-    width: 1366
+# define displays
 window:
-  height: 768
-  width: 1366
+  width: 1366             # width of main LCD: 1366    width of mini LCD: 480
+  height: 1568            # height of main LDCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
   borderless: false
   show_cursor: true
   exit_on_escape: True
+
+
+displays:
+  window:
+    width: 1366
+    height: 1568
+  main:
+    width: 1366
+    height: 768
+  mini:
+    width: 480
+    height: 800
+    
+
 
 config:
   - lights.yaml
@@ -99,6 +109,26 @@ widget_styles:
     color: 008ce5ff
 
 slides:
+  slide_layout:
+    target: window
+    background_color: black
+    widgets:
+      - type: display
+        source_display: main
+        width: 1366
+        height: 768
+        x: left
+        y: top
+        anchor_x: left
+        anchor_y: top
+      - type: display
+        source_display: mini
+        width: 480
+        height: 800
+        x: left
+        y: top - 768
+        anchor_x: left
+        anchor_y: top
   video_seeyoulater_slide:
     widgets:
     - type: image
@@ -111,6 +141,11 @@ slides:
       image: background-flag
     - type: video
       video: champions
+
+slide_player:
+  mc_ready:
+    slide_layout:
+      target: window
 
 keyboard:
   s:

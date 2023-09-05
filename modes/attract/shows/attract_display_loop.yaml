@@ -2,12 +2,19 @@
 - duration: 15s
   slides:
     beerfest_intro:
+      target: main
       widgets:
-      - type: video
-        video: BeerfestIntro
+        - type: video
+          video: BeerfestIntro
+    mug_intro:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug
 - duration: 3s
   slides:
     press_start:
+      target: main
       widgets:
       - type: Text
         text: Press Start!
@@ -39,18 +46,21 @@
 - duration: 5s
   slides:
     ohmbrew_slide:
+      target: main
       widgets:
       - type: image
         image: createdby
 - duration: 5s
   slides:
     thanks_slide:
+      target: main
       widgets:
       - type: image
         image: thanks
 - duration: 8s
   slides:
     show_high_scores:
+      target: main
       widgets:
       # Grand Champion - larger and formatted differently
       - type: Text
