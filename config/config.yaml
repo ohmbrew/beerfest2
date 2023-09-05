@@ -27,8 +27,8 @@ pololu_maestro:
 
 # define displays
 window:
-  width: 1366             # width of main LCD: 1366    width of mini LCD: 480
-  height: 1568            # height of main LDCD: 768   height of mini LCD: 800    Total: 1568
+  width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
+  height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
   borderless: false
   show_cursor: true
@@ -37,8 +37,8 @@ window:
 
 displays:
   window:
-    width: 1366
-    height: 1568
+    width: 1846
+    height: 800
   main:
     width: 1366
     height: 768
@@ -125,8 +125,8 @@ slides:
         source_display: mini
         width: 480
         height: 800
-        x: left
-        y: top - 768
+        x: left + 1366
+        y: top
         anchor_x: left
         anchor_y: top
   video_seeyoulater_slide:
