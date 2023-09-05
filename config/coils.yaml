@@ -120,5 +120,5 @@ autofire_coils:
     switch: s_slingshot_quarters
   popo:
     coil: c_popo_eject
-    switch: s_popo
+    switch: s_popo_captured
 
