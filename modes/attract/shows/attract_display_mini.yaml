@@ -1,0 +1,113 @@
+#show_version=5
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug0
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug1
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug2
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug3
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug4
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug5
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug6
+- duration: 2s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug7
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug6
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug5
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug4
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug3
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug2
+- duration: .5s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug1
+- duration: 2s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: beermug0
+- duration: 3s
+  slides:
+    mug0:
+      target: mini
+      widgets:
+        - type: image
+          image: minibg

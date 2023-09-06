@@ -48,8 +48,6 @@ coils:
     default_pulse_ms: 10
 
 
-
-
   # 24V Coil Driver PCB: A1-B0
   c_pongcup1:
     number: A1-B0-1
@@ -72,6 +70,7 @@ coils:
     default_hold_power: 0.125
 
   # 12V Coil Driver PCB: A1-B1
+  # J11
   cl_pop_lower:
     number: A1-B1-0
     allow_enable: true
@@ -118,7 +117,4 @@ autofire_coils:
   slingshot_quarters:
     coil: c_slingshot_quarters
     switch: s_slingshot_quarters
-  popo:
-    coil: c_popo_eject
-    switch: s_popo_captured
 

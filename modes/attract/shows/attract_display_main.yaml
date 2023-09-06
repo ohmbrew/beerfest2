@@ -6,11 +6,6 @@
       widgets:
         - type: video
           video: BeerfestIntro
-    mug_intro:
-      target: mini
-      widgets:
-        - type: image
-          image: beermug
 - duration: 3s
   slides:
     press_start:

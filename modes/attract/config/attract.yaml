@@ -176,7 +176,7 @@ show_player:
   #     loops: -1
 
   mode_attract_started.1:
-    attract_display_loop:
+    attract_display_main:
       loops: -1
   mode_attract_started.2:
     attract_paddle:
@@ -230,4 +230,7 @@ show_player:
   mode_attract_started.18:
     attract_startbutton:
       speed: 5
+      loops: -1
+  mode_attract_started.19:
+    attract_display_mini:
       loops: -1
