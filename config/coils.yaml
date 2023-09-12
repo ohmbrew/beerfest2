@@ -49,25 +49,24 @@ coils:
 
 
   # 24V Coil Driver PCB: A1-B0
-  c_pongcup1:
+  c_shaker:
+    number: A1-B0-0
+    default_pulse_ms: 5
+    default_hold_power: 0.3
+  c_knocker:
     number: A1-B0-1
+    default_pulse_ms: 35
+    default_hold_power: 0.125
+  c_pongcup1:
+    number: A1-B0-2
     default_pulse_ms: 500
     default_hold_power: .5
     pulse_events: release_cup1 #, None    # adding this event removes the default pulse_event, which collecting_balls was using to fire the release coils too early.
   c_pongcup2:
-    number: A1-B0-0
+    number: A1-B0-3
     default_pulse_ms: 500
     default_hold_power: .5
     pulse_events: release_cup2 #, None   # adding this event removes the default pulse_event, which collecting_balls was using to fire the release coils too early.
-  c_shaker:
-    number: A1-B0-2
-    default_pulse_ms: 5
-    default_hold_power: 0.3
-
-  c_knocker:
-    number: A1-B0-3
-    default_pulse_ms: 35
-    default_hold_power: 0.125
 
   # 12V Coil Driver PCB: A1-B1
   # J11
