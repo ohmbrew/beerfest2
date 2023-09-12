@@ -1,0 +1,52 @@
+#show_version=5
+- time: 0
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: red
+    arrow_horseshoe3: red
+- time: '+1'
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: white
+    arrow_horseshoe3: white
+- time: '+1'
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: blue
+- time: '+1'
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: red
+    arrow_horseshoe3: red
+- time: '+1'
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: white
+    arrow_horseshoe3: white
+- time: '+1'
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: blue
+- time: '+1'
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: red
+    arrow_horseshoe3: red
+- time: '+1'
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: white
+    arrow_horseshoe3: white
+- time: '+1'
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: blue
+- time: '+1'
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+  events: award_drinko_bonus_show_complete

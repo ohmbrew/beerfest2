@@ -140,28 +140,19 @@ player_vars:
   pts_i:
     initial_value: 1000000
     value_type: int
-  pts_n:
-    initial_value: 40000
-    value_type: int
-  pts_k:
-    initial_value: 40000
-    value_type: int
-  pts_o:
-    initial_value: 40000
-    value_type: int
   pts_rnd:
     initial_value: 10000    # used for pops and slings - these will have some multiple of 10 points (up to 9x) added. To randomize lower two digits of score
     value_type: int
   
   # bonuses & awards
   
-  pts_paddle_bonus1:
+  pts_upf_bonus1:
     initial_value: 1000000
     value_type: int
-  pts_paddle_bonus2:
+  pts_upf_bonus2:
     initial_value: 3500000
     value_type: int
-  pts_paddle_hammered:
+  pts_upf_hammered:
     initial_value: 5000000
     value_type: int
   pts_spell_beer:

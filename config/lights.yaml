@@ -221,20 +221,20 @@ lights:
     previous: arrow_mode2
     type: grb
     tags: strip
-  arrow_paddle3:
+  arrow_upf3:
     previous: arrow_mode3
     type: grb
     tags: strip
-  arrow_paddle2:
-    previous: arrow_paddle3
+  arrow_upf2:
+    previous: arrow_upf3
     type: grb
     tags: strip
-  arrow_paddle1:
-    previous: arrow_paddle2
+  arrow_upf1:
+    previous: arrow_upf2
     type: grb
     tags: strip
   lock:
-    previous: arrow_paddle1
+    previous: arrow_upf1
     type: grb
     tags: strip
   arrow_house1:

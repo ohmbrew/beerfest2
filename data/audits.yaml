@@ -30,13 +30,7 @@ shots:
   shot_chance: 215
   shot_chug_beer: 194
   shot_diverter: 253
-  shot_do_shot: 193
-  shot_paddle_p: 393
-  shot_paddle_d1: 474
-  shot_paddle_l: 366
-  shot_paddle_d2: 369
-  shot_paddle_e: 364
-  shot_paddle_a: 375
+  shot_do_shot: 195
   shot_hj: 145
   shot_kicker_mode: 859
   shot_kicker_rimrules: 126
@@ -45,6 +39,12 @@ shots:
   shot_laneright_inner: 32
   shot_laneright_outer: 5
   shot_leftflipper: 288
+  shot_paddle_a: 375
+  shot_paddle_d1: 474
+  shot_paddle_d2: 369
+  shot_paddle_e: 364
+  shot_paddle_l: 366
+  shot_paddle_p: 393
   shot_plunger_lane_exit: 913
   shot_pongcup1: 207
   shot_pongcup2: 65
@@ -86,14 +86,8 @@ switches:
   s_chance: 324
   s_chug_beer: 273
   s_diverter: 256
-  s_do_shot: 268
+  s_do_shot: 270
   s_drain: 1281
-  s_paddle_p: 251
-  s_paddle_d1: 330
-  s_paddle_l: 385
-  s_paddle_d2: 1032
-  s_paddle_e: 502
-  s_paddle_a: 342
   s_flipper_left: 2293
   s_flipper_right: 2490
   s_hj: 146
@@ -106,10 +100,19 @@ switches:
   s_laneright_outer: 23
   s_left_flipper: 154
   s_left_slingshot: 32
+  s_open1: 0
+  s_open2: 0
+  s_open3: 0
   s_openswitch_1: 0
   s_openswitch_2: 0
   s_orbit_entry: 0
   s_orbit_exit: 0
+  s_paddle_a: 342
+  s_paddle_d1: 330
+  s_paddle_d2: 1032
+  s_paddle_e: 502
+  s_paddle_l: 385
+  s_paddle_p: 251
   s_plunger_lane: 2350
   s_plunger_lane_exit: 1103
   s_pongcup1: 208
@@ -121,7 +124,10 @@ switches:
   s_pop_upper: 141
   s_pop_upper_left: 7479
   s_pop_upper_right: 603
+  s_popo_captured: 0
+  s_popo_release: 0
   s_quarters: 2106
+  s_ramp_upf: 0
   s_ramp_upf_entry: 134
   s_ramp_upf_exit: 0
   s_right_flipper: 183
@@ -134,7 +140,10 @@ switches:
   s_target_rimrules: 33
   s_tavern_exit: 2
   s_tavern_spinner: 3146
+  s_tgt_popo: 0
   s_tgt_ramp_boot: 162
+  s_tgt_ramp_boot_left: 0
+  s_tgt_ramp_boot_right: 0
   s_trogan_keg: 22
   s_trojankeg_left: 2176
   s_trojankeg_middle: 198
@@ -143,6 +152,7 @@ switches:
   s_trough2: 367
   s_trough3: 335
   s_trough_eject: 1638
+  s_upf_entry: 0
   s_upf_tgt_left: 171
   s_upf_tgt_right: 159
   s_zj: 107

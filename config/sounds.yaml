@@ -373,27 +373,18 @@ sounds:
         attenuation: -10db
         release_point: .5 sec
         release: 1.5 sec
-  voice_paddle_p:
+  voice_upf_tgt_left:
     file: Derek-D.wav
     track: voice
     volume: 1.0
-  voice_paddle_a:
+  voice_upf_tgt_right:
     file: Derek-R.wav
     track: voice
     volume: 1.0
-  voice_paddle_d2:
+  voice_upf_horseshoe:
     file: Derek-N.wav
     track: voice
     volume: 1.0
-  voice_paddle_l:
-    file: Derek-K.wav
-    track: voice
-    volume: 1.0
-  voice_paddle_e:
-    file: Derek-O.wav
-    track: voice
-    volume: 1.0
-
   voice_hitthekeg:
     file: Derek-HitTheKeg.wav
     track: voice

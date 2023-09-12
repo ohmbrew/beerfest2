@@ -221,7 +221,7 @@ slides:
       video: easteregg_adult
 
 slide_player:
-  shot_paddle_d1_hit{mode.dasboot.active == False}:
+  shot_upf_horseshoe_hit{mode.dasboot.active == False}:
     slide_bonus_monkeychug:
       priority: 1500
       expire: 2s
@@ -1013,7 +1013,7 @@ sound_player:
   shot_diverter_hit{mode.volumechug.active == False and device.counters.track_flipperflop.value < 2}:
     2burps:
       action: play  
-  shot_ramp_paddle_hit: 
+  shot_ramp_upf_hit: 
     2burps:
       action: play
   spinner_tavern_spinner_active:
@@ -1078,7 +1078,7 @@ sound_player:
       track: music
       loops: -1
       volume: .5
-  shot_paddle_d1_hit:
+  shot_upf_tgt_left_hit:
     voice_ohyea:
       action: play
   shot_slingquarters_hit:
@@ -1281,7 +1281,7 @@ show_player:
   shot_diverter_hit:
     show_shaker_1s:
       loops: 0
-  shot_ramp_paddle_hit:
+  shot_ramp_upf_hit:
     show_shaker_1s:
       loops: 0
 
@@ -1512,7 +1512,7 @@ variable_player:
   shot_diverter_hit{mode.longpour.active == False and mode.volumechug.active == False and mode.dasboot.active == False}:  # longpour AND volumechug use this shot
     score: current_player.pts_ramp_boot
     bonus_numramps: 1         # bonus tracker (ramps)
-  shot_ramp_paddle_hit{mode.longpour.active == False and mode.dasboot.active == False}:
+  shot_ramp_upf_hit{mode.longpour.active == False and mode.dasboot.active == False}:
     score: current_player.pts_ramp_paddle
     bonus_numramps: 1         # bonus tracker (ramps)
 
@@ -1556,7 +1556,7 @@ variable_player:
 
   # monkeychug/paddle slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a paddle Bonus slide from showing first.
   # set higher priority to make sure this processes first
-  shot_paddle_d1_hit:
+  shot_horseshoe_hit:
     priority: 10000
     is_slide_monkeychug_active:
         int: 1

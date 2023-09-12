@@ -73,9 +73,9 @@
     arrow_mode2: off
     arrow_mode3: off
     lock: off
-    arrow_paddle1: off
-    arrow_paddle2: off
-    arrow_paddle3: off
+    arrow_upf1: off
+    arrow_upf2: off
+    arrow_upf3: off
     ball1_locked: off
     ball2_locked: off
     mode_longpour: off

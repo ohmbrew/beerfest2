@@ -81,7 +81,7 @@ coils:
     allow_enable: true
   c_trough_eject:
     number: A1-B1-3
-    default_pulse_ms: 25
+    default_pulse_ms: 40
     default_hold_power: .5
   c_drain_eject:
     number: A1-B1-4

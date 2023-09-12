@@ -150,12 +150,9 @@ shows:
         tavern_sign2: off
         tavern_inside: off
 
-        paddle_e: off
-        paddle_l: off
-        paddle_d2: off
-        paddle_p: off
-        paddle_a: off
-        paddle_d1: off
+        arrow_horseshoe3: off
+        arrow_horseshoe2: off
+        arrow_horseshoe1: off
 
         arrow_rimrules1: off
         arrow_rimrules2: off
@@ -169,9 +166,9 @@ shows:
         arrow_mode1: off
         arrow_mode2: off
         arrow_mode3: off
-        arrow_paddle1: off
-        arrow_paddle2: off
-        arrow_paddle3: off
+        arrow_upf1: off
+        arrow_upf2: off
+        arrow_upf3: off
 
         strikeout_shot: off
         strikeout_beer: off
@@ -284,22 +281,13 @@ shows:
           color: 008ce5
           fade: .25s
 
-        paddle_e:  
+        arrow_horseshoe3:  
           color: 008ce5
           fade: .25s
-        paddle_l:  
+        arrow_horseshoe2:  
           color: 008ce5
           fade: .25s
-        paddle_d2:  
-          color: 008ce5
-          fade: .25s
-        paddle_p:  
-          color: 008ce5
-          fade: .25s
-        paddle_a:  
-          color: 008ce5
-          fade: .25s
-        paddle_d1:  
+        arrow_horseshoe1:  
           color: 008ce5
           fade: .25s
 
@@ -339,13 +327,13 @@ shows:
         arrow_mode3:  
           color: 008ce5
           fade: .25s
-        arrow_paddle1:  
+        arrow_upf1:  
           color: 008ce5
           fade: .25s
-        arrow_paddle2:  
+        arrow_upf2:  
           color: 008ce5
           fade: .25s
-        arrow_paddle3:  
+        arrow_upf3:  
           color: 008ce5
           fade: .25s
 
@@ -493,22 +481,13 @@ shows:
           color: off
           fade: .25s
 
-        paddle_e: 
+        arrow_horseshoe3:  
           color: off
           fade: .25s
-        paddle_l: 
+        arrow_horseshoe2:  
           color: off
           fade: .25s
-        paddle_d2: 
-          color: off
-          fade: .25s
-        paddle_p:  
-          color: off
-          fade: .25s
-        paddle_a:  
-          color: off
-          fade: .25s
-        paddle_d1: 
+        arrow_horseshoe1: 
           color: off
           fade: .25s
 
@@ -549,13 +528,13 @@ shows:
         arrow_mode3:  
           color: off
           fade: .25s
-        arrow_paddle1:  
+        arrow_upf1:  
           color: off
           fade: .25s
-        arrow_paddle2:  
+        arrow_upf2:  
           color: off
           fade: .25s
-        arrow_paddle3:  
+        arrow_upf3:  
           color: off
           fade: .25s
 
@@ -701,22 +680,13 @@ shows:
           color: 008ce5
           fade: .25s
 
-        paddle_e:  
+        arrow_horseshoe3:  
           color: 008ce5
           fade: .25s
-        paddle_l:  
+        arrow_horseshoe2:  
           color: 008ce5
           fade: .25s
-        paddle_d2:  
-          color: 008ce5
-          fade: .25s
-        paddle_p:  
-          color: 008ce5
-          fade: .25s
-        paddle_a:  
-          color: 008ce5
-          fade: .25s
-        paddle_d1:  
+        arrow_horseshoe1:  
           color: 008ce5
           fade: .25s
 
@@ -757,13 +727,13 @@ shows:
         arrow_mode3:  
           color: 008ce5
           fade: .25s
-        arrow_paddle1:  
+        arrow_upf1:  
           color: 008ce5
           fade: .25s
-        arrow_paddle2:  
+        arrow_upf2:  
           color: 008ce5
           fade: .25s
-        arrow_paddle3:  
+        arrow_upf3:  
           color: 008ce5
           fade: .25s
 

@@ -25,12 +25,6 @@ shots:
     switch: s_pop_upper_right
   shot_pop_upper_left:
     switch: s_pop_upper_left
-  # shot_hj:
-  #   switch: s_hj
-  # shot_bj:
-  #   switch: s_bj
-  # shot_zj:
-  #   switch: s_zj
   shot_chance:
     switch: s_chance
   shot_special:
@@ -57,11 +51,11 @@ shots:
     switch: s_diverter
   shot_ramp_upf:
     switch: s_ramp_upf
-  shot_paddle_p:
+  shot_upf_tgt_left:
     switch: s_upf_tgt_left
-  shot_paddle_a:
+  shot_upf_tgt_right:
     switch: s_upf_tgt_right
-  shot_paddle_d1:
+  shot_horseshoe:
     switch: s_horseshoe
   shot_slingquarters:
     switch: s_slingshot_quarters

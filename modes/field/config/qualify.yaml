@@ -40,13 +40,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: red
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -93,13 +93,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: red
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -146,13 +146,13 @@ shows:
         arrow_boot3: 
           color: red
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: red
           fade: .25s
         l_pop_left: 
@@ -200,13 +200,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: white
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -253,13 +253,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: white
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -306,13 +306,13 @@ shows:
         arrow_boot3: 
           color: white
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: white
           fade: .25s
         l_pop_left: 
@@ -360,13 +360,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: blue
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -413,13 +413,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: blue
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
@@ -466,13 +466,13 @@ shows:
         arrow_boot3: 
           color: blue
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: blue
           fade: .25s
         l_pop_left: 
@@ -520,13 +520,13 @@ shows:
         arrow_boot3: 
           color: off
           fade: .25s
-        arrow_paddle1: 
+        arrow_upf1: 
           color: off
           fade: .25s
-        arrow_paddle2: 
+        arrow_upf2: 
           color: off
           fade: .25s
-        arrow_paddle3: 
+        arrow_upf3: 
           color: off
           fade: .25s
         l_pop_left: 
