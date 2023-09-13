@@ -851,42 +851,93 @@ random_event_player:
 
 slide_player:
   # first slide could be 1 of 6 bonuses
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters > 0}: slide_bonus_quarters
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs > 0}: slide_bonus_hjs
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs > 0}: slide_bonus_bjs
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}: slide_bonus_zjs
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}: slide_bonus_strikeouts
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}: slide_bonus_total
-  
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs > 0}: slide_bonus_hjs
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs > 0}: slide_bonus_bjs
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}: slide_bonus_zjs
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}: slide_bonus_strikeouts
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}: slide_bonus_chance
-
-  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs > 0}: slide_bonus_bjs
-  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}: slide_bonus_zjs
-  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}: slide_bonus_strikeouts
-  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}: slide_bonus_chance
-
-  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs > 0}: slide_bonus_zjs
-  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}: slide_bonus_strikeouts
-  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}: slide_bonus_chance
-
-  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts > 0}: slide_bonus_strikeouts
-  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}: slide_bonus_chance
-
-  slide_slide_bonus_strikeouts_removed{current_player.bonus_canceled == 0 and current_player.bonus_numramps > 0}: slide_bonus_ramps
-  slide_slide_bonus_strikeouts_removed{current_player.bonus_canceled == 0 and current_player.bonus_numramps==0}: slide_bonus_chance
-
-  slide_slide_bonus_ramps_removed{current_player.bonus_canceled == 0}: slide_bonus_chance
-
-  slide_slide_bonus_chance_removed{current_player.bonus_canceled == 0}: slide_bonus_total
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters > 0}:
+    slide_bonus_quarters:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs > 0}:
+    slide_bonus_hjs:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs > 0}:
+    slide_bonus_bjs:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}:
+    slide_bonus_zjs:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}:
+    slide_bonus_strikeouts:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  drain_audio_complete{current_player.bonus_canceled == 0 and current_player.bonus_numquarters==0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}:
+    slide_bonus_total:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs > 0}:
+    slide_bonus_hjs:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs > 0}:
+    slide_bonus_bjs:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}:
+    slide_bonus_zjs:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}:
+    slide_bonus_strikeouts:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  slide_slide_bonus_quarters_removed{current_player.bonus_canceled == 0 and current_player.bonus_numhjs==0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs > 0}:
+    slide_bonus_bjs:
+      target: main
+  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs > 0}:
+    slide_bonus_zjs:
+      target: main
+  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}:
+    slide_bonus_strikeouts:
+      target: main
+  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  slide_slide_bonus_hjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numbjs==0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs > 0}:
+    slide_bonus_zjs:
+      target: main
+  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts > 0}:
+    slide_bonus_strikeouts:
+      target: main
+  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  slide_slide_bonus_bjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numzjs==0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts > 0}:
+    slide_bonus_strikeouts:
+      target: main
+  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  slide_slide_bonus_zjs_removed{current_player.bonus_canceled == 0 and current_player.bonus_numstrikeouts==0 and current_player.bonus_numramps==0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_strikeouts_removed{current_player.bonus_canceled == 0 and current_player.bonus_numramps > 0}:
+    slide_bonus_ramps:
+      target: main
+  slide_slide_bonus_strikeouts_removed{current_player.bonus_canceled == 0 and current_player.bonus_numramps==0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_ramps_removed{current_player.bonus_canceled == 0}:
+    slide_bonus_chance:
+      target: main
+  slide_slide_bonus_chance_removed{current_player.bonus_canceled == 0}:
+    slide_bonus_total:
+      target: main
 
   flipper_cancel:
     slide_bonus_quarters:
