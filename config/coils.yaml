@@ -25,10 +25,7 @@ coils:
     default_pulse_ms: 15
 
   # Bank B (A0-B1)
-  c_flipper_left:
-    number: A0-B1-0         # PD-16 Address 0, Bank A, Bit 0 for left flipper
-    default_pulse_ms: 25
-    default_hold_power: .125
+  
   c_slingshot_left:
     number: A0-B1-1
     default_pulse_ms: 10
@@ -38,7 +35,10 @@ coils:
   c_strike_out:
     number: A0-B1-3
     default_pulse_ms: 35
-
+  c_flipper_left:
+    number: A0-B1-4
+    default_pulse_ms: 25
+    default_hold_power: .125
   c_flipper_upper:
     number: A0-B1-5
     default_pulse_ms: 13
