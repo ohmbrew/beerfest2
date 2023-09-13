@@ -399,50 +399,93 @@ slides:
             duration: .5s
     - type: image
       image: background
+  slide_mug_trojankeg:
+    widgets:
+      - type: text
+        text: SHOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: KEG
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg  
 
 slide_player:
-  mode_trojankeg_started: slide_trojankeg_intro
+  mode_trojankeg_started:
+    slide_trojankeg_intro:
+      target: main
+    slide_mug_trojankeg:
+      target: mini
   intro_done:
     slide_trojankeg_intro:
+      target: main
       action: remove
     slide_trojankeg_main:
+      target: main
       action: play
   award_trojankeg_bonus:
     slide_bonus_trojankeg_themed:
+      target: main
       action: play
       priority: 1000
   trojankeg_bonus_audio_complete:
     slide_bonus_trojankeg_themed:
+      target: main
       action: remove
   trojankeg_success:
     slide_trojankeg_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_trojankeg_success:
+      target: main
       action: play
   trojankeg_fail:
     slide_trojankeg_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_trojankegfail:
+      target: main
       action: play
   trojankeg_partial:
     slide_trojankeg_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_trojankeg_partial:
+      target: main
       action: play
   slide_event_result_complete:
     slide_trojankeg_success:
+      target: main
       action: remove
     slide_trojankegfail:
+      target: main
       action: remove
     slide_trojankeg_partial:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
     
 

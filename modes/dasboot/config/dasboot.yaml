@@ -578,61 +578,99 @@ slides:
             duration: .5s
     - type: image
       image: background
-
+  slide_mug_dasboot:
+    widgets:
+      - type: text
+        text: ALL TARGETS
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: MEGA POINTS
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg  
 slide_player:
   mode_dasboot_started:
     slide_dasboot_intro:
+      target: main
       action: play
       expire: 30.1s
       priority: 700
+    slide_mug_dasboot:
+      target: mini
   timer_dasboot_intro_timer_complete:   # there was like a 1 sec lag from loading main slide from intro. Used timer completion instead, which ends slightly sooner than video in intro slide
     slide_dasboot_main:
+      target: main
       priority: 700
       action: play
   event_dasboot_success:
     slide_dasboot_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_dasboot_success:
+      target: main
       action: play
   slide_event_result_complete:
     slide_dasboot_success:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
 
   # Bonus slides
   shot_diverter_hit:
     dasboot_slide_bonus_boot:
+      target: main
       priority: 1000
       expire: 2s
   upf_bonus1_award:
     dasboot_slide_bonus_upf1:
+      target: main
       priority: 1000
       expire: 2s
   upf_bonus2_award:
     dasboot_slide_bonus_upf2:
+      target: main
       priority: 1000
       expire: 2s
   upf_hammered_award:
     dasboot_slide_bonus_hammered:
+      target: main
       priority: 1000
       expire: 2s
   shot_horseshoe_hit:
     dasboot_slide_bonus_monkeychug:
+      target: main
       priority: 1000
       expire: 2s
   bank_strikeout_complete:
     dasboot_slide_bonus_strikeout:
+      target: main
       priority: 1000
       expire: 2s
   spellbeer_group_hit_complete:
     dasboot_slide_bonus_spellbeer:
+      target: main
       priority: 1000
       expire: 2s
   spelled_munich:
     dasboot_slide_bonus_spellmunich:
+      target: main
       priority: 1000
       expire: 2s
 

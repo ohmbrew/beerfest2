@@ -387,48 +387,90 @@ slides:
             duration: .5s
     - type: image
       image: background
+  slide_mug_volumechug:
+    widgets:
+      - type: text
+        text: SHOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: VOL CHUG
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg  
 
 slide_player:
-  mode_volumechug_started: slide_volumechug_intro
+  mode_volumechug_started:
+    slide_volumechug_intro:
+      target: main
+    slide_mug_volumechug:
+      target: mini
   intro_done:
     slide_volumechug_intro:
+      target: main
       action: remove
     slide_volumechug_main:
+      target: main
       action: play
   award_volumechug_bonus:
     slide_bonus_volumechug_themed:
+      target: main
       action: play
       priority: 1000
       expire: 2s
   volumechug_success:
     slide_volumechug_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_volumechug_success:
+      target: main
       action: play
   volumechug_fail:
     slide_volumechug_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_volumechug_fail:
+      target: main
       action: play
   volumechug_partial:
     slide_volumechug_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_volumechug_partial:
+      target: main
       action: play
   slide_event_result_complete:
     slide_volumechug_success:
+      target: main
       action: remove
     slide_volumechug_fail:
+      target: main
       action: remove
     slide_volumechug_partial:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
     
 

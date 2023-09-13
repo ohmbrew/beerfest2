@@ -58,9 +58,11 @@ slides:
 slide_player:
   spelled_munich{mode.dasboot.active == False}:
     slide_bonus_spellmunich:
+      target: main
       priority: 1000
   slide_bonus_spellmunich_audio_complete:
     slide_bonus_spellmunich:
+      target: main
       action: remove
 
 # this show sets lights appropriately. MUNICH lights are tagged. Lowest light has tags of municfill1-7, the second

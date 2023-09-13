@@ -256,45 +256,86 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
+  slide_mug_quarters:
+    widgets:
+      - type: text
+        text: SHOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: SHOT GLASS
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg  
 
 slide_player:
-  mode_quarters_started: slide_quarters_intro
+  mode_quarters_started:
+    slide_quarters_intro:
+      target: main
+    slide_mug_quarters:
+      target: mini
   intro_done:
     slide_quarters_intro:
+      target: main
       action: remove
     slide_quarters_main:
+      target: main
       action: play
   quarters_success:
     slide_quarters_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_quarters_success:
+      target: main
       action: play
   quarters_fail:
     slide_quarters_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_quarters_fail:
+      target: main
       action: play
   quarters_partial:
     slide_quarters_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_quarters_partial:
+      target: main
       action: play
   slide_event_result_complete:
     slide_quarters_success:
+      target: main
       action: remove
     slide_quarters_fail:
+      target: main
       action: remove
     slide_quarters_partial:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
-    
+  
 
 queue_relay_player:
   mode_quarters_stopping{device.timers.round_timer_quarters.ticks == 0 and current_player.has_current_thememode==1}:  # timer expired, player completed bonus

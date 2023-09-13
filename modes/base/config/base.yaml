@@ -24,7 +24,7 @@ event_player:
     - stop_mode_global
   mode_type_wizard_stopped{not mode["base"].stopping}:
     - start_mode_global
-  timer_monkeychug_slide_timer_complete: show_queued_paddle_bonus   # tell paddle Bonus mode that we're done showing Monkeychug slide, if it has queued paddle Bonus slide
+  timer_monkeychug_slide_timer_complete: show_queued_upf_bonus   # tell UPF Bonus mode that we're done showing Monkeychug slide, if it has queued UPF Bonus slide
 
 timers:
   monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for paddle mode to show a paddle Bonus if one is queued
@@ -221,21 +221,27 @@ slides:
       video: easteregg_adult
 
 slide_player:
-  shot_upf_horseshoe_hit{mode.dasboot.active == False}:
+  shot_horseshoe_hit{mode.dasboot.active == False}:
     slide_bonus_monkeychug:
+      target: main
       priority: 1500
       expire: 2s
   bank_strikeout_complete{mode.strikeout.active == False and mode.dasboot.active == False}:
     slide_bonus_strikeout:
+      target: main
       priority: 1000
       expire: 2s
-  ball_save_ball_save_saving_ball: slide_ballsave
+  ball_save_ball_save_saving_ball:
+    slide_ballsave:
+      target: main
   play_easteregg{device.switches.s_adult.state == 0}:
     slide_play_easteregg_clean:
+      target: main
       priority: 20000
       expire: 6.35s
   play_easteregg{device.switches.s_adult.state == 1}:
     slide_play_easteregg_adult:
+      target: main
       priority: 20000
       expire: 11.16s
 # shows to light lights when paddle sensor has been hit
@@ -1043,7 +1049,10 @@ sound_player:
   shot_special_hit{mode.dasboot.active == False}:
     unddrinken:
       action: play
-  shot_tgt_ramp_boot_hit{mode.dasboot.active == False}:
+  shot_tgt_ramp_boot_left_hit{mode.dasboot.active == False}:
+    voice_cheers:
+      action: play
+  shot_tgt_ramp_boot_right_hit{mode.dasboot.active == False}:
     voice_cheers:
       action: play
   shot_tgt_rimrules_hit{mode.dasboot.active == False}:
@@ -1079,6 +1088,9 @@ sound_player:
       loops: -1
       volume: .5
   shot_upf_tgt_left_hit:
+    voice_ohyea:
+      action: play
+  shot_upf_tgt_right_hit:
     voice_ohyea:
       action: play
   shot_slingquarters_hit:

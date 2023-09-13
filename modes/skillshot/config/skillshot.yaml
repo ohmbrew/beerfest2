@@ -169,10 +169,12 @@ slides:
 slide_player:
   skill_success_full:
     slide_skillshot_success_full:
+      target: main
       priority: 1000
       expire: 3s
   skill_success_partial:
     slide_skillshot_success_partial:
+      target: main
       priority: 1000
       expire: 3s
 

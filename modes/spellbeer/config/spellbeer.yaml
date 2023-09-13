@@ -48,9 +48,11 @@ slides:
 slide_player:
   spellbeer_group_hit_complete{mode.dasboot.active == False}:
     slide_bonus_spellbeer:
+      target: main
       priority: 1000
   slide_bonus_spellbeer_audio_complete:
     slide_bonus_spellbeer:
+      target: main
       action: remove
 
 shot_groups:

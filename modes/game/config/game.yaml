@@ -11,19 +11,27 @@ slides:
   multiplayer_slide: []
 
 slide_player:
-  single_player_ball_started: base_slide
-  multi_player_ball_started: multiplayer_slide
+  single_player_ball_started:
+    base_slide:
+      target: main
+  multi_player_ball_started:
+    multiplayer_slide:
+      target: main
   # If a second player joins during player 1's turn, swap base_slide for multiplayer
   multiplayer_game:
     base_slide:
+      target: main
       action: remove
     multiplayer_slide:
+      target: main
       action: play
     
   ball_will_end:
     base_slide:
+      target: main
       action: remove
     multiplayer_slide:
+      target: main
       action: remove
 
 widget_player:

@@ -294,45 +294,87 @@ slides:
             duration: .5s
     - type: image
       image: background
+  slide_mug_strikeout:
+    widgets:
+      - type: text
+        text: SHOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: DROP TARGETS
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg
 slide_player:
-  mode_strikeout_started: slide_strikeout_intro
+  mode_strikeout_started:
+    slide_strikeout_intro:
+      target: main
+    slide_mug_strikeout:
+      target: mini
   intro_done:
     slide_strikeout_intro:
+      target: main
       action: remove
     slide_strikeout_main:
+      target: main
       action: play
   strikeout_success:
     slide_strikeout_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_strikout_success:
+      target: main
       action: play
   strikeout_fail:
     slide_strikeout_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_strikeout_fail:
+      target: main
       action: play
   strikeout_partial:
     slide_strikeout_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_strikeout_partial:
+      target: main
       action: play
   slide_event_result_complete:
     slide_strikout_success:
+      target: main
       action: remove
     slide_strikeout_fail:
+      target: main
       action: remove
     slide_strikeout_partial:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
   bank_strikeout_complete:
     slide_bonus_strikeout_themed:
+      target: main
       priority: 1000
       expire: 2s 
 

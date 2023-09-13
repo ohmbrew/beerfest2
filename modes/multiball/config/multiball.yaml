@@ -54,15 +54,19 @@ slides:
 slide_player:
   multiball_sink1{device.switches.s_adult.state == 0}:
     multiball_sink1_clean:
+      target: main
       priority: 2000
   multiball_sink1{device.switches.s_adult.state == 1}:
     multiball_sink1_adult:
+      target: main
       priority: 2000
   multiball_sink2:
     multiball_sink2:
+      target: main
       priority: 2000
   start_multiball:
     multiball_slide:
+      target: main
       priority: 2000
       expire: 3s
 

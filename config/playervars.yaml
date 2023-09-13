@@ -294,10 +294,10 @@ player_vars:
   dasboot_bonustext_monkeychug:
     initial_value: 0
     value_type: int
-  dasboot_bonustext_drinkbonus1:
+  dasboot_bonustext_upfbonus1:
     initial_value: 0
     value_type: int
-  dasboot_bonustext_drinkbonus2:
+  dasboot_bonustext_upfbonus2:
     initial_value: 0
     value_type: int
   dasboot_bonustext_hammered:
@@ -319,10 +319,10 @@ player_vars:
     value_type: int
 
   # track if we are displaying paddle bonus slide. This is used to enforce order of Monkeychug bonus slide/sound and paddle bonus slide/sound
-  is_slide_paddle1_queued:
+  is_slide_upf1_queued:
     initial_value: 0
     value_type: int
-  is_slide_paddle2_queued:
+  is_slide_upf2_queued:
     initial_value: 0
     value_type: int
   is_slide_hammered_queued:

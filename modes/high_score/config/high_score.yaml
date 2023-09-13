@@ -50,8 +50,12 @@ sound_player:
 # optional: change the slides (you can omit all the following)
 slide_player:
   _overwrite: true
-  high_score_enter_initials: high_score_enter_initials
-  high_score_award_display: high_score_award_display
+  high_score_enter_initials:
+    high_score_enter_initials:
+      target: main
+  high_score_award_display:
+    high_score_award_display:
+      target: main
 
 slides:
   _overwrite: true

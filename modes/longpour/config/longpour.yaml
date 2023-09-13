@@ -259,43 +259,83 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
-
+  slide_mug_longpour:
+    widgets:
+      - type: text
+        text: SHOOT
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 50
+      - type: text
+        text: RAMPS
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+      - type: image
+        image: minibg
 slide_player:
-  mode_longpour_started: slide_longpour_intro
+  mode_longpour_started:
+    slide_longpour_intro:
+      target: main
+    slide_mug_longpour:
+      target: mini
   intro_done:
     slide_longpour_intro:
+      target: main
       action: remove
     slide_longpour_main:
+      target: main
       action: play
   longpour_success:
     slide_longpour_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_longpour_success:
+      target: main
       action: play
   longpour_fail:
     slide_longpour_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_longpour_fail:
+      target: main
       action: play
   longpour_partial:
     slide_longpour_main:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: play
     slide_longpour_partial:
+      target: main
       action: play
   slide_event_result_complete:
     slide_longpour_success:
+      target: main
       action: remove
     slide_longpour_fail:
+      target: main
       action: remove
     slide_longpour_partial:
+      target: main
       action: remove
     slide_just_background:
+      target: main
       action: remove
     
 
