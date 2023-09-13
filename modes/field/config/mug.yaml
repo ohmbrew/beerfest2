@@ -33,39 +33,39 @@ shows:
     - duration: -1
 
 # fill_mug_X event is called whenever count_events are detected. conditional events below call the show
-show_player:
-  fill_mug_X{count==2}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill1
-      loops: 0
-  fill_mug_X{count==4}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill2
-      loops: 0
-  fill_mug_X{count==6}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill3
-      loops: 0
-  fill_mug_X{count==8}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill4
-      loops: 0
-  fill_mug_X{count==10}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill5
-      loops: 0
-  fill_mug_X{count==12}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill6
-      loops: 0
-  fill_mug_X{count==14}:
-    fill_mug:
-      show_tokens:
-        tag: mugfill7    
-      loops: 0
+# show_player:
+#   fill_mug_X{count==2}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill1
+#       loops: 0
+#   fill_mug_X{count==4}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill2
+#       loops: 0
+#   fill_mug_X{count==6}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill3
+#       loops: 0
+#   fill_mug_X{count==8}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill4
+#       loops: 0
+#   fill_mug_X{count==10}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill5
+#       loops: 0
+#   fill_mug_X{count==12}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill6
+#       loops: 0
+#   fill_mug_X{count==14}:
+#     fill_mug:
+#       show_tokens:
+#         tag: mugfill7    
+#       loops: 0
