@@ -259,6 +259,44 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
+  slide_bonus_longpour_ramps_themed:
+    widgets:
+    - type: text
+      text: LONGPOUR
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_longpour_ramps_themed)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
   slide_mug_longpour:
     widgets:
       - type: text
@@ -324,6 +362,21 @@ slide_player:
     slide_longpour_partial:
       target: main
       action: play
+  shot_diverter_hit:
+    slide_bonus_longpour_ramps_themed:
+      target: main
+      priority: 1000
+      expire: 2s
+  shot_ramp_upf_hit:
+    slide_bonus_longpour_ramps_themed:
+      target: main
+      priority: 1000
+      expire: 2s
+  shot_tavern_hit:
+    slide_bonus_longpour_ramps_themed:
+      target: main
+      priority: 1000
+      expire: 2s  
   slide_event_result_complete:
     slide_longpour_success:
       target: main
@@ -693,7 +746,7 @@ variable_player:
       int: device.timers.round_timer_longpour.ticks
       action: set
   shot_tavern_hit:
-    score: current_player.pts_tavern_themed
+    score: current_player.pts_ramp_tavern_themed
     has_current_thememode:        # track that player has completed requirements for bonus
       action: set
       int: 1

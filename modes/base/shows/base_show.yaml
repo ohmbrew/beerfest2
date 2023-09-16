@@ -1,49 +1,26 @@
 #show_version=5
-- duration: 1
+- duration: .5
   lights:
-    slingquarters_upper:
-      color: off
-      fade: .25s
-    slingquarters_lower:
-      color: 008ce5
-      fade: .25s
+    slingquarters_upper: off      
+    slingquarters_lower: 008ce5      
     slingleft_upper: off
-    slingleft_lower:
-      color: 008ce5
-      fade: .25s
+    slingleft_lower: 008ce5      
     slingright_upper: off
-    slingright_lower:
-      color: 008ce5
-      fade: .25s
-    flipper_left_inner:
-      color: 008ce5
-      fade: .25s
-    flipper_right_inner:
-      color: 008ce5
-      fade: .25s
-- duration: 1
+    slingright_lower: 008ce5
+    flipper_left_outer: 008ce5   
+    flipper_left_inner: off      
+    flipper_right_inner: off
+    flipper_right_outer: 008ce5
+- duration: .5
   lights:
-    slingquarters_upper:
-      color: 008ce5
-      fade: .25s
-    slingquarters_lower:
-      color: off
-      fade: .25s
-    slingleft_upper:
-      color: 008ce5
-      fade: .25s
-    slingleft_lower:
-      color: off
-      fade: .25s
-    slingright_upper:
-      color: 008ce5
-      fade: .25s
-    slingright_lower:
-      color: off
-      fade: .25s
-    flipper_left_inner:
-      color: off
-      fade: .25s
-    flipper_right_inner:
-      color: off
-      fade: .25s
+    slingquarters_upper: 008ce5      
+    slingquarters_lower: off      
+    slingleft_upper: 008ce5      
+    slingleft_lower: off      
+    slingright_upper: 008ce5      
+    slingright_lower: off      
+    flipper_left_outer: off   
+    flipper_left_inner: 008ce5      
+    flipper_right_inner: 008ce5
+    flipper_right_outer: off
+      

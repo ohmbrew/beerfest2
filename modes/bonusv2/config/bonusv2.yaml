@@ -212,603 +212,603 @@ shows:
       lights:
         gi_left1:
           color: 008ce5
-          fade: .25s
+          
         gi_right1: 
           color: 008ce5
-          fade: .25s
+          
         gi_left2: 
           color: 008ce5
-          fade: .25s
+          
         gi_right2: 
           color: 008ce5
-          fade: .25s
+          
         gi_left3: 
           color: 008ce5
-          fade: .25s
+          
         gi_right3: 
           color: 008ce5
-          fade: .25s
+          
         gi_left4: 
           color: 008ce5
-          fade: .25s
+          
         gi_right4: 
           color: 008ce5
-          fade: .25s
+          
         gi_back1: 
           color: 008ce5
-          fade: .25s
+          
         gi_back2: 
           color: 008ce5
-          fade: .25s
+          
         gi_back3: 
           color: 008ce5
-          fade: .25s
+          
         gi_back4: 
           color: 008ce5
-          fade: .25s
+          
         gi_back5: 
           color: 008ce5
-          fade: .25s
+          
         gi_back6: 
           color: 008ce5
-          fade: .25s
+          
         slingleft_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingleft_lower: 
           color: 008ce5
-          fade: .25s
+          
         slingright_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingright_lower: 
           color: 008ce5
-          fade: .25s
+          
         slingquarters_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingquarters_lower: 
           color: 008ce5
-          fade: .25s
+          
         flipper_left_inner: 
           color: 008ce5
-          fade: .25s
+          
         flipper_right_inner: 
           color: 008ce5
-          fade: .25s
+          
 
         tavern_sign1:  
           color: 008ce5
-          fade: .25s
+          
         tavern_sign2:  
           color: 008ce5
-          fade: .25s
+          
         tavern_inside:  
           color: 008ce5
-          fade: .25s
+          
 
         arrow_horseshoe3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_horseshoe2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_horseshoe1:  
           color: 008ce5
-          fade: .25s
+          
 
         arrow_rimrules1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_rimrules2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_rimrules3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf3:  
           color: 008ce5
-          fade: .25s
+          
 
         strikeout_shot:  
           color: 008ce5
-          fade: .25s
+          
         strikeout_beer:  
           color: 008ce5
-          fade: .25s
+          
         strikeout_bong:  
           color: 008ce5
-          fade: .25s
+          
 
         quarters1:  
           color: 008ce5
-          fade: .25s
+          
 
         lane_left_outer:  
           color: 008ce5
-          fade: .25s
+          
         lane_left_inner:  
           color: 008ce5
-          fade: .25s
+          
         lane_right_inner:  
           color: 008ce5
-          fade: .25s
+          
         lane_right_outer:  
           color: 008ce5
-          fade: .25s
+          
 
 
         ball_save:  
           color: 008ce5
-          fade: .25s
+          
         
         special:  
           color: 008ce5
-          fade: .25s
+          
         chance:  
           color: 008ce5
-          fade: .25s
+          
         
         ball2_locked:  
           color: 008ce5
-          fade: .25s
+          
         ball1_locked:  
           color: 008ce5
-          fade: .25s
+          
   
 
         mode_dasboot:  
           color: 008ce5
-          fade: .25s
+          
         mode_volumechug:  
           color: 008ce5
-          fade: .25s
+          
         mode_longpour:  
           color: 008ce5
-          fade: .25s
+          
         mode_quarters:  
           color: 008ce5
-          fade: .25s
+          
         mode_strikeout:  
           color: 008ce5
-          fade: .25s
+          
         mode_trojankeg:  
           color: 008ce5
-          fade: .25s
+          
 
     - duration: .5s
       lights:
         gi_left1:
           color: off
-          fade: .25s
+          
         gi_right1: 
           color: off
-          fade: .25s
+          
         gi_left2: 
           color: off
-          fade: .25s
+          
         gi_right2: 
           color: off
-          fade: .25s
+          
         gi_left3: 
           color: off
-          fade: .25s
+          
         gi_right3: 
           color: off
-          fade: .25s
+          
         gi_left4: 
           color: off
-          fade: .25s
+          
         gi_right4: 
           color: off
-          fade: .25s
+          
         gi_back1: 
           color: off
-          fade: .25s
+          
         gi_back2: 
           color: off
-          fade: .25s
+          
         gi_back3: 
           color: off
-          fade: .25s
+          
         gi_back4: 
           color: off
-          fade: .25s
+          
         gi_back5: 
           color: off
-          fade: .25s
+          
         gi_back6: 
           color: off
-          fade: .25s
+          
         slingleft_upper: 
           color: off
-          fade: .25s
+          
         slingleft_lower: 
           color: off
-          fade: .25s
+          
         slingright_upper: 
           color: off
-          fade: .25s
+          
         slingright_lower: 
           color: off
-          fade: .25s
+          
         slingquarters_upper: 
           color: off
-          fade: .25s
+          
         slingquarters_lower: 
           color: off
-          fade: .25s
+          
         flipper_left_inner: 
           color: off
-          fade: .25s
+          
         flipper_right_inner: 
           color: off
-          fade: .25s
+          
         tavern_sign1:
           color: off
-          fade: .25s
+          
         tavern_sign2:
           color: off
-          fade: .25s
+          
         tavern_inside:
           color: off
-          fade: .25s
+          
 
         arrow_horseshoe3:  
           color: off
-          fade: .25s
+          
         arrow_horseshoe2:  
           color: off
-          fade: .25s
+          
         arrow_horseshoe1: 
           color: off
-          fade: .25s
+          
 
        
         arrow_rimrules1:  
           color: off
-          fade: .25s
+          
         arrow_rimrules2:  
           color: off
-          fade: .25s
+          
         arrow_rimrules3:  
           color: off
-          fade: .25s
+          
         arrow_boot1:  
           color: off
-          fade: .25s  
+            
         arrow_boot2:  
           color: off
-          fade: .25s
+          
         arrow_boot3:  
           color: off
-          fade: .25s
+          
         arrow_tavern3:  
           color: off
-          fade: .25s
+          
         arrow_tavern2:  
           color: off
-          fade: .25s
+          
         arrow_tavern1:  
           color: off
-          fade: .25s
+          
         arrow_mode1:  
           color: off
-          fade: .25s
+          
         arrow_mode2:  
           color: off
-          fade: .25s
+          
         arrow_mode3:  
           color: off
-          fade: .25s
+          
         arrow_upf1:  
           color: off
-          fade: .25s
+          
         arrow_upf2:  
           color: off
-          fade: .25s
+          
         arrow_upf3:  
           color: off
-          fade: .25s
+          
 
         strikeout_shot:  
           color: off
-          fade: .25s
+          
         strikeout_beer:  
           color: off
-          fade: .25s
+          
         strikeout_bong: 
           color: off
-          fade: .25s
+          
 
         quarters1:  
           color: off
-          fade: .25s
+          
 
         lane_left_outer:  
           color: off
-          fade: .25s
+          
         lane_left_inner:  
           color: off
-          fade: .25s
+          
         lane_right_inner:  
           color: off
-          fade: .25s
+          
         lane_right_outer:  
           color: off
-          fade: .25s
+          
 
         
         special:  
           color: off
-          fade: .25s
+          
         chance:  
           color: off
-          fade: .25s
+          
         
        
         ball2_locked:  
           color: off
-          fade: .25s
+          
         ball1_locked:  
           color: off
-          fade: .25s
+          
         
         mode_dasboot:  
           color: off
-          fade: .25s
+          
         mode_volumechug:  
           color: off
-          fade: .25s
+          
         mode_longpour:  
           color: off
-          fade: .25s
+          
         mode_quarters:  
           color: off
-          fade: .25s
+          
         mode_strikeout:  
           color: off
-          fade: .25s
+          
         mode_trojankeg:  
           color: off
-          fade: .25s
+          
 
   flash_bonus_lights_allon:
     - duration: .5s
       lights:
         gi_left1:
           color: 008ce5
-          fade: .25s
+          
         gi_right1: 
           color: 008ce5
-          fade: .25s
+          
         gi_left2: 
           color: 008ce5
-          fade: .25s
+          
         gi_right2: 
           color: 008ce5
-          fade: .25s
+          
         gi_left3: 
           color: 008ce5
-          fade: .25s
+          
         gi_right3: 
           color: 008ce5
-          fade: .25s
+          
         gi_left4: 
           color: 008ce5
-          fade: .25s
+          
         gi_right4: 
           color: 008ce5
-          fade: .25s
+          
         gi_back1: 
           color: 008ce5
-          fade: .25s
+          
         gi_back2: 
           color: 008ce5
-          fade: .25s
+          
         gi_back3: 
           color: 008ce5
-          fade: .25s
+          
         gi_back4: 
           color: 008ce5
-          fade: .25s
+          
         gi_back5: 
           color: 008ce5
-          fade: .25s
+          
         gi_back6: 
           color: 008ce5
-          fade: .25s
+          
         slingleft_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingleft_lower: 
           color: 008ce5
-          fade: .25s
+          
         slingright_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingright_lower: 
           color: 008ce5
-          fade: .25s
+          
         slingquarters_upper: 
           color: 008ce5
-          fade: .25s
+          
         slingquarters_lower: 
           color: 008ce5
-          fade: .25s
+          
         flipper_left_inner: 
           color: 008ce5
-          fade: .25s
+          
         flipper_right_inner: 
           color: 008ce5
-          fade: .25s
+          
 
         tavern_sign1:  
           color: 008ce5
-          fade: .25s
+          
         tavern_sign2:  
           color: 008ce5
-          fade: .25s
+          
         tavern_inside:  
           color: 008ce5
-          fade: .25s
+          
 
         arrow_horseshoe3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_horseshoe2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_horseshoe1:  
           color: 008ce5
-          fade: .25s
+          
 
         
         arrow_rimrules1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_rimrules2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_rimrules3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_boot3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_tavern1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_mode3:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf1:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf2:  
           color: 008ce5
-          fade: .25s
+          
         arrow_upf3:  
           color: 008ce5
-          fade: .25s
+          
 
         strikeout_shot:  
           color: 008ce5
-          fade: .25s
+          
         strikeout_beer:  
           color: 008ce5
-          fade: .25s
+          
         strikeout_bong:  
           color: 008ce5
-          fade: .25s
+          
 
         quarters1:  
           color: 008ce5
-          fade: .25s
+          
 
         lane_left_outer:  
           color: 008ce5
-          fade: .25s
+          
         lane_left_inner:  
           color: 008ce5
-          fade: .25s
+          
         lane_right_inner:  
           color: 008ce5
-          fade: .25s
+          
         lane_right_outer:  
           color: 008ce5
-          fade: .25s
+          
 
         
 
         ball_save:  
           color: 008ce5
-          fade: .25s
+          
         
         special:  
           color: 008ce5
-          fade: .25s
+          
         chance:  
           color: 008ce5
-          fade: .25s
+          
         
         
         ball2_locked:  
           color: 008ce5
-          fade: .25s
+          
         ball1_locked:  
           color: 008ce5
-          fade: .25s
+          
         
         mode_dasboot:  
           color: 008ce5
-          fade: .25s
+          
         mode_volumechug:  
           color: 008ce5
-          fade: .25s
+          
         mode_longpour:  
           color: 008ce5
-          fade: .25s
+          
         mode_quarters:  
           color: 008ce5
-          fade: .25s
+          
         mode_strikeout:  
           color: 008ce5
-          fade: .25s
+          
         mode_trojankeg:  
           color: 008ce5
-          fade: .25s
+          
     - duration: -1
 
 # one of these is chosen at random by random_event_player below

@@ -259,7 +259,7 @@ slides:
   slide_bonus_strikeout_themed:
     widgets:
     - type: text
-      text: Strikeout
+      text: STRIKEOUT
       font_size: 150
       font_name: druillet
       anchor_x: center
@@ -452,36 +452,36 @@ shows:
       lights:
         strikeout_shot:
           color: red
-          fade: .25s
+          
         strikeout_beer:
           color: red
-          fade: .25s
+          
         strikeout_bong:
           color: red
-          fade: .25s
+          
     - duration: 1s
       lights:
         strikeout_shot:
           color: off
-          fade: .25s
+          
         strikeout_beer:
           color: off
-          fade: .25s
+          
         strikeout_bong:
           color: off
-          fade: .25s
+          
 
   flash_strikeout_unhit:
     - duration: .5s
       lights:
         (led):
           color: red
-          fade: .25s
+          
     - duration: .5s
       lights:
         (led):
           color: off
-          fade: .25s
+          
   flash_strikeout_hit:
     - duration: -1
       lights:

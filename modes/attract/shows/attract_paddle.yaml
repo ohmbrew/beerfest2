@@ -3,47 +3,47 @@
   lights:
     arrow_horseshoe3:
       color: red
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe2:
       color: red
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe1:
       color: red
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe3:
       color: white
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe2:
       color: white
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe1: 
       color: white
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe3:
       color: blue
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe2: 
       color: blue
-      fade: .25s
+      
 - time: '+1'
   lights:
     arrow_horseshoe1: 
       color: blue
-      fade: .25s
+      
 - time: '+4'
   lights:
     arrow_horseshoe3: red

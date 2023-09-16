@@ -519,12 +519,12 @@ shows:
       lights:
         (led):
           color: red
-          fade: .25s
+          
     - duration: .5s
       lights:
         (led):
           color: off
-          fade: .25s
+          
   flash_xjs_hit:
     - duration: -1
       lights:

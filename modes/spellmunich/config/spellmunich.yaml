@@ -79,22 +79,22 @@ shows:
       lights:
         munichfill6:
           color: green
-          fade: .25s
+          
     - duration: .5s
       lights:
         munichfill6:
           color: off
-          fade: .25s
+          
     - duration: .5s
       lights:
         munichfill6:
           color: green
-          fade: .25s
+          
     - duration: .5s
       lights:
         munichfill6:
           color: off
-          fade: .25s
+          
 
 # fill_munich_X event is called whenever count_events are detected. conditional events below call the show
 show_player:

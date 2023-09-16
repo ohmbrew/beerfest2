@@ -836,7 +836,7 @@ variable_player:
       int: device.timers.round_timer_volumechug.ticks
       action: set
   shot_tavern_hit:
-    score: current_player.pts_tavern_themed
+    score: current_player.pts_ramp_tavern_themed
     bonus_numramps: 1         # bonus tracker (ramps)
   shot_pop_upper_left_hit:
     score: current_player.pts_pops_themed

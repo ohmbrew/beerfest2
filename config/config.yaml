@@ -36,7 +36,6 @@ window:
   show_cursor: false
   exit_on_escape: True
 
-
 displays:
   window:
     width: 1846

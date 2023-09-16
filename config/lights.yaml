@@ -1,7 +1,7 @@
 #config_version=5
 
 light_settings:
-  default_fade_ms: 250
+  default_fade_ms: 150
 
 lights:
   # Chain #1 [J8-19: WS281x Serial Data 0]

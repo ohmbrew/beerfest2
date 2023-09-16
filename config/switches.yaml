@@ -14,7 +14,7 @@ switches:
     number: A0-B0-3
     ignore_window_ms: 500
     type: NC
-  s_chug_beer:
+  s_do_shot:
     number: A0-B0-4
     type: NC
   s_tgt_ramp_boot_right:
@@ -36,10 +36,10 @@ switches:
     number: A0-B1-4
   s_quarters:
     number: A0-B1-5
-  s_do_shot:
+  s_take_hit:
     number: A0-B1-6
     type: NC
-  s_take_hit:
+  s_chug_beer:
     number: A0-B1-7
     type: NC
 

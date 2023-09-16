@@ -172,15 +172,9 @@ player_vars:
     value_type: int
 
   # Longpour
-  pts_ramp_boot_themed:
+  pts_longpour_ramps_themed:
     initial_value: 500000
     value_type: int
-  pts_ramp_paddle_themed:
-    initial_value: 500000
-    value_type: int
-  pts_tavern_themed:
-    initial_value: 500000
-    value_type: int  
   pts_longpour_success:
     initial_value: 10000000
     value_type: int
@@ -190,7 +184,7 @@ player_vars:
 
   # Quarters
   pts_quarters_themed:
-    initial_value: 250000
+    initial_value: 500000
     value_type: int
   pts_quarters_success:
     initial_value: 10000000
@@ -223,12 +217,11 @@ player_vars:
     value_type: int
 
   # Volume Chug
-  # pts_tavern_themed already declared above
+  # pts_ramp_tavern_themed already declared above
   pts_pops_themed:
     initial_value: 250000
     value_type: int
   # pts_ramp_boot_themed already declared above
-
   pts_volumechug_bonus:
     initial_value: 10000000
     value_type: int
