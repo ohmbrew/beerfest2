@@ -252,9 +252,6 @@ shows:
         l_pop_left: on
         l_pop_right: on
         l_pop_lower: on
-        tavern_sign1: white
-        tavern_sign2: white
-        tavern_inside: white
         gi_left1: 008ce5
         gi_left2: 008ce5
         gi_left3: 008ce5
@@ -355,17 +352,6 @@ shows:
     - time: '+1'
       lights:
         (light): (off_color)
-  show_tavern_hit:
-    - time: 0
-      lights:
-        tavern_sign1: green
-        tavern_sign2: green
-        tavern_inside: green
-    - time: 1
-      lights:
-        tavern_sign1: white
-        tavern_sign2: white
-        tavern_inside: white
   
   show_shaker_1s:
     - duration: .5s
@@ -690,9 +676,6 @@ show_player:
       speed: 8
       loops: 0
   shot_tavern_hit:
-    show_tavern_hit:
-      speed: 1
-      loops: 0
     show_shaker_1s:
       loops: 0
   shot_diverter_hit:

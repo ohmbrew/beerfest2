@@ -101,9 +101,6 @@
     gi_back4: off
     gi_back5: off
     gi_back6: off
-    tavern_sign1: off
-    tavern_sign2: off
-    tavern_inside: off
 
 - time: '+1'
   lights:
@@ -126,18 +123,12 @@
 #No change this frame - take another step
 #  lights:
 - time: '+1'
-    
-- time: '+1'
-  lights:
-    tavern_sign2: (color)
-    
+        
 - time: '+1'
   lights:
     arrow_rimrules2: (color)
     arrow_rimrules3: (color)
     l_pop_lower: (color)
-    tavern_inside: (color)
-    tavern_sign1: (color)
     
 - time: '+1'
   lights:

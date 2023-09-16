@@ -36,6 +36,9 @@ window:
   show_cursor: false
   exit_on_escape: True
 
+# TODO
+# - fix champion video to main only
+
 displays:
   window:
     width: 1846
@@ -395,7 +398,9 @@ shows:
       events: gameover_video_complete
   show_gameover_highscore:
     - time: 0
-      slides: video_champions_slide
+      slides:
+        video_champions_slide:
+          target: main
     - time: '+6.5'
       events: gameover_video_complete
 

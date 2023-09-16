@@ -720,10 +720,6 @@ shows:
         flipper_left_inner: off
         flipper_right_inner: off
 
-        tavern_sign1: off
-        tavern_sign2: off
-        tavern_inside: off
-
         arrow_horseshoe3: off
         arrow_horseshoe2: off
         arrow_horseshoe1: off
@@ -848,15 +844,7 @@ shows:
           color: 008ce5
           fade: 3s
 
-        tavern_sign1:  
-          color: 008ce5
-          fade: 3s
-        tavern_sign2:  
-          color: 008ce5
-          fade: 3s
-        tavern_inside:  
-          color: 008ce5
-          fade: 3s
+
 
         arrow_horseshoe3:  
           color: 008ce5
@@ -1051,15 +1039,7 @@ shows:
         flipper_right_inner: 
           color: off
           fade: 3s
-        tavern_sign1:
-          color: off
-          fade: 3s
-        tavern_sign2:
-          color: off
-          fade: 3s
-        tavern_inside:
-          color: off
-          fade: 3s
+
 
         arrow_horseshoe3: 
           color: off
