@@ -684,7 +684,14 @@ show_player:
   shot_ramp_upf_hit:
     show_shaker_1s:
       loops: 0
-
+  shot_laneleft_inner_hit:
+    bong_flow_left:
+      loops: 0
+      speed: 6
+  shot_laneleft_outer_hit:
+    bong_flow_left:
+      loops: 0
+      speed: 4  
   mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
   mode_base_started{current_player.has_longpour==1}: show_longpour_insert
   mode_quarters_stopped{current_player.has_quarters==1}: show_quarters_insert

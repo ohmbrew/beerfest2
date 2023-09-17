@@ -1,0 +1,26 @@
+#show_version=5
+- duration: .5
+  lights:
+    slingquarters_upper: off      
+    slingquarters_lower: 008ce5      
+    slingleft_upper: off
+    slingleft_lower: 008ce5      
+    slingright_upper: off
+    slingright_lower: 008ce5
+    flipper_left_outer: 008ce5   
+    flipper_left_inner: off      
+    flipper_right_inner: off
+    flipper_right_outer: 008ce5
+- duration: .5
+  lights:
+    slingquarters_upper: 008ce5      
+    slingquarters_lower: off      
+    slingleft_upper: 008ce5      
+    slingleft_lower: off      
+    slingright_upper: 008ce5      
+    slingright_lower: off      
+    flipper_left_outer: off   
+    flipper_left_inner: 008ce5      
+    flipper_right_inner: 008ce5
+    flipper_right_outer: off
+      

@@ -1,0 +1,36 @@
+#show_version=5
+- duration: 1
+  lights:
+    bong: off
+    bong_left6: orange
+- duration: 1
+  lights:
+    bong_left6: yellow
+    bong_left5: orange
+- duration: 1
+  lights:
+    bong_left6: off
+    bong_left5: yellow
+    bong_left4: orange
+- duration: 1
+  lights:
+    bong_left5: off
+    bong_left4: yellow
+    bong_left3: orange
+- duration: 1
+  lights:
+    bong_left4: off
+    bong_left3: yellow
+    bong_left2: orange
+- duration: 1
+  lights:
+    bong_left3: off
+    bong_left2: yellow
+    bong_left1: orange
+- duration: 1
+  lights:
+    bong_left2: off
+    bong_left1: yellow
+- duration: 1
+  lights:
+    bong_left1: off

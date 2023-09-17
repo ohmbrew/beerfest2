@@ -165,8 +165,56 @@ lights:
     previous: flipper_left_outer
     type: grb
     tags: playfield
-  ball_save:
+  bong_left1:
     previous: flipper_left_inner
+    type: grb
+    tags: playfield, bong
+  bong_left2:
+    previous: bong_left1
+    type: grb
+    tags: playfield, bong
+  bong_left3:
+    previous: bong_left2
+    type: grb
+    tags: playfield, bong
+  bong_left4:
+    previous: bong_left3
+    type: grb
+    tags: playfield, bong
+  bong_left5:
+    previous: bong_left4
+    type: grb
+    tags: playfield, bong
+  bong_left6:
+    previous: bong_left5
+    type: grb
+    tags: playfield, bong
+  bong_right1:
+    previous: bong_left6
+    type: grb
+    tags: playfield, bong
+  bong_right2:
+    previous: bong_right1
+    type: grb
+    tags: playfield, bong
+  bong_right3:
+    previous: bong_right2
+    type: grb
+    tags: playfield, bong
+  bong_right4:
+    previous: bong_right3
+    type: grb
+    tags: playfield, bong
+  bong_right5:
+    previous: bong_right4
+    type: grb
+    tags: playfield, bong
+  bong_right6:
+    previous: bong_right5
+    type: grb
+    tags: playfield, bong
+  ball_save:
+    previous: bong_right6
     type: grb
     tags: playfield
   flipper_right_inner:
