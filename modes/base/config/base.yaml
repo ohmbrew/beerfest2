@@ -266,6 +266,7 @@ shows:
         gi_back4: off
         gi_back5: off
         gi_back6: off
+        bong: off
     - duration: -1
   show_pop_left:
     - time: 0
@@ -690,6 +691,14 @@ show_player:
       speed: 6
   shot_laneleft_outer_hit:
     bong_flow_left:
+      loops: 0
+      speed: 4  
+  shot_laneright_inner_hit:
+    bong_flow_right:
+      loops: 0
+      speed: 6
+  shot_laneright_outer_hit:
+    bong_flow_right:
       loops: 0
       speed: 4  
   mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
