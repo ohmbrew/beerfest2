@@ -1,5 +1,22 @@
 #config_version=5
-
+slides:
+  slide_mini_shootsaucers:
+    widgets:
+    - type: image
+      image: MiniText-ShootSaucers
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
 shows:
   show_qualify_active:
     - duration: 1
@@ -17,6 +34,9 @@ shows:
         arrow_tavern1: red
         arrow_tavern2: off
         arrow_tavern3: off
+        arrow_tavern4: red
+        arrow_tavern5: off
+        arrow_tavern6: off
         arrow_boot1: red
         arrow_boot2: off
         arrow_boot3: off
@@ -43,7 +63,10 @@ shows:
         special: off
         arrow_tavern1: off          
         arrow_tavern2: red          
-        arrow_tavern3: off          
+        arrow_tavern3: off      
+        arrow_tavern4: off          
+        arrow_tavern5: red          
+        arrow_tavern6: off            
         arrow_boot1: off          
         arrow_boot2: red          
         arrow_boot3: off          
@@ -71,6 +94,9 @@ shows:
         arrow_tavern1: off
         arrow_tavern2: off
         arrow_tavern3: red
+        arrow_tavern4: off
+        arrow_tavern5: off
+        arrow_tavern6: red
         arrow_boot1: off
         arrow_boot2: off
         arrow_boot3: red
@@ -97,7 +123,10 @@ shows:
         special: off          
         arrow_tavern1: white          
         arrow_tavern2: off          
-        arrow_tavern3: off          
+        arrow_tavern3: off
+        arrow_tavern4: white
+        arrow_tavern5: off
+        arrow_tavern6: off       
         arrow_boot1: white          
         arrow_boot2: off          
         arrow_boot3: off          
@@ -124,7 +153,10 @@ shows:
         special: white          
         arrow_tavern1: off          
         arrow_tavern2: white          
-        arrow_tavern3: off          
+        arrow_tavern3: off
+        arrow_tavern4: off
+        arrow_tavern5: white
+        arrow_tavern6: off      
         arrow_boot1: off          
         arrow_boot2: white          
         arrow_boot3: off          
@@ -151,7 +183,10 @@ shows:
         special: off          
         arrow_tavern1: off          
         arrow_tavern2: off          
-        arrow_tavern3:  white          
+        arrow_tavern3: white
+        arrow_tavern4: off
+        arrow_tavern5: off
+        arrow_tavern6: white           
         arrow_boot1: off          
         arrow_boot2: off          
         arrow_boot3: white          
@@ -178,7 +213,10 @@ shows:
         special: white          
         arrow_tavern1: blue          
         arrow_tavern2: off          
-        arrow_tavern3: off          
+        arrow_tavern3: off
+        arrow_tavern4: blue
+        arrow_tavern5: off
+        arrow_tavern6: off             
         arrow_boot1: blue          
         arrow_boot2: off          
         arrow_boot3: off          
@@ -205,7 +243,10 @@ shows:
         special: off          
         arrow_tavern1: off          
         arrow_tavern2: blue          
-        arrow_tavern3: off          
+        arrow_tavern3: off
+        arrow_tavern4: off          
+        arrow_tavern5: blue          
+        arrow_tavern6: off        
         arrow_boot1: off          
         arrow_boot2: blue          
         arrow_boot3: off          
@@ -232,7 +273,10 @@ shows:
         special: white          
         arrow_tavern1: off          
         arrow_tavern2: off          
-        arrow_tavern3: blue          
+        arrow_tavern3: blue     
+        arrow_tavern4: off          
+        arrow_tavern5: off          
+        arrow_tavern6: blue       
         arrow_boot1: off         
         arrow_boot2: off          
         arrow_boot3: blue          
@@ -259,7 +303,10 @@ shows:
         special: off          
         arrow_tavern1: off          
         arrow_tavern2: off          
-        arrow_tavern3: off          
+        arrow_tavern3: off
+        arrow_tavern4: off          
+        arrow_tavern5: off          
+        arrow_tavern6: off           
         arrow_boot1: off          
         arrow_boot2: off          
         arrow_boot3: off          
@@ -347,4 +394,8 @@ show_player:
       action: play
       speed: 8
       loops: -1
-            
+
+slide_player:
+  qualified_for_mode_selection:
+    slide_mini_shootsaucers:
+      target: mini     

@@ -88,6 +88,23 @@ slides:
       height: 400
       width: 711
       end_behavior: loop
+  slide_skillshot_text:
+    widgets:
+    - type: image
+      image: MiniText-TimedSkillShot
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: minibg
   slide_skillshot_success_full:
     widgets:
     - type: text
@@ -126,7 +143,6 @@ slides:
             duration: .5s
     - type: image
       image: background
-
   slide_skillshot_success_partial:
     widgets:
     - type: text
@@ -167,6 +183,10 @@ slides:
       image: background
 
 slide_player:
+  mode_skillshot_started:
+    slide_skillshot_text:
+      target: mini
+      priority: 1000
   skill_success_full:
     slide_skillshot_success_full:
       target: main

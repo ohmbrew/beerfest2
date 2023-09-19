@@ -294,35 +294,31 @@ slides:
             duration: .5s
     - type: image
       image: background      
-  slide_mug_quarters:
+  slide_mini_shootshotglass:
     widgets:
-      - type: text
-        text: SHOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle + 50
-      - type: text
-        text: SHOT GLASS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
-      - type: image
-        image: minibg  
+    - type: image
+      image: MiniText-ShootShotGlass
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
 
 slide_player:
   mode_quarters_started:
     slide_quarters_intro:
       target: main
-    slide_mug_quarters:
+    slide_mini_shootshotglass:
       target: mini
+      priority: 2000
   intro_done:
     slide_quarters_intro:
       target: main

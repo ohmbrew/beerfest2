@@ -276,7 +276,7 @@ lights:
   arrow_upf2:
     previous: arrow_upf3
     type: grb
-    tags: striplayfieldp
+    tags: playfield
   arrow_upf1:
     previous: arrow_upf2
     type: grb

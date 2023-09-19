@@ -37,7 +37,8 @@ window:
   exit_on_escape: True
 
 # TODO
-# - make intro music random - like 10% of the time
+# - TimedSkillShot: pic on mini display
+
 
 displays:
   window:

@@ -297,34 +297,30 @@ slides:
             duration: .5s
     - type: image
       image: background
-  slide_mug_longpour:
+  slide_mini_shootramps:
     widgets:
-      - type: text
-        text: SHOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle + 50
-      - type: text
-        text: RAMPS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
-      - type: image
-        image: minibg
+    - type: image
+      image: MiniText-ShootRamps
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
 slide_player:
   mode_longpour_started:
     slide_longpour_intro:
       target: main
-    slide_mug_longpour:
+    slide_mini_shootramps:
       target: mini
+      priority: 1000
   intro_done:
     slide_longpour_intro:
       target: main
@@ -431,267 +427,132 @@ shows:
   flash_ramp_arrows:
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: red
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: red
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: red
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: red
+        arrow_tavern2: off
+        arrow_tavern3: off
+        arrow_tavern4: red
+        arrow_tavern5: off
+        arrow_tavern6: off
+        arrow_boot1: red
+        arrow_boot2: off
+        arrow_boot3: off
+        arrow_upf1: red
+        arrow_upf2: off
+        arrow_upf3: off 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: red
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: red
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: red
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: off
+        arrow_tavern2: red
+        arrow_tavern3: off
+        arrow_tavern4: off
+        arrow_tavern5: red
+        arrow_tavern6: off
+        arrow_boot1: off
+        arrow_boot2: red
+        arrow_boot3: off
+        arrow_upf1: off
+        arrow_upf2: red
+        arrow_upf3: off
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: red
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: red
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: red
-          fade: .5
+        arrow_tavern1: off
+        arrow_tavern2: off
+        arrow_tavern3: red
+        arrow_tavern4: off
+        arrow_tavern5: off
+        arrow_tavern6: red
+        arrow_boot1: off
+        arrow_boot2: off
+        arrow_boot3: red
+        arrow_upf1: off
+        arrow_upf2: off
+        arrow_upf3: red
 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: white
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: white
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: white
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: white
+        arrow_tavern2: off
+        arrow_tavern3: off
+        arrow_tavern4: white
+        arrow_tavern5: off
+        arrow_tavern6: off
+        arrow_boot1: white
+        arrow_boot2: off
+        arrow_boot3: off
+        arrow_upf1: white
+        arrow_upf2: off
+        arrow_upf3: off 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: white
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: white
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: white
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: off
+        arrow_tavern2: white
+        arrow_tavern3: off
+        arrow_tavern4: off
+        arrow_tavern5: white
+        arrow_tavern6: off
+        arrow_boot1: off
+        arrow_boot2: white
+        arrow_boot3: off
+        arrow_upf1: off
+        arrow_upf2: white
+        arrow_upf3: off 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: white
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: white
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: white
-          fade: .5
+        arrow_tavern1: off
+        arrow_tavern2: off
+        arrow_tavern3: white
+        arrow_tavern4: off
+        arrow_tavern5: off
+        arrow_tavern6: white
+        arrow_boot1: off
+        arrow_boot2: off
+        arrow_boot3: white
+        arrow_upf1: off
+        arrow_upf2: off
+        arrow_upf3: white
 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: blue
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: blue
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: blue
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: blue
+        arrow_tavern2: off
+        arrow_tavern3: off
+        arrow_tavern4: blue
+        arrow_tavern5: off
+        arrow_tavern6: off
+        arrow_boot1: blue
+        arrow_boot2: off
+        arrow_boot3: off
+        arrow_upf1: blue
+        arrow_upf2: off
+        arrow_upf3: off 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: blue
-          fade: .5
-        arrow_tavern3:
-          color: off
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: blue
-          fade: .5
-        arrow_boot3:
-          color: off
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: blue
-          fade: .5
-        arrow_upf3:
-          color: off
-          fade: .5  
+        arrow_tavern1: off
+        arrow_tavern2: blue
+        arrow_tavern3: off
+        arrow_tavern4: off
+        arrow_tavern5: blue
+        arrow_tavern6: off
+        arrow_boot1: off
+        arrow_boot2: blue
+        arrow_boot3: off
+        arrow_upf1: off
+        arrow_upf2: blue
+        arrow_upf3: off 
     - duration: 1
       lights:
-        arrow_tavern1:
-          color: off
-          fade: .5
-        arrow_tavern2:
-          color: off
-          fade: .5
-        arrow_tavern3:
-          color: blue
-          fade: .5
-        arrow_boot1:
-          color: off
-          fade: .5
-        arrow_boot2:
-          color: off
-          fade: .5
-        arrow_boot3:
-          color: blue
-          fade: .5
-        arrow_upf1:
-          color: off
-          fade: .5
-        arrow_upf2:
-          color: off
-          fade: .5
-        arrow_upf3:
-          color: blue
-          fade: .5
+        arrow_tavern1: off
+        arrow_tavern2: off
+        arrow_tavern3: blue
+        arrow_tavern4: off
+        arrow_tavern5: off
+        arrow_tavern6: blue
+        arrow_boot1: off
+        arrow_boot2: off
+        arrow_boot3: blue
+        arrow_upf1: off
+        arrow_upf2: off
+        arrow_upf3: blue
   
 show_player:
   mode_longpour_started:

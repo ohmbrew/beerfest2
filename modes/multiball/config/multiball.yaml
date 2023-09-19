@@ -94,7 +94,24 @@ slides:
             duration: .5s
     - type: image
       image: background
-    
+  slide_mini_mb_shootsaucers:
+    widgets:
+    - type: image
+      image: MiniText-ShootSaucers
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+
 slide_player:
   multiball_sink1{device.switches.s_adult.state == 0}:
     multiball_sink1_clean:
@@ -113,6 +130,10 @@ slide_player:
       target: main
       priority: 2000
       expire: 3s
+  multiball_sink2.1:
+    slide_mini_mb_shootsaucers:
+      target: mini
+      priority: 2000
 
 multiballs:
   pt_multiball:
