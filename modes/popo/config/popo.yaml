@@ -1,0 +1,17 @@
+#config_version=5
+##! mode: popo
+
+mode:
+  start_events: start_mode_popo
+  stop_events: stop_mode_popo, stop_missions
+  events_when_started: mode_type_mission_started
+  events_when_stopped: mode_type_mission_stopped
+  priority: 300
+
+sound_player:
+  shot_popo_captured_hit:
+    voice_goodnightpopo:
+      action: play
+  shot_popo_released_hit:
+    voice_oprecipe:
+      action: play

@@ -18,6 +18,7 @@ event_player:
     - start_mode_spellbeer
     - start_mode_spellmunich
     - flippers_normal
+    - start_mode_popo
   mode_base_will_stop:
     - stop_mode_global
   mode_type_wizard_started:
@@ -441,6 +442,9 @@ sound_player:
   shot_special_hit{mode.dasboot.active == False}:
     unddrinken:
       action: play
+  shot_horseshoe_hit:
+    voice_ohyea:
+      action: play
   shot_tgt_ramp_boot_left_hit{mode.dasboot.active == False}:
     voice_cheers:
       action: play
@@ -480,10 +484,10 @@ sound_player:
       loops: -1
       volume: .5
   shot_upf_tgt_left_hit:
-    voice_ohyea:
+    unddrinken:
       action: play
   shot_upf_tgt_right_hit:
-    voice_ohyea:
+    unddrinken:
       action: play
   shot_slingquarters_hit:
     sfx_pongcup:

@@ -3,7 +3,7 @@ events:
   game_started: 1
 player:
   score:
-    average: 113017667.09
+    average: 111913011.97029702
     top:
     - 4000002996
     - 3999999996
@@ -15,7 +15,7 @@ player:
     - 25411490
     - 25391350
     - 25291290
-    total: 100
+    total: 101
 shots:
   chance: 96
   chug_beer: 60
@@ -28,16 +28,16 @@ shots:
   quarters: 30
   shot_bj: 119
   shot_chance: 224
-  shot_chug_beer: 205
-  shot_diverter: 259
-  shot_do_shot: 214
+  shot_chug_beer: 208
+  shot_diverter: 260
+  shot_do_shot: 217
   shot_hj: 145
-  shot_horseshoe: 18
-  shot_kicker_mode: 875
+  shot_horseshoe: 79
+  shot_kicker_mode: 887
   shot_kicker_rimrules: 126
-  shot_laneleft_inner: 57
+  shot_laneleft_inner: 59
   shot_laneleft_outer: 10
-  shot_laneright_inner: 36
+  shot_laneright_inner: 38
   shot_laneright_outer: 5
   shot_leftflipper: 288
   shot_paddle_a: 375
@@ -46,17 +46,20 @@ shots:
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 966
-  shot_pongcup1: 209
-  shot_pongcup2: 66
+  shot_plunger_lane_exit: 1008
+  shot_pongcup1: 212
+  shot_pongcup2: 69
   shot_pop_lower: 337
   shot_pop_upper_left: 7419
   shot_pop_upper_right: 539
-  shot_quarters: 2285
+  shot_popo_captured: 6
+  shot_popo_release: 23
+  shot_popo_released: 1
+  shot_quarters: 2490
   shot_ramp_boot: 10
   shot_ramp_paddle: 99
-  shot_ramp_upf: 9
-  shot_rightflipper: 85
+  shot_ramp_upf: 10
+  shot_rightflipper: 87
   shot_sling_left: 1
   shot_sling_quarters: 26
   shot_slingleft: 24
@@ -66,8 +69,8 @@ shots:
   shot_strikeout_chugbeer: 15
   shot_strikeout_doshot: 15
   shot_strikeout_takehit: 15
-  shot_take_hit: 212
-  shot_tavern: 153
+  shot_take_hit: 215
+  shot_tavern: 160
   shot_tavern_spinner: 1581
   shot_tgt_ramp_boot: 118
   shot_tgt_rimrules: 16
@@ -77,8 +80,8 @@ shots:
   shot_trojankeg_middle: 170
   shot_trojankeg_right: 113
   shot_trojankeg_zj: 56
-  shot_upf_tgt_left: 11
-  shot_upf_tgt_right: 11
+  shot_upf_tgt_left: 13
+  shot_upf_tgt_right: 14
   shot_zj: 107
   take_hit: 57
   trojankeg_left: 37
@@ -88,19 +91,19 @@ switches:
   s_adult: 10
   s_bj: 119
   s_chance: 333
-  s_chug_beer: 284
-  s_diverter: 262
-  s_do_shot: 289
-  s_drain: 1298
+  s_chug_beer: 287
+  s_diverter: 263
+  s_do_shot: 292
+  s_drain: 1305
   s_flipper_left: 2293
-  s_flipper_right: 2490
+  s_flipper_right: 2492
   s_hj: 146
-  s_horseshoe: 284
-  s_kicker_mode: 1469
+  s_horseshoe: 345
+  s_kicker_mode: 1481
   s_kicker_rimrules: 615
-  s_laneleft_inner: 78
+  s_laneleft_inner: 80
   s_laneleft_outer: 20
-  s_laneright_inner: 60
+  s_laneright_inner: 62
   s_laneright_outer: 23
   s_left_flipper: 154
   s_left_slingshot: 32
@@ -117,10 +120,10 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 2405
-  s_plunger_lane_exit: 1156
-  s_pongcup1: 210
-  s_pongcup2: 66
+  s_plunger_lane: 2436
+  s_plunger_lane_exit: 1198
+  s_pongcup1: 213
+  s_pongcup2: 69
   s_pongtable_exit: 40
   s_pongtable_front_left: 95
   s_pongtable_front_right: 87
@@ -128,10 +131,10 @@ switches:
   s_pop_upper: 141
   s_pop_upper_left: 7479
   s_pop_upper_right: 603
-  s_popo_captured: 0
-  s_popo_release: 0
-  s_quarters: 2319
-  s_ramp_upf: 9
+  s_popo_captured: 6
+  s_popo_release: 24
+  s_quarters: 2524
+  s_ramp_upf: 10
   s_ramp_upf_entry: 134
   s_ramp_upf_exit: 0
   s_right_flipper: 183
@@ -139,12 +142,12 @@ switches:
   s_slingshot_quarters: 261
   s_slingshot_right: 1094
   s_special: 59
-  s_start: 291
-  s_take_hit: 290
+  s_start: 296
+  s_take_hit: 293
   s_target_rimrules: 33
   s_tavern_exit: 2
-  s_tavern_spinner: 3205
-  s_tgt_popo: 0
+  s_tavern_spinner: 3212
+  s_tgt_popo: 3
   s_tgt_ramp_boot: 162
   s_tgt_ramp_boot_left: 0
   s_tgt_ramp_boot_right: 0
@@ -152,11 +155,11 @@ switches:
   s_trojankeg_left: 2176
   s_trojankeg_middle: 198
   s_trojankeg_right: 145
-  s_trough1: 392
+  s_trough1: 393
   s_trough2: 368
-  s_trough3: 341
-  s_trough_eject: 1690
+  s_trough3: 347
+  s_trough_eject: 1722
   s_upf_entry: 0
-  s_upf_tgt_left: 182
-  s_upf_tgt_right: 170
+  s_upf_tgt_left: 184
+  s_upf_tgt_right: 173
   s_zj: 107

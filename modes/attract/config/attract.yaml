@@ -1,21 +1,21 @@
 #config_version=5
 
-sound_player:
-  mode_attract_started:
-    intro:
-      action: play
-      loops: 0
-      events_when_stopped: intro_complete
-  intro_complete:
-    introrepeat:
-      action: play
-      loops: -1
-  mode_attract_will_stop:
-    intro:
-      action: stop
-  mode_attract_will_stop.1:
-    introrepeat:
-      action: stop
+# sound_player:
+#   play_intro:
+#     intro:
+#       action: play
+#       loops: 0
+#       events_when_stopped: intro_complete
+#   # intro_complete:
+#   #   introrepeat:
+#   #     action: play
+#   #     loops: -1
+#   mode_attract_will_stop:
+#     intro:
+#       action: stop
+  # mode_attract_will_stop.1:
+  #   introrepeat:
+  #     action: stop
 
 shows:
   chase_tavern_rwb:
@@ -233,4 +233,7 @@ show_player:
       loops: -1
   mode_attract_started.19:
     attract_display_mini:
+      loops: -1
+  mode_attract_started.20:
+    attract_audio:
       loops: -1

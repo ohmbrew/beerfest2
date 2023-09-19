@@ -67,7 +67,10 @@ coils:
     default_pulse_ms: 500
     default_hold_power: .5
     pulse_events: release_cup2 #, None   # adding this event removes the default pulse_event, which collecting_balls was using to fire the release coils too early.
-
+  c_quarters:
+    number: A1-B0-4
+    default_pulse_ms: 25
+    default_hold_power: .125
   # 12V Coil Driver PCB: A1-B1
   # J11
   cl_pop_lower:
@@ -119,5 +122,7 @@ autofire_coils:
   popo_autorelease:
     coil: c_popo_eject
     switch: s_popo_captured
-
+  quarters:
+    coil: c_quarters
+    switch: s_quarters
 

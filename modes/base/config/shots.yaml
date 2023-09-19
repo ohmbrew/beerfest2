@@ -93,5 +93,7 @@ shots:
     switch: s_flipper_left
   shot_rightflipper:
     switch: s_flipper_right
-  shot_popo_release:
+  shot_popo_captured:
+    switch: s_popo_captured
+  shot_popo_released:
     switch: s_popo_release

@@ -1,0 +1,23 @@
+#show_version=5
+- duration: 30s
+  sounds: introrepeat
+- duration: 30s
+  sounds: voice_betterwhendrunk
+- duration: 30s
+  sounds: voice_welcome
+- duration: 30s
+  sounds: voice_quarters_intro
+- duration: 30s
+  sounds: voice_strikeout_intro
+- duration: 30s
+  sounds: voice_cheers
+- duration: 30s
+  sounds: voice_tavern
+- duration: 30s
+  sounds: voice_yodel
+- duration: 30s
+  sounds: voice_drain_cantdrinkabeer
+- duration: 30s
+  sounds: voice_drain_firstbeer
+- duration: 30s
+  sounds: voice_drain_nipple

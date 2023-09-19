@@ -37,7 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
-# - fix champion video to main only
+# - make intro music random - like 10% of the time
 
 displays:
   window:
@@ -78,6 +78,7 @@ modes:
   - trojankeg
   - dasboot
   - flipperflop
+  - popo
 
 widget_styles:
   attract_mode_high_score_display_label:

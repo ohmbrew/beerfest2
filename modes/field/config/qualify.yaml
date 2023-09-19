@@ -277,7 +277,7 @@ shows:
         l_pop_lower: off
 
   show_qualified_arrows:
-    - duration: .5
+    - duration: 1
       lights:
         strikeout_shot: off          
         strikeout_beer: off          
@@ -289,86 +289,62 @@ shows:
         quarters5: off       
         chance: off          
         special: off          
-        arrow_rimrules1: red          
+        arrow_rimrules1: 008ce5          
         arrow_rimrules2: off          
         arrow_rimrules3: off          
-        arrow_mode1: red          
+        arrow_mode1: 008ce5          
         arrow_mode2: off          
         arrow_mode3: off     
         l_pop_left: off
         l_pop_right: off
         l_pop_lower: off
-    - duration: .5
+    - duration: 1
+      lights:
+        arrow_rimrules1: 008ce5          
+        arrow_rimrules2: 008ce5          
+        arrow_rimrules3: off          
+        arrow_mode1: 008ce5          
+        arrow_mode2: 008ce5          
+        arrow_mode3: off          
+    - duration: 1
+      lights:
+        arrow_rimrules1: 008ce5          
+        arrow_rimrules2: 008ce5          
+        arrow_rimrules3: 008ce5          
+        arrow_mode1: 008ce5          
+        arrow_mode2: 008ce5          
+        arrow_mode3: 008ce5
+    - duration: 1
       lights:
         arrow_rimrules1: off          
-        arrow_rimrules2: red          
-        arrow_rimrules3: off          
+        arrow_rimrules2: 008ce5          
+        arrow_rimrules3: 008ce5          
         arrow_mode1: off          
-        arrow_mode2: red          
-        arrow_mode3: off          
-    - duration: .5
+        arrow_mode2: 008ce5
+        arrow_mode3: 008ce5          
+    - duration: 1
       lights:
         arrow_rimrules1: off          
         arrow_rimrules2: off          
-        arrow_rimrules3: red          
+        arrow_rimrules3: 008ce5          
+        arrow_mode1: off          
+        arrow_mode2: off         
+        arrow_mode3: 008ce5          
+    - duration: 1
+      lights:
+        arrow_rimrules1: off          
+        arrow_rimrules2: off          
+        arrow_rimrules3: off          
         arrow_mode1: off          
         arrow_mode2: off          
-        arrow_mode3: red
-    - duration: .5
-      lights:
-        arrow_rimrules1: white          
-        arrow_rimrules2: off          
-        arrow_rimrules3: off          
-        arrow_mode1: white          
-        arrow_mode2: off
-        arrow_mode3: off          
-    - duration: .5
-      lights:
-        arrow_rimrules1: off          
-        arrow_rimrules2: white          
-        arrow_rimrules3: off          
-        arrow_mode1: off          
-        arrow_mode2: white          
-        arrow_mode3: off          
-    - duration: .5
-      lights:
-        arrow_rimrules1: off          
-        arrow_rimrules2: off          
-        arrow_rimrules3: white          
-        arrow_mode1: off          
-        arrow_mode2: off          
-        arrow_mode3: white  
-    - duration: .5
-      lights:
-        arrow_rimrules1: blue          
-        arrow_rimrules2: off          
-        arrow_rimrules3: off          
-        arrow_mode1: blue          
-        arrow_mode2: off          
-        arrow_mode3: off          
-    - duration: .5
-      lights:
-        arrow_rimrules1: off          
-        arrow_rimrules2: blue          
-        arrow_rimrules3: off          
-        arrow_mode1: off          
-        arrow_mode2: blue          
-        arrow_mode3: off          
-    - duration: .5
-      lights:
-        arrow_rimrules1: off          
-        arrow_rimrules2: off          
-        arrow_rimrules3: blue          
-        arrow_mode1: off          
-        arrow_mode2: off          
-        arrow_mode3: blue          
-
+        arrow_mode3: off  
+    
 show_player:
   qualified_for_mode_selection:
     show_qualify_active:
       action: stop
     show_qualified_arrows:
       action: play
-      speed: 4
+      speed: 8
       loops: -1
             

@@ -27,13 +27,7 @@ sound_player:
     voice_sink1left:
       action: play
   slide_slide_bonus_hammered_active:
-    emchammered:
-      action: play
-  shot_upf_tgt_left_hit:
-    voice_upf_tgt_left:
-      action: play
-  shot_upf_tgt_right_hit:
-    voice_upf_tgt_right:
+    voice_emchammered:
       action: play
 
 accruals:

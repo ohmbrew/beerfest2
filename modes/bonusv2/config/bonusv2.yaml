@@ -324,13 +324,8 @@ event_player:
 slides:
   slide_mug_bonus:
     widgets:
-      - type: text
-        text: BONUS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
+      - type: image
+        image: MiniText-Bonus
         x: middle
         y: middle
       - type: image

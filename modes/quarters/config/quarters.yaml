@@ -418,14 +418,27 @@ shows:
   flash_quarters_prop:
     - duration: 1s
       lights:
-        quarters1:
-          color: red
-          
+        quarters1: white
+        quarters2: off
+        quarters3: off
+        quarters4: off
+        quarters5: off
     - duration: 1s
       lights:
-        quarters1:
-          color: off
-          
+        quarters1: off
+        quarters2: white
+    - duration: 1s
+      lights:
+        quarters2: off
+        quarters3: white
+    - duration: 1s
+      lights:
+        quarters3: off
+        quarters4: white
+    - duration: 1s
+      lights:
+        quarters4: off
+        quarters5: white      
 
 show_player:
   mode_quarters_started:
@@ -436,7 +449,7 @@ show_player:
       speed: 2
   mode_quarters_started.2:
     flash_quarters_prop:
-      speed: 4
+      speed: 8
 
   choose_random_background_music:
     flash_gi_themed:

@@ -28,35 +28,35 @@ sounds:
   # All 5 theme mode rounds
   themedrinkonme:
     file: themedrinkonme.wav
-    track: voice
+    track: music
     volume: 1.0
   themehardasarock:
     file: themehardasarock.wav
-    track: voice
+    track: music
     volume: 1.0
   themejungleboogie:
     file: themejungleboogie.wav
-    track: voice
+    track: music
     volume: 1.0
   themealcohol:
     file: themealcohol.wav
-    track: voice
+    track: music
     volume: 1.0
   themebeer:
     file: themebeer.wav
-    track: voice
+    track: music
     volume: 1.0
   themebeerformyhorses:
     file: themebeerformyhorses.wav
-    track: voice
+    track: music
     volume: 1.0
   themebyob:
     file: themebyob.wav
-    track: voice
+    track: music
     volume: 1.0
   themecomininhot:
     file: themecomininhot.wav
-    track: voice
+    track: music
     volume: 1.0
   
   # other
@@ -107,7 +107,25 @@ sounds:
         attenuation: -18db
         release_point: 1.0 sec
         release: 3.0 sec
-  
+  voice_emchammered:
+    file: emchammered.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -18db
+        release_point: 1.0 sec
+        release: 3.0 sec
+  voice_goodnightpopo:
+    file: goodnightpopo.wav
+    track: voice
+    volume: 1.0
+  voice_oprecipe:
+    file: oprecipe.wav
+    track: voice
+    volume: 1.0  
   voice_betterwhendrunk:
     file: betterwhendrunk.wav
     track: voice
@@ -306,7 +324,7 @@ sounds:
     
   # Callouts from Derek. TODO: Change to Broken Lizard when I get them
   voice_flipperflop_active:
-    file: Derek-flippersflopped.wav
+    file: Jay-FlippersFlopped.wav
     track: voice
     volume: 1.0
     # ducking:
@@ -317,7 +335,7 @@ sounds:
     #     release_point: .5 sec
     #     release: 1.5 sec
   voice_multiball:
-    file: Derek-MunichMultiball.wav
+    file: Jay-MunichMultiball.wav
     track: voice
     volume: 1.0
     ducking:
@@ -328,7 +346,7 @@ sounds:
         release_point: .5 sec
         release: 1.5 sec
   voice_spelledbeer:
-    file: Derek-SpelledBeer.wav
+    file: Jay-SpelledBeer.wav
     track: voice
     volume: 1.0
     # ducking:
@@ -340,7 +358,7 @@ sounds:
     #     release: 1.5 sec
 
   voice_longpour_intro:
-    file: Derek-LongpourIntro.wav
+    file: Jay-Longpour.wav
     track: voice
     volume: 1.0
     ducking:
@@ -352,7 +370,7 @@ sounds:
         release: 1.5 sec
 
   voice_volumechug_megabonus:
-    file: Derek-VolumeChugMegaBonus.wav
+    file: Jay-VolumeChugMegaBonus.wav
     track: voice
     volume: 1.0
     ducking:
@@ -363,7 +381,7 @@ sounds:
         release_point: .5 sec
         release: 1.5 sec
   voice_trojankeg_megabonus:
-    file: Derek-TrojanKegMegaBonus.wav
+    file: Jay-TrojanKegMegaBonus.wav
     track: voice
     volume: 1.0
     ducking:
@@ -373,42 +391,65 @@ sounds:
         attenuation: -10db
         release_point: .5 sec
         release: 1.5 sec
-  voice_upf_tgt_left:
-    file: Derek-D.wav
-    track: voice
-    volume: 1.0
-  voice_upf_tgt_right:
-    file: Derek-R.wav
-    track: voice
-    volume: 1.0
-  voice_upf_horseshoe:
-    file: Derek-N.wav
-    track: voice
-    volume: 1.0
   voice_hitthekeg:
-    file: Derek-HitTheKeg.wav
+    file: Jay-HitTheKeg.wav
     track: voice
     volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -10db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_hitthesaucers:
-    file: Derek-HitTheSaucers.wav
+    file: Jay-HitTheSaucers.wav
     track: voice
     volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -10db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_hurryup:
-    file: Derek-HurryUp.wav
+    file: Jay-HurryUp.wav
     track: voice
     volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0 sec
+        attenuation: -10db
+        release_point: .1 sec
+        release: 1 sec
   voice_letsgotoschnitzengiggle:
     file: Derek-Schnitz.wav
     track: voice
     volume: 1.0
   voice_shoottheboot:
-    file: Derek-ShootTheBoot.wav
+    file: Jay-ShootTheBoot.wav
     track: voice
     volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -10db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_shootthedrinkoramp:
     file: Derek-ShootTheDrinkoRamp.wav
     track: voice
     volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -10db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_spelledmunich:
     file: Derek-MunichBonus.wav
     track: voice

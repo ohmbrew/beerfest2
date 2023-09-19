@@ -1,5 +1,8 @@
 score:
 - !!python/tuple
+  - AAA
+  - 1447500
+- !!python/tuple
   - OHM
   - 690000
 - !!python/tuple
@@ -11,6 +14,3 @@ score:
 - !!python/tuple
   - DIK
   - 125000
-- !!python/tuple
-  - BLO
-  - 100000

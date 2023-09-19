@@ -26,178 +26,82 @@ counters:
 slides:
   fill_mug0:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug0
   fill_mug1:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug1
   fill_mug2:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug2
   fill_mug3:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug3
   fill_mug4:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug4
   fill_mug5:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug5
   fill_mug6:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug6
   fill_mug7:
     widgets:
-      - type: text
-        text: LIT SHOTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
+      - type: image
+        image: MiniText-LitShotsFillMug
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle + 50
-      - type: text
-        text: FILL MUG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
         image: beermug7
   
