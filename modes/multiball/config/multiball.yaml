@@ -76,6 +76,16 @@ slides:
     - type: video
       video: pongsink2
     expire: 3.5s
+  multiball_popo_captured:
+    widgets:
+    - type: image
+      image: background-flag
+    # TODO - make this a Popo clip (beginning? Or Recipe retrieved?...)
+    - type: text
+      text: POPO CAPTURED!
+    - type: image
+      image: beermug7
+    expire: 3.5s
   multiball_slide:
     widgets:
     - type: text
@@ -121,11 +131,17 @@ slide_player:
     multiball_sink1_adult:
       target: main
       priority: 2000
-  multiball_sink2:
-    multiball_sink2:
+  shot_popo_captured_hit:
+    multiball_popo_captured:
       target: main
       priority: 2000
+  
   start_multiball:
+    multiball_slide:
+      target: main
+      priority: 2000
+      expire: 3s
+  start_multiball_popo:
     multiball_slide:
       target: main
       priority: 2000
