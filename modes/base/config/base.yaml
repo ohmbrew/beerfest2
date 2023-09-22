@@ -127,7 +127,7 @@ slides:
       y: top - 210
       color: 008ce5ff
     - type: text
-      text: (player|pts_i)
+      text: (player|pts_horseshoe)
       number_grouping: true
       min_digits: 1
       font_size: 10
@@ -933,7 +933,7 @@ variable_player:
     score: current_player.pts_ramp_boot
     bonus_numramps: 1         # bonus tracker (ramps)
   shot_ramp_upf_hit{mode.longpour.active == False and mode.dasboot.active == False}:
-    score: current_player.pts_ramp_paddle
+    score: current_player.pts_ramp_upf
     bonus_numramps: 1         # bonus tracker (ramps)
 
   # Trojan Keg
@@ -974,6 +974,11 @@ variable_player:
   random_pts_90:
     score: current_player.pts_rnd + 90
 
+  shot_upf_tgt_left_hit:
+    score: current_player.pts_upf_tgt_left
+  shot_upf_tgt_right_hit:
+    score: current_player.pts_upf_tgt_right
+
   # monkeychug/paddle slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a paddle Bonus slide from showing first.
   # set higher priority to make sure this processes first
   shot_horseshoe_hit:
@@ -981,7 +986,7 @@ variable_player:
     is_slide_monkeychug_active:
         int: 1
         action: set          # set player var to show we are showing paddle bonus slide
-  
+    score: current_player.pts_horseshoe
   # when monkeychug slide timer (set to complete same length as showing Monkeychug bonus slide), clear the is_slide_monkeychug_active player var
   timer_monkeychug_slide_timer_complete:
     is_slide_monkeychug_active:

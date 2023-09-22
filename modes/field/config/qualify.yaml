@@ -398,4 +398,9 @@ show_player:
 slide_player:
   qualified_for_mode_selection:
     slide_mini_shootsaucers:
-      target: mini     
+      target: mini
+
+sound_player:
+  qualified_for_mode_selection:
+    voice_hitthesaucers:
+      action: play

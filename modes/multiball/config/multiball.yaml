@@ -223,7 +223,7 @@ state_machines:
 
 sound_player:
   slide_multiball_sink2_removed:
-    voice_hitthesaucers:
+    voice_hitthesaucers_multiball:
       action: play
   slide_multiball_slide_active:
     voice_multiball:

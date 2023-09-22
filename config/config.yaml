@@ -37,8 +37,6 @@ window:
   exit_on_escape: True
 
 # TODO
-# - TimedSkillShot: pic on mini display
-
 
 displays:
   window:
@@ -326,6 +324,10 @@ ball_devices:
     ball_switches: s_pongcup2
     eject_coil: c_pongcup2
     eject_timeouts: 2s
+  bd_popo:
+    ball_switches: s_popo_captured
+    eject_coil: c_popo_eject
+    eject_timeouts: 2s
 
 ball_holds:
   kicker_mode:
@@ -336,6 +338,10 @@ ball_holds:
     balls_to_hold: 1
     hold_devices: bd_kicker_rimrules
     release_one_events: kicker_rimrules_eject
+  kicker_popo:
+    balls_to_hold: 1
+    hold_devices: bd_popo
+    release_one_events: kicker_popo_eject
 
 # cases where MPF will try to eject from pongcups
 # 1. Multiball not running:
@@ -395,7 +401,12 @@ show_player:
 shows:
   show_gameover_nohighscore:
     - time: 0
-      slides: video_seeyoulater_slide
+      slides:
+        video_seeyoulater_slide:
+          target: main
+        slide_mini_highscore:
+          target: mini
+          priority: 3000
     - time: '+4.5'
       events: gameover_video_complete
   show_gameover_highscore:
@@ -403,6 +414,9 @@ shows:
       slides:
         video_champions_slide:
           target: main
+        slide_mini_highscore:
+          target: mini
+          priority: 3000
     - time: '+6.5'
       events: gameover_video_complete
 

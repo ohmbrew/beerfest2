@@ -116,7 +116,10 @@ player_vars:
   pts_quarters:
     initial_value: 75000
     value_type: int
-  pts_tgt_ramp_boot:
+  pts_tgt_ramp_boot_left:
+    initial_value: 50000
+    value_type: int
+  pts_tgt_ramp_boot_right:
     initial_value: 50000
     value_type: int
   pts_tgt_rimrules:
@@ -125,20 +128,20 @@ player_vars:
   pts_ramp_boot:
     initial_value: 100000
     value_type: int
-  pts_ramp_paddle:
+  pts_ramp_upf:
     initial_value: 100000
+    value_type: int
+  pts_horseshoe:
+    initial_value: 1000000
     value_type: int
   pts_tavern:
     initial_value: 25000
     value_type: int
-  pts_d:
+  pts_upf_tgt_left:
     initial_value: 40000
     value_type: int
-  pts_r:
+  pts_upf_tgt_right:
     initial_value: 40000
-    value_type: int
-  pts_i:
-    initial_value: 1000000
     value_type: int
   pts_rnd:
     initial_value: 10000    # used for pops and slings - these will have some multiple of 10 points (up to 9x) added. To randomize lower two digits of score
@@ -311,7 +314,7 @@ player_vars:
     initial_value: 5000000
     value_type: int
 
-  # track if we are displaying paddle bonus slide. This is used to enforce order of Monkeychug bonus slide/sound and paddle bonus slide/sound
+  # track if we are displaying upf bonus slide. This is used to enforce order of Monkeychug bonus slide/sound and upf bonus slide/sound
   is_slide_upf1_queued:
     initial_value: 0
     value_type: int

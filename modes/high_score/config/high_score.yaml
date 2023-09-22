@@ -56,6 +56,10 @@ slide_player:
   high_score_award_display:
     high_score_award_display:
       target: main
+  high_score_enter_initials.1:
+    slide_mini_highscore:
+      target: mini
+      priority: 2100
 
 slides:
   _overwrite: true
@@ -157,3 +161,20 @@ slides:
       
     - type: image
       image: background-highscore-done
+  slide_mini_highscore:
+    widgets:
+    - type: image
+      image: MiniText-HighScore
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
