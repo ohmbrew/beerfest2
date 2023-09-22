@@ -104,6 +104,24 @@ slides:
             duration: .5s
     - type: image
       image: background
+  multiball_slide_popo:
+    widgets:
+    - type: text
+      text: MULTIBALL
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle
+      y: middle
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
   slide_mini_mb_shootsaucers:
     widgets:
     - type: image
@@ -141,8 +159,8 @@ slide_player:
       target: main
       priority: 2000
       expire: 3s
-  start_multiball_popo:
-    multiball_slide:
+  play_popo_multiball_slide:
+    multiball_slide_popo:
       target: main
       priority: 2000
       expire: 3s
@@ -259,6 +277,9 @@ sound_player:
   slide_multiball_slide_active:
     voice_multiball:
       action: play
+  slide_multiball_slide_popo_active:
+    voice_multiball:  # TODO - change this from "munich multiball" to "popo multiball"
+      action: play
 
 show_player:
   slide_multiball_sink2_removed:
@@ -282,6 +303,8 @@ event_player:
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
   shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
+    - play_popo_multiball_slide
+  multiball_slide_popo_removed:
     - start_multiball_popo
 
 

@@ -37,7 +37,8 @@ window:
   exit_on_escape: True
 
 # TODO
-
+# - make popo MB start after multiball slide is played
+# - add light show for when popo ball is captured (chasing lights on arrow_popo)
 displays:
   window:
     width: 1846
