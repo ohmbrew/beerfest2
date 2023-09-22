@@ -19,10 +19,8 @@ sound_player:
 event_player:
   # TODO: start multiball when we have balls in both pong cups and the third is captured here??
   shot_popo_captured_hit{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1}:    # only have 3 balls...release immediately
-    events:
-      - kicker_popo_eject
+    - kicker_popo_eject
   shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
-    events:
-      - kicker_popo_eject
+    - kicker_popo_eject
 
     
