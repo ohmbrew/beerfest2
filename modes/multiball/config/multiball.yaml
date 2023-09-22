@@ -281,7 +281,7 @@ event_player:
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
-  shot_popo_released_hit{device.switches.s_popo_release.state == 1}:
+  shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
     - start_multiball_popo
 
 
