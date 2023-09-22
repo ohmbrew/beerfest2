@@ -143,6 +143,13 @@ multiballs:
     shoot_again: 5s
     start_events: start_multiball
     ball_locks: bd_pongcup1, bd_pongcup2
+  popo_multiball:
+    debug: true
+    ball_count: 2
+    ball_count_type: total
+    shoot_again: 5s
+    start_events: start_multiball_popo
+    ball_locks: bd_popo
 
 multiball_locks:
   pt_lock1:
@@ -160,6 +167,14 @@ multiball_locks:
     locked_ball_counting_strategy: physical_only
     enable_events: enable_pt_lock
     disable_events: start_multiball
+
+  popo_lock:
+    debug: true
+    lock_devices: bd_popo
+    balls_to_lock: 1
+    locked_ball_counting_strategy: physical_only
+    enable_events: enable_popo_lock
+    disable_events: start_multiball_popo
 
 state_machines:
   multiball:
@@ -239,6 +254,8 @@ show_player:
       action: stop
 
 event_player:
+  mode_multiball_started:
+    - enable_popo_lock
   shot_pongcup1_hit:
     - pongtable_movetocup2
     - multiball_sink1
@@ -248,6 +265,8 @@ event_player:
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
+  shot_popo_released_hit{devices.switches.s_popo_released.state == 1}:
+    - start_multiball_popo
 
 variable_player:
   slide_multiball_sink1_clean_created:

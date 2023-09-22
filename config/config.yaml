@@ -338,10 +338,6 @@ ball_holds:
     balls_to_hold: 1
     hold_devices: bd_kicker_rimrules
     release_one_events: kicker_rimrules_eject
-  kicker_popo:
-    balls_to_hold: 1
-    hold_devices: bd_popo
-    release_one_events: kicker_popo_eject
 
 # cases where MPF will try to eject from pongcups
 # 1. Multiball not running:

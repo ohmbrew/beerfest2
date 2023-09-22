@@ -22,5 +22,3 @@ event_player:
     - kicker_popo_eject
   shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
     - kicker_popo_eject
-
-    
