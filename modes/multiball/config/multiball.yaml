@@ -304,7 +304,7 @@ event_player:
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
   shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
     - play_popo_multiball_slide
-  multiball_slide_popo_removed:
+  slide_multiball_slide_popo_removed:
     - start_multiball_popo
 
 
