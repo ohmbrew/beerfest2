@@ -163,7 +163,7 @@ slide_player:
     multiball_slide_popo:
       target: main
       priority: 2000
-      expire: 3s
+      expire: 2.5s
   multiball_sink2.1:
     slide_mini_mb_shootsaucers:
       target: mini
@@ -278,7 +278,7 @@ sound_player:
     voice_multiball:
       action: play
   slide_multiball_slide_popo_active:
-    voice_multiball:  # TODO - change this from "munich multiball" to "popo multiball"
+    voice_multiball_popo:
       action: play
 
 show_player:
