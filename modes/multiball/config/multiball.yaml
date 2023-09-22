@@ -284,6 +284,7 @@ event_player:
   shot_popo_released_hit{device.switches.s_popo_release.state == 1}:
     - start_multiball_popo
 
+
 variable_player:
   slide_multiball_sink1_clean_created:
     is_showing_pongsink_slide:
