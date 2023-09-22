@@ -120,9 +120,6 @@ autofire_coils:
   slingshot_quarters:
     coil: c_slingshot_quarters
     switch: s_slingshot_quarters
-  popo_autorelease:
-    coil: c_popo_eject
-    switch: s_popo_captured
   quarters:
     coil: c_quarters
     switch: s_quarters
