@@ -1,0 +1,42 @@
+#config_version=5
+##! mode: vs
+
+# vs is a mode that when started, will pick a "challenge" and track outcome of a specified sub-mode challenge
+# vs is started because one of the following occurred:
+# 1. Player has not filled up mug (i.e. game theme mode not enabled) and has hit rimrules/mode saucers
+#    a. 50% of the time, vs will start. Other 50% of the time, old original audio callout and popout will happen
+# 2. Player has filled up mug (i.e. game theme mode is enabled) and has hit rimrules/mode saucers
+#    a. 50% of the time, vs will start. Other 50% of the time, game theme mode will start
+# POSSIBLE CHALLENGES
+# 1. VIDEO. Use flippers to move a cup left/right to catch falling ping pong balls
+# 2. VIDEO. Use flippers to balance a drunk walking dude like in that Boobietron game for some amount of time
+# 3. Flippers are flopped for some amount of time (30 secs?). If player succeeds, they "win" that country
+# 4. Have a slide show meters of USA and opponent. All shots increase USA meter. Opp meter rises at some rate. First to top "wins"!
+# 5. Go down inlanes some # of times within some amount of time
+# 6. Hit slings some number of times within some amount of time
+
+mode:
+  start_events: start_mode_vs
+  stop_events: game_ended, stop_mode_vs
+
+slides:
+  usa_vs_canada_intro:
+    widgets:
+    - type: text
+      text: USA
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle - 300
+      y: middle - 300
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+
+

@@ -37,7 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
-# - add ball1/ball2 locked lights functionality w/pong table multiball status
+# - 
 
 displays:
   window:

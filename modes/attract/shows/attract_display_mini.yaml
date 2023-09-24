@@ -104,10 +104,3 @@
       widgets:
         - type: image
           image: beermug0
-- duration: 3s
-  slides:
-    mug0:
-      target: mini
-      widgets:
-        - type: image
-          image: minibg
