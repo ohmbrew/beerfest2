@@ -9,9 +9,6 @@ mode:
   priority: 300
 
 sound_player:
-  shot_popo_captured_hit:
-    voice_goodnightpopo:
-      action: play
   shot_popo_released_hit{device.switches.s_popo_captured.state == 0}:   # only play sound if no popo ball captured. Otherwise, the multiball slide will play with sound
     voice_oprecipe:
       action: play
@@ -20,6 +17,4 @@ event_player:
   # TODO: start multiball when we have balls in both pong cups and the third is captured here??
   shot_popo_captured_hit{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1}:    # only have 3 balls...release immediately
     - kicker_popo_eject
-  # I think this is now covered in the multiball logic
-  # shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
-  #   - kicker_popo_eject
+

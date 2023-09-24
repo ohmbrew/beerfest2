@@ -1,0 +1,62 @@
+#show_version=5
+- duration: 1
+  lights:
+    strikeout_shot: off          
+    strikeout_beer: off          
+    strikeout_bong: off          
+    quarters1: off
+    quarters2: off
+    quarters3: off
+    quarters4: off
+    quarters5: off       
+    chance: off          
+    special: off          
+    arrow_rimrules1: 008ce5          
+    arrow_rimrules2: off          
+    arrow_rimrules3: off          
+    arrow_mode1: 008ce5          
+    arrow_mode2: off          
+    arrow_mode3: off     
+    l_pop_left: off
+    l_pop_right: off
+    l_pop_lower: off
+- duration: 1
+  lights:
+    arrow_rimrules1: 008ce5          
+    arrow_rimrules2: 008ce5          
+    arrow_rimrules3: off          
+    arrow_mode1: 008ce5          
+    arrow_mode2: 008ce5          
+    arrow_mode3: off          
+- duration: 1
+  lights:
+    arrow_rimrules1: 008ce5          
+    arrow_rimrules2: 008ce5          
+    arrow_rimrules3: 008ce5          
+    arrow_mode1: 008ce5          
+    arrow_mode2: 008ce5          
+    arrow_mode3: 008ce5
+- duration: 1
+  lights:
+    arrow_rimrules1: off          
+    arrow_rimrules2: 008ce5          
+    arrow_rimrules3: 008ce5          
+    arrow_mode1: off          
+    arrow_mode2: 008ce5
+    arrow_mode3: 008ce5          
+- duration: 1
+  lights:
+    arrow_rimrules1: off          
+    arrow_rimrules2: off          
+    arrow_rimrules3: 008ce5          
+    arrow_mode1: off          
+    arrow_mode2: off         
+    arrow_mode3: 008ce5          
+- duration: 1
+  lights:
+    arrow_rimrules1: off          
+    arrow_rimrules2: off          
+    arrow_rimrules3: off          
+    arrow_mode1: off          
+    arrow_mode2: off          
+    arrow_mode3: off  

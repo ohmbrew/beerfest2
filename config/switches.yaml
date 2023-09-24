@@ -101,24 +101,24 @@ switches:
     number: A2-B0-3
     type: NC
     tags: playfield_active
-  s_flipper_left:         # TODO: Verify
+  s_flipper_left:
     number: A2-B0-4
     tags: left_flipper
-  s_flipper_right:        # TODO: Verify
+  s_flipper_right:  
     number: A2-B0-5
     tags: right_flipper
-  s_start:                # TODO: Verify
+  s_start:        
     number: A2-B0-6
     tags: start
   s_adult:                # TODO: Verify
     number: A2-B0-7
 
   # Bank B (J6) (A2-B1)
-  s_pongcup1:               # TODO: Verify
+  s_pongcup1:     
     number: A2-B1-0
     type: NC
     ignore_window_ms: 750
-  s_pongcup2:               # TODO: Verify
+  s_pongcup2:      
     number: A2-B1-1
     type: NC
     ignore_window_ms: 750

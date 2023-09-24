@@ -321,8 +321,7 @@ sounds:
         attenuation: -50db
         release_point: .5 sec
         release: 1.5 sec
-    
-  # Callouts from Derek. TODO: Change to Broken Lizard when I get them
+
   voice_flipperflop_active:
     file: Jay-FlippersFlopped.wav
     track: voice

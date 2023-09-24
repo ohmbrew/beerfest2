@@ -15,26 +15,34 @@ shows:
     - duration: 1
       lights:
         arrow_rimrules1: 008ce5          
+        arrow_rimrules2: off          
+        arrow_rimrules3: off          
+        arrow_mode1: 008ce5          
+        arrow_mode2: off          
+        arrow_mode3: off          
+    - duration: 1
+      lights:
+        arrow_rimrules1: 008ce5          
         arrow_rimrules2: 008ce5          
         arrow_rimrules3: off          
         arrow_mode1: 008ce5          
         arrow_mode2: 008ce5          
-        arrow_mode3: off          
+        arrow_mode3: off
     - duration: 1
       lights:
         arrow_rimrules1: 008ce5          
         arrow_rimrules2: 008ce5          
         arrow_rimrules3: 008ce5          
         arrow_mode1: 008ce5          
-        arrow_mode2: 008ce5          
-        arrow_mode3: 008ce5
+        arrow_mode2: 008ce5
+        arrow_mode3: 008ce5          
     - duration: 1
       lights:
         arrow_rimrules1: off          
         arrow_rimrules2: 008ce5          
         arrow_rimrules3: 008ce5          
         arrow_mode1: off          
-        arrow_mode2: 008ce5
+        arrow_mode2: 008ce5         
         arrow_mode3: 008ce5          
     - duration: 1
       lights:
@@ -42,8 +50,8 @@ shows:
         arrow_rimrules2: off          
         arrow_rimrules3: 008ce5          
         arrow_mode1: off          
-        arrow_mode2: off         
-        arrow_mode3: 008ce5          
+        arrow_mode2: off          
+        arrow_mode3: 008ce5
     - duration: 1
       lights:
         arrow_rimrules1: off          
@@ -52,7 +60,95 @@ shows:
         arrow_mode1: off          
         arrow_mode2: off          
         arrow_mode3: off  
-
+  popo_multiball_enabled:
+    - duration: 1
+      lights:
+        arrow_popo1: 008ce5          
+        arrow_popo2: off          
+        arrow_popo3: off        
+    - duration: 1
+      lights:
+        arrow_popo1: 008ce5          
+        arrow_popo2: 008ce5          
+        arrow_popo3: off   
+    - duration: 1
+      lights:
+        arrow_popo1: 008ce5          
+        arrow_popo2: 008ce5          
+        arrow_popo3: 008ce5       
+    - duration: 1
+      lights:
+        arrow_popo1: off          
+        arrow_popo2: 008ce5          
+        arrow_popo3: 008ce5       
+    - duration: 1
+      lights:
+        arrow_popo1: off          
+        arrow_popo2: off          
+        arrow_popo3: 008ce5   
+    - duration: 1
+      lights:
+        arrow_popo1: off          
+        arrow_popo2: off          
+        arrow_popo3: off
+  light_ball1_locked: 
+    - duration: 1
+      lights:
+        ball1_locked: 008ce5
+    - duration: 1
+      lights:
+        ball1_locked: off
+    - duration: 1
+      lights:
+        ball1_locked: 008ce5
+    - duration: 1
+      lights:
+        ball1_locked: off
+    - duration: 1
+      lights:
+        ball1_locked: 008ce5
+    - duration: 1
+      lights:
+        ball1_locked: off
+    - duration: 1
+      lights:
+        ball1_locked: 008ce5
+    - duration: 1
+      lights:
+        ball1_locked: off
+    - duration: 1
+      lights:
+        ball1_locked: 008ce5
+    - duration: -1
+  light_ball2_locked:
+    - duration: 1
+      lights:
+        ball2_locked: 008ce5
+    - duration: 1
+      lights:
+        ball2_locked: off
+    - duration: 1
+      lights:
+        ball2_locked: 008ce5
+    - duration: 1
+      lights:
+        ball2_locked: off
+    - duration: 1
+      lights:
+        ball2_locked: 008ce5
+    - duration: 1
+      lights:
+        ball2_locked: off
+    - duration: 1
+      lights:
+        ball2_locked: 008ce5
+    - duration: 1
+      lights:
+        ball2_locked: off   
+    - duration: 1
+      lights:
+        ball2_locked: 008ce5  
+    - duration: -1
 
 slides:
   multiball_sink1_clean:
@@ -80,12 +176,9 @@ slides:
     widgets:
     - type: image
       image: background-flag
-    # TODO - make this a Popo clip (beginning? Or Recipe retrieved?...)
-    - type: text
-      text: POPO CAPTURED!
-    - type: image
-      image: beermug7
-    expire: 3.5s
+    - type: video
+      video: goodnightpopo
+    expire: 4.75s
   multiball_slide:
     widgets:
     - type: text
@@ -164,7 +257,10 @@ slide_player:
       target: main
       priority: 2000
       expire: 2.5s
-  multiball_sink2.1:
+  multiball_sink2:
+    multiball_sink2:
+      target: main
+      priority: 2000
     slide_mini_mb_shootsaucers:
       target: mini
       priority: 2000
@@ -282,12 +378,43 @@ sound_player:
       action: play
 
 show_player:
+  slide_multiball_sink1_clean_active:
+    light_ball1_locked:
+      loops: 0
+      speed: 4
+      priority: 3000
+  slide_multiball_sink1_adult_active:
+    light_ball1_locked:
+      loops: 0
+      speed: 4
+      priority: 3000
+  slide_multiball_sink2_active:
+    light_ball2_locked:
+      loops: 0
+      speed: 10
+      priority: 3000  
   slide_multiball_sink2_removed:
     munich_multiball_enabled:
       loops: -1
       speed: 8
+      priority: 3000
+    light_ball2_locked:
+      loops: 0
+      priority: 3000
   start_multiball:
     munich_multiball_enabled:
+      action: stop
+    light_ball1_locked:
+      action: stop
+    light_ball2_locked:
+      action: stop
+  slide_multiball_popo_captured_removed:
+    popo_multiball_enabled:
+      loops: -1
+      speed: 8
+      priority: 3000
+  start_multiball_popo:
+    popo_multiball_enabled:
       action: stop
 
 event_player:

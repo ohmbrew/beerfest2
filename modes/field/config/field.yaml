@@ -51,8 +51,8 @@ random_event_player:
   launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
     events:
       - start_mode_longpour
-      #- start_mode_quarters
-      #- start_mode_strikeout
+      - start_mode_quarters
+      - start_mode_strikeout
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
     events:
       - start_mode_volumechug
@@ -63,10 +63,10 @@ random_event_player:
 
 show_player:
   mode_field_started:
-    show_qualify_active:
+    show_qualifying:
       speed: 4
   qualified_for_mode_selection:
-    show_qualify_active:
+    show_qualifying:
       action: stop
 
 variable_player:
