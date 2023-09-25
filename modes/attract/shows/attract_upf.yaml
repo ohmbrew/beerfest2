@@ -1,0 +1,91 @@
+#show_version=5
+- duration: 1
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: red
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: red
+    arrow_horseshoe2: red
+    arrow_horseshoe3: red
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: red
+    arrow_horseshoe3: red
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: red
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: white
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: white
+    arrow_horseshoe2: white
+    arrow_horseshoe3: white
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: white
+    arrow_horseshoe3: white
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: white
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: off
+- duration: 1
+  lights:
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: blue
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: blue
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: blue
+- duration: 1
+  lights:
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off

@@ -198,8 +198,8 @@ servos:
   servo_pongtable:
     number: 3
     # these have been visually calibrated and are good
-    servo_min: 0.14    # at min, pong cup 1 is at front
-    servo_max: .87     # at max, pong cup 2 is at front
+    servo_min: 0.12    # at min, pong cup 1 is at front
+    servo_max: 0.87     # at max, pong cup 2 is at front
     positions:
       0.0: pongcup_1
       0.5: pongcup_0
