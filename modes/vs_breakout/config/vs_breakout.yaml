@@ -1,133 +1,85 @@
 #config_version=5
-##! mode: vs_alltargets
+##! mode: vs_breakout
 
-# vs_alltargets is a VS mode that pits opponent vs USA: object, hit any target to reduce opponent hit pts. If player HP gets to 0 before opponent's, you lose.
-# vs_alltargets is started because one of the following occurred:
+# vs_breakout is a VS mode that pits player against a Breakout (r) style video game. Ping pong balls will fall from top at some angle,
+#   and player uses flippers to move red solo cup back and forth to try and catch ball. 3 times and they win. A miss loses.
+# pongball: 80x80 pixels
+# cup: 160x209
+# vs_breakout is started because one of the following occurred:
 # 1. Player has not filled up mug (i.e. game theme mode not enabled) and has hit rimrules/mode saucers
 #    a. 50% of the time, vs will start. Other 50% of the time, old original audio callout and popout will happen
 # 2. Player has filled up mug (i.e. game theme mode is enabled) and has hit rimrules/mode saucers
 #    a. 50% of the time, vs will start. Other 50% of the time, game theme mode will start
-# POSSIBLE CHALLENGES
-# 1. VIDEO. Use flippers to move a cup left/right to catch falling ping pong balls
-# 2. VIDEO. Use flippers to balance a drunk walking dude like in that Boobietron game for some amount of time
-# 3. Flippers are flopped for some amount of time (30 secs?). If player succeeds, they "win" that country
-# 4. Have a slide show meters of USA and opponent. All shots increase USA meter. Opp meter rises at some rate. First to top "wins"!
-# 5. Go down inlanes some # of times within some amount of time
-# 6. Hit slings some number of times within some amount of time
-# 7. Insta-kill! Chug?
+
 # Note: when copying, must update:
 #  - mode start_events
 #  - mode stop_events
-#  - player_health_drain restart event
+#  - player_health_drain restart event (if applicable - otherwise delete)
 #  - slide names in slides:
 #  - slide names in slide_player:
 #  - variable_player
-#  - base mode vs_alltargets_stopped: to update country insert
+#  - base mode vs_breakout_stopped: to update country insert
 #  - shows: update show name
 #  - show_player: update show names
 #  - event player: choose random opponent
 #  - update Field.yaml to include new VS challenge
+#  - add mode to config.yaml
 
 mode:
-  start_events: start_mode_vs_alltargets
-  stop_events: game_ended, stop_mode_vs_alltargets, start_mode_bonusv2
+  start_events: start_mode_vs_breakout
+  stop_events: game_ended, stop_mode_vs_breakout, start_mode_bonusv2
 
 timers:
-  opponent_health_update:   # ensure that health meter gets update *after* we update opponent health player variable
+  update_frame:    # ensure that player health meter gets update *after* we update image location variables
     start_value: 1
     end_value: 0
     direction: down
     tick_interval: .1s
     control_events:
       - action: restart
-        event: dec_opponent_health
-  player_health_update:    # ensure that player health meter gets update *after* we update player health player variable
-    start_value: 1
-    end_value: 0
-    direction: down
-    tick_interval: .1s
-    control_events:
-      - action: restart
-        event: dec_player_health
+        event: timer_framerate_complete
       - action: stop
         event: stop_update_timers
-  player_health_drain:    # this timer starts at 15 and decrements every 3 seconds. TODO: That's 1 shot to make every 5 secs to beat player. Is that hard enough?
-    start_value: 15
+
+  framerate:     # called every 100ms. 1) update ball image based on x/y velocities. 2) update player cup left/right based on left/right flipper states
+    start_value: 1
     end_value: 0
     direction: down
-    tick_interval: 1s
+    tick_interval: .25s
+    restart_on_complete: true
     control_events:
       - action: restart
-        event: slide_vs_alltargets_status_active
+        event: slide_vs_breakout_status_active
       - action: stop
         event: vs_result_win
       - action: stop
         event: stop_update_timers  
 
-random_event_player:
-  select_rnd_vs_alltargets_kicker_action:
-    force_all: false
-    force_different: false
-    events:
-      rnd_vs_alltargets_kicker_action_result_instachug: 10
-      play_betterwhendrunk_and_eject: 90
-
-# counter counts targets hit against opponent. If it gets to 0 before player health does, then player wins VS mode
-counters:
-  count_opponent_hits:
-    direction: down
-    starting_count: 15
-    count_events: >
-      shot_pop_lower_hit, shot_pop_upper_right_hit, shot_pop_upper_left_hit,
-      shot_hj_hit, shot_bj_hit, shot_zj_hit, shot_chance_hit, shot_special_hit,
-      shot_take_hit_hit, shot_chug_beer_hit, shot_do_shot_hit, shot_quarters_hit, shot_slingleft_hit,
-      shot_slingright_hit, shot_slingquarters_hit, shot_tgt_ramp_boot_left_hit, shot_tgt_ramp_boot_right_hit, shot_tavern_hit,
-      shot_diverter_hit, shot_ramp_upf_hit, shot_tgt_rimrules_hit, shot_popo_released_hit, shot_upf_tgt_left_hit, shot_upf_tgt_right_hit,
-      shot_horseshoe_hit, shot_laneleft_outer_hit, shot_laneleft_inner_hit, shot_laneright_inner_hit, shot_laneright_outer_hit
-    count_complete_value: 0
-    events_when_hit: dec_opponent_health
-    reset_events: vs_reset  
-    events_when_complete: vs_result_win
-    reset_on_complete: false
-
 event_player:
-  timer_opponent_health_update_complete:
-    update_opponent_health:
-      new_width: {value: current_player.opponent_health}
-  timer_player_health_update_complete:
-    update_player_health:
-      new_width: {value: current_player.player_health}
-  timer_player_health_drain_tick:
-    dec_player_health
-  timer_player_health_drain_complete:
-    vs_result_lose
-  slide_vs_alltargets_win_removed:
-    stop_mode_vs_alltargets
-  slide_vs_alltargets_lose_removed:
-    stop_mode_vs_alltargets
-  mode_vs_alltargets_stopping:
+  slide_vs_breakout_win_removed:
+    stop_mode_vs_breakout
+  slide_vs_breakout_lose_removed:
+    stop_mode_vs_breakout
+  mode_vs_breakout_stopping:
     kicker_mode_eject
-  slide_vs_alltargets_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
-  slide_vs_alltargets_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
-  shot_kicker_mode_hit: select_rnd_vs_alltargets_kicker_action
-  rnd_vs_alltargets_kicker_action_result_instachug:
-    - stop_update_timers
-    - vs_reset
-  slide_vs_alltargets_instachug_removed:
-    vs_result_win
+  slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
+  slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
+
+  timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x > 130)}: move_cup_left    # can move left
+  timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x <= 130)}: move_cup_far_left  # within limit of moving, so set to far left
+  timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x < 1236)}: move_cup_right
+  timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x >= 1236)}: move_cup_far_right
+  timer_update_frame_complete:
+    update_cup_x:
+      new_x: {value: current_player.cup_x}
 
 sound_player:
-  slide_vs_alltargets_intro_active:
+  slide_vs_breakout_intro_active:
     crowd:
       loops: -1
     introrepeat:
       action: stop
     boom_x4:
-      action: play
-  slide_vs_alltargets_instachug_active:
-    crowd:
-      action: stop
-    winner_usa:
       action: play
   vs_result_win:
     crowd:
@@ -139,21 +91,12 @@ sound_player:
       action: stop
     voice_vs_lose:
       loops:
-  mode_vs_alltargets_stopping:
+  mode_vs_breakout_stopping:
     crowd:
       action: stop
-  shot_kicker_rimrules_hit:
-    rimrules:
-      action: play
-      events_when_stopped: kicker_rimrules_eject
-  play_betterwhendrunk_and_eject:
-    betterwhendrunk:
-      action: play
-      events_when_stopped: kicker_mode_eject
-    
 
 shows:
-  vs_alltargets_flash_usa:
+  vs_breakout_flash_usa:
     - duration: 1
       lights:
         usa_left: (color)
@@ -162,7 +105,7 @@ shows:
       lights:
         usa_left: off
         usa_right: off
-  vs_alltargets_flash_opponent:
+  vs_breakout_flash_opponent:
     - duration: 1
       lights:
         (led_left): (color)
@@ -173,32 +116,32 @@ shows:
         (led_right): off
 
 show_player:
-  mode_vs_alltargets_started:
-    vs_alltargets_flash_usa:
+  mode_vs_breakout_started:
+    vs_breakout_flash_usa:
       loops: -1
       speed: 4
       show_tokens:
         color: yellow
-    vs_alltargets_flash_opponent:
+    vs_breakout_flash_opponent:
       loops: -1
       speed: 4
       show_tokens:
         led_left: (current_player.opponent_left)
         led_right: (current_player.opponent_right)
         color: yellow
-  mode_vs_alltargets_stopping:
-    vs_alltargets_flash_usa:
+  mode_vs_breakout_stopping:
+    vs_breakout_flash_usa:
       action: stop
-    vs_alltargets_flash_opponent:
+    vs_breakout_flash_opponent:
       action: stop
   vs_result_win:
-    vs_alltargets_flash_usa:
+    vs_breakout_flash_usa:
       loops: -1
       speed: 4
       priority: 4000
       show_tokens:
         color: green
-    vs_alltargets_flash_opponent:
+    vs_breakout_flash_opponent:
       loops: -1
       speed: 4
       priority: 4000
@@ -207,13 +150,13 @@ show_player:
         led_right: (current_player.opponent_right)
         color: red
   vs_result_lose:
-    vs_alltargets_flash_usa:
+    vs_breakout_flash_usa:
       loops: -1
       speed: 4
       priority: 4000
       show_tokens:
         color: red
-    vs_alltargets_flash_opponent:
+    vs_breakout_flash_opponent:
       loops: -1
       speed: 4
       priority: 4000
@@ -222,11 +165,10 @@ show_player:
         led_right: (current_player.opponent_right)
         color: green
 
-
 slides:
-  vs_alltargets_mini:
+  vs_breakout_mini:
     - type: image
-      image: TextOnMini-BattleMode
+      image: TextOnMini-VideoMode
       animations:
         show_slide:
           - property: opacity
@@ -239,11 +181,11 @@ slides:
             repeat: true
             easing: in_out_quint
     - type: image
-      image: TextOnMini-AllTargetsHitOpponent
+      image: TextOnMini-CatchPongBalls
     - type: image
       image: minibg
 
-  vs_alltargets_intro:
+  vs_breakout_intro:
     widgets:
     - type: text
       text: USA
@@ -306,13 +248,13 @@ slides:
             duration: .25s
             timing: with_previous
     - type: text
-      text: BATTLE MODE
+      text: VIDEO MODE
       font_size: 25
       font_name: druillet
       anchor_x: middle
       anchor_y: middle
       x: middle
-      y: middle - 100
+      y: middle - 59
       color: 008ce5ff
       opacity: 0
       animations:
@@ -325,104 +267,63 @@ slides:
             duration: 0
             timing: after_previous
           - property: font_size
-            value: 200
+            value: 125
             duration: .25s
-            timing: with_previous        
-    - type: image
-      image: background
-  vs_alltargets_status:
-    widgets:
+            timing: with_previous
     - type: text
-      text: ALL TARGETS
-      font_size: 125
-      font_name: druillet
-      anchor_x: middle
-      anchor_y: top
-      x: middle
-      y: top - 50
-      color: 008ce5ff
-    - type: text
-      text: HIT (opponent)
-      font_size: 125
-      font_name: druillet
-      anchor_x: middle
-      anchor_y: top
-      x: middle
-      y: top - 250
-      color: 008ce5ff
-    
-    # player name
-    - type: text
-      text: USA
-      font_size: 100
-      font_name: druillet
-      anchor_x: left
-      anchor_y: bottom
-      x: left + 50
-      y: bottom + 175
-      color: 008ce5ff
-
-    # player health meter
-    - type: rectangle
-      y: bottom + 195
-      x: middle - 150
-      anchor_x: left
-      anchor_y: bottom
-      width: 750        # 50 pixel hit width * 15 hits = 750 - 15*50 = 0. So 15 hits to go to 0
-      height: 75
-      color: 008ce5ff
-      animations:
-        update_player_health:
-          - property: width
-            value: (new_width)
-
-    # opponent name   
-    - type: text
-      text: (opponent)
-      font_size: 100
-      font_name: druillet
-      anchor_x: left
-      anchor_y: bottom
-      x: left + 50
-      y: bottom + 50
-      color: red
-    
-    # opponent health
-    - type: rectangle
-      y: bottom + 85
-      x: middle - 150
-      anchor_x: left
-      anchor_y: bottom
-      width: 750      # start with 750 pixel wide health. # 50 pixel hit width * 15 hits = 750 - 15*50 = 0. So 15 hits to go to 0
-      height: 75
-      color: red
-      animations:
-        update_opponent_health:   # each time this event comes in (with value: set to updated opponent health), it will update the width of the health bar to new value
-          - property: width
-            value: (new_width)  # tracked by a counter that counts down every time one of the shots is hit (like with mug fill)
-    - type: image
-      image: background
-
-  vs_alltargets_instachug:
-    widgets:
-    - type: text
-      text: INSTA CHUG
+      text: FLIPPERS MOVE CUP
       font_size: 25
       font_name: druillet
       anchor_x: middle
       anchor_y: middle
       x: middle
-      y: middle
+      y: middle - 250
       color: 008ce5ff
+      opacity: 0
       animations:
         show_slide:
+          - property: opacity
+            value: 0
+            duration: 3s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
           - property: font_size
-            value: 250
-            duration: .5s
+            value: 125
+            duration: .25s
+            timing: with_previous        
+    - type: image
+      image: background
+  vs_breakout_status:
+    widgets:
+    - type: image
+      image: pongball
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: top - 75
+      animations:
+        update_ball_x:
+          - property: x
+            value: (new_x)
+        update_ball_y:
+          - property: y
+            value: (new_y)    
+    - type: image
+      image: cup
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: bottom + 75
+      animations:
+        update_cup_x:
+          - property: x
+            value: (new_x)
     - type: image
       image: background
 
-  vs_alltargets_win:
+  vs_breakout_win:
     widgets:
     - type: text
       text: USA
@@ -535,7 +436,7 @@ slides:
     - type: image
       image: background
 
-  vs_alltargets_lose:
+  vs_breakout_lose:
     widgets:
     - type: text
       text: USA
@@ -624,66 +525,80 @@ slides:
       image: background
 
 slide_player:
-  mode_vs_alltargets_started:
-    vs_alltargets_intro:
+  mode_vs_breakout_started:
+    vs_breakout_intro:
       target: main
       priority: 4000
       expire: 5s
-    vs_alltargets_mini:
+    vs_breakout_mini:
       target: mini
       priority: 4000
-  slide_vs_alltargets_intro_removed:
-    vs_alltargets_status:
+  slide_vs_breakout_intro_removed:
+    vs_breakout_status:
       target: main
       priority: 4000
-  rnd_vs_alltargets_kicker_action_result_instachug:
-    vs_alltargets_status:
-      action: remove
-    vs_alltargets_instachug:
-      target: main
-      priority: 5000
-      expire: 2s
-  shot_kicker_rimrules_hit:
-    vs_alltargets_instachug:
-      target: main
-      priority: 5000
-      expire: 2s
   vs_result_win:
-    vs_alltargets_status:
+    vs_breakout_status:
       target: main
       action: remove
-    vs_alltargets_win:
+    vs_breakout_win:
       target: main
       expire: 5s
       priority: 4000
   vs_result_lose:
-    vs_alltargets_status:
+    vs_breakout_status:
       target: main
       action: remove
-    vs_alltargets_lose:
+    vs_breakout_lose:
       target: main
       expire: 5s
       priority: 4000
 
+random_event_player:
+  rnd_ball_x:
+    - set_ball_x{value: 183}
+    - set_ball_x{value: 283}
+    - set_ball_x{value: 383}
+    - set_ball_x{value: 483}
+    - set_ball_x{value: 583}
+    - set_ball_x{value: 683}
+    - set_ball_x{value: 783}
+    - set_ball_x{value: 883}
+    - set_ball_x{value: 983}
+    - set_ball_x{value: 1083}
+    - set_ball_vx{value: 1183}
+  rnd_ball_vx:
+    - set_ball_vx{value: 10}
+    - set_ball_vx{value: 20}
+    - set_ball_vx{value: 30}
+    - set_ball_vx{value: 40}
+    - set_ball_vx{value: 50}
+  rnd_cup_x:
+    - set_cup_x{value: 383}
+    - set_cup_x{value: 483}
+    - set_cup_x{value: 583}
+    - set_cup_x{value: 683}
+    - set_cup_x{value: 783}
+    - set_cup_x{value: 883}
+    - set_cup_x{value: 983}
+
 variable_player:
-  mode_vs_alltargets_stopping: # clear VS active bit
+  mode_vs_breakout_stopping: # clear VS active bit
     is_in_vs:
       int: 0
       action: set
-  dec_opponent_health:
-    opponent_health:
-      int: current_player.opponent_health - 50
+  mode_vs_breakout_started:
+    ball_x:
+      int: 683
       action: set
-  timer_player_health_drain_tick:
-    player_health:
-      int: current_player.player_health - 50
+    ball_y:
+      int: 700
       action: set
-  mode_vs_alltargets_started:
-    opponent_health:
-      int: 750
+    cup_x:
+      int: 683
       action: set
-    player_health:
-      int: 750
+    cup_y:
+      int: 75
       action: set
     is_in_vs:
       int: 1
@@ -711,4 +626,32 @@ variable_player:
     has_germany:
       action: set
       int: 1
+  set_ball_x:
+    ball_x:
+      int: (value)
+      action: set
+  set_ball_y:
+    ball_y:
+      int: (value)
+      action: set
+  set_ball_vx:
+    ball_vx:
+      int: (value)
+      action: set
+  move_cup_left:
+    cup_x:
+      int: current_player.cup_x - 50
+      action: set
+  move_cup_far_left:
+    cup_x:
+      int: 80
+      action: set
+  move_cup_right:
+    cup_x:
+      int: current_player.cup_x + 50
+      action: set
+  move_cup_far_right:
+    cup_x:
+      int: 1286
+      action: set
 

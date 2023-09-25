@@ -360,6 +360,9 @@ player_vars:
 
   # VS mode stuff
   # NOTE: opponent, opponent_left (left LED), and opponent_right (right LED) must be set when VS mode is started! via random or hard set
+  is_in_vs:             # must be set/cleared by vs_X mode! it is read when rimrules/mode saucers are hit. THOSE modes will decide what to do. (i.e. eject immediately, or after bonus screen)
+    initial_value: 0
+    value_type: int
   opponent:
     initial_value: "SCOTLAND"
     value_type: str
@@ -380,4 +383,20 @@ player_vars:
     value_type: int
   pts_vs_win:
     initial_value: 5000000
+    value_type: int
+
+  ball_x:
+    initial_value: 683
+    value_type: int
+  ball_y:
+    initial_value: 700
+    value_type: int
+  ball_vx:
+    initial_value: 25
+    value_type: int
+  ball_vy:
+    initial_value: 25
+    value_type: int
+  cup_x:
+    initial_value: 683
     value_type: int

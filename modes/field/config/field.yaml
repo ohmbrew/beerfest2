@@ -19,9 +19,10 @@ timers:
     control_events:
       - action: restart
         event: selected_vs_alltargets
+      - action: restart
+        event: selected_vs_breakout
       # Add new VS challenges here
-      # - action: restart
-      #   event: selected_vs_alltargets
+      
 sound_player:
   mode_field_started{players[0].is_welcome_played == 0}:
     voice_welcome:
@@ -53,13 +54,17 @@ sound_player:
     introrepeat:
       action: play
       loops: -1
+  mode_vs_breakout_stopped:
+    introrepeat:
+      action: play
+      loops: -1
 
 # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
 event_player:
-  shot_kicker_mode_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
-  shot_kicker_mode_hit{device.counters.count_mug_lights.value < 14}: vs_or_play_betterwhendrunk_and_eject # orig: 'play_betterwhendrunk_and_eject'. testing out vs mode implementation
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14)}: launch_random_game_mode
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_betterwhendrunk_and_eject
   shot_kicker_rimrules_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
-  shot_kicker_rimrules_hit{device.counters.count_mug_lights.value < 14}: play_rimrules_and_eject
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_rimrules_and_eject
   selected_opponent_canada: vs_select_challenge
   selected_opponent_scotland: vs_select_challenge
   selected_opponent_ireland: vs_select_challenge
@@ -71,8 +76,8 @@ random_event_player:
   launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
     events:
       - start_mode_longpour
-      #- start_mode_quarters
-      #- start_mode_strikeout
+      - start_mode_quarters
+      - start_mode_strikeout
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
     events:
       - start_mode_volumechug
@@ -84,6 +89,10 @@ random_event_player:
     events:
       - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
       - play_betterwhendrunk_and_eject
+  vs_or_play_rimrules_and_eject:
+    events:
+      - vs_select_opponent
+      - play_rimrules_and_eject
   # select opponent to play
   vs_select_opponent{current_player.has_germany == 0}:
     events:
@@ -96,7 +105,8 @@ random_event_player:
       - selected_opponent_germany
   vs_select_challenge:
     events:
-      - selected_vs_alltargets
+      #- selected_vs_alltargets
+      - selected_vs_breakout
 
 show_player:
   mode_field_started:
@@ -168,4 +178,8 @@ variable_player:
   selected_vs_alltargets:
     selected_vs:
       string: start_mode_vs_alltargets
+      action: set
+  selected_vs_breakout:
+    selected_vs:
+      string: start_mode_vs_breakout
       action: set

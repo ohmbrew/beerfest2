@@ -494,7 +494,7 @@ sound_player:
     voice_eyeofjew:
       action: play
   shot_quarters_hit{mode.dasboot.active == False}:
-    quarters:
+    voice_30meters:
       action: play
   # halt background music while we play easteregg
   play_easteregg:
@@ -763,16 +763,25 @@ show_player:
   mode_base_started{current_player.has_trojankeg==1}: show_trojankeg_insert
 
   # VS lights
-  mode_vs_alltargets_stopped{current_player.has_canada}: show_canada_insert
+  
   mode_base_started{current_player.has_canada}: show_canada_insert
-  mode_vs_alltargets_stopped{current_player.has_scotland}: show_scotland_insert
   mode_base_started{current_player.has_scotland}: show_scotland_insert
-  mode_vs_alltargets_stopped{current_player.has_ireland}: show_ireland_insert
   mode_base_started{current_player.has_ireland}: show_ireland_insert
-  mode_vs_alltargets_stopped{current_player.has_tobago}: show_tobago_insert
   mode_base_started{current_player.has_tobago}: show_tobago_insert
-  mode_vs_alltargets_stopped{current_player.has_germany}: show_germany_insert
   mode_base_started{current_player.has_germany}: show_germany_insert
+
+  mode_vs_alltargets_stopped{current_player.has_canada}: show_canada_insert
+  mode_vs_alltargets_stopped{current_player.has_scotland}: show_scotland_insert
+  mode_vs_alltargets_stopped{current_player.has_ireland}: show_ireland_insert
+  mode_vs_alltargets_stopped{current_player.has_tobago}: show_tobago_insert
+  mode_vs_alltargets_stopped{current_player.has_germany}: show_germany_insert
+  
+  mode_vs_breakout_stopped{current_player.has_canada}: show_canada_insert
+  mode_vs_breakout_stopped{current_player.has_scotland}: show_scotland_insert
+  mode_vs_breakout_stopped{current_player.has_ireland}: show_ireland_insert
+  mode_vs_breakout_stopped{current_player.has_tobago}: show_tobago_insert
+  mode_vs_breakout_stopped{current_player.has_germany}: show_germany_insert
+
 
   ball_save_ball_save_timer_start:
     show_ball_save:

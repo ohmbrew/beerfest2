@@ -37,8 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
-# - Make sure saucer hits are consistent across base/field, vs_alltargets
-# - Add INSTA KILL target (saucers??) to VS mode!!
+# 
 
 displays:
   window:
@@ -81,7 +80,8 @@ modes:
   - flipperflop
   - popo
   - vs_alltargets
-
+  - vs_breakout
+  
 widget_styles:
   attract_mode_high_score_display_label:
     font_size: 60

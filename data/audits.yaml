@@ -27,26 +27,26 @@ shots:
   pongtable_front_right: 78
   quarters: 30
   shot_bj: 119
-  shot_chance: 245
-  shot_chug_beer: 219
-  shot_diverter: 264
-  shot_do_shot: 237
+  shot_chance: 248
+  shot_chug_beer: 222
+  shot_diverter: 265
+  shot_do_shot: 251
   shot_hj: 145
   shot_horseshoe: 171
-  shot_kicker_mode: 1119
+  shot_kicker_mode: 1276
   shot_kicker_rimrules: 129
   shot_laneleft_inner: 60
   shot_laneleft_outer: 10
   shot_laneright_inner: 38
   shot_laneright_outer: 6
-  shot_leftflipper: 288
+  shot_leftflipper: 302
   shot_paddle_a: 375
   shot_paddle_d1: 474
   shot_paddle_d2: 369
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 1237
+  shot_plunger_lane_exit: 1290
   shot_pongcup1: 230
   shot_pongcup2: 88
   shot_pop_lower: 340
@@ -54,22 +54,22 @@ shots:
   shot_pop_upper_right: 539
   shot_popo_captured: 22
   shot_popo_release: 23
-  shot_popo_released: 25
-  shot_quarters: 3639
+  shot_popo_released: 27
+  shot_quarters: 3661
   shot_ramp_boot: 10
   shot_ramp_paddle: 99
-  shot_ramp_upf: 45
-  shot_rightflipper: 87
+  shot_ramp_upf: 47
+  shot_rightflipper: 125
   shot_sling_left: 1
   shot_sling_quarters: 26
   shot_slingleft: 57
-  shot_slingquarters: 116
-  shot_slingright: 64
-  shot_special: 67
+  shot_slingquarters: 121
+  shot_slingright: 74
+  shot_special: 72
   shot_strikeout_chugbeer: 15
   shot_strikeout_doshot: 15
   shot_strikeout_takehit: 15
-  shot_take_hit: 228
+  shot_take_hit: 229
   shot_tavern: 192
   shot_tavern_spinner: 1581
   shot_tgt_ramp_boot: 118
@@ -92,16 +92,16 @@ shots:
 switches:
   s_adult: 10
   s_bj: 119
-  s_chance: 354
-  s_chug_beer: 298
-  s_diverter: 267
-  s_do_shot: 312
-  s_drain: 1347
-  s_flipper_left: 2293
-  s_flipper_right: 2492
+  s_chance: 357
+  s_chug_beer: 301
+  s_diverter: 268
+  s_do_shot: 326
+  s_drain: 1350
+  s_flipper_left: 2307
+  s_flipper_right: 2533
   s_hj: 146
   s_horseshoe: 437
-  s_kicker_mode: 1716
+  s_kicker_mode: 1874
   s_kicker_rimrules: 618
   s_laneleft_inner: 81
   s_laneleft_outer: 20
@@ -122,8 +122,8 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 2677
-  s_plunger_lane_exit: 1427
+  s_plunger_lane: 2730
+  s_plunger_lane_exit: 1480
   s_pongcup1: 231
   s_pongcup2: 88
   s_pongtable_exit: 40
@@ -134,18 +134,18 @@ switches:
   s_pop_upper_left: 7480
   s_pop_upper_right: 603
   s_popo_captured: 22
-  s_popo_release: 48
-  s_quarters: 3677
-  s_ramp_upf: 45
+  s_popo_release: 50
+  s_quarters: 3699
+  s_ramp_upf: 47
   s_ramp_upf_entry: 134
   s_ramp_upf_exit: 0
   s_right_flipper: 183
   s_slingshot_left: 983
-  s_slingshot_quarters: 359
-  s_slingshot_right: 1097
-  s_special: 69
+  s_slingshot_quarters: 364
+  s_slingshot_right: 1107
+  s_special: 74
   s_start: 313
-  s_take_hit: 306
+  s_take_hit: 307
   s_target_rimrules: 37
   s_tavern_exit: 2
   s_tavern_spinner: 3244
@@ -159,8 +159,8 @@ switches:
   s_trojankeg_right: 145
   s_trough1: 394
   s_trough2: 374
-  s_trough3: 367
-  s_trough_eject: 1956
+  s_trough3: 368
+  s_trough_eject: 2010
   s_upf_entry: 0
   s_upf_tgt_left: 191
   s_upf_tgt_right: 178

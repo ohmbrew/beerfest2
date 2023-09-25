@@ -207,14 +207,7 @@ sounds:
   voice_cheers:
     file: cheers.wav
     track: voice
-    volume: 1.0
-    ducking:
-        target: music
-        delay: 0
-        attack: 0.3 sec
-        attenuation: -50db
-        release_point: .5 sec
-        release: 1.5 sec     
+    volume: 1.0   
   voice_eyeofjew:
     file: eyeofthejew1.wav
     track: voice
@@ -226,6 +219,10 @@ sounds:
         attenuation: -50db
         release_point: .5 sec
         release: 1.5 sec
+  voice_30meters:
+    file: 30meters.wav
+    track: voice
+    volume: 1.0
   voice_soberasabird:
     file: soberasabird.wav
     track: voice
@@ -503,3 +500,11 @@ sounds:
     file: crowd.wav
     track: music
     volume: 1.0
+  winner_usa:
+    file: winnerusa.wav
+    track: voice
+    volume: 1.0
+  boom_x4:
+    file: boom_x4.wav
+    track: sfx
+    volume: 1.0  
