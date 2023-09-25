@@ -23,6 +23,9 @@
     arrow_upf1: red
     arrow_upf2: off
     arrow_upf3: off
+    arrow_horseshoe1: red
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
     arrow_mode1: red
     arrow_mode2: off
     arrow_mode3: off
@@ -59,6 +62,9 @@
     arrow_upf1: off
     arrow_upf2: red
     arrow_upf3: off
+    arrow_horseshoe1: off
+    arrow_horseshoe2: red
+    arrow_horseshoe3: off
     arrow_mode1: off
     arrow_mode2: red
     arrow_mode3: off
@@ -95,6 +101,9 @@
     arrow_upf1: off
     arrow_upf2: off
     arrow_upf3:  red
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: red
     arrow_mode1: off
     arrow_mode2: off
     arrow_mode3: red
@@ -131,6 +140,9 @@
     arrow_upf1: white          
     arrow_upf2: off          
     arrow_upf3: off
+    arrow_horseshoe1: white
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
     arrow_mode1: white
     arrow_mode2: off
     arrow_mode3: off
@@ -167,6 +179,9 @@
     arrow_upf1: off          
     arrow_upf2: white          
     arrow_upf3: off
+    arrow_horseshoe1: off
+    arrow_horseshoe2: white
+    arrow_horseshoe3: off
     arrow_mode1: off
     arrow_mode2: white
     arrow_mode3: off
@@ -203,6 +218,9 @@
     arrow_upf1: off     
     arrow_upf2: off          
     arrow_upf3: white
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: white
     arrow_mode1: off
     arrow_mode2: off
     arrow_mode3: white
@@ -239,6 +257,9 @@
     arrow_upf1: blue          
     arrow_upf2: off          
     arrow_upf3: off
+    arrow_horseshoe1: blue
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
     arrow_mode1: blue
     arrow_mode2: off
     arrow_mode3: off
@@ -275,6 +296,9 @@
     arrow_upf1: off          
     arrow_upf2: blue          
     arrow_upf3: off
+    arrow_horseshoe1: off
+    arrow_horseshoe2: blue
+    arrow_horseshoe3: off
     arrow_mode1: off
     arrow_mode2: blue
     arrow_mode3: off
@@ -311,6 +335,9 @@
     arrow_upf1: off          
     arrow_upf2: off          
     arrow_upf3: blue
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: blue
     arrow_mode1: off
     arrow_mode2: off
     arrow_mode3: blue
@@ -347,6 +374,9 @@
     arrow_upf1: off          
     arrow_upf2: off
     arrow_upf3: off
+    arrow_horseshoe1: off
+    arrow_horseshoe2: off
+    arrow_horseshoe3: off
     arrow_mode1: off
     arrow_mode2: off
     arrow_mode3: off
