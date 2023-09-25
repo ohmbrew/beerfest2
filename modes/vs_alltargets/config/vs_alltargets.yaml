@@ -1,0 +1,594 @@
+#config_version=5
+##! mode: vs_alltargets
+
+# vs_alltargets is a VS mode that pits opponent vs USA: object, hit any target to reduce opponent hit pts. If player HP gets to 0 before opponent's, you lose.
+# vs_alltargets is started because one of the following occurred:
+# 1. Player has not filled up mug (i.e. game theme mode not enabled) and has hit rimrules/mode saucers
+#    a. 50% of the time, vs will start. Other 50% of the time, old original audio callout and popout will happen
+# 2. Player has filled up mug (i.e. game theme mode is enabled) and has hit rimrules/mode saucers
+#    a. 50% of the time, vs will start. Other 50% of the time, game theme mode will start
+# POSSIBLE CHALLENGES
+# 1. VIDEO. Use flippers to move a cup left/right to catch falling ping pong balls
+# 2. VIDEO. Use flippers to balance a drunk walking dude like in that Boobietron game for some amount of time
+# 3. Flippers are flopped for some amount of time (30 secs?). If player succeeds, they "win" that country
+# 4. Have a slide show meters of USA and opponent. All shots increase USA meter. Opp meter rises at some rate. First to top "wins"!
+# 5. Go down inlanes some # of times within some amount of time
+# 6. Hit slings some number of times within some amount of time
+
+# Note: when copying, must update:
+#  - mode start_events
+#  - mode stop_events
+#  - player_health_drain restart event
+#  - slide names in slides:
+#  - slide names in slide_player:
+#  - variable_player
+#  - base mode vs_alltargets_stopped: to update country insert
+#  - shows: update show name
+#  - show_player: update show names
+#  - event player: choose random opponent
+#  - update Field.yaml to include new VS challenge
+
+mode:
+  start_events: start_mode_vs_alltargets
+  stop_events: game_ended, stop_mode_vs_alltargets
+
+timers:
+  opponent_health_update:   # ensure that health meter gets update *after* we update opponent health player variable
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: .1s
+    control_events:
+      - action: restart
+        event: dec_opponent_health
+  player_health_update:    # ensure that player health meter gets update *after* we update player health player variable
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: .1s
+    control_events:
+      - action: restart
+        event: dec_player_health
+  player_health_drain:    # this timer starts at 15 and decrements every 3 seconds. TODO: That's 1 shot to make every 5 secs to beat player. Is that hard enough?
+    start_value: 15
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    control_events:
+      - action: restart
+        event: slide_vs_alltargets_status_active
+      - action: stop
+        event: vs_result_win
+
+# counter counts targets hit against opponent. If it gets to 0 before player health does, then player wins VS mode
+counters:
+  count_opponent_hits:
+    direction: down
+    starting_count: 15
+    count_events: >
+      shot_pop_lower_hit, shot_pop_upper_right_hit, shot_pop_upper_left_hit,
+      shot_hj_hit, shot_bj_hit, shot_zj_hit, shot_chance_hit, shot_special_hit,
+      shot_take_hit_hit, shot_chug_beer_hit, shot_do_shot_hit, shot_quarters_hit, shot_slingleft_hit,
+      shot_slingright_hit, shot_slingquarters_hit, shot_tgt_ramp_boot_left_hit, shot_tgt_ramp_boot_right_hit, shot_tavern_hit,
+      shot_diverter_hit, shot_ramp_upf_hit, shot_tgt_rimrules_hit, shot_popo_released_hit, shot_upf_tgt_left_hit, shot_upf_tgt_right_hit,
+      shot_horseshoe_hit, shot_laneleft_outer_hit, shot_laneleft_inner_hit, shot_laneright_inner_hit, shot_laneright_outer_hit,
+      shot_kicker_mode_hit, shot_kicker_rimrules_hit
+    count_complete_value: 0
+    events_when_hit: dec_opponent_health
+    reset_events: vs_reset  
+    events_when_complete: vs_result_win
+    reset_on_complete: false
+
+event_player:
+  timer_opponent_health_update_complete:
+    update_opponent_health:
+      new_width: {value: current_player.opponent_health}
+  timer_player_health_update_complete:
+    update_player_health:
+      new_width: {value: current_player.player_health}
+  timer_player_health_drain_tick:
+    dec_player_health
+  timer_player_health_drain_complete:
+    vs_result_lose
+  slide_vs_alltargets_win_removed:
+    stop_mode_vs_alltargets
+  slide_vs_alltargets_lose_removed:
+    stop_mode_vs_alltargets
+  # mode_vs_alltargets_started:
+  #   test_led_names:
+  #     left: {value: current_player.opponent_left}
+  #     right: {value: current_player.opponent_right}
+sound_player:
+  slide_vs_alltargets_intro_active:
+    crowd:
+      loops: -1
+    introrepeat:
+      action: stop
+  vs_result_win:
+    crowd:
+      action: stop
+    voice_vs_win:
+      loops: 0
+  vs_result_lose:
+    crowd:
+      action: stop
+    voice_vs_lose:
+      loops: 0
+  mode_vs_alltargets_stopping:
+    introrepeat:
+      action: play
+      loops: -1
+
+shows:
+  vs_alltargets_flash_usa:
+    - duration: 1
+      lights:
+        usa_left: (color)
+        usa_right: (color)
+    - duration: 1
+      lights:
+        usa_left: off
+        usa_right: off
+  vs_alltargets_flash_opponent:
+    - duration: 1
+      lights:
+        (led_left): (color)
+        (led_right): (color)
+    - duration: 1
+      lights:
+        (led_left): off
+        (led_right): off
+
+show_player:
+  mode_vs_alltargets_started:
+    vs_alltargets_flash_usa:
+      loops: -1
+      speed: 4
+      show_tokens:
+        color: yellow
+    vs_alltargets_flash_opponent:
+      loops: -1
+      speed: 4
+      show_tokens:
+        led_left: (current_player.opponent_left)
+        led_right: (current_player.opponent_right)
+        color: yellow
+    
+  vs_result_win:
+    vs_alltargets_flash_usa:
+      loops: -1
+      speed: 4
+      priority: 4000
+      show_tokens:
+        color: green
+    vs_alltargets_flash_opponent:
+      loops: -1
+      speed: 4
+      priority: 4000
+      show_tokens:
+        led_left: (current_player.opponent_left)
+        led_right: (current_player.opponent_right)
+        color: red
+  vs_result_lose:
+    vs_alltargets_flash_usa:
+      loops: -1
+      speed: 4
+      priority: 4000
+      show_tokens:
+        color: red
+    vs_alltargets_flash_opponent:
+      loops: -1
+      speed: 4
+      priority: 4000
+      show_tokens:
+        led_left: (current_player.opponent_left)
+        led_right: (current_player.opponent_right)
+        color: green
+
+
+slides:
+  vs_alltargets_intro:
+    widgets:
+    - type: text
+      text: USA
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: left + 30
+      y: middle
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 175
+            duration: .5s
+    - type: text
+      text: vs
+      font_size: 25
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle - 200
+      y: middle
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 1s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 175
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: (opponent)
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: middle - 50
+      y: middle
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 2s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 175
+            duration: .25s
+            timing: with_previous
+    - type: image
+      image: background
+  vs_alltargets_status:
+    widgets:
+    - type: text
+      text: ALL TARGETS
+      font_size: 125
+      font_name: druillet
+      anchor_x: middle
+      anchor_y: top
+      x: middle
+      y: top - 50
+      color: 008ce5ff
+    - type: text
+      text: HIT (opponent)
+      font_size: 125
+      font_name: druillet
+      anchor_x: middle
+      anchor_y: top
+      x: middle
+      y: top - 250
+      color: 008ce5ff
+    
+    # player name
+    - type: text
+      text: USA
+      font_size: 100
+      font_name: druillet
+      anchor_x: left
+      anchor_y: bottom
+      x: left + 50
+      y: bottom + 175
+      color: 008ce5ff
+
+    # player health meter
+    - type: rectangle
+      y: bottom + 195
+      x: middle - 150
+      anchor_x: left
+      anchor_y: bottom
+      width: 750        # 50 pixel hit width * 15 hits = 750 - 15*50 = 0. So 15 hits to go to 0
+      height: 75
+      color: 008ce5ff
+      animations:
+        update_player_health:
+          - property: width
+            value: (new_width)
+
+    # opponent name   
+    - type: text
+      text: (opponent)
+      font_size: 100
+      font_name: druillet
+      anchor_x: left
+      anchor_y: bottom
+      x: left + 50
+      y: bottom + 50
+      color: red
+    
+    # opponent health
+    - type: rectangle
+      y: bottom + 85
+      x: middle - 150
+      anchor_x: left
+      anchor_y: bottom
+      width: 750      # start with 750 pixel wide health. # 50 pixel hit width * 15 hits = 750 - 15*50 = 0. So 15 hits to go to 0
+      height: 75
+      color: red
+      animations:
+        update_opponent_health:   # each time this event comes in (with value: set to updated opponent health), it will update the width of the health bar to new value
+          - property: width
+            value: (new_width)  # tracked by a counter that counts down every time one of the shots is hit (like with mug fill)
+    - type: image
+      image: background
+  vs_alltargets_win:
+    widgets:
+    - type: text
+      text: USA
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: left + 55
+      y: middle + 200
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 150
+            duration: .5s
+    - type: text
+      text: vs
+      font_size: 25
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle - 200
+      y: middle + 200
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 1s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 150
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: (opponent)
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: middle - 25
+      y: middle + 200
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 2s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 150
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: PLAYER WINS
+      font_size: 25
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle
+      y: middle
+      color: green
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 2.5s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 150
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: (player|pts_vs_win)
+      number_grouping: true
+      min_digits: 1
+      font_name: druillet
+      color: green
+      font_size: 10
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle - 200
+      opacity: 0
+      animations:
+        show_slide:
+        - property: opacity
+          value: 0
+          duration: 2.5s
+        - property: opacity
+          value: 1
+          duration: 0
+          timing: after_previous
+        - property: font_size
+          value: 150
+          duration: .25s
+          timing: with_previous 
+    - type: image
+      image: background
+
+  vs_alltargets_lose:
+    widgets:
+    - type: text
+      text: USA
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: left + 55
+      y: middle + 200
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 150
+            duration: .5s
+    - type: text
+      text: vs
+      font_size: 25
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle - 200
+      y: middle + 200
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 1s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 150
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: (opponent)
+      font_size: 25
+      font_name: druillet
+      anchor_x: left
+      anchor_y: center
+      x: middle - 25
+      y: middle + 200
+      color: 008ce5ff
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 2s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 150
+            duration: .25s
+            timing: with_previous
+    - type: text
+      text: PLAYER LOSES
+      font_size: 25
+      font_name: druillet
+      anchor_x: center
+      anchor_y: center
+      x: middle
+      y: middle - 100
+      color: red
+      opacity: 0
+      animations:
+        show_slide:
+          - property: opacity
+            value: 0
+            duration: 2.5s
+          - property: opacity
+            value: 1
+            duration: 0
+            timing: after_previous
+          - property: font_size
+            value: 200
+            duration: .25s
+            timing: with_previous       
+    - type: image
+      image: background
+
+slide_player:
+  mode_vs_alltargets_started:
+    vs_alltargets_intro:
+      target: main
+      priority: 4000
+      expire: 3.5s
+  slide_vs_alltargets_intro_removed:
+    vs_alltargets_status:
+      target: main
+      priority: 4000
+  vs_result_win:
+    vs_alltargets_status:
+      target: main
+      action: remove
+    vs_alltargets_win:
+      target: main
+      expire: 5s
+      priority: 4000
+  vs_result_lose:
+    vs_alltargets_status:
+      target: main
+      action: remove
+    vs_alltargets_lose:
+      target: main
+      expire: 5s
+      priority: 4000
+
+variable_player:
+
+  dec_opponent_health:
+    opponent_health:
+      int: current_player.opponent_health - 50
+      action: set
+  timer_player_health_drain_tick:
+    player_health:
+      int: current_player.player_health - 50
+      action: set
+  mode_vs_alltargets_started:
+    opponent_health:
+      int: 750
+      action: set
+    player_health:
+      int: 750
+      action: set
+  vs_result_win:
+    score: current_player.pts_vs_win
+
+  vs_result_win{current_player.opponent == "CANADA"}:   # top left
+    has_canada:
+      action: set
+      int: 1
+  vs_result_win{current_player.opponent == "SCOTLAND"}: # top right
+    has_scotland:
+      action: set
+      int: 1
+  vs_result_win{current_player.opponent == "IRELAND"}:  # middle left
+    has_ireland:
+      action: set
+      int: 1
+  vs_result_win{current_player.opponent == "TOBAGO"}:   # middle right
+    has_tobago:
+      action: set
+      int: 1
+  vs_result_win{current_player.opponent == "GERMANY"}:  # bottom left
+    has_germany:
+      action: set
+      int: 1
+

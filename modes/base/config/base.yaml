@@ -267,6 +267,12 @@ shows:
         gi_back4: off
         gi_back5: off
         gi_back6: off
+        mode_quarters: off
+        mode_strikeout: off
+        mode_longpour: off
+        mode_trojankeg: off
+        mode_volumechug: off
+        mode_dasboot: off
         bong: off
     - duration: -1
   show_pop_left:
@@ -347,6 +353,39 @@ shows:
       lights:
         mode_dasboot: green
     - duration: -1
+  # VS light shows
+  show_canada_insert:
+    - time: 0
+      lights:
+        canada_left: green
+        canada_right: green
+    - duration: -1
+  show_scotland_insert:
+    - time: 0
+      lights:
+        scotland_left: green
+        scotland_right: green
+    - duration: -1
+  show_ireland_insert:
+    - time: 0
+      lights:
+        ireland_left: green
+        ireland_right: green
+    - duration: -1
+  show_tobago_insert:
+    - time: 0
+      lights:
+        tobago_left: green
+        tobago_right: green
+    - duration: -1
+  show_germany_insert:
+    - time: 0
+      lights:
+        germany_left: green
+        germany_right: green
+    - duration: -1
+
+    
   show_ball_save:
     - time: 0
       lights:
@@ -466,13 +505,11 @@ sound_player:
         action: play
         track: music
         loops: -1
-        volume: .5
   slide_slide_play_easteregg_adult_removed:
     introrepeat:
         action: play
         track: music
         loops: -1
-        volume: .5
   # halt background music if ball save
   slide_slide_ballsave_active:
     introrepeat:
@@ -482,7 +519,6 @@ sound_player:
       action: play
       track: music
       loops: -1
-      volume: .5
   shot_upf_tgt_left_hit:
     unddrinken:
       action: play
@@ -705,6 +741,7 @@ show_player:
     bong_flow_right:
       loops: 0
       speed: 4  
+  # game theme mode lights
   mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
   mode_base_started{current_player.has_longpour==1}: show_longpour_insert
   mode_quarters_stopped{current_player.has_quarters==1}: show_quarters_insert
@@ -715,6 +752,18 @@ show_player:
   mode_base_started{current_player.has_volumechug==1}: show_volumechug_insert
   mode_trojankeg_stopped{current_player.has_trojankeg==1}: show_trojankeg_insert
   mode_base_started{current_player.has_trojankeg==1}: show_trojankeg_insert
+
+  # VS lights
+  mode_vs_alltargets_stopped{current_player.has_canada}: show_canada_insert
+  mode_base_started{current_player.has_canada}: show_canada_insert
+  mode_vs_alltargets_stopped{current_player.has_scotland}: show_scotland_insert
+  mode_base_started{current_player.has_scotland}: show_scotland_insert
+  mode_vs_alltargets_stopped{current_player.has_ireland}: show_ireland_insert
+  mode_base_started{current_player.has_ireland}: show_ireland_insert
+  mode_vs_alltargets_stopped{current_player.has_tobago}: show_tobago_insert
+  mode_base_started{current_player.has_tobago}: show_tobago_insert
+  mode_vs_alltargets_stopped{current_player.has_germany}: show_germany_insert
+  mode_base_started{current_player.has_germany}: show_germany_insert
 
   ball_save_ball_save_timer_start:
     show_ball_save:

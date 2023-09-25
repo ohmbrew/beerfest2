@@ -32,7 +32,24 @@ player_vars:
   has_dasboot:
     initial_value: 0
     value_type: int
-  
+
+  # track VS countries
+  has_canada:         # top left
+    initial_value: 0
+    value_type: int
+  has_scotland:       # top right
+    initial_value: 0
+    value_type: int
+  has_ireland:        # middle left
+    initial_value: 0
+    value_type: int
+  has_tobago:         # middle right
+    initial_value: 0
+    value_type: int
+  has_germany:        # bottom left - should be selected last
+    initial_value: 0
+    value_type: int
+
   # end-of-ball bonuses
   bonus_numquarters:
     initial_value: 0
@@ -339,4 +356,28 @@ player_vars:
 
   is_skillshot_active:
     initial_value: 0
+    value_type: int
+
+  # VS mode stuff
+  # NOTE: opponent, opponent_left (left LED), and opponent_right (right LED) must be set when VS mode is started! via random or hard set
+  opponent:
+    initial_value: "SCOTLAND"
+    value_type: str
+  opponent_left:
+    initial_value: scotland_left
+    value_type: str
+  opponent_right:
+    initial_value: scotland_right
+    value_type: str
+  selected_vs:
+    initial_value: start_mode_vs_alltargets   # TODO: include additional VS battles I create
+    value_type: str
+  player_health:
+    initial_value: 750
+    value_type: int
+  opponent_health:
+    initial_value: 750
+    value_type: int
+  pts_vs_win:
+    initial_value: 5000000
     value_type: int

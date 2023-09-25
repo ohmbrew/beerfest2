@@ -314,6 +314,8 @@ slides:
             easing: in_out_quint
     - type: image
       image: beermug7
+
+      
 slide_player:
   mode_longpour_started:
     slide_longpour_intro:

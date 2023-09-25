@@ -10,6 +10,18 @@ config:
   - mug.yaml
   - qualify.yaml
 
+timers:
+  start_vs_delay:
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: .1s
+    control_events:
+      - action: restart
+        event: selected_vs_alltargets
+      # Add new VS challenges here
+      # - action: restart
+      #   event: selected_vs_alltargets
 sound_player:
   mode_field_started{players[0].is_welcome_played == 0}:
     voice_welcome:
@@ -21,13 +33,11 @@ sound_player:
       action: play
       track: music
       loops: -1
-      volume: .5
   mode_field_started{players[0].is_welcome_played == 1}:
     introrepeat:
       action: play
       track: music
       loops: -1
-      volume: .5
   mode_field_will_stop:
     introrepeat:
       action: stop
@@ -43,9 +53,15 @@ sound_player:
 # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
 event_player:
   shot_kicker_mode_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
-  shot_kicker_mode_hit{device.counters.count_mug_lights.value < 14}: play_betterwhendrunk_and_eject
+  shot_kicker_mode_hit{device.counters.count_mug_lights.value < 14}: vs_or_play_betterwhendrunk_and_eject # orig: 'play_betterwhendrunk_and_eject'. testing out vs mode implementation
   shot_kicker_rimrules_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
   shot_kicker_rimrules_hit{device.counters.count_mug_lights.value < 14}: play_rimrules_and_eject
+  selected_opponent_canada: vs_select_challenge
+  selected_opponent_scotland: vs_select_challenge
+  selected_opponent_ireland: vs_select_challenge
+  selected_opponent_tobago: vs_select_challenge
+  selected_opponent_germany: vs_select_challenge
+  timer_start_vs_delay_complete: (current_player.selected_vs)
 
 random_event_player:
   launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
@@ -60,6 +76,23 @@ random_event_player:
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
     events:
       - start_mode_dasboot  # Wizard Mode!
+  vs_or_play_betterwhendrunk_and_eject:
+    events:
+      - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
+      - play_betterwhendrunk_and_eject
+  # select opponent to play
+  vs_select_opponent{current_player.has_germany == 0}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_scotland
+      - selected_opponent_ireland
+      - selected_opponent_tobago
+  vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_germany
+  vs_select_challenge:
+    events:
+      - selected_vs_alltargets
 
 show_player:
   mode_field_started:
@@ -73,4 +106,62 @@ variable_player:
   start_base_theme:
     is_welcome_played:
       int: 1
+      action: set
+  
+  # selecting opponent
+  selected_opponent_canada:
+    opponent:
+      string: CANADA
+      action: set
+    opponent_left:
+      string: canada_left
+      action: set
+    opponent_right:
+      string: canada_right
+      action: set
+  selected_opponent_scotland:
+    opponent:
+      string: SCOTLAND
+      action: set
+    opponent_left:
+      string: scotland_left
+      action: set
+    opponent_right:
+      string: scotland_right
+      action: set
+  selected_opponent_ireland:
+    opponent:
+      string: IRELAND
+      action: set
+    opponent_left:
+      string: ireland_left
+      action: set
+    opponent_right:
+      string: ireland_right
+      action: set
+  selected_opponent_tobago:
+    opponent:
+      string: TOBAGO
+      action: set
+    opponent_left:
+      string: tobago_left
+      action: set
+    opponent_right:
+      string: tobago_right
+      action: set
+  selected_opponent_germany:
+    opponent:
+      string: GERMANY
+      action: set
+    opponent_left:
+      string: germany_left
+      action: set
+    opponent_right:
+      string: germany_right
+      action: set
+  
+  # selecting challenges
+  selected_vs_alltargets:
+    selected_vs:
+      string: start_mode_vs_alltargets
       action: set

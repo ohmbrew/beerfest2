@@ -324,7 +324,7 @@ lights:
   usa_left:
     previous: usa_right
     type: grb
-    tags: strplayfieldip
+    tags: playfield
   tobago_left:
     previous: usa_left
     type: grb

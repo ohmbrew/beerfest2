@@ -30,8 +30,8 @@ window:
   width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
-  resizable: false
-  borderless: true
+  resizable: true
+  borderless: false
   no_window: false
   show_cursor: false
   exit_on_escape: True
@@ -79,6 +79,7 @@ modes:
   - dasboot
   - flipperflop
   - popo
+  - vs_alltargets
 
 widget_styles:
   attract_mode_high_score_display_label:

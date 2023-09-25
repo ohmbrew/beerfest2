@@ -4,7 +4,7 @@ sounds:
   introrepeat:
     file: introrepeat1.wav
     track: music
-    volume: 1.0
+    volume: .5
   intro:
     file: intro1.wav
     track: music
@@ -85,8 +85,19 @@ sounds:
         release_point: 1.0 sec
         release: 3.0 sec
 
-  voice_sink2left:
-    file: notthatdrunk1.wav
+  voice_vs_win:
+    file: vs_win.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -18db
+        release_point: 1.0 sec
+        release: 3.0 sec
+  voice_vs_lose:
+    file: death-noo.wav
     track: voice
     volume: 1.0
     ducking:
@@ -485,4 +496,10 @@ sounds:
   sfx_cancrush:
     file: cancrush.wav
     track: sfx
+    volume: 1.0
+
+    # VS sounds
+  crowd:
+    file: crowd.wav
+    track: music
     volume: 1.0
