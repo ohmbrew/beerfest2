@@ -61,7 +61,8 @@ event_player:
   slide_vs_breakout_lose_removed:
     stop_mode_vs_breakout
   mode_vs_breakout_stopping:
-    kicker_mode_eject
+    - flippers_normal
+    - kicker_mode_eject
 
   # want to play video mode without ball in play
   #slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
@@ -70,6 +71,7 @@ event_player:
     - rnd_ball_x
     - rnd_ball_vx
     - rnd_cup_x
+    - flippers_disabled
 
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x > 130)}: move_cup_left    # can move left
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x <= 130)}: move_cup_far_left  # within limit of moving, so set to far left
@@ -86,7 +88,7 @@ event_player:
       new_y:
         value: current_player.ball_y
         type: int
-
+  
 sound_player:
   slide_vs_breakout_intro_active:
     crowd:
