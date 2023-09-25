@@ -285,6 +285,8 @@ flippers:
   flipper_upper:
     main_coil: c_flipper_upper
     activation_switch: s_flipper_right
+    enable_events: flippers_normal
+    disable_events: flippers_disabled, game_ending
 
 spinners:
   tavern_spinner:
