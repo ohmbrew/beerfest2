@@ -34,18 +34,18 @@ timers:
     start_value: 1
     end_value: 0
     direction: down
-    tick_interval: .1s
+    tick_interval: .05s
     control_events:
       - action: restart
         event: timer_framerate_complete
       - action: stop
         event: stop_update_timers
 
-  framerate:     # called every 100ms. 1) update ball image based on x/y velocities. 2) update player cup left/right based on left/right flipper states
+  framerate:     # called every 250ms. 1) update ball image based on x/y velocities. 2) update player cup left/right based on left/right flipper states
     start_value: 1
     end_value: 0
     direction: down
-    tick_interval: .25s
+    tick_interval: .1s
     restart_on_complete: true
     control_events:
       - action: restart
@@ -62,16 +62,30 @@ event_player:
     stop_mode_vs_breakout
   mode_vs_breakout_stopping:
     kicker_mode_eject
-  slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
-  slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
+
+  # want to play video mode without ball in play
+  #slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
+  #slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
+  slide_vs_breakout_intro_active:
+    - rnd_ball_x
+    - rnd_ball_vx
+    - rnd_cup_x
 
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x > 130)}: move_cup_left    # can move left
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x <= 130)}: move_cup_far_left  # within limit of moving, so set to far left
   timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x < 1236)}: move_cup_right
   timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x >= 1236)}: move_cup_far_right
   timer_update_frame_complete:
-    update_cup_x:
+    update_cup:
       new_x: {value: current_player.cup_x}
+      type: int
+    update_ball:
+      new_x:
+        value: current_player.ball_x
+        type: int
+      new_y:
+        value: current_player.ball_y
+        type: int
 
 sound_player:
   slide_vs_breakout_intro_active:
@@ -295,6 +309,7 @@ slides:
             timing: with_previous        
     - type: image
       image: background
+
   vs_breakout_status:
     widgets:
     - type: image
@@ -302,24 +317,26 @@ slides:
       anchor_x: middle
       anchor_y: middle
       x: middle
-      y: top - 75
+      y: 688
       animations:
-        update_ball_x:
+        update_ball:
           - property: x
             value: (new_x)
-        update_ball_y:
+            duration: .01s
           - property: y
-            value: (new_y)    
+            value: (new_y)
+            duration: 0s
     - type: image
       image: cup
       anchor_x: middle
       anchor_y: bottom
       x: middle
-      y: bottom + 75
+      y: bottom + 46
       animations:
-        update_cup_x:
+        update_cup:
           - property: x
             value: (new_x)
+            duration: 0s
     - type: image
       image: background
 
@@ -556,31 +573,36 @@ slide_player:
 
 random_event_player:
   rnd_ball_x:
-    - set_ball_x{value: 183}
-    - set_ball_x{value: 283}
-    - set_ball_x{value: 383}
-    - set_ball_x{value: 483}
-    - set_ball_x{value: 583}
-    - set_ball_x{value: 683}
-    - set_ball_x{value: 783}
-    - set_ball_x{value: 883}
-    - set_ball_x{value: 983}
-    - set_ball_x{value: 1083}
-    - set_ball_vx{value: 1183}
+    - set_ball_x_183
+    - set_ball_x_283
+    - set_ball_x_383
+    - set_ball_x_483
+    - set_ball_x_583
+    - set_ball_x_683
+    - set_ball_x_783
+    - set_ball_x_883
+    - set_ball_x_983
+    - set_ball_x_1083
+    - set_ball_x_1183
   rnd_ball_vx:
-    - set_ball_vx{value: 10}
-    - set_ball_vx{value: 20}
-    - set_ball_vx{value: 30}
-    - set_ball_vx{value: 40}
-    - set_ball_vx{value: 50}
+    - set_ball_vx_10
+    - set_ball_vx_20
+    - set_ball_vx_30
+    - set_ball_vx_40
+    - set_ball_vx_50
+    - set_ball_vx_n10
+    - set_ball_vx_n20
+    - set_ball_vx_n30
+    - set_ball_vx_n40
+    - set_ball_vx_n50
   rnd_cup_x:
-    - set_cup_x{value: 383}
-    - set_cup_x{value: 483}
-    - set_cup_x{value: 583}
-    - set_cup_x{value: 683}
-    - set_cup_x{value: 783}
-    - set_cup_x{value: 883}
-    - set_cup_x{value: 983}
+    - set_cup_x_383
+    - set_cup_x_483
+    - set_cup_x_583
+    - set_cup_x_683
+    - set_cup_x_783
+    - set_cup_x_883
+    - set_cup_x_983
 
 variable_player:
   mode_vs_breakout_stopping: # clear VS active bit
@@ -592,13 +614,13 @@ variable_player:
       int: 683
       action: set
     ball_y:
-      int: 700
+      int: 688
       action: set
     cup_x:
       int: 683
       action: set
     cup_y:
-      int: 75
+      int: 46   # this puts bottom of cup right above lower border of background
       action: set
     is_in_vs:
       int: 1
@@ -626,21 +648,134 @@ variable_player:
     has_germany:
       action: set
       int: 1
-  set_ball_x:
+
+  # sets a random ball.x location from random_event_player
+  set_ball_x_183:
     ball_x:
-      int: (value)
+      int: 183
       action: set
-  set_ball_y:
+  set_ball_x_283:
+    ball_x:
+      int: 283
+      action: set
+  set_ball_x_383:
+    ball_x:
+      int: 383
+      action: set
+  set_ball_x_483:
+    ball_x:
+      int: 483
+      action: set
+  set_ball_x_583:
+    ball_x:
+      int: 583
+      action: set
+  set_ball_x_683:
+    ball_x:
+      int: 683
+      action: set
+  set_ball_x_783:
+    ball_x:
+      int: 783
+      action: set
+  set_ball_x_883:
+    ball_x:
+      int: 883
+      action: set
+  set_ball_x_983:
+    ball_x:
+      int: 983
+      action: set
+  set_ball_x_1083:
+    ball_x:
+      int: 1083
+      action: set
+  set_ball_x_1183:
+    ball_x:
+      int: 1183
+      action: set
+
+  set_ball_y_775:
     ball_y:
-      int: (value)
+      int: 775
       action: set
-  set_ball_vx:
+
+
+  set_ball_vx_10:
     ball_vx:
-      int: (value)
+      int: 10
       action: set
+  set_ball_vx_20:
+    ball_vx:
+      int: 20
+      action: set
+  set_ball_vx_30:
+    ball_vx:
+      int: 30
+      action: set
+  set_ball_vx_40:
+    ball_vx:
+      int: 40
+      action: set
+  set_ball_vx_50:
+    ball_vx:
+      int: 50
+      action: set
+  set_ball_vx_n10:
+    ball_vx:
+      int: -10
+      action: set
+  set_ball_vx_n20:
+    ball_vx:
+      int: -20
+      action: set
+  set_ball_vx_n30:
+    ball_vx:
+      int: -30
+      action: set
+  set_ball_vx_n40:
+    ball_vx:
+      int: -40
+      action: set
+  set_ball_vx_n50:
+    ball_vx:
+      int: -50
+      action: set
+
+  set_cup_x_383:
+    cup_x:
+      int: 383
+      action: set
+  set_cup_x_483:
+    cup_x:
+      int: 483
+      action: set
+  set_cup_x_583:
+    cup_x:
+      int: 583
+      action: set
+  set_cup_x_683:
+    cup_x:
+      int: 683
+      action: set
+  set_cup_x_783:
+    cup_x:
+      int: 783
+      action: set
+  set_cup_x_883:
+    cup_x:
+      int: 883
+      action: set
+  set_cup_x_983:
+    cup_x:
+      int: 983
+      action: set
+
+
+
   move_cup_left:
     cup_x:
-      int: current_player.cup_x - 50
+      int: current_player.cup_x - 25
       action: set
   move_cup_far_left:
     cup_x:
@@ -648,7 +783,7 @@ variable_player:
       action: set
   move_cup_right:
     cup_x:
-      int: current_player.cup_x + 50
+      int: current_player.cup_x + 25
       action: set
   move_cup_far_right:
     cup_x:

@@ -386,17 +386,21 @@ player_vars:
     value_type: int
 
   ball_x:
-    initial_value: 683
+    initial_value: 683      # default center of screen
     value_type: int
   ball_y:
-    initial_value: 700
+    initial_value: 688      # top of ball will be just below top border of background
     value_type: int
+  cup_x:
+    initial_value: 683      # default center of screen
+    value_type: int
+  cup_y:
+    initial_value: 46       # bottom of cup just above bottom border of background
+    value_type: int
+  
   ball_vx:
     initial_value: 25
     value_type: int
   ball_vy:
     initial_value: 25
-    value_type: int
-  cup_x:
-    initial_value: 683
     value_type: int
