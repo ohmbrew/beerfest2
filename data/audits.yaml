@@ -33,7 +33,7 @@ shots:
   shot_do_shot: 237
   shot_hj: 145
   shot_horseshoe: 171
-  shot_kicker_mode: 1103
+  shot_kicker_mode: 1114
   shot_kicker_rimrules: 129
   shot_laneleft_inner: 60
   shot_laneleft_outer: 10
@@ -46,7 +46,7 @@ shots:
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 1229
+  shot_plunger_lane_exit: 1234
   shot_pongcup1: 230
   shot_pongcup2: 88
   shot_pop_lower: 340
@@ -55,7 +55,7 @@ shots:
   shot_popo_captured: 22
   shot_popo_release: 23
   shot_popo_released: 25
-  shot_quarters: 3557
+  shot_quarters: 3637
   shot_ramp_boot: 10
   shot_ramp_paddle: 99
   shot_ramp_upf: 45
@@ -63,7 +63,7 @@ shots:
   shot_sling_left: 1
   shot_sling_quarters: 26
   shot_slingleft: 57
-  shot_slingquarters: 97
+  shot_slingquarters: 116
   shot_slingright: 64
   shot_special: 67
   shot_strikeout_chugbeer: 15
@@ -96,12 +96,12 @@ switches:
   s_chug_beer: 298
   s_diverter: 267
   s_do_shot: 312
-  s_drain: 1343
+  s_drain: 1347
   s_flipper_left: 2293
   s_flipper_right: 2492
   s_hj: 146
   s_horseshoe: 437
-  s_kicker_mode: 1699
+  s_kicker_mode: 1710
   s_kicker_rimrules: 618
   s_laneleft_inner: 81
   s_laneleft_outer: 20
@@ -122,8 +122,8 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 2665
-  s_plunger_lane_exit: 1419
+  s_plunger_lane: 2671
+  s_plunger_lane_exit: 1424
   s_pongcup1: 231
   s_pongcup2: 88
   s_pongtable_exit: 40
@@ -135,13 +135,13 @@ switches:
   s_pop_upper_right: 603
   s_popo_captured: 22
   s_popo_release: 48
-  s_quarters: 3595
+  s_quarters: 3675
   s_ramp_upf: 45
   s_ramp_upf_entry: 134
   s_ramp_upf_exit: 0
   s_right_flipper: 183
   s_slingshot_left: 983
-  s_slingshot_quarters: 340
+  s_slingshot_quarters: 359
   s_slingshot_right: 1097
   s_special: 69
   s_start: 313
@@ -159,8 +159,8 @@ switches:
   s_trojankeg_right: 145
   s_trough1: 394
   s_trough2: 374
-  s_trough3: 366
-  s_trough_eject: 1944
+  s_trough3: 367
+  s_trough_eject: 1950
   s_upf_entry: 0
   s_upf_tgt_left: 191
   s_upf_tgt_right: 178

@@ -385,7 +385,7 @@ shows:
         germany_right: green
     - duration: -1
 
-    
+
   show_ball_save:
     - time: 0
       lights:
@@ -681,8 +681,17 @@ show_player:
   mode_bonusv2_started:
     base_show:
       action: stop
-  mode_bonusv2_started.1:
     show_init_base:
+      action: stop
+    show_canada_insert:
+      action: stop
+    show_scotland_insert:
+      action: stop
+    show_ireland_insert:
+      action: stop
+    show_tobago_insert:
+      action: stop
+    show_germany_insert:
       action: stop
   mode_bonusv2_stopped:
     base_show:

@@ -148,7 +148,7 @@ shows:
         gi: 008ce5
         playfield: 008ce5          
     - duration: -1
-
+    
 # one of these is chosen at random by random_event_player below
 show_player:
   drain_play_cantdrinkabeer:

@@ -101,7 +101,7 @@ sound_player:
     voice_trojankeg_intro:
       action: play
       loops: 0
-      events_when_stopped: kicker_mode_eject, kicker_rimrules_eject, intro_done
+      events_when_stopped: saucer_release, intro_done
   mode_trojankeg_will_stop:
     themedrinkonme:
       action: stop
@@ -512,6 +512,8 @@ event_player:
   slide_slide_trojankeg_fail_removed: slide_event_done
   slide_slide_trojankeg_partial_removed: slide_event_done
   slide_slide_bonus_trojankeg_themed_removed: kicker_mode_eject
+  saucer_release{device.switches.s_kicker_rimrules.state == 1}: kicker_rimrules_eject
+  saucer_release{device.switches.s_kicker_mode.state == 1}: kicker_mode_eject
 
 shows:
   flash_xjs_unhit:

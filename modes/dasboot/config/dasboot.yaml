@@ -684,13 +684,15 @@ queue_relay_player:
 
 event_player:
   timer_dasboot_intro_timer_complete: start_background_music
-  slide_slide_dasboot_main_active: kicker_mode_eject, kicker_rimrules_eject
+  slide_slide_dasboot_main_active: saucer_release
   slide_slide_dasboot_success_removed: slide_event_done
   # used for slide animations
   timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 1}: dasboot_intro_slide_text1
   timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 2}: dasboot_intro_slide_text2
   timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 3}: dasboot_intro_slide_text3
   timer_dasboot_intro_timer_tick{device.timers.dasboot_intro_timer.ticks == 4}: dasboot_intro_slide_text4
+  saucer_release{device.switches.s_kicker_rimrules.state == 1}: kicker_rimrules_eject
+  saucer_release{device.switches.s_kicker_mode.state == 1}: kicker_mode_eject
 
 shows:
   init_lights_dasboot:

@@ -49,6 +49,10 @@ sound_player:
     rimrules:
       action: play
       events_when_stopped: kicker_rimrules_eject
+  mode_vs_alltargets_stopped:
+    introrepeat:
+      action: play
+      loops: -1
 
 # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
 event_player:
@@ -62,7 +66,7 @@ event_player:
   selected_opponent_tobago: vs_select_challenge
   selected_opponent_germany: vs_select_challenge
   timer_start_vs_delay_complete: (current_player.selected_vs)
-
+  
 random_event_player:
   launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
     events:
