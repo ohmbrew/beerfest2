@@ -49,6 +49,8 @@ timers:
     control_events:
       - action: restart
         event: dec_player_health
+      - action: stop
+        event: stop_update_timers
   player_health_drain:    # this timer starts at 15 and decrements every 3 seconds. TODO: That's 1 shot to make every 5 secs to beat player. Is that hard enough?
     start_value: 15
     end_value: 0
@@ -59,6 +61,8 @@ timers:
         event: slide_vs_alltargets_status_active
       - action: stop
         event: vs_result_win
+      - action: stop
+        event: stop_update_timers  
 
 # counter counts targets hit against opponent. If it gets to 0 before player health does, then player wins VS mode
 counters:
@@ -96,6 +100,11 @@ event_player:
     stop_mode_vs_alltargets
   slide_vs_alltargets_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
   slide_vs_alltargets_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
+  shot_kicker_mode_hit:
+    - stop_update_timers
+    - vs_reset
+  slide_vs_alltargets_instachug_removed:
+    vs_result_win
 
 sound_player:
   slide_vs_alltargets_intro_active:
@@ -322,6 +331,26 @@ slides:
             value: (new_width)  # tracked by a counter that counts down every time one of the shots is hit (like with mug fill)
     - type: image
       image: background
+
+  vs_alltargets_instachug:
+    widgets:
+    - type: text
+      text: INSTA CHUG
+      font_size: 25
+      font_name: druillet
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 250
+            duration: .5s
+    - type: image
+      image: background
+
   vs_alltargets_win:
     widgets:
     - type: text
@@ -533,6 +562,11 @@ slide_player:
     vs_alltargets_status:
       target: main
       priority: 4000
+  shot_kicker_mode_hit:
+    vs_alltargets_instachug:
+      target: main
+      priority: 5000
+      expire: 2s
   vs_result_win:
     vs_alltargets_status:
       target: main
