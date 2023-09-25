@@ -308,7 +308,7 @@ lights:
   strikeout_bong:
     previous: strikeout_beer
     type: grb
-    tags: strip
+    tags: playfield
   ball1_locked:
     previous: strikeout_bong
     type: grb
