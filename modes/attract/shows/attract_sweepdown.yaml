@@ -1,106 +1,8 @@
 #show_version=5
 - time: 0
   lights:
-    arrow_horseshoe1: off
-    arrow_horseshoe2: off
-    arrow_horseshoe3: off
-    startevent_rimrules: off
-    arrow_rimrules1: off
-    arrow_rimrules2: off
-    arrow_rimrules3: off
-    extra_ball: off
-    arrow_boot1: off
-    arrow_boot2: off
-    arrow_boot3: off
-    arrow_tavern1: off
-    arrow_tavern2: off
-    arrow_tavern3: off
-    arrow_tavern4: off
-    arrow_tavern5: off
-    arrow_tavern6: off
-    canada_left: off
-    canada_right: off
-    tobago_left: off
-    tobago_right: off
-    scotland_left: off
-    scotland_right: off
-    ireland_left: off
-    ireland_right: off
-    germany_left: off
-    germany_right: off
-    usa_left: off
-    usa_right: off
-    arrow_popo1: off
-    arrow_popo2: off
-    arrow_popo3: off
-    strikeout_bong: off
-    strikeout_beer: off
-    strikeout_shot: off
-    arrow_house1: off
-    arrow_house2: off
-    arrow_house3: off
-    arrow_upf1: off
-    arrow_upf2: off
-    arrow_upf3: off
-    quarters1: off
-    quarters2: off
-    quarters3: off
-    quarters4: off
-    quarters5: off
-    2x: off
-    3x: off
-    4x: off
-    5x: off
-    6x: off
-    slingquarters_upper: off
-    slingquarters_lower: off
-    lane_left_outer: off
-    lane_left_inner: off
-    slingleft_upper: off
-    slingleft_lower: off
-    flipper_left_outer: off
-    flipper_left_inner: off
-    sausage_save: off
-    ball_save: off
-    flipper_right_inner: off
-    flipper_right_outer: off
-    lane_right_inner: off
-    lane_right_outer: off
-    slingright_upper: off
-    slingright_lower: off
-    bad_rams_piss: off
-    chance: off
-    special: off
-    startevent_mode: off
-    arrow_mode1: off
-    arrow_mode2: off
-    arrow_mode3: off
-    lock: off
-    ball1_locked: off
-    ball2_locked: off
-    mode_longpour: off
-    mode_quarters: off
-    mode_strikeout: off
-    mode_volumechug: off
-    mode_trojankeg: off
-    mode_dasboot: off
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
-    gi_left1: off
-    gi_left2: off
-    gi_left3: off
-    gi_left4: off
-    gi_right1: off
-    gi_right2: off
-    gi_right3: off
-    gi_right4: off
-    gi_back1: off
-    gi_back2: off
-    gi_back3: off
-    gi_back4: off
-    gi_back5: off
-    gi_back6: off
+    playfield: off
+    gi: off
 
 - time: '+1'
   lights:
@@ -134,20 +36,21 @@
   lights:
     arrow_rimrules1: (color)
     arrow_tavern6: (color)
-    arrow_horseshoe3: (color)
     startevent_rimrules: (color)
+    arrow_horseshoe3: (color)
     
 - time: '+1'
   lights:
     arrow_tavern4: (color)
     arrow_tavern5: (color)
-    arrow_horseshoe1: (color)
+    arrow_horseshoe2: (color)
     
 - time: '+1'
   lights:
     arrow_boot3: (color)
     gi_left4: (color)
     gi_right4: (color)
+    arrow_horseshoe1: (color)
     
 - time: '+1'
   lights:
@@ -193,8 +96,8 @@
     
 - time: '+1'
   lights:
-    arrow_horseshoe2: (color)
-    arrow_horseshoe3: (color)
+    arrow_upf3: (color)
+    arrow_upf2: (color)
     ball1_locked: (color)
     quarters3: (color)
     quarters4: (color)
@@ -205,7 +108,7 @@
     
 - time: '+1'
   lights:
-    arrow_horseshoe1: (color)
+    arrow_upf1: (color)
     quarters1: (color)
     quarters2: (color)
     
