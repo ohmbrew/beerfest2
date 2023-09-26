@@ -105,7 +105,7 @@ random_event_player:
       - selected_opponent_germany
   vs_select_challenge:
     events:
-      #- selected_vs_alltargets
+      - selected_vs_alltargets
       - selected_vs_breakout
 
 show_player:
