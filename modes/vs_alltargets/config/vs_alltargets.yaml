@@ -51,11 +51,11 @@ timers:
         event: dec_player_health
       - action: stop
         event: stop_update_timers
-  player_health_drain:    # this timer starts at 15 and decrements every 3 seconds. TODO: That's 1 shot to make every 5 secs to beat player. Is that hard enough?
+  player_health_drain:    # start at 75 TODO: That's 1 shot to make every 5 secs to beat player. Is that hard enough?
     start_value: 15
     end_value: 0
     direction: down
-    tick_interval: 1s
+    tick_interval: 6s     # that's 1 shot every 6 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
     control_events:
       - action: restart
         event: slide_vs_alltargets_status_active
@@ -508,7 +508,7 @@ slides:
             duration: .25s
             timing: with_previous
     - type: text
-      text: (player|pts_vs_win)
+      text: (player|pts_vs_alltargets_win)
       number_grouping: true
       min_digits: 1
       font_name: druillet

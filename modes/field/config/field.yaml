@@ -22,7 +22,7 @@ timers:
       - action: restart
         event: selected_vs_breakout
       # Add new VS challenges here
-      
+
 sound_player:
   mode_field_started{players[0].is_welcome_played == 0}:
     voice_welcome:

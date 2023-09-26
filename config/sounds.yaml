@@ -118,6 +118,50 @@ sounds:
         attenuation: -18db
         release_point: 1.0 sec
         release: 3.0 sec
+  voice_nicesink1:
+    file: Jay-NiceSink1.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -3db
+        release_point: 1.0 sec
+        release: 3.0 sec
+  voice_nicesink2:
+    file: Jay-NiceSink2.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -3db
+        release_point: 1.0 sec
+        release: 3.0 sec
+  voice_dirtyharry:
+    file: dirtyharry.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -3db
+        release_point: 1.0 sec
+        release: 3.0 sec
+  voice_frustrating:
+    file: frustrating.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -3db
+        release_point: 1.0 sec
+        release: 3.0 sec
   voice_emchammered:
     file: emchammered.wav
     track: voice
@@ -212,13 +256,6 @@ sounds:
     file: eyeofthejew1.wav
     track: voice
     volume: 1.0
-    ducking:
-        target: music
-        delay: 0
-        attack: 0.3 sec
-        attenuation: -50db
-        release_point: .5 sec
-        release: 1.5 sec
   voice_30meters:
     file: 30meters.wav
     track: voice

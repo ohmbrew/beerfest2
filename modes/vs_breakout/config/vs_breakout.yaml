@@ -29,6 +29,20 @@ mode:
   start_events: start_mode_vs_breakout
   stop_events: game_ended, stop_mode_vs_breakout, start_mode_bonusv2
 
+counters:
+  ball_count:   # keep track of which ball we're on
+    enable_events: mode_vs_breakout_started
+    count_events: ball_result_win, ball_result_lose
+    count_complete_value: 3
+    disable_on_complete: false
+    reset_on_complete: false
+  win_count:  # keep track of ball wins
+    enable_events: mode_vs_breakout_started
+    count_events: ball_result_win
+  lose_count: # keep track of ball losses
+    enable_events: mode_vs_breakout_started
+    count_events: ball_result_lose
+
 timers:
   # update_frame and framerate are used to update our game field
   update_frame:    # ensure that player health meter gets update *after* we update image location variables
@@ -52,8 +66,12 @@ timers:
     control_events:
       - action: restart
         event: slide_vs_breakout_status_active
+      - action: restart
+        event: vs_breakout_newball
       - action: stop
-        event: vs_result_win
+        event: ball_result_win
+      - action: stop
+        event: ball_result_lose
       - action: stop
         event: stop_update_timers
       - action: stop
@@ -68,7 +86,7 @@ event_player:
     - flippers_normal
     - kicker_mode_eject
   slide_vs_breakout_intro_active:
-    - init_coords
+    - init_ball
     - flippers_disabled
 
   # want to play video mode without ball in play
@@ -76,7 +94,7 @@ event_player:
   #slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
 
   # init ball.x, ball.y, cup.x
-  init_coords:
+  init_ball:
     - rnd_ball_x
     - init_ball_y
     - rnd_ball_vx
@@ -100,10 +118,28 @@ event_player:
         value: current_player.ball_y
         type: int
   # ball is 40x40 (anchorx center, anchory center), cup is 80x80 (anchorx center, anchory bottom)
-  move_ball{current_player.ball_y < 230 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
-    vs_result_win
-  move_ball{current_player.ball_y < 230 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  move_ball{current_player.ball_y < 275 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+    ball_result_win:
+      cup_x: {value: current_player.cup_x}
+      type: int
+  move_ball{current_player.ball_y < 275 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+    ball_result_lose:
+      ball_x: {value: current_player.ball_x}
+      type: int
+  ball_result_sound_complete{device.counters.ball_count.value < 3}:
+    - init_ball
+    - vs_breakout_newball
+  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 0}:
     vs_result_lose
+  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 1}:
+    - vs_result_win1
+    - vs_result_win
+  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 2}:
+    - vs_result_win2
+    - vs_result_win
+  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 3}:
+    - vs_result_win3
+    - vs_result_win
 
 sound_player:
   slide_vs_breakout_intro_active:
@@ -126,6 +162,22 @@ sound_player:
   mode_vs_breakout_stopping:
     crowd:
       action: stop
+  ball_result_win{device.counters.win_count.value == 0}:
+    voice_nicesink1:
+      action: play
+      events_when_stopped: ball_result_sound_complete
+  ball_result_win{device.counters.win_count.value == 1}:
+    voice_nicesink2:
+      action: play
+      events_when_stopped: ball_result_sound_complete    
+  ball_result_win{device.counters.win_count.value == 2}:
+    voice_dirtyharry:
+      action: play
+      events_when_stopped: ball_result_sound_complete
+  ball_result_lose:
+    voice_frustrating:
+      action: play
+      events_when_stopped: ball_result_sound_complete
 
 shows:
   vs_breakout_flash_usa:
@@ -346,6 +398,34 @@ slides:
             value: (new_x)
             duration: 0s
     - type: image
+      image: redx
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: 688
+      opacity: 0
+      animations:
+        ball_result_lose:
+          - property: x
+            value: (ball_x)
+            duration: 0s
+          - property: y
+            value: 235
+            duration: 0s
+            timing: with_previous
+          - property: opacity
+            value: 1
+            duration: .25s
+            timing: after_previous
+          - property: opacity
+            value: 1
+            duration: .75s
+            timing: after_previous
+          - property: opacity
+            value: 0
+            duration: .25s
+            timing: after_previous
+    - type: image
       image: pongball
       anchor_x: middle
       anchor_y: middle
@@ -360,6 +440,94 @@ slides:
             value: (new_y)
             timing: with_previous
             duration: .1s
+    - type: image
+      image: splash1
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: 688
+      opacity: 0
+      animations:
+        ball_result_win:
+          - property: x
+            value: (cup_x)
+            duration: 0s
+          - property: y
+            value: 255
+            duration: 0s
+            timing: with_previous
+          - property: opacity
+            value: 1
+            duration: .25s
+            timing: after_previous
+          - property: opacity
+            value: 1
+            duration: .75s
+            timing: after_previous
+          - property: opacity
+            value: 0
+            duration: .25s
+            timing: after_previous
+    - type: image
+      image: splash2
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: 688
+      opacity: 0
+      animations:
+        ball_result_win:
+          - property: opacity
+            value: 0
+            duration: .25s
+          - property: x
+            value: (cup_x)
+            duration: 0s
+            timing: with_previous
+          - property: y
+            value: 255
+            duration: 0s
+            timing: with_previous
+          - property: opacity
+            value: 1
+            duration: .25s
+            timing: after_previous   
+          - property: opacity
+            value: 1
+            duration: .5s
+            timing: after_previous
+          - property: opacity
+            value: 0
+            duration: .25s
+            timing: after_previous     
+    - type: image
+      image: splash3
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: 688
+      opacity: 0
+      animations:
+        ball_result_win:
+          - property: opacity
+            value: 0
+            duration: .5s
+          - property: x
+            value: (cup_x)
+            duration: 0s
+            timing: with_previous
+          - property: y
+            value: 255
+            duration: 0s
+            timing: with_previous
+          - property: opacity
+            value: 1
+            duration: .25s
+            timing: after_previous
+          - property: opacity
+            value: 0
+            duration: .25s
+            timing: after_previous   
     - type: image
       image: background
 
@@ -452,7 +620,7 @@ slides:
             duration: .25s
             timing: with_previous
     - type: text
-      text: (player|pts_vs_win)
+      text: (player|vs_breakout_total)
       number_grouping: true
       min_digits: 1
       font_name: druillet
@@ -651,9 +819,29 @@ variable_player:
     is_in_vs:
       int: 1
       action: set
-  vs_result_win:
-    score: current_player.pts_vs_win
+  # gives player points and sets total for win slide
+  vs_result_win1:
+    score: current_player.pts_vs_breakout_1ball
+    vs_breakout_total:
+      int: current_player.pts_vs_breakout_1ball
+      action: set
+  vs_result_win2:
+    score: current_player.pts_vs_breakout_2balls
+    vs_breakout_total:
+      int: current_player.pts_vs_breakout_2balls
+      action: set
+      
+  vs_result_win3:
+    score: current_player.pts_vs_breakout_3balls  
+    vs_breakout_total:
+      int: current_player.pts_vs_breakout_3balls
+      action: set
 
+  vs_result_lose:
+    vs_breakout_total:
+      int: 0
+      action: set
+ 
   vs_result_win{current_player.opponent == "CANADA"}:   # top left
     has_canada:
       action: set

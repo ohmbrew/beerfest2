@@ -381,10 +381,22 @@ player_vars:
   opponent_health:
     initial_value: 750
     value_type: int
-  pts_vs_win:
+  pts_vs_alltargets_win:
     initial_value: 5000000
     value_type: int
-
+  pts_vs_breakout_1ball:
+    initial_value: 1000000
+    value_type: int
+  pts_vs_breakout_2balls:
+    initial_value: 3000000
+    value_type: int
+  pts_vs_breakout_3balls:
+    initial_value: 5000000
+    value_type: int
+  vs_breakout_total:
+    initial_value: 0
+    value_type: int
+    
   ball_x:
     initial_value: 683      # default center of screen
     value_type: int
