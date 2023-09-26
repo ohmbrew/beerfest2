@@ -30,6 +30,7 @@ mode:
   stop_events: game_ended, stop_mode_vs_breakout, start_mode_bonusv2
 
 timers:
+  # update_frame and framerate are used to update our game field
   update_frame:    # ensure that player health meter gets update *after* we update image location variables
     start_value: 1
     end_value: 0
@@ -40,8 +41,9 @@ timers:
         event: timer_framerate_complete
       - action: stop
         event: stop_update_timers
-
-  framerate:     # called every 250ms. 1) update ball image based on x/y velocities. 2) update player cup left/right based on left/right flipper states
+      - action: stop
+        event: vs_result_lose
+  framerate:     # called every 100ms. 1) update ball image based on x/y velocities. 2) update player cup left/right based on left/right flipper states
     start_value: 1
     end_value: 0
     direction: down
@@ -53,7 +55,9 @@ timers:
       - action: stop
         event: vs_result_win
       - action: stop
-        event: stop_update_timers  
+        event: stop_update_timers
+      - action: stop
+        event: vs_result_lose
 
 event_player:
   slide_vs_breakout_win_removed:
@@ -63,20 +67,27 @@ event_player:
   mode_vs_breakout_stopping:
     - flippers_normal
     - kicker_mode_eject
+  slide_vs_breakout_intro_active:
+    - init_coords
+    - flippers_disabled
 
   # want to play video mode without ball in play
   #slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
   #slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
-  slide_vs_breakout_intro_active:
+
+  # init ball.x, ball.y, cup.x
+  init_coords:
     - rnd_ball_x
+    - init_ball_y
     - rnd_ball_vx
     - rnd_cup_x
-    - flippers_disabled
-
+    
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x > 130)}: move_cup_left    # can move left
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x <= 130)}: move_cup_far_left  # within limit of moving, so set to far left
   timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x < 1236)}: move_cup_right
   timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x >= 1236)}: move_cup_far_right
+  timer_framerate_complete: move_ball
+
   timer_update_frame_complete:
     update_cup:
       new_x: {value: current_player.cup_x}
@@ -88,7 +99,12 @@ event_player:
       new_y:
         value: current_player.ball_y
         type: int
-  
+  # ball is 40x40 (anchorx center, anchory center), cup is 80x80 (anchorx center, anchory bottom)
+  move_ball{current_player.ball_y < 230 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+    vs_result_win
+  move_ball{current_player.ball_y < 230 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+    vs_result_lose
+
 sound_player:
   slide_vs_breakout_intro_active:
     crowd:
@@ -101,12 +117,12 @@ sound_player:
     crowd:
       action: stop
     voice_vs_win:
-      loops: 0
+      action: play
   vs_result_lose:
     crowd:
       action: stop
     voice_vs_lose:
-      loops:
+      action: play
   mode_vs_breakout_stopping:
     crowd:
       action: stop
@@ -312,22 +328,12 @@ slides:
     - type: image
       image: background
 
+
+
+
+
   vs_breakout_status:
     widgets:
-    - type: image
-      image: pongball
-      anchor_x: middle
-      anchor_y: middle
-      x: middle
-      y: 688
-      animations:
-        update_ball:
-          - property: x
-            value: (new_x)
-            duration: .01s
-          - property: y
-            value: (new_y)
-            duration: 0s
     - type: image
       image: cup
       anchor_x: middle
@@ -340,7 +346,25 @@ slides:
             value: (new_x)
             duration: 0s
     - type: image
+      image: pongball
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: 688
+      animations:
+        update_ball:
+          - property: x
+            value: (new_x)
+            duration: .1s
+          - property: y
+            value: (new_y)
+            timing: with_previous
+            duration: .1s
+    - type: image
       image: background
+
+
+
 
   vs_breakout_win:
     widgets:
@@ -702,7 +726,7 @@ variable_player:
       int: 775
       action: set
 
-
+  # sets a random ball.vx velocity from random_event_player
   set_ball_vx_10:
     ball_vx:
       int: 10
@@ -744,6 +768,7 @@ variable_player:
       int: -50
       action: set
 
+  # sets a random cup.x position from random_event_player
   set_cup_x_383:
     cup_x:
       int: 383
@@ -773,8 +798,13 @@ variable_player:
       int: 983
       action: set
 
+  # inits ball.y position
+  init_ball_y:
+    ball_y:
+      int: 688
+      action: set
 
-
+  # moves cup.x location
   move_cup_left:
     cup_x:
       int: current_player.cup_x - 25
@@ -792,3 +822,55 @@ variable_player:
       int: 1286
       action: set
 
+  move_ball:
+    move_done:
+      int: 0
+      action: set
+  
+  # moves ball.x and ball.y based on ball.vx and ball.vy. ball.vx is randomly sent via random_event_player, ball.vy is fixed at 10 pixels per update (negative)
+  move_ball{(current_player.move_done == 0) and (current_player.ball_vx > 0) and (current_player.ball_x + current_player.ball_vx < 1326)}:    # ball has room to move right
+    ball_x:
+      int: current_player.ball_x + current_player.ball_vx
+      action: set
+    ball_y:
+      int: current_player.ball_y + current_player.ball_vy
+      action: set
+    move_done:
+      int: 1
+      action: set
+  move_ball{(current_player.move_done == 0) and (current_player.ball_vx > 0) and (current_player.ball_x + current_player.ball_vx >= 1326)}:
+    ball_vx:
+      int: current_player.ball_vx * -1    # we hit a wall - flip velocity direction
+      action: set
+    ball_x:
+      int: 1326   # move to far right of screen
+      action: set
+    move_done:
+      int: 1
+      action: set
+    ball_y:
+      int: current_player.ball_y + current_player.ball_vy
+      action: set
+  move_ball{(current_player.move_done == 0) and (current_player.ball_vx < 0) and (current_player.ball_x + current_player.ball_vx > 40)}:  # ball has room to move left
+    ball_x:
+      int: current_player.ball_x + current_player.ball_vx
+      action: set
+    ball_y:
+      int: current_player.ball_y + current_player.ball_vy
+      action: set
+    move_done:
+      int: 1
+      action: set
+  move_ball{(current_player.move_done == 0) and (current_player.ball_vx < 0) and (current_player.ball_x + current_player.ball_vx <= 40)}:
+    ball_vx:
+      int: current_player.ball_vx * -1    # we hit a wall - flip velocity direction
+      action: set
+    ball_x:
+      int: 40     # move to far left of screen
+      action: set
+    move_done:
+      int: 1
+      action: set
+    ball_y:
+      int: current_player.ball_y + current_player.ball_vy
+      action: set

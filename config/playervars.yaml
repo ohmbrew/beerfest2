@@ -399,8 +399,12 @@ player_vars:
     value_type: int
   
   ball_vx:
-    initial_value: 25
+    initial_value: 10
     value_type: int
   ball_vy:
-    initial_value: 25
+    initial_value: -10
+    value_type: int
+
+  move_done:
+    initial_value: 0
     value_type: int
