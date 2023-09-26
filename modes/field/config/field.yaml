@@ -30,7 +30,7 @@ sound_player:
       loops: 0
       events_when_stopped: welcome_played
   welcome_played:
-    intro_repeat:
+    introrepeat:
       action: play
       track: music
       loops: -1

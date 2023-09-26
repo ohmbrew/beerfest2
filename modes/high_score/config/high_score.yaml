@@ -34,19 +34,22 @@ event_player:
 
 sound_player:
   slide_high_score_enter_initials_active:
+    introrepeat:
+      action: stop
     voice_yodel:
       action: play
       loops: -1
-  high_score_award_display:
+  high_score_award_display{device.switches.s_adult.state == 0}:
     voice_yodel:
       action: stop
-    voice_handsomemf_clean{device.switches.s_adult.state == 0}:    # adult mode OFF
+    voice_handsomemf_clean:    # adult mode OFF
       action: play
-      loops: 0
-    voice_handsomemf_adult{device.switches.s_adult.state == 1}:    # adult mode ON
+  high_score_award_display{device.switches.s_adult.state == 1}:
+    voice_yodel:
+      action: stop
+    voice_handsomemf_adult:    # adult mode ON
       action: play
-      loops: 0
-
+      
 # optional: change the slides (you can omit all the following)
 slide_player:
   _overwrite: true

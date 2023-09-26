@@ -4,13 +4,13 @@ score:
   - 14121500
 - !!python/tuple
   - AAA
+  - 11651130
+- !!python/tuple
+  - AAA
+  - 11421370
+- !!python/tuple
+  - AAA
+  - 10413980
+- !!python/tuple
+  - AAA
   - 8367170
-- !!python/tuple
-  - AAA
-  - 7295180
-- !!python/tuple
-  - AAA
-  - 1447500
-- !!python/tuple
-  - OHM
-  - 690000

@@ -90,7 +90,7 @@ sound_player:
     prosit:
       loops: 0
   slide_slide_bonus_total_active{current_player.bonus_total == 0}:
-    frustrating:
+    voice_frustrating:
       action: play
       events_when_stopped: slide_total_audio_complete
   slide_slide_bonus_total_active{current_player.bonus_total > 0}:
