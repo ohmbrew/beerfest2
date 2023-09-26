@@ -30,10 +30,10 @@ shots:
   shot_chance: 270
   shot_chug_beer: 223
   shot_diverter: 265
-  shot_do_shot: 253
+  shot_do_shot: 254
   shot_hj: 145
   shot_horseshoe: 171
-  shot_kicker_mode: 1469
+  shot_kicker_mode: 1471
   shot_kicker_rimrules: 129
   shot_laneleft_inner: 60
   shot_laneleft_outer: 10
@@ -46,7 +46,7 @@ shots:
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 1409
+  shot_plunger_lane_exit: 1410
   shot_pongcup1: 230
   shot_pongcup2: 88
   shot_pop_lower: 340
@@ -55,7 +55,7 @@ shots:
   shot_popo_captured: 22
   shot_popo_release: 23
   shot_popo_released: 28
-  shot_quarters: 3667
+  shot_quarters: 3669
   shot_ramp_boot: 10
   shot_ramp_paddle: 99
   shot_ramp_upf: 47
@@ -65,7 +65,7 @@ shots:
   shot_slingleft: 57
   shot_slingquarters: 121
   shot_slingright: 74
-  shot_special: 72
+  shot_special: 84
   shot_strikeout_chugbeer: 15
   shot_strikeout_doshot: 15
   shot_strikeout_takehit: 15
@@ -95,13 +95,13 @@ switches:
   s_chance: 379
   s_chug_beer: 302
   s_diverter: 268
-  s_do_shot: 328
+  s_do_shot: 329
   s_drain: 1350
   s_flipper_left: 2489
   s_flipper_right: 2686
   s_hj: 146
   s_horseshoe: 437
-  s_kicker_mode: 2068
+  s_kicker_mode: 2070
   s_kicker_rimrules: 618
   s_laneleft_inner: 81
   s_laneleft_outer: 20
@@ -122,8 +122,8 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 2851
-  s_plunger_lane_exit: 1599
+  s_plunger_lane: 2852
+  s_plunger_lane_exit: 1600
   s_pongcup1: 231
   s_pongcup2: 88
   s_pongtable_exit: 40
@@ -135,7 +135,7 @@ switches:
   s_pop_upper_right: 603
   s_popo_captured: 22
   s_popo_release: 51
-  s_quarters: 3705
+  s_quarters: 3707
   s_ramp_upf: 47
   s_ramp_upf_entry: 134
   s_ramp_upf_exit: 0
@@ -143,7 +143,7 @@ switches:
   s_slingshot_left: 983
   s_slingshot_quarters: 364
   s_slingshot_right: 1107
-  s_special: 74
+  s_special: 86
   s_start: 314
   s_take_hit: 308
   s_target_rimrules: 38
@@ -160,7 +160,7 @@ switches:
   s_trough1: 394
   s_trough2: 374
   s_trough3: 368
-  s_trough_eject: 2132
+  s_trough_eject: 2134
   s_upf_entry: 0
   s_upf_tgt_left: 191
   s_upf_tgt_right: 178

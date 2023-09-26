@@ -28,12 +28,17 @@ sound_player:
     voice_welcome:
       action: play
       loops: 0
-      events_when_stopped: start_base_theme
-  start_base_theme:
-    introrepeat:
+      events_when_stopped: welcome_played
+  welcome_played:
+    intro_repeat:
       action: play
       track: music
       loops: -1
+  # start_base_theme:
+  #   introrepeat:
+  #     action: play
+  #     track: music
+  #     loops: -1
   mode_field_started{players[0].is_welcome_played == 1}:
     introrepeat:
       action: play
@@ -117,7 +122,7 @@ show_player:
       action: stop
 
 variable_player:
-  start_base_theme:
+  welcome_played:
     is_welcome_played:
       int: 1
       action: set
