@@ -345,8 +345,13 @@ player_vars:
     initial_value: 0
     value_type: int
 
-  # track if we are displaying pong sink video slide
+  # track if we are displaying pong sink video slide so we can prevent trough eject until it's done
   is_showing_pongsink_slide:
+    initial_value: 0
+    value_type: int
+
+  # track if we are displaying popo captured slide so we can prevent trough eject until it's done
+  is_showing_popo_captured_slide:
     initial_value: 0
     value_type: int
 

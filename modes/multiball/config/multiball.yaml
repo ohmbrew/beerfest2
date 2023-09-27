@@ -9,6 +9,9 @@ queue_relay_player:
   balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_pongsink_slide == 1}:
     post: nothing
     wait_for: multiball_ready_for_next_ball
+  balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_popo_captured_slide == 1}:
+    post: nothing
+    wait_for: multiball_ready_for_next_ball
 
 shows:
   munich_multiball_enabled:
@@ -275,8 +278,8 @@ multiballs:
     ball_locks: bd_pongcup1, bd_pongcup2
   popo_multiball:
     debug: true
-    ball_count: 1
-    ball_count_type: add
+    ball_count: 2
+    ball_count_type: total
     shoot_again: 5s
     start_events: start_multiball_popo
     ball_locks: bd_popo
@@ -376,6 +379,13 @@ sound_player:
   slide_multiball_slide_popo_active:
     voice_multiball_popo:
       action: play
+  slide_multiball_popo_captured_active:
+    introrepeat:
+      action: stop
+  slide_multiball_popo_captured_removed:
+    introrepeat:
+      action: play
+      loops: -1
 
 show_player:
   slide_multiball_sink1_clean_active:
@@ -429,6 +439,7 @@ event_player:
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
+  slide_multiball_popo_captured_removed: multiball_ready_for_next_ball
   shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
     - play_popo_multiball_slide
   slide_multiball_slide_popo_removed:
@@ -459,7 +470,16 @@ variable_player:
   slide_multiball_sink2_removed:
     is_showing_pongsink_slide:
       int: 0
-      action: set    
+      action: set
+  slide_multiball_popo_captured_created:
+    is_showing_popo_captured_slide:
+      int: 1
+      action: set
+  slide_multiball_popo_captured_removed:
+    is_showing_popo_captured_slide:
+      int: 0
+      action: set
+
   start_multiball:
     score: current_player.pts_multiball
 
