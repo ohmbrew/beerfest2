@@ -38,9 +38,9 @@
     arrow_house1: red
     arrow_house2: off
     arrow_house3: off
-    l_pop_left: on
-    l_pop_right: off
-    l_pop_lower: off
+    # # l_pop_left: on
+    # # l_pop_right: off
+    # # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -77,9 +77,9 @@
     arrow_house1: red
     arrow_house2: red
     arrow_house3: off
-    l_pop_left: off
-    l_pop_right: on
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: on
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white
@@ -116,9 +116,9 @@
     arrow_house1: red
     arrow_house2: red
     arrow_house3: red
-    l_pop_left:  off
-    l_pop_right: off
-    l_pop_lower: on
+    # l_pop_left:  off
+    # l_pop_right: off
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -155,9 +155,9 @@
     arrow_house1: off
     arrow_house2: red
     arrow_house3: red     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white          
@@ -194,9 +194,9 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: red     
-    l_pop_left: on
-    l_pop_right: on
-    l_pop_lower: on
+    # l_pop_left: on
+    # l_pop_right: on
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -233,9 +233,9 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: off     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off
 
     
 
@@ -281,9 +281,9 @@
     arrow_house1: white
     arrow_house2: off
     arrow_house3: off
-    l_pop_left: on
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: on
+    # l_pop_right: off
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -320,9 +320,9 @@
     arrow_house1: white
     arrow_house2: white
     arrow_house3: off
-    l_pop_left: off
-    l_pop_right: on
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: on
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white
@@ -359,9 +359,9 @@
     arrow_house1: white
     arrow_house2: white
     arrow_house3: white
-    l_pop_left:  off
-    l_pop_right: off
-    l_pop_lower: on
+    # l_pop_left:  off
+    # l_pop_right: off
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -398,9 +398,9 @@
     arrow_house1: off
     arrow_house2: white
     arrow_house3: white     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white          
@@ -437,9 +437,9 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: white     
-    l_pop_left: on
-    l_pop_right: on
-    l_pop_lower: on
+    # l_pop_left: on
+    # l_pop_right: on
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -476,9 +476,9 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: off     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off
 
 
 
@@ -525,9 +525,9 @@
     arrow_house1: blue
     arrow_house2: off
     arrow_house3: off
-    l_pop_left: on
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: on
+    # l_pop_right: off
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -564,9 +564,9 @@
     arrow_house1: blue
     arrow_house2: blue
     arrow_house3: off
-    l_pop_left: off
-    l_pop_right: on
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: on
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white
@@ -603,9 +603,9 @@
     arrow_house1: blue
     arrow_house2: blue
     arrow_house3: blue
-    l_pop_left:  off
-    l_pop_right: off
-    l_pop_lower: on
+    # l_pop_left:  off
+    # l_pop_right: off
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -641,9 +641,9 @@
     arrow_house1: off
     arrow_house2: blue
     arrow_house3: blue     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off
 - duration: 1
   lights:
     strikeout_shot: white          
@@ -683,9 +683,9 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: blue     
-    l_pop_left: on
-    l_pop_right: on
-    l_pop_lower: on
+    # l_pop_left: on
+    # l_pop_right: on
+    # l_pop_lower: on
 - duration: 1
   lights:
     strikeout_shot: off          
@@ -725,6 +725,6 @@
     arrow_house1: off
     arrow_house2: off
     arrow_house3: off     
-    l_pop_left: off
-    l_pop_right: off
-    l_pop_lower: off
+    # l_pop_left: off
+    # l_pop_right: off
+    # l_pop_lower: off

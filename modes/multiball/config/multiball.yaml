@@ -175,7 +175,7 @@ slides:
     - type: video
       video: pongsink2
     expire: 3.5s
-  multiball_popo_captured:
+  popo_captured:
     widgets:
     - type: image
       image: background-flag
@@ -246,7 +246,7 @@ slide_player:
       target: main
       priority: 2000
   shot_popo_captured_hit{device.state_machines.multiball_popo.state == "ready_for_capture"}:
-    multiball_popo_captured:
+    popo_captured:
       target: main
       priority: 2000
   
@@ -435,10 +435,10 @@ sound_player:
   slide_multiball_slide_popo_active:
     voice_multiball_popo:
       action: play
-  slide_multiball_popo_captured_active:
+  slide_popo_captured_active:
     introrepeat:
       action: stop
-  slide_multiball_popo_captured_removed:
+  slide_popo_captured_removed:
     introrepeat:
       action: play
       loops: -1
@@ -528,11 +528,11 @@ variable_player:
     is_showing_pongsink_slide:
       int: 0
       action: set
-  slide_multiball_popo_captured_created:
+  slide_popo_captured_created:
     is_showing_popo_captured_slide:
       int: 1
       action: set
-  slide_multiball_popo_captured_removed:
+  slide_popo_captured_removed:
     is_showing_popo_captured_slide:
       int: 0
       action: set
