@@ -344,11 +344,7 @@ ball_holds:
     balls_to_hold: 1
     hold_devices: bd_kicker_rimrules
     release_one_events: kicker_rimrules_eject
-  popo:
-    balls_to_hold: 1
-    hold_devices: bd_popo
-    release_one_events: popo_eject
-    
+
 # cases where MPF will try to eject from pongcups
 # 1. Multiball not running:
 #    a. Pongcup1 has ball, Pongcup2 does not -> pongcup_1_release_show. This only moves the pongtable to place pongcup1 in a releaseable position.
