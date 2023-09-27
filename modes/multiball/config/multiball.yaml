@@ -268,8 +268,8 @@ slide_player:
 multiballs:
   pt_multiball:
     debug: true
-    ball_count: 0
-    ball_count_type: add
+    ball_count: 3
+    ball_count_type: total
     shoot_again: 5s
     start_events: start_multiball
     ball_locks: bd_pongcup1, bd_pongcup2
