@@ -9,9 +9,9 @@ queue_relay_player:
   balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_pongsink_slide == 1}:
     post: nothing
     wait_for: multiball_ready_for_next_ball
-  balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_popo_captured_slide == 1}:
-    post: nothing
-    wait_for: popo_ready_for_next_ball
+  # balldevice_bd_trough_ball_eject_attempt{current_player.is_showing_popo_captured_slide == 1}:
+  #   post: nothing
+  #   wait_for: popo_ready_for_next_ball
 
 shows:
   munich_multiball_enabled:
