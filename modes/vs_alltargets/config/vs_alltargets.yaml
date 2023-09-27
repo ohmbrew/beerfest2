@@ -117,8 +117,6 @@ event_player:
     stop_mode_vs_alltargets
   slide_vs_alltargets_lose_removed:
     stop_mode_vs_alltargets
-  mode_vs_alltargets_stopping:
-    kicker_mode_eject
   slide_vs_alltargets_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
   slide_vs_alltargets_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
   shot_kicker_mode_hit: select_rnd_vs_alltargets_kicker_action

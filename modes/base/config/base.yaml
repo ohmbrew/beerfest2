@@ -782,6 +782,12 @@ show_player:
   mode_vs_breakout_stopped{current_player.has_tobago}: show_tobago_insert
   mode_vs_breakout_stopped{current_player.has_germany}: show_germany_insert
 
+  # VS ejects
+  mode_vs_breakout_stopped:
+    - flippers_normal
+    - kicker_mode_eject
+  mode_vs_alltargets_stopped:
+    kicker_mode_eject
 
   ball_save_ball_save_timer_start:
     show_ball_save:
