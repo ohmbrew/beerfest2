@@ -37,7 +37,8 @@ window:
   exit_on_escape: True
 
 # TODO
-# - video backgrounds instead of images where appropriate
+# - weird bug when I got popo capture w/2 balls in pong cups. i ejected popo first, then hit saucer and it gave me the 2 pong cup MBs, so i had 4 total in play. Drained the 3rd and my ball ended.
+#   I still had a ball in the plunger lane...
 
 displays:
   window:
