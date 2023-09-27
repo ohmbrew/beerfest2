@@ -92,6 +92,18 @@ timers:
       - action: restart
         event: slide_vs_breakout_lose_active  
 
+  # the third ball result sound kept getting started twice, and so the events_when_stopped were happening twice...wtf. Try a timer instead
+  ball_result_sound_delay:
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 2.5s
+    control_events:
+      - action: restart
+        event: ball_result_win
+      - action: restart
+        event: ball_result_lose
+
 event_player:
   slide_vs_breakout_win_removed:
     stop_mode_vs_breakout
@@ -141,18 +153,20 @@ event_player:
     ball_result_lose:
       ball_x: {value: current_player.ball_x}
       type: int
-  ball_result_sound_complete{device.counters.ball_count.value < 3}:
+  ball_result_win:
+    play_result_win
+  timer_ball_result_sound_delay_complete{device.counters.ball_count.value < 3}:
     - init_ball
     - vs_breakout_newball
-  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 0}:
+  timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 0}:
     vs_result_lose
-  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 1}:
+  timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 1}:
     - vs_result_win1
     - vs_result_win
-  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 2}:
+  timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 2}:
     - vs_result_win2
     - vs_result_win
-  ball_result_sound_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 3}:
+  timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 3}:
     - vs_result_win3
     - vs_result_win
 
@@ -198,26 +212,22 @@ sound_player:
   mode_vs_breakout_stopping:
     crowd:
       action: stop
-  ball_result_win{device.counters.win_count.value == 0}:
+  play_result_win{device.counters.win_count.value == 1}:
     voice_nicesink1:
       action: play
       loops: 0
-      events_when_stopped: ball_result_sound_complete
-  ball_result_win{device.counters.win_count.value == 1}:
+  play_result_win{device.counters.win_count.value == 2}:
     voice_nicesink2:
       action: play
-      loops: 0
-      events_when_stopped: ball_result_sound_complete    
-  ball_result_win{device.counters.win_count.value == 2}:
+      loops: 0   
+  play_result_win{device.counters.win_count.value == 3}:
     voice_dirtyharry:
       action: play
       loops: 0
-      events_when_stopped: ball_result_sound_complete
   ball_result_lose:
     voice_frustrating:
       action: play
       loops: 0
-      events_when_stopped: ball_result_sound_complete
 
 shows:
   vs_breakout_flash_usa:

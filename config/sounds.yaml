@@ -148,7 +148,7 @@ sounds:
         target: music
         delay: 0
         attack: 0.3 sec
-        attenuation: -3db
+        attenuation: -6db
         release_point: 1.0 sec
         release: 3.0 sec
   voice_frustrating:

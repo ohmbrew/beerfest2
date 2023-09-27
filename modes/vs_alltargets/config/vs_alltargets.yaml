@@ -55,7 +55,7 @@ timers:
     start_value: 15
     end_value: 0
     direction: down
-    tick_interval: 1s     # that's 1 shot every 6 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
+    tick_interval: 6s     # that's 1 shot every 6 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
     control_events:
       - action: restart
         event: slide_vs_alltargets_status_active

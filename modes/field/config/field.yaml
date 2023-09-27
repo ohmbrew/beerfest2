@@ -97,9 +97,9 @@ random_event_player:
   vs_select_opponent{current_player.has_germany == 0}:
     events:
       - selected_opponent_canada
-      #- selected_opponent_scotland
-      #- selected_opponent_ireland
-      #- selected_opponent_tobago
+      - selected_opponent_scotland
+      - selected_opponent_ireland
+      - selected_opponent_tobago
   vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
     events:
       - selected_opponent_germany

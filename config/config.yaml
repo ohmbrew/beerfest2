@@ -37,7 +37,6 @@ window:
   exit_on_escape: True
 
 # TODO
-# VS breakout is not showing win/lose slide/audio
 
 displays:
   window:
@@ -220,7 +219,7 @@ sound_system:
       volume: 1.0
     sfx:
       type: standard
-      simultaneous_sounds: 8
+      simultaneous_sounds: 4
       volume: 1.0
 assets:
   sounds:
