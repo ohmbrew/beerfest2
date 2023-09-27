@@ -31,13 +31,13 @@ window:
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
   resizable: false
-  borderless: true
+  borderless: false
   no_window: false
   show_cursor: false
   exit_on_escape: True
 
 # TODO
-# 
+# VS breakout is not showing win/lose slide/audio
 
 displays:
   window:

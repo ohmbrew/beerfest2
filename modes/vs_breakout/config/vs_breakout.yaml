@@ -75,7 +75,22 @@ timers:
       - action: stop
         event: stop_update_timers
       - action: stop
-        event: vs_result_lose
+        event: vs_result_win
+      - action: stop
+        event: vs_result_lose   
+
+  vs_breakout_update_vs_pos:
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    control_events:
+      - action: restart
+        event: slide_vs_breakout_intro_active
+      - action: restart
+        event: slide_vs_breakout_win_active
+      - action: restart
+        event: slide_vs_breakout_lose_active  
 
 event_player:
   slide_vs_breakout_win_removed:
@@ -141,6 +156,27 @@ event_player:
     - vs_result_win3
     - vs_result_win
 
+  timer_vs_breakout_update_vs_pos_complete{current_player.opponent == "CANADA"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_vs_breakout_update_vs_pos_complete{current_player.opponent == "SCOTLAND"}:
+    adjust_vs:
+      new_x: 483
+      type: int
+  timer_vs_breakout_update_vs_pos_complete{current_player.opponent == "IRELAND"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_vs_breakout_update_vs_pos_complete{current_player.opponent == "TOBAGO"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_vs_breakout_update_vs_pos_complete{current_player.opponent == "GERMANY"}:
+    adjust_vs:
+      new_x: 515
+      type: int
+
 sound_player:
   slide_vs_breakout_intro_active:
     crowd:
@@ -165,18 +201,22 @@ sound_player:
   ball_result_win{device.counters.win_count.value == 0}:
     voice_nicesink1:
       action: play
+      loops: 0
       events_when_stopped: ball_result_sound_complete
   ball_result_win{device.counters.win_count.value == 1}:
     voice_nicesink2:
       action: play
+      loops: 0
       events_when_stopped: ball_result_sound_complete    
   ball_result_win{device.counters.win_count.value == 2}:
     voice_dirtyharry:
       action: play
+      loops: 0
       events_when_stopped: ball_result_sound_complete
   ball_result_lose:
     voice_frustrating:
       action: play
+      loops: 0
       events_when_stopped: ball_result_sound_complete
 
 shows:
@@ -296,10 +336,10 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
             duration: 0
@@ -312,9 +352,9 @@ slides:
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 50
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0
@@ -542,7 +582,7 @@ slides:
       font_name: druillet
       anchor_x: left
       anchor_y: center
-      x: left + 55
+      x: left + 30
       y: middle + 200
       color: 008ce5ff
       animations:
@@ -561,25 +601,25 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
             duration: 0
             timing: after_previous
           - property: font_size
-            value: 150
+            value: 175
             duration: .25s
             timing: with_previous
     - type: text
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 25
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0
@@ -655,7 +695,7 @@ slides:
       font_name: druillet
       anchor_x: left
       anchor_y: center
-      x: left + 55
+      x: left + 30
       y: middle + 200
       color: 008ce5ff
       animations:
@@ -674,25 +714,25 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
             duration: 0
             timing: after_previous
           - property: font_size
-            value: 150
+            value: 175
             duration: .25s
             timing: with_previous
     - type: text
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 25
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0

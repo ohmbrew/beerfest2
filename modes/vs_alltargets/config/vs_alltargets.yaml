@@ -55,7 +55,7 @@ timers:
     start_value: 15
     end_value: 0
     direction: down
-    tick_interval: 6s     # that's 1 shot every 6 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
+    tick_interval: 1s     # that's 1 shot every 6 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
     control_events:
       - action: restart
         event: slide_vs_alltargets_status_active
@@ -63,6 +63,18 @@ timers:
         event: vs_result_win
       - action: stop
         event: stop_update_timers  
+  update_vs_pos:
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    control_events:
+      - action: restart
+        event: slide_vs_alltargets_intro_active
+      - action: restart
+        event: slide_vs_alltargets_win_active
+      - action: restart
+        event: slide_vs_alltargets_lose_active  
 
 random_event_player:
   select_rnd_vs_alltargets_kicker_action:
@@ -115,6 +127,26 @@ event_player:
     - vs_reset
   slide_vs_alltargets_instachug_removed:
     vs_result_win
+  timer_update_vs_pos_complete{current_player.opponent == "CANADA"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_update_vs_pos_complete{current_player.opponent == "SCOTLAND"}:
+    adjust_vs:
+      new_x: 483
+      type: int
+  timer_update_vs_pos_complete{current_player.opponent == "IRELAND"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_update_vs_pos_complete{current_player.opponent == "TOBAGO"}:
+    adjust_vs:
+      new_x: 550
+      type: int
+  timer_update_vs_pos_complete{current_player.opponent == "GERMANY"}:
+    adjust_vs:
+      new_x: 515
+      type: int
 
 sound_player:
   slide_vs_alltargets_intro_active:
@@ -270,10 +302,10 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
             duration: 0
@@ -282,13 +314,14 @@ slides:
             value: 175
             duration: .25s
             timing: with_previous
+          
     - type: text
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 50
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0
@@ -430,7 +463,7 @@ slides:
       font_name: druillet
       anchor_x: left
       anchor_y: center
-      x: left + 55
+      x: left + 30
       y: middle + 200
       color: 008ce5ff
       animations:
@@ -449,25 +482,25 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
-            duration: 0
+            duration: 0s
             timing: after_previous
           - property: font_size
-            value: 150
+            value: 175
             duration: .25s
             timing: with_previous
     - type: text
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 25
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0
@@ -543,7 +576,7 @@ slides:
       font_name: druillet
       anchor_x: left
       anchor_y: center
-      x: left + 55
+      x: left + 30
       y: middle + 200
       color: 008ce5ff
       animations:
@@ -562,25 +595,25 @@ slides:
       color: 008ce5ff
       opacity: 0
       animations:
-        show_slide:
-          - property: opacity
-            value: 0
-            duration: 1s
+        adjust_vs:
+          - property: x
+            value: (new_x)
+            duration: 0s
           - property: opacity
             value: 1
             duration: 0
             timing: after_previous
           - property: font_size
-            value: 150
+            value: 175
             duration: .25s
             timing: with_previous
     - type: text
       text: (opponent)
       font_size: 25
       font_name: druillet
-      anchor_x: left
+      anchor_x: right
       anchor_y: center
-      x: middle - 25
+      x: right
       y: middle + 200
       color: 008ce5ff
       opacity: 0

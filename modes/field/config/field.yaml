@@ -34,11 +34,6 @@ sound_player:
       action: play
       track: music
       loops: -1
-  # start_base_theme:
-  #   introrepeat:
-  #     action: play
-  #     track: music
-  #     loops: -1
   mode_field_started{players[0].is_welcome_played == 1}:
     introrepeat:
       action: play
@@ -102,15 +97,15 @@ random_event_player:
   vs_select_opponent{current_player.has_germany == 0}:
     events:
       - selected_opponent_canada
-      - selected_opponent_scotland
-      - selected_opponent_ireland
-      - selected_opponent_tobago
+      #- selected_opponent_scotland
+      #- selected_opponent_ireland
+      #- selected_opponent_tobago
   vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
     events:
       - selected_opponent_germany
   vs_select_challenge:
     events:
-      - selected_vs_alltargets
+      #- selected_vs_alltargets
       - selected_vs_breakout
 
 show_player:
