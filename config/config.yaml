@@ -347,7 +347,7 @@ ball_holds:
   popo:
     balls_to_hold: 1
     hold_devices: bd_popo
-    release_one_events: kicker_popo_eject
+    release_one_events: popo_eject
 
 # cases where MPF will try to eject from pongcups
 # 1. Multiball not running:

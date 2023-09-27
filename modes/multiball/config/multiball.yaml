@@ -245,7 +245,7 @@ slide_player:
     multiball_sink1_adult:
       target: main
       priority: 2000
-  shot_popo_captured_hit:
+  shot_popo_captured_hit{device.state_machines.multiball_popo.state == "ready_for_capture"}:
     multiball_popo_captured:
       target: main
       priority: 2000
@@ -255,7 +255,7 @@ slide_player:
       target: main
       priority: 2000
       expire: 3s
-  play_popo_multiball_slide:
+  shot_popo_released{device.state_machines.multiball_popo.state == "ball_captured"}:
     multiball_slide_popo:
       target: main
       priority: 2000
@@ -307,7 +307,7 @@ multiball_locks:
     balls_to_lock: 1
     locked_ball_counting_strategy: physical_only
     enable_events: enable_popo_lock
-    disable_events: start_multiball_popo
+    disable_events: start_multiball_popo, disable_popo_lock
 
 state_machines:
   multiball:
@@ -369,6 +369,62 @@ state_machines:
         target: pongtable_cup1
         events: multiball_pt_multiball_ended
 
+  multiball_popo:
+    states:
+      start:
+        label: Popo lock not enabled
+      ready_for_capture:
+        label: Popo capture area ready for ball
+        events_when_started: enable_popo_lock, clear_multiball_shows
+      ball_captured:
+        label: Popo capture area contains a ball
+        events_when_started: disable_popo_lock
+        # show_when_active:
+        #   show: pongtable_show
+        #   show_tokens:
+        #     cup: 2
+        #   loops: 0
+      do_not_capture:
+        label: two balls already locked in pong table MB - do not hold onto any balls in popo
+        events_when_started:
+          - disable_popo_lock
+          - eject_popo{device.switches.s_popo_captured.state == 1}    # eject ball if one is there
+        # show_when_active:
+        #   show: pongtable_show
+        #   show_tokens:
+        #     cup: 0
+        #   loops: 0
+      multiball_popo_running:
+        label: Popo multiball running
+        events_when_started: disable_popo_lock, start_multiball_popo
+
+    transitions:
+      # for reference - conditional event DEVICE. not DEVICES.
+      #- source: start, lock_enabled
+      #  target: multiball_available
+      #  events: mode_multiball_started{device.ball_devices.bd_lock.balls==2}
+      - source: start
+        target: ready_for_capture
+        events: mode_multiball_started
+      - source: ready_for_capture
+        target: ball_captured
+        events: shot_popo_captured_hit
+      - source: ready_for_capture
+        target: do_not_capture
+        events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+      - source: ball_captured
+        target: multiball_popo_running
+        events: slide_multiball_slide_popo_removed
+      - source: ball_captured
+        target: do_not_capture
+        events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+      - source: multiball_popo_running
+        target: ready_for_capture
+        events: multiball_popo_multiball_ended{device.state_machines.multiball.state != "pongtable_cupNone"}
+      - source: multiball_popo_running
+        target: do_not_capture
+        events: multiball_popo_multiball_ended{device.state_machines.multiball.state == "pongtable_cupNone"}
+
 sound_player:
   slide_multiball_sink2_removed:
     voice_hitthesaucers_multiball:
@@ -418,7 +474,7 @@ show_player:
       action: stop
     light_ball2_locked:
       action: stop
-  slide_multiball_popo_captured_removed:
+  show_popo_multiball_enabled:
     popo_multiball_enabled:
       loops: -1
       speed: 8
@@ -439,11 +495,12 @@ event_player:
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
-  slide_multiball_popo_captured_removed: multiball_ready_for_next_ball
-  shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
-    - play_popo_multiball_slide
-  slide_multiball_slide_popo_removed:
-    - start_multiball_popo
+  
+
+  # shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
+  #   - play_popo_multiball_slide
+  # slide_multiball_slide_popo_removed:
+  #   - start_multiball_popo
 
 
 variable_player:
