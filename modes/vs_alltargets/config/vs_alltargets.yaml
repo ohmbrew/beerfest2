@@ -27,6 +27,7 @@
 #  - show_player: update show names
 #  - event player: choose random opponent
 #  - update Field.yaml to include new VS challenge
+#  - add eject from saucers if applicable
 
 mode:
   start_events: start_mode_vs_alltargets

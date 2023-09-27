@@ -26,7 +26,13 @@ event_player:
   mode_type_wizard_stopped{not mode["base"].stopping}:
     - start_mode_global
   timer_monkeychug_slide_timer_complete: show_queued_upf_bonus   # tell UPF Bonus mode that we're done showing Monkeychug slide, if it has queued UPF Bonus slide
-
+  
+  # VS ejects
+  mode_vs_breakout_stopped:
+    - flippers_normal
+    - kicker_mode_eject
+  mode_vs_alltargets_stopped:
+    kicker_mode_eject
 timers:
   monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for paddle mode to show a paddle Bonus if one is queued
     start_value: 2
@@ -781,13 +787,6 @@ show_player:
   mode_vs_breakout_stopped{current_player.has_ireland}: show_ireland_insert
   mode_vs_breakout_stopped{current_player.has_tobago}: show_tobago_insert
   mode_vs_breakout_stopped{current_player.has_germany}: show_germany_insert
-
-  # VS ejects
-  mode_vs_breakout_stopped:
-    - flippers_normal
-    - kicker_mode_eject
-  mode_vs_alltargets_stopped:
-    kicker_mode_eject
 
   ball_save_ball_save_timer_start:
     show_ball_save:
