@@ -578,7 +578,7 @@ slides:
             - property: font_size
               value: 175
               duration: .25s
-      - type: image
-        image: background
+      - type: video
+        video: bubbles
 
 

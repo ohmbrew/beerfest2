@@ -424,8 +424,8 @@ slides:
             value: 125
             duration: .25s
             timing: with_previous        
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
 
 
@@ -575,8 +575,8 @@ slides:
             value: 0
             duration: .25s
             timing: after_previous   
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
 
 
@@ -691,8 +691,8 @@ slides:
           value: 150
           duration: .25s
           timing: with_previous 
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
   vs_breakout_lose:
     widgets:
@@ -779,8 +779,8 @@ slides:
             value: 200
             duration: .25s
             timing: with_previous       
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
 slide_player:
   mode_vs_breakout_started:

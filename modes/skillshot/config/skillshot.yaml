@@ -141,8 +141,8 @@ slides:
           - property: font_size
             value: 200
             duration: .5s
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
   slide_skillshot_success_partial:
     widgets:
     - type: text
@@ -179,8 +179,8 @@ slides:
           - property: font_size
             value: 200
             duration: .5s
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
 slide_player:
   mode_skillshot_started:

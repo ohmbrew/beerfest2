@@ -138,8 +138,6 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
-      - type: image
-        image: background
   slide_longpour_success:
     widgets:
       - type: text

@@ -120,8 +120,8 @@ slides:
           - property: font_size
             value: 200
             duration: .5s
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
   slide_bonus_upf2:
     widgets:
     - type: text
@@ -158,8 +158,8 @@ slides:
           - property: font_size
             value: 200
             duration: .5s
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
   slide_bonus_hammered:
     widgets:
     - type: text

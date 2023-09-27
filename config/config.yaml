@@ -37,6 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
+# - video backgrounds instead of images where appropriate
 
 displays:
   window:

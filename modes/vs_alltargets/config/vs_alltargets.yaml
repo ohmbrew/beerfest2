@@ -360,8 +360,8 @@ slides:
             value: 200
             duration: .25s
             timing: with_previous        
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
   vs_alltargets_status:
     widgets:
     - type: text
@@ -432,8 +432,8 @@ slides:
         update_opponent_health:   # each time this event comes in (with value: set to updated opponent health), it will update the width of the health bar to new value
           - property: width
             value: (new_width)  # tracked by a counter that counts down every time one of the shots is hit (like with mug fill)
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
   vs_alltargets_instachug:
     widgets:
@@ -564,8 +564,8 @@ slides:
           value: 150
           duration: .25s
           timing: with_previous 
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
   vs_alltargets_lose:
     widgets:
@@ -652,8 +652,8 @@ slides:
             value: 200
             duration: .25s
             timing: with_previous       
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
 
 slide_player:
   mode_vs_alltargets_started:

@@ -65,7 +65,14 @@ timers:
     control_events:
       - action: restart
         event: wait_flipper_1s_restart
-
+  wait_lightchance:
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: .1s
+    control_events:
+      - action: restart
+        event: shot_chance_hit
 
 counters:
   track_flipperflop:    # track if we've hit 3 boot shots in 15 seconds
@@ -398,6 +405,32 @@ shows:
         germany_right: green
     - duration: -1
 
+  show_chance2x_insert:
+    - time: 0
+      lights:
+        2x: 008ce5
+    - duration: -1
+  show_chance3x_insert:
+    - time: 0
+      lights:
+        3x: 008ce5
+    - duration: -1
+  show_chance4x_insert:
+    - time: 0
+      lights:
+        4x: 008ce5
+    - duration: -1
+  show_chance5x_insert:
+    - time: 0
+      lights:
+        5x: 008ce5
+    - duration: -1
+  show_chance6x_insert:
+    - time: 0
+      lights:
+        6x: 008ce5
+    - duration: -1
+  
 
   show_ball_save:
     - time: 0
@@ -706,6 +739,18 @@ show_player:
       action: stop
     show_germany_insert:
       action: stop
+
+    show_chance2x_insert:
+      action: stop
+    show_chance3x_insert:
+      action: stop
+    show_chance4x_insert:
+      action: stop
+    show_chance5x_insert:
+      action: stop
+    show_chance6x_insert:
+      action: stop
+
   mode_bonusv2_stopped:
     base_show:
       speed: 1
@@ -794,6 +839,13 @@ show_player:
   mode_vs_breakout_stopped{current_player.has_ireland}: show_ireland_insert
   mode_vs_breakout_stopped{current_player.has_tobago}: show_tobago_insert
   mode_vs_breakout_stopped{current_player.has_germany}: show_germany_insert
+
+  timer_wait_lightchance_complete{current_player.bonus_numchance == 2}: show_chance2x_insert
+  timer_wait_lightchance_complete{current_player.bonus_numchance == 3}: show_chance3x_insert
+  timer_wait_lightchance_complete{current_player.bonus_numchance == 4}: show_chance4x_insert
+  timer_wait_lightchance_complete{current_player.bonus_numchance == 5}: show_chance5x_insert
+  timer_wait_lightchance_complete{current_player.bonus_numchance == 6}: show_chance6x_insert
+
 
   ball_save_ball_save_timer_start:
     show_ball_save:
@@ -979,6 +1031,7 @@ variable_player:
   shot_chance_hit{mode.dasboot.active == False}:
     score: current_player.pts_chance
     bonus_numchance: 1    # bonus tracker (chance multiplier)
+
   shot_special_hit{mode.dasboot.active == False}:
     score: current_player.pts_special
 
