@@ -28,11 +28,18 @@ event_player:
   timer_monkeychug_slide_timer_complete: show_queued_upf_bonus   # tell UPF Bonus mode that we're done showing Monkeychug slide, if it has queued UPF Bonus slide
   
   # VS ejects
-  mode_vs_breakout_stopped:
+  mode_vs_breakout_stopped{device.switches.s_kicker_mode.state == 1}:
     - flippers_normal
     - kicker_mode_eject
-  mode_vs_alltargets_stopped:
+  mode_vs_breakout_stopped{device.switches.s_kicker_rimrules.state == 1}:
+    - flippers_normal
+    - kicker_rimrules_eject
+
+  mode_vs_alltargets_stopped{device.switches.s_kicker_mode.state == 1}:
     kicker_mode_eject
+  mode_vs_alltargets_stopped{device.switches.s_kicker_rimrules.state == 1}:
+    kicker_rimrules_eject
+
 timers:
   monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for paddle mode to show a paddle Bonus if one is queued
     start_value: 2
