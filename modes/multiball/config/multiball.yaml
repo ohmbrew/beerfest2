@@ -255,7 +255,7 @@ slide_player:
       target: main
       priority: 2000
       expire: 3s
-  shot_popo_released{device.state_machines.multiball_popo.state == "ball_captured"}:
+  shot_popo_released_hit{device.state_machines.multiball_popo.state == "ball_captured"}:
     multiball_slide_popo:
       target: main
       priority: 2000
