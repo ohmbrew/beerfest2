@@ -378,7 +378,7 @@ state_machines:
         events_when_started: enable_popo_lock, clear_multiball_shows
       ball_captured:
         label: Popo capture area contains a ball
-        events_when_started: disable_popo_lock
+        #events_when_started: disable_popo_lock
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
