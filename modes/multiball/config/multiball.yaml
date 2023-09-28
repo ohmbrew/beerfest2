@@ -482,12 +482,12 @@ show_player:
   start_multiball_popo:
     popo_multiball_enabled:
       action: stop
-  ball_ending:
+  mode_bonusv2_started:
     light_ball1_locked:
       action: stop
     light_ball2_locked:
       action: stop
-      
+
 event_player:
   mode_multiball_started:
     - enable_popo_lock
