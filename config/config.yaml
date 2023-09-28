@@ -37,8 +37,8 @@ window:
   exit_on_escape: True
 
 # TODO
+# - I got Popo capture, hit multiball, and then dropped ball in pong cup 2. Table didn't rotate...
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
-# - All Game Theme modes - stop countdown timer if win/loss - I heard "Hurry Up" when it was showing Game Theme End slides
 
 displays:
   window:

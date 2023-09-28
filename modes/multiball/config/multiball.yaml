@@ -497,7 +497,8 @@ event_player:
   shot_pongcup2_hit{device.state_machines.multiball_popo.state == "ready_for_capture"}:
     - pongtable_movetocupNone
     - multiball_sink2
-  shot_pongcup2_hit{device.state_machines.multiball_popo.state == "ball_captured"}: release_cup2
+
+  shot_pongcup2_hit{device.state_machines.multiball_popo.state != "ready_for_capture"}: release_cup2
 
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
