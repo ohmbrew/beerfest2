@@ -299,7 +299,7 @@ multiball_locks:
     balls_to_lock: 1
     locked_ball_counting_strategy: physical_only
     enable_events: enable_pt_lock
-    disable_events: start_multiball
+    disable_events: start_multiball, disable_ptlock2
 
   popo_lock:
     debug: true
@@ -375,10 +375,10 @@ state_machines:
         label: Popo lock not enabled
       ready_for_capture:
         label: Popo capture area ready for ball
-        events_when_started: enable_popo_lock, clear_multiball_shows
+        events_when_started: enable_popo_lock, enable_pt_lock, clear_multiball_shows
       ball_captured:
         label: Popo capture area contains a ball
-        #events_when_started: disable_popo_lock
+        events_when_started: disable_ptlock2
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
@@ -396,7 +396,7 @@ state_machines:
         #   loops: 0
       multiball_popo_running:
         label: Popo multiball running
-        events_when_started: disable_popo_lock, start_multiball_popo
+        events_when_started: disable_popo_lock, disable_ptlock2, start_multiball_popo
 
     transitions:
       # for reference - conditional event DEVICE. not DEVICES.
