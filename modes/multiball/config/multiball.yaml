@@ -482,7 +482,12 @@ show_player:
   start_multiball_popo:
     popo_multiball_enabled:
       action: stop
-
+  ball_ending:
+    light_ball1_locked:
+      action: stop
+    light_ball2_locked:
+      action: stop
+      
 event_player:
   mode_multiball_started:
     - enable_popo_lock
@@ -493,17 +498,11 @@ event_player:
     - pongtable_movetocupNone
     - multiball_sink2
   shot_pongcup2_hit{device.state_machines.multiball_popo.state == "ball_captured"}: release_cup2
-  
+
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
   slide_multiball_sink2_removed: multiball_ready_for_next_ball
   slide_popo_captured_removed: popo_ready_for_next_ball
-
-  # shot_popo_released_hit{device.switches.s_popo_captured.state == 1}:
-  #   - play_popo_multiball_slide
-  # slide_multiball_slide_popo_removed:
-  #   - start_multiball_popo
-
 
 variable_player:
   slide_multiball_sink1_clean_created:

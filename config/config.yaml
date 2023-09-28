@@ -37,8 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
-# - weird bug when I got popo capture w/2 balls in pong cups. i ejected popo first, then hit saucer and it gave me the 2 pong cup MBs, so i had 4 total in play. Drained the 3rd and my ball ended.
-#   I still had a ball in the plunger lane...
+# Ball lock 1/2 aren't coming back on when base mode starts if there's 1/2 balls locked. also during bonus mode where it flashes all lights blue, if ball 1/2 are locked, they stay lit during that show...
 
 displays:
   window:
