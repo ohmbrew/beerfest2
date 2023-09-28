@@ -31,13 +31,14 @@ window:
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
   resizable: false
-  borderless: true
+  borderless: false
   no_window: false
   show_cursor: false
   exit_on_escape: True
 
 # TODO
-# Ball lock 1/2 aren't coming back on when base mode starts if there's 1/2 balls locked. also during bonus mode where it flashes all lights blue, if ball 1/2 are locked, they stay lit during that show...
+# - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
+# - All Game Theme modes - stop countdown timer if win/loss - I heard "Hurry Up" when it was showing Game Theme End slides
 
 displays:
   window:

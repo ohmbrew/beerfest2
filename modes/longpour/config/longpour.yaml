@@ -598,7 +598,12 @@ timers:
     control_events:
       - action: start
         event: choose_random_background_music
-
+      - action: stop
+        event: longpour_success
+      - action: stop
+        event: longpour_partial
+      - action: stop
+        event: longpour_fail
 variable_player:
   mode_longpour_started:    # init whether we completed this current bonus
     has_current_thememode:

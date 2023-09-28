@@ -827,6 +827,12 @@ timers:
     control_events:
       - action: start
         event: choose_random_background_music
+      - action: stop
+        event: volumechug_success
+      - action: stop
+        event: volumechug_partial
+      - action: stop
+        event: volumechug_fail
 
 variable_player:
   mode_volumechug_started:    # init whether we completed this current bonus

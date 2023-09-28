@@ -24,7 +24,7 @@
 #  - event player: choose random opponent
 #  - update Field.yaml to include new VS challenge
 #  - add mode to config.yaml
-
+#  - add the mode_stopped to game.yaml to re-show backbround slide for base or multiplayer
 mode:
   start_events: start_mode_vs_breakout
   stop_events: game_ended, stop_mode_vs_breakout, start_mode_bonusv2
@@ -113,17 +113,23 @@ event_player:
     - init_ball
     - flippers_disabled
 
-  # want to play video mode without ball in play
-  #slide_vs_breakout_intro_removed{device.switches.s_kicker_rimrules.state==1}: kicker_rimrules_eject
-  #slide_vs_breakout_intro_removed{device.switches.s_kicker_mode.state==1}: kicker_mode_eject
-
-  # init ball.x, ball.y, cup.x
-  init_ball:
+  # init ball.x, ball.y, cup.x. Depending on how many "wins" player has, choose easy/med/hard ball_vx's
+  init_ball{device.counters.win_count.value == 0}:  # either first ball, or they suck!
     - rnd_ball_x
     - init_ball_y
-    - rnd_ball_vx
+    - rnd_ball_vx_easy
     - rnd_cup_x
-    
+  init_ball{device.counters.win_count.value == 1}:
+    - rnd_ball_x
+    - init_ball_y
+    - rnd_ball_vx_med
+    - rnd_cup_x
+  init_ball{device.counters.win_count.value == 2}:
+    - rnd_ball_x
+    - init_ball_y
+    - rnd_ball_vx_hard
+    - rnd_cup_x
+
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x > 130)}: move_cup_left    # can move left
   timer_framerate_complete{(device.switches.s_flipper_left.state == 1) and (current_player.cup_x <= 130)}: move_cup_far_left  # within limit of moving, so set to far left
   timer_framerate_complete{(device.switches.s_flipper_right.state == 1) and (current_player.cup_x < 1236)}: move_cup_right
@@ -141,12 +147,15 @@ event_player:
       new_y:
         value: current_player.ball_y
         type: int
+
+  move_ball: check_result   # putting this in here to cause a delay so that the win/loss result (updates graphics and variable_player) computes before displaying win/loss (X and splash)
+
   # ball is 40x40 (anchorx center, anchory center), cup is 80x80 (anchorx center, anchory bottom)
-  move_ball{current_player.ball_y < 275 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 275 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_win:
       cup_x: {value: current_player.cup_x}
       type: int
-  move_ball{current_player.ball_y < 275 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 275 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_lose:
       ball_x: {value: current_player.ball_x}
       type: int
@@ -825,18 +834,24 @@ random_event_player:
     - set_ball_x_983
     - set_ball_x_1083
     - set_ball_x_1183
-  rnd_ball_vx:
+  rnd_ball_vx_easy:
     - set_ball_vx_10
     - set_ball_vx_20
-    - set_ball_vx_30
-    - set_ball_vx_40
-    - set_ball_vx_50
     - set_ball_vx_n10
     - set_ball_vx_n20
+  rnd_ball_vx_med:
+    - set_ball_vx_30
+    - set_ball_vx_40
     - set_ball_vx_n30
     - set_ball_vx_n40
+  rnd_ball_vx_hard:
+    - set_ball_vx_50
+    - set_ball_vx_60
     - set_ball_vx_n50
+    - set_ball_vx_n60
   rnd_cup_x:
+    - set_cup_x_183
+    - set_cup_x_283
     - set_cup_x_383
     - set_cup_x_483
     - set_cup_x_583
@@ -844,7 +859,8 @@ random_event_player:
     - set_cup_x_783
     - set_cup_x_883
     - set_cup_x_983
-
+    - set_cup_x_1083
+    - set_cup_x_1183
 variable_player:
   mode_vs_breakout_stopping: # clear VS active bit
     is_in_vs:
@@ -956,6 +972,7 @@ variable_player:
       int: 1183
       action: set
 
+  # ball_y always starts the same
   set_ball_y_775:
     ball_y:
       int: 775
@@ -982,6 +999,10 @@ variable_player:
     ball_vx:
       int: 50
       action: set
+  set_ball_vx_60:
+    ball_vx:
+      int: 60
+      action: set
   set_ball_vx_n10:
     ball_vx:
       int: -10
@@ -1002,8 +1023,20 @@ variable_player:
     ball_vx:
       int: -50
       action: set
+  set_ball_vx_n60:
+    ball_vx:
+      int: -50
+      action: set
 
   # sets a random cup.x position from random_event_player
+  set_cup_x_183:
+    cup_x:
+      int: 183
+      action: set
+  set_cup_x_283:
+    cup_x:
+      int: 283
+      action: set
   set_cup_x_383:
     cup_x:
       int: 383
@@ -1031,6 +1064,14 @@ variable_player:
   set_cup_x_983:
     cup_x:
       int: 983
+      action: set
+  set_cup_x_1083:
+    cup_x:
+      int: 1083
+      action: set
+  set_cup_x_1183:
+    cup_x:
+      int: 1183
       action: set
 
   # inits ball.y position

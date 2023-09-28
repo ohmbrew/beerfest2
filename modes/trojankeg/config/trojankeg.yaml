@@ -675,6 +675,12 @@ timers:
     control_events:
       - action: start
         event: choose_random_background_music
+      - action: stop
+        event: trojankeg_success
+      - action: stop
+        event: trojankeg_partial
+      - action: stop
+        event: trojankeg_fail
 
 variable_player:
   mode_trojankeg_started:    # init whether we completed this current bonus

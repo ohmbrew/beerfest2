@@ -108,6 +108,18 @@ widget_player:
   mode_trojankeg_stopped{game.num_players > 1}:
     background_widget:
       slide: multiplayer_slide
+  mode_vs_alltargets_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_vs_alltargets_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
+  mode_vs_breakout_stopped{game.num_players == 1}:
+    background_widget:
+      slide: base_slide
+  mode_vs_breakout_stopped{game.num_players > 1}:
+    background_widget:
+      slide: multiplayer_slide
 
   # player 2 has entered the chat
   player_added{num==2 and current_player.is_skillshot_active == 0}:

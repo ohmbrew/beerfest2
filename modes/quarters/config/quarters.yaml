@@ -480,7 +480,12 @@ timers:
     control_events:
       - action: start
         event: choose_random_background_music
-
+      - action: stop
+        event: quarters_success
+      - action: stop
+        event: quarters_partial
+      - action: stop
+        event: quarters_fail
 variable_player:
   mode_quarters_started:    # init whether we completed this current bonus
     has_current_thememode:
