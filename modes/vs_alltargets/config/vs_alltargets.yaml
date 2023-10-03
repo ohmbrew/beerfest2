@@ -675,11 +675,6 @@ slide_player:
       target: main
       priority: 5000
       expire: 2s
-  shot_kicker_rimrules_hit:
-    vs_alltargets_instachug:
-      target: main
-      priority: 5000
-      expire: 2s
   vs_result_win:
     vs_alltargets_status:
       target: main

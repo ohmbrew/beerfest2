@@ -85,7 +85,9 @@ random_event_player:
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
     events:
       - start_mode_dasboot  # Wizard Mode!
-  vs_or_play_betterwhendrunk_and_eject:
+
+
+  vs_or_play_betterwhendrunk_and_eject{device.state_machines.multiball.state != "pongcupNone"}:    # meaning we don't have 2 balls locked in cups - no worry of MB starting
     events:
       - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
       - play_betterwhendrunk_and_eject
@@ -93,6 +95,7 @@ random_event_player:
     events:
       - vs_select_opponent
       - play_rimrules_and_eject
+  
   # select opponent to play
   vs_select_opponent{current_player.has_germany == 0}:
     events:

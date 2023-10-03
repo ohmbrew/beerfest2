@@ -37,8 +37,21 @@ window:
   exit_on_escape: True
 
 # TODO
-# - I got Popo capture, hit multiball, and then dropped ball in pong cup 2. Table didn't rotate...
+# - Add "ball 1/2 locked" text to pong sink videos
+# - VS video mode - add them on a bike carrying the cup!
+# - In MB, prevent VS mode from starting
+# - Move Popo capture up a bit to prevent another ball from perching there
+# - rubber behind strike out to dampen the hit from ball
+# - remove scores during skillshot graphic. Can see behind
+# - Adjust score sizes, when ppls scores were in millions they were encroaching the center
+# - Show final scores at the end, after any bonus/end-of-game slides. Include in attract mode
+# - Topper - put string of LEDs in there to light it up like it's filling up. (progressive jackpot maybe?)
+# - Add ball save after a rimrules eject in case it goes SDTM.
+# - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
+# - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
+# - Skillshot enhancement - incorporate something on the PF after it drops down?
+# - Ramps build combos, award more points for shots after multiplier increases. Use chance lights maybe?
 
 displays:
   window:
