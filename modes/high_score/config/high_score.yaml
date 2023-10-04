@@ -14,11 +14,11 @@ high_score:
   # define your high score categories and the awards
   categories: !!omap
     - score:
-        - GRAND CHAMPION
-        - High Score 1
-        - High Score 2
-        - High Score 3
-        - High Score 4
+        - GRAND CHUG-PION
+        - 2ND DRUNKEST
+        - 3RD THE TURD
+        - 4TH WANKER
+        - 5TH OF JAGER 
 
   # set the defaults
   defaults:
@@ -168,6 +168,23 @@ slides:
     widgets:
     - type: image
       image: MiniText-HighScore
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+  slide_mini_nohighscore:
+    widgets:
+    - type: image
+      image: MiniText-BetterLuckNextTime
       animations:
         show_slide:
           - property: opacity

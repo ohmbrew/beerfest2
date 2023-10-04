@@ -5,7 +5,7 @@ mode:
   start_events: ball_started
   stop_events:
     - skillshot_stop
-    - skill_failed
+    - skill_fail
   priority: 500
 
 variable_player:
@@ -17,6 +17,7 @@ variable_player:
     is_skillshot_active:
       int: 0
       action: set
+     
   skill_success_full:
     score: current_player.pts_skillshot_full
   skill_success_partial:
@@ -203,56 +204,134 @@ event_player:
   slide_slide_skillshot_success_full_removed: skillshot_stop
   slide_slide_skillshot_success_partial_removed: skillshot_stop
 
+  shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1] > 0}: skill_success_full
+  shot_plunger_lane_exit_hit{device.lights.gi_back5.color[1] > 0 and device.lights.gi_back6.color[1] == 0}: skill_success_partial
+  shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1]==0 and device.lights.gi_back5.color[1]==0}: skill_fail
+
 shows:
   show_gi_back_chase:
-    - duration: .1
+    - duration: .25
       lights:
-        gi_back1: red
-        gi_back2: off
-        gi_back3: off
-        gi_back4: off
-        gi_back5: off
-        gi_back6: off
-    - duration: .1
+        gi_back1:
+          color: red
+          fade: 0ms
+        gi_back2:
+          color: off
+          fade: 0ms
+        gi_back3:
+          color: off
+          fade: 0ms
+        gi_back4:
+          color: off
+          fade: 0ms
+        gi_back5:
+          color: off
+          fade: 0ms
+        gi_back6:
+          color: off
+          fade: 0ms
+      
+    - duration: .25
       lights:
-        gi_back1: off
-        gi_back2: red
-        gi_back3: off
-        gi_back4: off
-        gi_back5: off
-        gi_back6: off
-    - duration: .1
+        gi_back1:
+          color: off
+          fade: 0ms
+        gi_back2:
+          color: red
+          fade: 0ms
+        gi_back3:
+          color: off
+          fade: 0ms
+        gi_back4:
+          color: off
+          fade: 0ms
+        gi_back5:
+          color: off
+          fade: 0ms
+        gi_back6:
+          color: off
+          fade: 0ms
+
+    - duration: .25
       lights:
-        gi_back1: off
-        gi_back2: off
-        gi_back3: red
-        gi_back4: off
-        gi_back5: off
-        gi_back6: off
-    - duration: .1
+        gi_back1:
+          color: off
+          fade: 0ms
+        gi_back2:
+          color: off
+          fade: 0ms
+        gi_back3:
+          color: red
+          fade: 0ms
+        gi_back4:
+          color: off
+          fade: 0ms
+        gi_back5:
+          color: off
+          fade: 0ms
+        gi_back6:
+          color: off
+          fade: 0ms
+    - duration: .25
       lights:
-        gi_back1: off
-        gi_back2: off
-        gi_back3: off
-        gi_back4: red
-        gi_back5: off
-        gi_back6: off
-    - duration: .1
+        gi_back1:
+          color: off
+          fade: 0ms
+        gi_back2:
+          color: off
+          fade: 0ms
+        gi_back3:
+          color: off
+          fade: 0ms
+        gi_back4:
+          color: red
+          fade: 0ms
+        gi_back5:
+          color: off
+          fade: 0ms
+        gi_back6:
+          color: off
+          fade: 0ms
+    - duration: .25
       lights:
-        gi_back1: off
-        gi_back2: off
-        gi_back3: off
-        gi_back4: off
-        gi_back5: green
-        gi_back6: off
-    - duration: .1
+        gi_back1:
+          color: off
+          fade: 0ms
+        gi_back2:
+          color: off
+          fade: 0ms
+        gi_back3:
+          color: off
+          fade: 0ms
+        gi_back4:
+          color: off
+          fade: 0ms
+        gi_back5:
+          color: green
+          fade: 0ms
+        gi_back6:
+          color: off
+          fade: 0ms
+    - duration: .25
       lights:
-        gi_back1: off
-        gi_back2: off
-        gi_back3: off
-        gi_back4: off
-        gi_back5: off
-        gi_back6: green
+        gi_back1:
+          color: off
+          fade: 0ms
+        gi_back2:
+          color: off
+          fade: 0ms
+        gi_back3:
+          color: off
+          fade: 0ms
+        gi_back4:
+          color: off
+          fade: 0ms
+        gi_back5:
+          color: off
+          fade: 0ms
+        gi_back6:
+          color: green
+          fade: 0ms
 
 show_player:
   mode_skillshot_started:
@@ -269,29 +348,3 @@ timers:
     control_events:
       - action: start
         event: balldevice_bd_plunger_lane_ball_eject_success  # replace "plunger_lane" with the name of your plunger device
-
-state_machines:
-  skillshot_success:
-    debug: true
-    states:
-      start:
-        label: Skill shot ready
-      success_full:
-        label: Skill successful
-        events_when_started: skill_success_full
-      success_partial:
-        label: Skill Partial successful
-        events_when_started: skill_success_partial
-      failed:
-        label: Skill failed
-        events_when_started: skill_failed
-    transitions:
-      - source: start
-        target: success_full
-        events: shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1] > 0}
-      - source: start
-        target: success_partial
-        events: shot_plunger_lane_exit_hit{device.lights.gi_back5.color[1] > 0}
-      - source: start
-        target: failed
-        events: shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1]==0 and device.lights.gi_back5.color[1]==0}

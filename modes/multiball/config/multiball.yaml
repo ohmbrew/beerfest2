@@ -158,6 +158,18 @@ slides:
     widgets:
     - type: image
       image: background-flag
+    - type: image
+      image: MainText-Ball1Locked
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
+      x: middle
+      y: bottom + 50
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 1.5s 
     - type: video
       video: pongsink1-clean
     expire: 5.5s
@@ -165,6 +177,18 @@ slides:
     widgets:
     - type: image
       image: background-flag
+    - type: image
+      image: MainText-Ball1Locked
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
+      x: middle
+      y: bottom + 50
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 1.5s 
     - type: video
       video: pongsink1-adult
     expire: 5.5s
@@ -172,6 +196,18 @@ slides:
     widgets:
     - type: image
       image: background-flag
+    - type: image
+      image: MainText-Ball2Locked
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
+      x: middle
+      y: bottom + 50
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 1.5s 
     - type: video
       video: pongsink2
     expire: 3.5s

@@ -37,20 +37,17 @@ window:
   exit_on_escape: True
 
 # TODO
-# - Add "ball 1/2 locked" text to pong sink videos
+# - well weird, it kept crashing (with no log) when I was trying to run up scores for high score. found a random "double free or corruption (fasttop)" in console output. 
+#   - just completed full game, didn't score so high on top scores (< 2B), p3/p4 were a 1M). So idk memory issue with large scores? Nobody's gonna score > 1B...
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
 # - Move Popo capture up a bit to prevent another ball from perching there
 # - rubber behind strike out to dampen the hit from ball
-# - remove scores during skillshot graphic. Can see behind
-# - Adjust score sizes, when ppls scores were in millions they were encroaching the center
-# - Show final scores at the end, after any bonus/end-of-game slides. Include in attract mode
 # - Topper - put string of LEDs in there to light it up like it's filling up. (progressive jackpot maybe?)
 # - Add ball save after a rimrules eject in case it goes SDTM.
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
-# - Skillshot enhancement - incorporate something on the PF after it drops down?
 # - Ramps build combos, award more points for shots after multiplier increases. Use chance lights maybe?
 
 displays:
@@ -162,11 +159,156 @@ slides:
       image: background-flag
     - type: video
       video: champions
+  final_scores_mini:
+    widgets:
+    - type: image
+      image: beermug7    
+    - type: image
+      image: minibg  
+  final_scores_1p:
+    widgets:
+    - type: image
+      image: background
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle
+      font_size: 200
+      font_name: druillet
+      color: 008ce5
+      z: 1
+  final_scores_2p:
+    widgets:
+    - type: image
+      image: background
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: top
+      x: 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player2|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: top
+      x: right - 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+  final_scores_3p:
+    widgets:
+    - type: image
+      image: background
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: top
+      x: 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player2|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: top
+      x: right - 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player3|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: bottom
+      x: 10
+      y: 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+  final_scores_4p:
+    widgets:
+    - type: image
+      image: background
+    - type: text
+      text: (player1|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: top
+      x: 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player2|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: top
+      x: right - 10
+      y: top - 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player3|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: left
+      anchor_y: bottom
+      x: 10
+      y: 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
+    - type: text
+      text: (player4|score)
+      number_grouping: true
+      min_digits: 1
+      anchor_x: right
+      anchor_y: bottom
+      x: right-10
+      y: 35
+      font_size: 100
+      font_name: druillet
+      color: 008ce5
+      z: 1
 
 slide_player:
   mc_ready:
     slide_layout:
       target: window
+  gameover_video_complete:
+    final_scores_mini:
+      target: mini
 
 keyboard:
   s:
@@ -392,11 +534,11 @@ queue_relay_player:
     wait_for: pongcups_released   # this waits on pongcup_all_release_show above to finish
   game_ending{device.counters.has_highscore.completed == False}:
     post: drain_gameover_nohighscore
-    wait_for: gameover_video_complete
+    wait_for: gameover_lastgamescores_complete
   game_ending{device.counters.has_highscore.completed == True}:
     post: drain_gameover_highscore
-    wait_for: gameover_video_complete 
-
+    wait_for: gameover_lastgamescores_complete 
+  
 show_player:
   pongcup_all_release_show:
     pongtable_releaseall_show:
@@ -412,14 +554,26 @@ show_player:
   drain_gameover_highscore:
     show_gameover_highscore:
       loops: 0
-    
+  gameover_video_complete{game.num_players == 1}:
+    show_finalscores_1p:
+      loops: 0
+  gameover_video_complete{game.num_players == 2}:
+    show_finalscores_2p:
+      loops: 0
+  gameover_video_complete{game.num_players == 3}:
+    show_finalscores_3p:
+      loops: 0
+  gameover_video_complete{game.num_players == 4}:
+    show_finalscores_4p:
+      loops: 0
+
 shows:
   show_gameover_nohighscore:
     - time: 0
       slides:
         video_seeyoulater_slide:
           target: main
-        slide_mini_highscore:
+        slide_mini_nohighscore:
           target: mini
           priority: 3000
     - time: '+4.5'
@@ -434,6 +588,34 @@ shows:
           priority: 3000
     - time: '+6.5'
       events: gameover_video_complete
+  show_finalscores_1p:
+    - duration: 5
+      slides:
+        final_scores_1p:
+          target: main
+    - duration: .1
+      events: gameover_lastgamescores_complete
+  show_finalscores_2p:
+    - duration: 5
+      slides:
+        final_scores_2p:
+          target: main
+    - duration: .1
+      events: gameover_lastgamescores_complete
+  show_finalscores_3p:
+    - duration: 5
+      slides:
+        final_scores_3p:
+          target: main
+    - duration: .1
+      events: gameover_lastgamescores_complete
+  show_finalscores_4p:
+    - duration: 5
+      slides:
+        final_scores_4p:
+          target: main
+    - duration: .1
+      events: gameover_lastgamescores_complete
 
 playfields:
   playfield:

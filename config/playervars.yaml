@@ -149,7 +149,7 @@ player_vars:
     initial_value: 100000
     value_type: int
   pts_horseshoe:
-    initial_value: 1000000
+    initial_value: 199000000
     value_type: int
   pts_tavern:
     initial_value: 25000
@@ -363,6 +363,13 @@ player_vars:
     initial_value: 0
     value_type: int
 
+  plunger_exit_m6:
+    initial_value: 0
+    value_type: int
+  plunger_exit_m5:
+    initial_value: 0
+    value_type: int
+    
   # VS mode stuff
   # NOTE: opponent, opponent_left (left LED), and opponent_right (right LED) must be set when VS mode is started! via random or hard set
   is_in_vs:             # must be set/cleared by vs_X mode! it is read when rimrules/mode saucers are hit. THOSE modes will decide what to do. (i.e. eject immediately, or after bonus screen)

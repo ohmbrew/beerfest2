@@ -340,6 +340,8 @@ slides:
         x: middle
         y: middle
       - type: image
+        image: beermug0
+      - type: image
         image: minibg
   slide_bonus_quarters:
     widgets:

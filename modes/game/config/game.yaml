@@ -17,6 +17,7 @@ slide_player:
   multi_player_ball_started:
     multiplayer_slide:
       target: main
+
   # If a second player joins during player 1's turn, swap base_slide for multiplayer
   multiplayer_game:
     base_slide:
@@ -43,7 +44,12 @@ widget_player:
       slide: base_slide
     background_widget:
       slide: base_slide
-  add_skillshot_widgets{game.num_players <= 1}:
+
+  add_skillshot_widgets{game.num_players == 1}:
+    base_score_widget:
+      action: remove
+    base_ball_widget:
+      slide: base_slide
     skillshot_video_widget:
       slide: base_slide
     skillshot_title_widget:
@@ -54,7 +60,34 @@ widget_player:
       slide: base_slide
     skillshot_arrow2:
       slide: base_slide
+
   add_skillshot_widgets{game.num_players >= 2}:
+    base_score_widget:
+      action: remove
+    base_player_widget:
+      action: remove
+    base_ball_widget:
+      action: remove
+    skillshot_player_widget:
+      slide: multiplayer_slide
+    skillshot_ball_widget:
+      slide: multiplayer_slide
+    mp_score_widget_p1_small:
+      action: remove
+    mp_score_widget_p2_small:
+      action: remove
+    mp_score_widget_p3_small:
+      action: remove
+    mp_score_widget_p4_small:
+      action: remove
+    mp_score_widget_p1_large:
+      action: remove
+    mp_score_widget_p2_large:
+      action: remove
+    mp_score_widget_p3_large:
+      action: remove
+    mp_score_widget_p4_large:
+      action: remove
     skillshot_video_widget:
       slide: multiplayer_slide
     skillshot_title_widget:
@@ -66,7 +99,12 @@ widget_player:
     skillshot_arrow2:
       slide: multiplayer_slide
 
+  # remove skillshot graphics
   mode_skillshot_stopped:
+    skillshot_player_widget:
+      action: remove
+    skillshot_ball_widget:
+      action: remove
     skillshot_video_widget:
       action: remove
     skillshot_title_widget:
@@ -77,6 +115,94 @@ widget_player:
       action: remove
     skillshot_arrow2:
       action: remove
+    base_player_widget:
+      action: remove
+    
+  # re-add main score/ball widgets for single player
+  mode_skillshot_stopped{game.num_players == 1}:
+    base_score_widget:
+      slide: base_slide
+    base_ball_widget:
+      slide: base_slide
+
+  # re-add main score/ball widgets for multi player
+  mode_skillshot_stopped{game.num_players > 1}:
+    base_score_widget:
+      slide: multiplayer_slide
+    base_ball_widget:
+      slide: multiplayer_slide
+
+  # set corner score widgets for multiplayer
+  mode_skillshot_stopped{game.num_players == 2 and current_player.number == 1}:
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide
+  mode_skillshot_stopped{game.num_players == 3 and current_player.number == 1}:
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide    
+  mode_skillshot_stopped{game.num_players == 4 and current_player.number == 1}:
+    mp_score_widget_p1_large:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide    
+    mp_score_widget_p4_small:
+      slide: multiplayer_slide   
+
+  mode_skillshot_stopped{game.num_players == 2 and current_player.number == 2}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_large:
+      slide: multiplayer_slide
+  mode_skillshot_stopped{game.num_players == 3 and current_player.number == 2}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_large:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide    
+  mode_skillshot_stopped{game.num_players == 4 and current_player.number == 2}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_large:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide    
+    mp_score_widget_p4_small:
+      slide: multiplayer_slide
+   
+  mode_skillshot_stopped{game.num_players == 3 and current_player.number == 3}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_large:
+      slide: multiplayer_slide    
+  mode_skillshot_stopped{game.num_players == 4 and current_player.number == 3}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_large:
+      slide: multiplayer_slide    
+    mp_score_widget_p4_small:
+      slide: multiplayer_slide
+
+  mode_skillshot_stopped{game.num_players == 4 and current_player.number == 4}:
+    mp_score_widget_p1_small:
+      slide: multiplayer_slide
+    mp_score_widget_p2_small:
+      slide: multiplayer_slide   
+    mp_score_widget_p3_small:
+      slide: multiplayer_slide    
+    mp_score_widget_p4_large:
+      slide: multiplayer_slide
 
   mode_longpour_stopped{game.num_players == 1}:
     background_widget:
@@ -123,11 +249,6 @@ widget_player:
 
   # player 2 has entered the chat
   player_added{num==2 and current_player.is_skillshot_active == 0}:
-    base_score_widget:
-      slide: multiplayer_slide
-    base_ball_widget:
-      slide: multiplayer_slide
-    # Start with player1 name and player2 score
     mp_score_widget_p1_large:
       slide: multiplayer_slide
     mp_score_widget_p2_small:
@@ -135,11 +256,6 @@ widget_player:
     background_widget:
       slide: multiplayer_slide
   player_added{num==2 and current_player.is_skillshot_active == 1}:
-    base_score_widget:
-      slide: multiplayer_slide
-    base_ball_widget:
-      slide: multiplayer_slide
-    # Start with player1 name and player2 score
     mp_score_widget_p1_large:
       slide: multiplayer_slide
     mp_score_widget_p2_small:
@@ -218,6 +334,32 @@ widgets:
       video: bubbles
       end_behavior: loop
       z: 0
+  skillshot_background_widget:
+    - type: video
+      video: bubbles
+      end_behavior: loop
+  skillshot_player_widget:
+    - type: text
+      text: Player (number)
+      x: middle - 250
+      y: bottom + 35
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 100
+      anchor_x: middle
+      anchor_y: bottom
+      z: 69
+  skillshot_ball_widget:
+    - type: text
+      text: Ball (ball)
+      x: middle + 250
+      y: bottom + 35
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 100
+      anchor_x: middle
+      anchor_y: bottom
+      z: 69
 
   skillshot_video_widget:
     - type: video
@@ -312,6 +454,19 @@ widgets:
       anchor_x: middle
       anchor_y: bottom
       z: 1
+
+  base_player_widget:
+    - type: text
+      text: Player (number)
+      x: middle
+      y: top - 35
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 100
+      anchor_x: middle
+      anchor_y: top
+      z: 69
+
   # Player 1 score, for when they're not playing
   mp_score_widget_p1_small:
     - type: text
@@ -322,7 +477,7 @@ widgets:
       anchor_y: top
       x: 10
       y: top - 35
-      font_size: 50
+      font_size: 40
       font_name: druillet
       color: red
       z: 1
@@ -336,7 +491,7 @@ widgets:
       anchor_y: top
       x: right - 10
       y: top - 35
-      font_size: 50
+      font_size: 40
       font_name: druillet
       color: red
       z: 1
@@ -350,7 +505,7 @@ widgets:
       anchor_y: bottom
       x: 10
       y: 35
-      font_size: 50
+      font_size: 40
       font_name: druillet
       color: red
       z: 1
@@ -364,7 +519,7 @@ widgets:
       anchor_y: bottom
       x: right-10
       y: 35
-      font_size: 50
+      font_size: 40
       font_name: druillet
       color: red
       z: 1
@@ -378,7 +533,7 @@ widgets:
       anchor_y: top
       x: 10
       y: top - 35
-      font_size: 100
+      font_size: 75
       font_name: druillet
       color: 008ce5ff
       z: 1
@@ -392,7 +547,7 @@ widgets:
       anchor_y: top
       x: right - 10
       y: top - 35
-      font_size: 100
+      font_size: 75
       font_name: druillet
       color: 008ce5ff
       z: 1
@@ -406,7 +561,7 @@ widgets:
       anchor_y: bottom
       x: 10
       y: 35
-      font_size: 100
+      font_size: 75
       font_name: druillet
       color: 008ce5ff
       z: 1
@@ -420,7 +575,7 @@ widgets:
       anchor_y: bottom
       x: right - 10
       y: 35
-      font_size: 100
+      font_size: 75
       font_name: druillet
       color: 008ce5ff
       z: 1

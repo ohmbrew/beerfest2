@@ -205,20 +205,20 @@ slides:
       image: background
   slide_ballsave:
     widgets:
-    - type: text
-      text: BALL SAVED
-      font_name: druillet
-      color: 008ce5ff
-      font_size: 10
-      anchor_x: middle
-      anchor_y: middle
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-BallSaved
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
       x: middle
-      y: top - 325
+      y: bottom + 50
       animations:
         show_slide:
-          - property: font_size
-            value: 225
-            duration: 3s
+          - property: scale
+            value: 1
+            duration: 1.5s 
     - type: video
       video: landfill
     expire: 7.05s
@@ -887,9 +887,9 @@ show_player:
 
 ball_saves:
   ball_save:
-    active_time: 10s
-    hurry_up_time: 3s
-    grace_period: 2s
+    active_time: 2s
+    hurry_up_time: 1s
+    grace_period: 0s
     early_ball_save_events: shot_laneleft_outer_hit, shot_laneright_outer_hit
     timer_start_events: playfield_active
     auto_launch: false

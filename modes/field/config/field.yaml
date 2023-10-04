@@ -65,11 +65,21 @@ event_player:
   shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_betterwhendrunk_and_eject
   shot_kicker_rimrules_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
   shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_rimrules_and_eject
-  selected_opponent_canada: vs_select_challenge
-  selected_opponent_scotland: vs_select_challenge
-  selected_opponent_ireland: vs_select_challenge
-  selected_opponent_tobago: vs_select_challenge
-  selected_opponent_germany: vs_select_challenge
+  selected_opponent_canada{device.state_machines.multiball.state != "pongcupNone"}: vs_select_challenge_no_mb
+  selected_opponent_canada{device.state_machines.multiball.state == "pongcupNone"}: vs_select_challenge_mb        # make sure we don't play video catch mode if we are primed for MB
+
+  selected_opponent_scotland{device.state_machines.multiball.state != "pongcupNone"}: vs_select_challenge_no_mb
+  selected_opponent_scotland{device.state_machines.multiball.state == "pongcupNone"}: vs_select_challenge_mb
+
+  selected_opponent_ireland{device.state_machines.multiball.state != "pongcupNone"}: vs_select_challenge_no_mb
+  selected_opponent_ireland{device.state_machines.multiball.state == "pongcupNone"}: vs_select_challenge_mb
+
+  selected_opponent_tobago{device.state_machines.multiball.state != "pongcupNone"}: vs_select_challenge_no_mb
+  selected_opponent_tobago{device.state_machines.multiball.state == "pongcupNone"}: vs_select_challenge_mb
+
+  selected_opponent_germany{device.state_machines.multiball.state != "pongcupNone"}: vs_select_challenge_no_mb
+  selected_opponent_germany{device.state_machines.multiball.state == "pongcupNone"}: vs_select_challenge_mb
+
   timer_start_vs_delay_complete: (current_player.selected_vs)
   
 random_event_player:
@@ -87,7 +97,7 @@ random_event_player:
       - start_mode_dasboot  # Wizard Mode!
 
 
-  vs_or_play_betterwhendrunk_and_eject{device.state_machines.multiball.state != "pongcupNone"}:    # meaning we don't have 2 balls locked in cups - no worry of MB starting
+  vs_or_play_betterwhendrunk_and_eject:    # meaning we don't have 2 balls locked in cups - no worry of MB starting
     events:
       - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
       - play_betterwhendrunk_and_eject
@@ -106,10 +116,13 @@ random_event_player:
   vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
     events:
       - selected_opponent_germany
-  vs_select_challenge:
+  vs_select_challenge_no_mb:
     events:
       - selected_vs_alltargets
       - selected_vs_breakout
+  vs_select_challenge_mb:
+    events:
+      - selected_vs_alltargets  
 
 show_player:
   mode_field_started:

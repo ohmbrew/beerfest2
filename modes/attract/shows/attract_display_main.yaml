@@ -6,7 +6,7 @@
       widgets:
         - type: video
           video: BeerfestIntro
-- duration: 3s
+- duration: 5s
   slides:
     press_start:
       target: main
@@ -45,6 +45,8 @@
       widgets:
       - type: image
         image: createdby
+      - type: video
+        video: bubbles
 - duration: 5s
   slides:
     thanks_slide:
@@ -52,7 +54,9 @@
       widgets:
       - type: image
         image: thanks
-- duration: 8s
+      - type: video
+        video: bubbles
+- duration: 10s
   slides:
     show_high_scores:
       target: main
@@ -62,22 +66,23 @@
         text: (machine|score1_label)
         style: bf_blue
         font_size: 100
+        color: red
         bold: true
-        y: top - 25
+        y: top - 15
       - type: Text
         text: (machine|score1_name)
         style: bf_blue
         font_size: 100
         anchor_x: center
         x: center
-        y: top - 150
+        y: top - 125
       - type: Text
         text: (machine|score1_value)
         style: bf_blue
         font_size: 100
         anchor_x: center
         x: center
-        y: top - 275
+        y: top - 250
       - type: Text
         text: (machine|score2_label)
         style: attract_mode_high_score_display_label
@@ -126,5 +131,67 @@
         text: (machine|score5_value)
         style: attract_mode_high_score_display_score
         y: top - 655
+      - type: video
+        video: bubbles
+- duration: 6s
+  slides:
+    show_last_scores:
+      target: main
+      widgets:
+      - type: text
+        text: (machine|player1_score)
+        number_grouping: true
+        min_digits: 1
+        anchor_x: left
+        anchor_y: top
+        x: 10
+        y: top - 35
+        font_size: 100
+        font_name: druillet
+        color: 008ce5
+        z: 1
+      - type: text
+        text: (machine|player2_score)
+        number_grouping: true
+        min_digits: 1
+        anchor_x: right
+        anchor_y: top
+        x: right - 10
+        y: top - 35
+        font_size: 100
+        font_name: druillet
+        color: 008ce5
+        z: 1
+      - type: text
+        text: (machine|player3_score)
+        number_grouping: true
+        min_digits: 1
+        anchor_x: left
+        anchor_y: bottom
+        x: 10
+        y: 35
+        font_size: 100
+        font_name: druillet
+        color: 008ce5
+        z: 1
+      - type: text
+        text: (machine|player4_score)
+        number_grouping: true
+        min_digits: 1
+        anchor_x: right
+        anchor_y: bottom
+        x: right-10
+        y: 35
+        font_size: 100
+        font_name: druillet
+        color: 008ce5
+        z: 1
+      - type: text
+        text: LAST GAME SCORES
+        x: middle
+        y: middle
+        font_name: druillet
+        font_size: 100
+        color: 008ce5
       - type: video
         video: bubbles
