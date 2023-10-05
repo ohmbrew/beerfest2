@@ -1,5 +1,5 @@
 events:
-  game_ended: 1
+  game_ended: 0
   game_started: 1
 player:
   score:
@@ -46,13 +46,13 @@ shots:
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 1782
-  shot_pongcup1: 247
+  shot_plunger_lane_exit: 1784
+  shot_pongcup1: 248
   shot_pongcup2: 96
   shot_pop_lower: 340
   shot_pop_upper_left: 7420
   shot_pop_upper_right: 539
-  shot_popo_captured: 34
+  shot_popo_captured: 35
   shot_popo_release: 23
   shot_popo_released: 40
   shot_quarters: 3674
@@ -96,7 +96,7 @@ switches:
   s_chug_beer: 314
   s_diverter: 268
   s_do_shot: 346
-  s_drain: 1571
+  s_drain: 1572
   s_flipper_left: 2633
   s_flipper_right: 2802
   s_hj: 146
@@ -122,9 +122,9 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 3226
-  s_plunger_lane_exit: 1972
-  s_pongcup1: 248
+  s_plunger_lane: 3228
+  s_plunger_lane_exit: 1974
+  s_pongcup1: 249
   s_pongcup2: 96
   s_pongtable_exit: 40
   s_pongtable_front_left: 95
@@ -133,7 +133,7 @@ switches:
   s_pop_upper: 141
   s_pop_upper_left: 7480
   s_pop_upper_right: 603
-  s_popo_captured: 34
+  s_popo_captured: 35
   s_popo_release: 63
   s_quarters: 3712
   s_ramp_upf: 50
@@ -160,7 +160,7 @@ switches:
   s_trough1: 394
   s_trough2: 376
   s_trough3: 566
-  s_trough_eject: 2506
+  s_trough_eject: 2508
   s_upf_entry: 0
   s_upf_tgt_left: 191
   s_upf_tgt_right: 178

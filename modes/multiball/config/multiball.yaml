@@ -454,6 +454,9 @@ state_machines:
       - source: ball_captured
         target: do_not_capture
         events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+      - source: do_not_capture
+        target: do_not_capture
+        events: shot_popo_captured_hit
       - source: multiball_popo_running
         target: ready_for_capture
         events: multiball_popo_multiball_ended{device.state_machines.multiball.state != "pongtable_cupNone"}
