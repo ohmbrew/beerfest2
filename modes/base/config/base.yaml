@@ -252,9 +252,14 @@ slide_player:
       target: main
       priority: 1000
       expire: 2s
-  ball_save_ball_save_saving_ball:
+  ball_save_ball_start_saving_ball:
     slide_ballsave:
       target: main
+      priority: 5000
+  ball_save_saucer_eject_saving_ball:
+    slide_ballsave:
+      target: main
+      priority: 5000
   play_easteregg{device.switches.s_adult.state == 0}:
     slide_play_easteregg_clean:
       target: main
@@ -441,10 +446,10 @@ shows:
         ball2_locked: 008ce5
     - duration: -1 
   show_ball_save:
-    - time: 0
+    - duration: 1
       lights:
         (light): (on_color)
-    - time: '+1'
+    - duration: 1
       lights:
         (light): (off_color)
   
@@ -864,21 +869,34 @@ show_player:
   timer_wait_lightchance_complete{current_player.bonus_numchance == 6}: show_chance6x_insert
 
 
-  ball_save_ball_save_timer_start:
+  ball_save_ball_start_timer_start:
     show_ball_save:
       show_tokens:
         light: ball_save
         on_color: green
         off_color: off
       speed: 2
-  ball_save_ball_save_hurry_up:
+  ball_save_ball_start_hurry_up:
     show_ball_save:
       show_tokens:
         light: ball_save
         on_color: green
         off_color: off
       speed: 4
-  ball_save_ball_save_disabled:
+  ball_save_ball_start_disabled:
+    show_ball_save:
+      show_tokens:
+        light: ball_save
+        on_color: off
+        off_color: off
+  ball_save_saucer_eject_timer_start:
+    show_ball_save:
+      show_tokens:
+        light: ball_save
+        on_color: green
+        off_color: off
+      speed: 2
+  ball_save_saucer_eject_disabled:
     show_ball_save:
       show_tokens:
         light: ball_save
@@ -886,12 +904,23 @@ show_player:
         off_color: off
 
 ball_saves:
-  ball_save:
-    active_time: 2s
+  # starts when playfield_active for player new ball
+  ball_start:
+    active_time: 3s
     hurry_up_time: 1s
     grace_period: 0s
     early_ball_save_events: shot_laneleft_outer_hit, shot_laneright_outer_hit
     timer_start_events: playfield_active
+    auto_launch: false
+    balls_to_save: 1
+    debug: true
+
+  # starts when ball is ejected from rimrules or mode saucers in case it goes SDTM
+  saucer_eject:
+    active_time: 5s
+    grace_period: 2s
+    enable_events: shot_kicker_rimrules_hit, shot_kicker_mode_hit
+    timer_start_events: kicker_rimrules_eject, kicker_mode_eject
     auto_launch: false
     balls_to_save: 1
     debug: true

@@ -37,14 +37,10 @@ window:
   exit_on_escape: True
 
 # TODO
-# - well weird, it kept crashing (with no log) when I was trying to run up scores for high score. found a random "double free or corruption (fasttop)" in console output. 
-#   - just completed full game, didn't score so high on top scores (< 2B), p3/p4 were a 1M). So idk memory issue with large scores? Nobody's gonna score > 1B...
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
-# - Move Popo capture up a bit to prevent another ball from perching there
 # - rubber behind strike out to dampen the hit from ball
 # - Topper - put string of LEDs in there to light it up like it's filling up. (progressive jackpot maybe?)
-# - Add ball save after a rimrules eject in case it goes SDTM.
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
@@ -593,6 +589,7 @@ shows:
       slides:
         final_scores_1p:
           target: main
+      events: play_finalscores_track
     - duration: .1
       events: gameover_lastgamescores_complete
   show_finalscores_2p:
@@ -600,6 +597,7 @@ shows:
       slides:
         final_scores_2p:
           target: main
+      events: play_finalscores_track
     - duration: .1
       events: gameover_lastgamescores_complete
   show_finalscores_3p:
@@ -607,6 +605,7 @@ shows:
       slides:
         final_scores_3p:
           target: main
+      events: play_finalscores_track
     - duration: .1
       events: gameover_lastgamescores_complete
   show_finalscores_4p:
@@ -614,8 +613,15 @@ shows:
       slides:
         final_scores_4p:
           target: main
+      events: play_finalscores_track
     - duration: .1
       events: gameover_lastgamescores_complete
+
+sound_player:
+  play_finalscores_track:
+    voice_redsolocup:
+      action: play
+      loops: 0
 
 playfields:
   playfield:

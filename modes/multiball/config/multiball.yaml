@@ -215,6 +215,18 @@ slides:
     widgets:
     - type: image
       image: background-flag
+    - type: image
+      image: MainText-PopoLocked
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
+      x: middle
+      y: bottom + 50
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 1.5s 
     - type: video
       video: goodnightpopo
     expire: 4.75s
@@ -276,15 +288,15 @@ slide_player:
   multiball_sink1{device.switches.s_adult.state == 0}:
     multiball_sink1_clean:
       target: main
-      priority: 2000
+      priority: 5000
   multiball_sink1{device.switches.s_adult.state == 1}:
     multiball_sink1_adult:
       target: main
-      priority: 2000
+      priority: 5000
   shot_popo_captured_hit{device.state_machines.multiball_popo.state == "ready_for_capture"}:
     popo_captured:
       target: main
-      priority: 2000
+      priority: 5000
   
   start_multiball:
     multiball_slide:
