@@ -373,10 +373,12 @@ lights:
     previous: arrow_rimrules2
     type: grb
     tags: playfield
+# ^^ Chain 1 ^^ 92 RGBs, 276 LEDs
+
 
 # Chain 2 - WS281x Serial Channel 2 (PD-LED J8-17)
   arrow_horseshoe3:
-    start_channel: 2-450
+    start_channel: 2-377
     type: grb
     tags: playfield
   arrow_horseshoe2:
@@ -443,7 +445,101 @@ lights:
     previous: gi_back2
     type: grb
     tags: gi, munichfill1, munichfill2, munichfill3, munichfill4, munichfill5, munichfill6
-  
+  # ^^ Chain #2, 17 RGBs, 51 LEDs
+
+  topper1:
+    start_channel: 2-428
+    type: grb
+    tags: topper
+  topper2:
+    previous: topper1
+    type: grb
+    tags: topper
+  topper3:
+    previous: topper2
+    type: grb
+    tags: topper
+  topper4:
+    previous: topper3
+    type: grb
+    tags: topper
+  topper5:
+    previous: topper4
+    type: grb
+    tags: topper
+  topper6:
+    previous: topper5
+    type: grb
+    tags: topper
+  topper7:
+    previous: topper6
+    type: grb
+    tags: topper
+  topper8:
+    previous: topper7
+    type: grb
+    tags: topper
+  topper9:
+    previous: topper8
+    type: grb
+    tags: topper
+  topper10:
+    previous: topper9
+    type: grb
+    tags: topper
+  topper11:
+    previous: topper10
+    type: grb
+    tags: topper
+  topper12:
+    previous: topper11
+    type: grb
+    tags: topper
+  topper13:
+    previous: topper12
+    type: grb
+    tags: topper
+  topper14:
+    previous: topper13
+    type: grb
+    tags: topper
+  topper15:
+    previous: topper14
+    type: grb
+    tags: topper
+  topper16:
+    previous: topper15
+    type: grb
+    tags: topper
+  topper17:
+    previous: topper16
+    type: grb
+    tags: topper
+  topper18:
+    previous: topper17
+    type: grb
+    tags: topper
+  topper19:
+    previous: topper18
+    type: grb
+    tags: topper
+  topper20:
+    previous: topper19
+    type: grb
+    tags: topper
+  topper21:
+    previous: topper20
+    type: grb
+    tags: topper
+  topper22:
+    previous: topper21
+    type: grb
+    tags: topper
+  topper23:
+    previous: topper22
+    type: grb
+    tags: topper
+
   # lights hooked to coil driver
   l_pop_lower:
     number: cl_pop_lower

@@ -237,3 +237,6 @@ show_player:
   mode_attract_started.20:
     attract_audio:
       loops: -1
+  mode_attract_started.21:
+    attract_topper:
+      loops: -1
