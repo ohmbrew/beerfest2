@@ -6,7 +6,7 @@ light_settings:
 lights:
   # Chain #1 [J8-19: WS281x Serial Data 0]
   arrow_tavern6:
-    start_channel: 2-100
+    start_channel: 2-0
     type: grb
     tags: playfield
   arrow_tavern5:
@@ -378,7 +378,7 @@ lights:
 
 # Chain 2 - WS281x Serial Channel 2 (PD-LED J8-17)
   arrow_horseshoe3:
-    start_channel: 2-377
+    start_channel: 2-276
     type: grb
     tags: playfield
   arrow_horseshoe2:
@@ -447,8 +447,9 @@ lights:
     tags: gi, munichfill1, munichfill2, munichfill3, munichfill4, munichfill5, munichfill6
   # ^^ Chain #2, 17 RGBs, 51 LEDs
 
+  # Chain #3, 238 RGBs, 714 LEDs
   topper1:
-    start_channel: 2-428
+    start_channel: 2-327
     type: grb
     tags: topper
   topper2:
