@@ -37,6 +37,7 @@ window:
   exit_on_escape: True
 
 # TODO
+# - FlipperFlop (3x boot ramps) video/audio has Jay's whole clip!
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
 # - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that
