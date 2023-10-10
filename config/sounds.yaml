@@ -366,18 +366,28 @@ sounds:
         attenuation: -50db
         release_point: .5 sec
         release: 1.5 sec
-
+  voice_bootmegabonus:
+    file: Jay-BootMegaBonus.wav
+    track: voice
+    volume: 1.0
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -6db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_flipperflop_active:
     file: Jay-FlippersFlopped.wav
     track: voice
     volume: 1.0
-    # ducking:
-    #     target: music
-    #     delay: 0
-    #     attack: 0.3 sec
-    #     attenuation: -50db
-    #     release_point: .5 sec
-    #     release: 1.5 sec
+    ducking:
+        target: music
+        delay: 0
+        attack: 0.3 sec
+        attenuation: -6db
+        release_point: .5 sec
+        release: 1.5 sec
   voice_multiball:
     file: Jay-MunichMultiball.wav
     track: voice

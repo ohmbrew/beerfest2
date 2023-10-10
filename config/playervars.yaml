@@ -190,7 +190,10 @@ player_vars:
   pts_multiball:
     initial_value: 3000000
     value_type: int
-
+  pts_bootbonus:
+    initial_value: 10000000
+    value_type: int
+    
   # Longpour
   pts_longpour_ramps_themed:
     initial_value: 500000

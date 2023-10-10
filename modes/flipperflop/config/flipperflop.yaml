@@ -22,7 +22,7 @@ slides:
   flipperflop_activated:
     widgets:
     - type: text
-      text: DRUNKEN FLIPPER
+      text: DRUNKEN
       font_size: 150
       font_name: druillet
       anchor_x: center
@@ -31,7 +31,7 @@ slides:
       y: top - 35
       color: 008ce5ff
     - type: text
-      text: FLOP!
+      text: FLIPPER FLOP!
       font_size: 150
       font_name: druillet
       anchor_x: center
@@ -40,7 +40,7 @@ slides:
       y: top - 210
       color: 008ce5ff
     - type: text
-      text: All Targets 5M
+      text: All Targets 1M
       font_size: 10
       font_name: druillet
       anchor_x: center

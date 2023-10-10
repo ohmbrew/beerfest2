@@ -648,9 +648,10 @@ counters:
     reset_events: game_started
   topper_level:
     count_events: shot_diverter_hit
+    enable_events: new_boot
     starting_count: 0
     count_complete_value: 14
-    reset_on_complete: True
-    reset_events: game_started
+    reset_on_complete: False
+    reset_events: new_boot
 
 virtual_platform_start_active_switches: s_trough_eject, s_trough1, s_trough2, s_trough3

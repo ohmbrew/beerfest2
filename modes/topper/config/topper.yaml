@@ -5,9 +5,44 @@ mode:
   start_events: mode_base_started
   stop_events: mode_base_ended
 
+slides:
+  boot_bonus:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-BootChugBonus
+      scale: .1
+      anchor_x: center
+      anchor_y: bottom
+      x: middle
+      y: bottom + 50
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 1s 
+    - type: video
+      video: BootChug
+    expire: 3.15s
+
+slide_player:
+  logicblock_topper_level_complete:
+    boot_bonus:
+      target: main
+      action: play
+
+event_player:
+  mode_topper_started: new_boot
+
+sound_player:
+  slide_boot_bonus_active:
+    voice_bootmegabonus:
+      action: play
+      
 show_player:
   # init boot lights
-  mode_topper_started{current_player.topper_level == 0}:
+  new_boot{current_player.topper_level == 0}:
     topper_level_0:
       loops: -1
       speed: 3
@@ -548,7 +583,43 @@ show_player:
     topper_level_14:
       loops: -1
       speed: 3
-
+  logicblock_topper_level_complete:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+    topper_bonus:
+      loops: 0
+      speed: 3
+    
 variable_player:
   logicblock_topper_level_updated:
     topper_level: (value)
+  logicblock_topper_level_complete:
+    score: current_player.pts_bootbonus
