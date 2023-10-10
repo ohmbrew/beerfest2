@@ -331,6 +331,9 @@ p_roc:
       use_ws281x_0: true
       ws281x_0_first_address: 100
       ws281x_0_last_address: 376
+      use_ws281x_1: true
+      ws281x_1_first_address: 428
+      ws281x_1_last_address: 599
       use_ws281x_2: true
       ws281x_2_first_address: 377
       ws281x_2_last_address: 599
