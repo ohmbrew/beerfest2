@@ -2,15 +2,104 @@
 ##! mode: topper
 
 mode:
-  start_events: game_started
-  stop_events: game_ended
+  start_events: mode_base_started
+  stop_events: mode_base_ended
 
 show_player:
-  mode_topper_started:
+  # init boot lights
+  mode_topper_started{current_player.topper_level == 0}:
     topper_level_0:
       loops: -1
-      speed: 3    
-  # topper fill shows
+      speed: 3
+  mode_topper_started{current_player.topper_level == 1}:
+    topper_level_1:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 2}:
+    topper_level_2:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 3}:
+    topper_level_3:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 4}:
+    topper_level_4:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 5}:
+    topper_level_5:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 6}:
+    topper_level_6:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 7}:
+    topper_level_7:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 8}:
+    topper_level_8:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 9}:
+    topper_level_9:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 10}:
+    topper_level_10:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 11}:
+    topper_level_11:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 12}:
+    topper_level_12:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 13}:
+    topper_level_13:
+      loops: -1
+      speed: 3
+  mode_topper_started{current_player.topper_level == 14}:
+    topper_level_14:
+      loops: -1
+      speed: 3        
+
+  logicblock_topper_level_updated{value==0}:
+    topper_level_0:
+      loops: -1
+      speed: 3
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop   
   logicblock_topper_level_updated{value==1}:
     topper_level_0:
       action: stop
@@ -459,3 +548,7 @@ show_player:
     topper_level_14:
       loops: -1
       speed: 3
+
+variable_player:
+  logicblock_topper_level_updated:
+    topper_level: (value)

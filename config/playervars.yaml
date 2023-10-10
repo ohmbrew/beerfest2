@@ -432,3 +432,8 @@ player_vars:
   move_done:
     initial_value: 0
     value_type: int
+
+  # topper vars
+  topper_level:
+    initial_value: 0
+    value_type: int
