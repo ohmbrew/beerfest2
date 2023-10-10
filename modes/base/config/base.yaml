@@ -1135,20 +1135,20 @@ show_player:
   timer_wait_lightchance_complete{current_player.bonus_numchance == 6}: show_chance6x_insert
 
   # topper fill/award/
-  logicblock_topper_level_updated{value==1}: light_topper_1
-  logicblock_topper_level_updated{value==2}: light_topper_2
-  logicblock_topper_level_updated{value==3}: light_topper_3
-  logicblock_topper_level_updated{value==4}: light_topper_4
-  logicblock_topper_level_updated{value==5}: light_topper_5
-  logicblock_topper_level_updated{value==6}: light_topper_6
-  logicblock_topper_level_updated{value==7}: light_topper_7
-  logicblock_topper_level_updated{value==8}: light_topper_8
-  logicblock_topper_level_updated{value==9}: light_topper_9
-  logicblock_topper_level_updated{value==10}: light_topper_10
-  logicblock_topper_level_updated{value==11}: light_topper_11
-  logicblock_topper_level_updated{value==12}: light_topper_12
-  logicblock_topper_level_updated{value==13}: light_topper_13
-  logicblock_topper_level_updated{value==14}: light_topper_14
+  logicblock_topper_level_updated{value==1}: topper_level_1
+  logicblock_topper_level_updated{value==2}: topper_level_2
+  logicblock_topper_level_updated{value==3}: topper_level_3
+  logicblock_topper_level_updated{value==4}: topper_level_4
+  logicblock_topper_level_updated{value==5}: topper_level_5
+  logicblock_topper_level_updated{value==6}: topper_level_6
+  logicblock_topper_level_updated{value==7}: topper_level_7
+  logicblock_topper_level_updated{value==8}: topper_level_8
+  logicblock_topper_level_updated{value==9}: topper_level_9
+  logicblock_topper_level_updated{value==10}: topper_level_10
+  logicblock_topper_level_updated{value==11}: topper_level_11
+  logicblock_topper_level_updated{value==12}: topper_level_12
+  logicblock_topper_level_updated{value==13}: topper_level_13
+  logicblock_topper_level_updated{value==14}: topper_level_14
 
   ball_save_ball_start_timer_start:
     show_ball_save:
