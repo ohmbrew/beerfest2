@@ -540,7 +540,317 @@ lights:
     previous: topper22
     type: grb
     tags: topper
+  topper24:
+    previous: topper23
+    type: grb
+    tags: topper
+  topper25:
+    previous: topper24
+    type: grb
+    tags: topper
+  topper26:
+    previous: topper25
+    type: grb
+    tags: topper
+  topper27:
+    previous: topper26
+    type: grb
+    tags: topper
+  topper28:
+    previous: topper27
+    type: grb
+    tags: topper
+  topper29:
+    previous: topper28
+    type: grb
+    tags: topper
+  topper30:
+    previous: topper29
+    type: grb
+    tags: topper
+  topper31:
+    previous: topper30
+    type: grb
+    tags: topper
+  topper32:
+    previous: topper31
+    type: grb
+    tags: topper
+  topper33:
+    previous: topper32
+    type: grb
+    tags: topper
+  topper34:
+    previous: topper33
+    type: grb
+    tags: topper
+  topper35:
+    previous: topper34
+    type: grb
+    tags: topper
+  topper36:
+    previous: topper35
+    type: grb
+    tags: topper
+  topper37:
+    previous: topper36
+    type: grb
+    tags: topper
+  topper38:
+    previous: topper37
+    type: grb
+    tags: topper
+  topper39:
+    previous: topper38
+    type: grb
+    tags: topper
+  topper40:
+    previous: topper39
+    type: grb
+    tags: topper
+  topper41:
+    previous: topper40
+    type: grb
+    tags: topper
+  topper42:
+    previous: topper41
+    type: grb
+    tags: topper
+  topper43:
+    previous: topper42
+    type: grb
+    tags: topper
+  topper44:
+    previous: topper43
+    type: grb
+    tags: topper
+  topper45:
+    previous: topper44
+    type: grb
+    tags: topper
+  topper46:
+    previous: topper45
+    type: grb
+    tags: topper
+  topper47:
+    previous: topper46
+    type: grb
+    tags: topper
+  topper48:
+    previous: topper47
+    type: grb
+    tags: topper
+  topper49:
+    previous: topper48
+    type: grb
+    tags: topper
+  topper50:
+    previous: topper49
+    type: grb
+    tags: topper
+  topper51:
+    previous: topper50
+    type: grb
+    tags: topper
+  topper52:
+    previous: topper51
+    type: grb
+    tags: topper
+  topper53:
+    previous: topper52
+    type: grb
+    tags: topper
+  topper54:
+    previous: topper53
+    type: grb
+    tags: topper
+  topper55:
+    previous: topper54
+    type: grb
+    tags: topper
+  topper56:
+    previous: topper55
+    type: grb
+    tags: topper
+  topper57:
+    previous: topper56
+    type: grb
+    tags: topper
+  topper58:
+    previous: topper57
+    type: grb
+    tags: topper
+  topper59:
+    previous: topper58
+    type: grb
+    tags: topper
+  topper60:
+    previous: topper59
+    type: grb
+    tags: topper
+  topper61:
+    previous: topper60
+    type: grb
+    tags: topper
+  topper62:
+    previous: topper61
+    type: grb
+    tags: topper
+  topper63:
+    previous: topper62
+    type: grb
+    tags: topper
+  topper64:
+    previous: topper63
+    type: grb
+    tags: topper
+  topper65:
+    previous: topper64
+    type: grb
+    tags: topper
+  topper66:
+    previous: topper65
+    type: grb
+    tags: topper
+  topper67:
+    previous: topper66
+    type: grb
+    tags: topper
+  topper68:
+    previous: topper67
+    type: grb
+    tags: topper
+  topper69:
+    previous: topper68
+    type: grb
+    tags: topper
+  topper70:
+    previous: topper69
+    type: grb
+    tags: topper
+  topper71:
+    previous: topper70
+    type: grb
+    tags: topper
+  topper72:
+    previous: topper71
+    type: grb
+    tags: topper
+  topper73:
+    previous: topper72
+    type: grb
+    tags: topper
+  topper74:
+    previous: topper73
+    type: grb
+    tags: topper
+  topper75:
+    previous: topper74
+    type: grb
+    tags: topper
+  topper76:
+    previous: topper75
+    type: grb
+    tags: topper
+  topper77:
+    previous: topper76
+    type: grb
+    tags: topper
+  topper78:
+    previous: topper77
+    type: grb
+    tags: topper
+  topper79:
+    previous: topper78
+    type: grb
+    tags: topper
+  topper80:
+    previous: topper79
+    type: grb
+    tags: topper
+  topper81:
+    previous: topper80
+    type: grb
+    tags: topper
+  topper82:
+    previous: topper81
+    type: grb
+    tags: topper
+  topper83:
+    previous: topper82
+    type: grb
+    tags: topper
+  topper84:
+    previous: topper83
+    type: grb
+    tags: topper
+  topper85:
+    previous: topper84
+    type: grb
+    tags: topper
+  topper86:
+    previous: topper85
+    type: grb
+    tags: topper
+  topper87:
+    previous: topper86
+    type: grb
+    tags: topper
+  topper88:
+    previous: topper87
+    type: grb
+    tags: topper
+  topper89:
+    previous: topper88
+    type: grb
+    tags: topper
+  topper90:
+    previous: topper89
+    type: grb
+    tags: topper
+  topper91:
+    previous: topper90
+    type: grb
+    tags: topper
+  topper92:
+    previous: topper91
+    type: grb
+    tags: topper
+  topper93:
+    previous: topper92
+    type: grb
+    tags: topper
+  topper94:
+    previous: topper93
+    type: grb
+    tags: topper
+  topper95:
+    previous: topper94
+    type: grb
+    tags: topper
+  topper96:
+    previous: topper95
+    type: grb
+    tags: topper
+  topper97:
+    previous: topper96
+    type: grb
+    tags: topper
+  topper98:
+    previous: topper97
+    type: grb
+    tags: topper
+  topper99:
+    previous: topper98
+    type: grb
+    tags: topper
+  topper100:
+    previous: topper99
+    type: grb
+    tags: topper
 
+ 
+  
   # lights hooked to coil driver
   l_pop_lower:
     number: cl_pop_lower
