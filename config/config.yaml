@@ -647,7 +647,7 @@ counters:
     reset_events: game_started
   topper_level:
     count_events: shot_diverter_hit
-    starting_count: 1
+    starting_count: 0
     count_complete_value: 14
     reset_on_complete: True
     reset_events: game_started
