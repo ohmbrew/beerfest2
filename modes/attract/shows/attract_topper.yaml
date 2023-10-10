@@ -1,8 +1,107 @@
 #show_version=5
+- duration: 1
+  lights:
+    topperLine14: off
+    topperLine13: off
+    topperLine12: off
+    topperLine11: off
+    topperLine10: off
+    topperLine9: off
+    topperLine8: off
+    topperLine7: off
+    topperLine6: off
+    topperLine5: off
+    topperLine4: off
+    topperLine3: off
+    topperLine2: off
+    topperLine1: off
+- duration: 1
+  lights:
+    topperLine14: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine13: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine12: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine11: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine10: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine9: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine8: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine7: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine6: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine5: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine4: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine3: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine2: yellow      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine1: yellow      # full intensity yellow
 
 - duration: 1
   lights:
-    topper: yellow      # full intensity yellow
+    topperLine1: yellow      # full intensity yellow
+
 - duration: 1
   lights:
-    topper: off
+    topperLine1: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine2: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine3: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine4: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine5: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine6: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine7: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine8: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine9: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine10: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine11: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine12: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine13: off      # full intensity yellow
+- duration: 1
+  lights:
+    topperLine14: off      # full intensity yellow
+    
