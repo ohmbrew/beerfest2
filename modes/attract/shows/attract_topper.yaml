@@ -1,7 +1,12 @@
 #show_version=5
+
+R  G  B
+7f 7f 0
+
+
 - duration: 1
   lights:
-    topper: 0x7f7f00      # half intensity yellow
+    topper: 0x7f0000      # half intensity yellow
 - duration: 1
   lights:
     topper: off
