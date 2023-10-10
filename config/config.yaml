@@ -91,6 +91,7 @@ modes:
   - popo
   - vs_alltargets
   - vs_breakout
+  - topper
 
 widget_styles:
   attract_mode_high_score_display_label:

@@ -1,0 +1,33 @@
+#show_version=5
+- duration: 1
+  lights:
+    topperLine1: yellow
+    topperLine2: yellow
+    topperLine3: yellow
+    topperLine4: yellow
+    topperLine5: yellow
+    topperLine6: yellow
+    topperLine7: yellow
+    topperLine8: yellow
+    topperLine9: yellow
+    topperLine10: off
+    topperLine11: off
+    topperLine12: off
+    topperLine13: off
+    topperLine14: off
+- duration: 1
+  lights:
+    topperLine1: yellow
+    topperLine2: yellow
+    topperLine3: yellow
+    topperLine4: yellow
+    topperLine5: yellow
+    topperLine6: yellow
+    topperLine7: yellow
+    topperLine8: yellow
+    topperLine9: off
+    topperLine10: off
+    topperLine11: off
+    topperLine12: off
+    topperLine13: off
+    topperLine14: off

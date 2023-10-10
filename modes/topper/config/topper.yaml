@@ -1,0 +1,461 @@
+#config_version=5
+##! mode: topper
+
+mode:
+  start_events: game_started
+  stop_events: game_ended
+
+show_player:
+  mode_topper_started:
+    topper_level_0:
+      loops: -1
+      speed: 3    
+  # topper fill shows
+  logicblock_topper_level_updated{value==1}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      loops: -1
+      speed: 3
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==2}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      loops: -1
+      speed: 3
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==3}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      loops: -1
+      speed: 3
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==4}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      loops: -1
+      speed: 3
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==5}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      loops: -1
+      speed: 3
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==6}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      loops: -1
+      speed: 3
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==7}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      loops: -1
+      speed: 3
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==8}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      loops: -1
+      speed: 3
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==9}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      loops: -1
+      speed: 3
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==10}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      loops: -1
+      speed: 3
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==11}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      loops: -1
+      speed: 3
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==12}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      loops: -1
+      speed: 3
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==13}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      loops: -1
+      speed: 3
+    topper_level_14:
+      action: stop
+  logicblock_topper_level_updated{value==14}:
+    topper_level_0:
+      action: stop
+    topper_level_1:
+      action: stop
+    topper_level_2:
+      action: stop
+    topper_level_3:
+      action: stop
+    topper_level_4:
+      action: stop
+    topper_level_5:
+      action: stop
+    topper_level_6:
+      action: stop
+    topper_level_7:
+      action: stop
+    topper_level_8:
+      action: stop
+    topper_level_9:
+      action: stop
+    topper_level_10:
+      action: stop
+    topper_level_11:
+      action: stop
+    topper_level_12:
+      action: stop
+    topper_level_13:
+      action: stop
+    topper_level_14:
+      loops: -1
+      speed: 3
