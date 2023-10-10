@@ -2,7 +2,7 @@
 
 - duration: 1
   lights:
-    topper: 0x7f4500      # half intensity yellow
+    topper: 0x7f7f00      # half intensity yellow
 - duration: 1
   lights:
     topper: off
