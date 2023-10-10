@@ -476,79 +476,272 @@ shows:
     - duration: .5s
       events: disable_knocker
 
-#TODO: make these 14 correct.
-#TODO: add to show_player
   topper_level_1:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: off
+        topperLine3: off
+        topperLine4: off
+        topperLine5: off
+        topperLine6: off
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_2:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: off
+        topperLine4: off
+        topperLine5: off
+        topperLine6: off
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+
   topper_level_3:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: off
+        topperLine5: off
+        topperLine6: off
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_4:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: off
+        topperLine6: off
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_5:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: off
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_6:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: off
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_7:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: off
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_8:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: off
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_9:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: off
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_10:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: yellow
+        topperLine11: off
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_11:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: yellow
+        topperLine11: yellow
+        topperLine12: off
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_12:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: yellow
+        topperLine11: yellow
+        topperLine12: yellow
+        topperLine13: off
+        topperLine14: off
     - duration: -1
+  
   topper_level_13:
     - duration: 1
       lights:
-        topperLine14: yellow
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: yellow
+        topperLine11: yellow
+        topperLine12: yellow
+        topperLine13: yellow
+        topperLine14: off
     - duration: -1
+  
   topper_level_14:
     - duration: 1
       lights:
+        topperLine1: yellow
+        topperLine2: yellow
+        topperLine3: yellow
+        topperLine4: yellow
+        topperLine5: yellow
+        topperLine6: yellow
+        topperLine7: yellow
+        topperLine8: yellow
+        topperLine9: yellow
+        topperLine10: yellow
+        topperLine11: yellow
+        topperLine12: yellow
+        topperLine13: yellow
         topperLine14: yellow
     - duration: -1
-
+  
   # theme mode shows
   init_lights_themed:
     - time: 0
@@ -942,9 +1135,20 @@ show_player:
   timer_wait_lightchance_complete{current_player.bonus_numchance == 6}: show_chance6x_insert
 
   # topper fill/award/
-  logicblock_topper_level_updated{value==1}:
-    light_topper_2:
-      loops: -1
+  logicblock_topper_level_updated{value==1}: light_topper_1
+  logicblock_topper_level_updated{value==2}: light_topper_2
+  logicblock_topper_level_updated{value==3}: light_topper_3
+  logicblock_topper_level_updated{value==4}: light_topper_4
+  logicblock_topper_level_updated{value==5}: light_topper_5
+  logicblock_topper_level_updated{value==6}: light_topper_6
+  logicblock_topper_level_updated{value==7}: light_topper_7
+  logicblock_topper_level_updated{value==8}: light_topper_8
+  logicblock_topper_level_updated{value==9}: light_topper_9
+  logicblock_topper_level_updated{value==10}: light_topper_10
+  logicblock_topper_level_updated{value==11}: light_topper_11
+  logicblock_topper_level_updated{value==12}: light_topper_12
+  logicblock_topper_level_updated{value==13}: light_topper_13
+  logicblock_topper_level_updated{value==14}: light_topper_14
 
   ball_save_ball_start_timer_start:
     show_ball_save:
