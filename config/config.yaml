@@ -39,8 +39,10 @@ window:
 # TODO
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
+# - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that
 # - rubber behind strike out to dampen the hit from ball
 # - Topper - put string of LEDs in there to light it up like it's filling up. (progressive jackpot maybe?)
+#            count boot ramp hits and fill boot during base
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
@@ -641,6 +643,12 @@ counters:
     count_complete_value: 1
     starting_count: 0
     reset_on_complete: False
+    reset_events: game_started
+  topper_level:
+    count_events: shot_diverter_hit
+    starting_count: 1
+    count_complete_value: 14
+    reset_on_complete: True
     reset_events: game_started
 
 virtual_platform_start_active_switches: s_trough_eject, s_trough1, s_trough2, s_trough3

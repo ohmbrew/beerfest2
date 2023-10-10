@@ -451,949 +451,947 @@ lights:
   topper1:
     start_channel: 2-327
     type: grb
-    tags: topper
   topper2:
     previous: topper1
     type: grb
-    tags: topper
   topper3:
     previous: topper2
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper4:
     previous: topper3
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper5:
     previous: topper4
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper6:
     previous: topper5
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper7:
     previous: topper6
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper8:
     previous: topper7
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper9:
     previous: topper8
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper10:
     previous: topper9
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper11:
     previous: topper10
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper12:
     previous: topper11
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper13:
     previous: topper12
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper14:
     previous: topper13
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper15:
     previous: topper14
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper16:
     previous: topper15
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper17:
     previous: topper16
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper18:
     previous: topper17
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper19:
     previous: topper18
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper20:
     previous: topper19
     type: grb
-    tags: topperLine1
+    tags: topperLine14
   topper21:
     previous: topper20
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper22:
     previous: topper21
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper23:
     previous: topper22
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper24:
     previous: topper23
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper25:
     previous: topper24
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper26:
     previous: topper25
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper27:
     previous: topper26
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper28:
     previous: topper27
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper29:
     previous: topper28
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper30:
     previous: topper29
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper31:
     previous: topper30
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper32:
     previous: topper31
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper33:
     previous: topper32
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper34:
     previous: topper33
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper35:
     previous: topper34
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper36:
     previous: topper35
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper37:
     previous: topper36
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper38:
     previous: topper37
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper39:
     previous: topper38
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper40:
     previous: topper39
     type: grb
-    tags: topperLine2
+    tags: topperLine13
   topper41:
     previous: topper40
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper42:
     previous: topper41
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper43:
     previous: topper42
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper44:
     previous: topper43
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper45:
     previous: topper44
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper46:
     previous: topper45
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper47:
     previous: topper46
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper48:
     previous: topper47
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper49:
     previous: topper48
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper50:
     previous: topper49
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper51:
     previous: topper50
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper52:
     previous: topper51
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper53:
     previous: topper52
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper54:
     previous: topper53
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper55:
     previous: topper54
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper56:
     previous: topper55
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper57:
     previous: topper56
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper58:
     previous: topper57
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper59:
     previous: topper58
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper60:
     previous: topper59
     type: grb
-    tags: topperLine3
+    tags: topperLine12
   topper61:
     previous: topper60
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper62:
     previous: topper61
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper63:
     previous: topper62
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper64:
     previous: topper63
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper65:
     previous: topper64
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper66:
     previous: topper65
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper67:
     previous: topper66
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper68:
     previous: topper67
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper69:
     previous: topper68
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper70:
     previous: topper69
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper71:
     previous: topper70
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper72:
     previous: topper71
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper73:
     previous: topper72
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper74:
     previous: topper73
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper75:
     previous: topper74
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper76:
     previous: topper75
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper77:
     previous: topper76
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper78:
     previous: topper77
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper79:
     previous: topper78
     type: grb
-    tags: topperLine4
+    tags: topperLine11
   topper80:
     previous: topper79
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper81:
     previous: topper80
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper82:
     previous: topper81
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper83:
     previous: topper82
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper84:
     previous: topper83
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper85:
     previous: topper84
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper86:
     previous: topper85
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper87:
     previous: topper86
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper88:
     previous: topper87
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper89:
     previous: topper88
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper90:
     previous: topper89
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper91:
     previous: topper90
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper92:
     previous: topper91
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper93:
     previous: topper92
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper94:
     previous: topper93
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper95:
     previous: topper94
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper96:
     previous: topper95
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper97:
     previous: topper96
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper98:
     previous: topper97
     type: grb
-    tags: topperLine5
+    tags: topperLine10
   topper99:
     previous: topper98
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper100:
     previous: topper99
     type: grb
-    tags: topperLine6
+    tags: topperLine9
 
   topper101:
     previous: topper100
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper102:
     previous: topper101
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper103:
     previous: topper102
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper104:
     previous: topper103
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper105:
     previous: topper104
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper106:
     previous: topper105
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper107:
     previous: topper106
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper108:
     previous: topper107
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper109:
     previous: topper108
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper110:
     previous: topper109
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper111:
     previous: topper110
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper112:
     previous: topper111
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper113:
     previous: topper112
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper114:
     previous: topper113
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper115:
     previous: topper114
     type: grb
-    tags: topperLine6
+    tags: topperLine9
   topper116:
     previous: topper115
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper117:
     previous: topper116
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper118:
     previous: topper117
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper119:
     previous: topper118
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper120:
     previous: topper119
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper121:
     previous: topper120
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper122:
     previous: topper121
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper123:
     previous: topper122
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper124:
     previous: topper123
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper125:
     previous: topper124
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper126:
     previous: topper125
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper127:
     previous: topper126
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper128:
     previous: topper127
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper129:
     previous: topper128
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper130:
     previous: topper129
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper131:
     previous: topper130
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper132:
     previous: topper131
     type: grb
-    tags: topperLine7
+    tags: topperLine8
   topper133:
     previous: topper132
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper134:
     previous: topper133
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper135:
     previous: topper134
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper136:
     previous: topper135
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper137:
     previous: topper136
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper138:
     previous: topper137
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper139:
     previous: topper138
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper140:
     previous: topper139
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper141:
     previous: topper140
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper142:
     previous: topper141
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper143:
     previous: topper142
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper144:
     previous: topper143
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper145:
     previous: topper144
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper146:
     previous: topper145
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper147:
     previous: topper146
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper148:
     previous: topper147
     type: grb
-    tags: topperLine8
+    tags: topperLine7
   topper149:
     previous: topper148
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper150:
     previous: topper149
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper151:
     previous: topper150
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper152:
     previous: topper151
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper153:
     previous: topper152
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper154:
     previous: topper153
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper155:
     previous: topper154
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper156:
     previous: topper155
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper157:
     previous: topper156
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper158:
     previous: topper157
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper159:
     previous: topper158
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper160:
     previous: topper159
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper161:
     previous: topper160
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper162:
     previous: topper161
     type: grb
-    tags: topperLine9
+    tags: topperLine6
   topper163:
     previous: topper162
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper164:
     previous: topper163
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper165:
     previous: topper164
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper166:
     previous: topper165
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper167:
     previous: topper166
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper168:
     previous: topper167
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper169:
     previous: topper168
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper170:
     previous: topper169
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper171:
     previous: topper170
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper172:
     previous: topper171
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper173:
     previous: topper172
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper174:
     previous: topper173
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper175:
     previous: topper174
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper176:
     previous: topper175
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper177:
     previous: topper176
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper178:
     previous: topper177
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper179:
     previous: topper178
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper180:
     previous: topper179
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper181:
     previous: topper180
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper182:
     previous: topper181
     type: grb
-    tags: topperLine10
+    tags: topperLine5
   topper183:
     previous: topper182
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper184:
     previous: topper183
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper185:
     previous: topper184
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper186:
     previous: topper185
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper187:
     previous: topper186
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper188:
     previous: topper187
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper189:
     previous: topper188
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper190:
     previous: topper189
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper191:
     previous: topper190
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper192:
     previous: topper191
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper193:
     previous: topper192
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper194:
     previous: topper193
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper195:
     previous: topper194
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper196:
     previous: topper195
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper197:
     previous: topper196
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper198:
     previous: topper197
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper199:
     previous: topper198
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper200:
     previous: topper199
     type: grb
-    tags: topperLine11
+    tags: topperLine4
 
   topper201:
     previous: topper200
     type: grb
-    tags: topperLine11
+    tags: topperLine4
   topper202:
     previous: topper201
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper203:
     previous: topper202
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper204:
     previous: topper203
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper205:
     previous: topper204
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper206:
     previous: topper205
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper207:
     previous: topper206
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper208:
     previous: topper207
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper209:
     previous: topper208
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper210:
     previous: topper209
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper211:
     previous: topper210
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper212:
     previous: topper211
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper213:
     previous: topper212
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper214:
     previous: topper213
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper215:
     previous: topper214
     type: grb
-    tags: topperLine12
+    tags: topperLine3
   topper216:
     previous: topper215
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper217:
     previous: topper216
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper218:
     previous: topper217
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper219:
     previous: topper218
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper220:
     previous: topper219
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper221:
     previous: topper220
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper222:
     previous: topper221
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper223:
     previous: topper222
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper224:
     previous: topper223
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper225:
     previous: topper224
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper226:
     previous: topper225
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper227:
     previous: topper226
     type: grb
-    tags: topperLine13
+    tags: topperLine2
   topper228:
     previous: topper227
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper229:
     previous: topper228
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper230:
     previous: topper229
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper231:
     previous: topper230
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper232:
     previous: topper231
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper233:
     previous: topper232
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper234:
     previous: topper233
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper235:
     previous: topper234
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   topper236:
     previous: topper235
     type: grb
-    tags: topperLine14
+    tags: topperLine1
   
   
   # lights hooked to coil driver
