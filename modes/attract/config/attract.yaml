@@ -240,3 +240,4 @@ show_player:
   mode_attract_started.21:
     attract_topper:
       loops: -1
+      speed: 4
