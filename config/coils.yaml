@@ -16,13 +16,13 @@ coils:
 
   c_pop_lower:
     number: A0-B0-5 # verified
-    default_pulse_ms: 15
+    default_pulse_ms: 8
   c_pop_upper_left:
     number: A0-B0-6
-    default_pulse_ms: 15
+    default_pulse_ms: 8
   c_pop_upper_right:
     number: A0-B0-7
-    default_pulse_ms: 15
+    default_pulse_ms: 8
 
   # Bank B (A0-B1)
   

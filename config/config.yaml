@@ -33,6 +33,7 @@ window:
   exit_on_escape: True
 
 # TODO
+# - drop bank is not resetting.  Often. Like, I just played a game 
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
 # - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that

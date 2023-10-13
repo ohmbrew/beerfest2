@@ -436,7 +436,7 @@ state_machines:
         label: two balls already locked in pong table MB - do not hold onto any balls in popo
         events_when_started:
           - disable_popo_lock
-          - eject_popo{device.switches.s_popo_captured.state == 1}    # eject ball if one is there
+          - eject_popo    # {device.switches.s_popo_captured.state == 1}    # eject ball if one is there
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:

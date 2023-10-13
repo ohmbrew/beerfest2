@@ -8,13 +8,35 @@ mode:
   events_when_stopped: mode_type_mission_stopped
   priority: 300
 
+counters:
+  popo_release_switch:
+    count_events: shot_popo_released_hit
+    enable_events: mode_popo_started
+    starting_count: 0
+    count_complete_value: 4
+    reset_on_complete: True
+
 sound_player:
-  shot_popo_released_hit{device.switches.s_popo_captured.state == 0}:   # only play sound if no popo ball captured. Otherwise, the multiball slide will play with sound
+  rnd_hj:
+    hj12:
+      action: play
+  rnd_bj:
+    bj10:
+      action: play
+  rnd_zj:
+    zj15:
+      action: play
+  counter_popo_release_switch_complete{device.switches.s_popo_captured.state == 0}:
     voice_oprecipe:
       action: play
 
 event_player:
-  # TODO: start multiball when we have balls in both pong cups and the third is captured here??
-  #shot_popo_captured_hit{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1}:    # only have 3 balls...release immediately
-  #  - kicker_popo_eject
-
+  shot_popo_released_hit{device.counters.popo_release_switch.value < 4 and device.switches.s_popo_captured.state == 0}: pick_hjbjzj   # play one of the 3 random HJ/BJ/ZJ sound clips as long as we don't have a ball in popo lock
+  
+random_event_player:
+  pick_hjbjzj:
+    events:
+      - rnd_hj
+      - rnd_bj
+      - rnd_zj
+  

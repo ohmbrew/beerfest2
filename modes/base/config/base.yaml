@@ -525,15 +525,6 @@ sound_player:
   shot_do_shot_hit{mode.dasboot.active == False}:
     doashot:
       action: play
-  shot_hj_hit{mode.dasboot.active == False}:
-    hj12:
-      action: play
-  shot_bj_hit{mode.dasboot.active == False}:
-    bj10:
-      action: play
-  shot_zj_hit{mode.dasboot.active == False}:
-    zj15:
-      action: play    
   shot_chance_hit{mode.dasboot.active == False}:
     chance:
       action: play
