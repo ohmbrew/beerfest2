@@ -32,15 +32,7 @@ sound_player:
   
   # das boot specific audio
   
-  shot_hj_hit:
-    voice_beerfest:
-      action: play
-  shot_bj_hit:
-    voice_beerfest:
-      action: play
-  shot_zj_hit:
-    voice_beerfest:
-      action: play
+
   shot_chance_hit:
     voice_beerfest:
       action: play
@@ -78,18 +70,7 @@ sound_player:
     voice_beerfest:
       action: play
 
-
-  # let base mode take care of these
-  #shot_paddle_d1_hit:   # let base mode take care of this
-  #shot_tavern_hit:          
-  #shot_ramp_paddle_hit:
-  #shot_diverter_hit:  # use burp sound for that still
-  #enable_paddle_bonus2:
-  #enable_paddle_bonus3:
-  #paddle_hammered:
-  #bank_strikeout_complete:   # let base made take care of this
-  #spellbeer_group_hit_complete:
-    
+ 
 
 # timer used to animate das boot intro slide text. Counts up by 1 every 5 secs. Used to start text animations in slide_dasboot_intro
 timers:
