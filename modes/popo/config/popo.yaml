@@ -41,3 +41,12 @@ random_event_player:
       - rnd_bj
       - rnd_zj
   
+variable_player:
+  rnd_hj:
+    score: current_player.pts_hj
+  rnd_bj:
+    score: current_player.pts_bj
+  rnd_zj:
+    score: current_player.pts_zj
+  logicblock_popo_release_switch_complete:
+    score: current_player.pts_oprecipe

@@ -115,6 +115,9 @@ player_vars:
   pts_zj:
     initial_value: 15000
     value_type: int
+  pts_oprecipe:
+    initial_value: 25000
+    value_type: int
   pts_chance:
     initial_value: 25000
     value_type: int
