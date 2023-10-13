@@ -577,14 +577,14 @@ sound_player:
         track: music
         loops: -1
   # halt background music if ball save
-  slide_slide_ballsave_active:
-    introrepeat:
-      action: stop
-  slide_slide_ballsave_removed:
-    introrepeat:
-      action: play
-      track: music
-      loops: -1
+  # slide_slide_ballsave_active:
+  #   introrepeat:
+  #     action: stop
+  # slide_slide_ballsave_removed{}:
+  #   introrepeat:
+  #     action: play
+  #     track: music
+  #     loops: -1
   shot_upf_tgt_left_hit:
     unddrinken:
       action: play
