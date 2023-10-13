@@ -1,55 +1,28 @@
 #config_version=5
 ##! mode: trojankeg
 
+# Trojan Keg
+# Player must:
+# 1. Lock Popo
+# 2. Hit all pops
+# 3. Hit Keg Saucer
+
 mode:
   start_events: start_mode_trojankeg
-  stop_events: stop_mode_trojankeg, stop_missions, timer_round_timer_trojankeg_stopped   # end round when timer stops
+  stop_events: stop_mode_trojankeg, stop_missions, slide_event_done   # untimed round
   events_when_started: mode_type_mission_started
   events_when_stopped: mode_type_mission_stopped
   priority: 300
 
-shot_groups:
-  xjs:
-    shots: shot_trojankeg_hj, shot_trojankeg_bj, shot_trojankeg_zj
-    reset_events: award_trojankeg_bonus
-    enable_events: mode_trojankeg_started
-    disable_events: trojankeg_success, trojankeg_partial, trojankeg_fail
-
-shot_profiles:
-  xjs_profile:
-    states:
-      - name:
-        show: flash_xjs_unhit
-      - name: hit
-        show: flash_xjs_hit
-
-shots:      
-  shot_trojankeg_hj:
-    switch: s_open1
-    profile: xjs_profile
-    show_tokens:
-      led: hj
-  shot_trojankeg_bj:
-    switch: s_open2
-    profile: xjs_profile
-    show_tokens:
-      led: bj
-  shot_trojankeg_zj:
-    switch: s_open3
-    profile: xjs_profile
-    show_tokens:
-      led: zj
-
-
 accruals:
-  trojankeg_xjs_accrual:
+  trojankeg_pops_accrual:
     persist_state: false
     events:
-      - shot_hj_hit
-      - shot_bj_hit
-      - shot_zj_hit
-    events_when_complete: trojankeg_xjs_complete
-    restart_events: award_trojankeg_bonus
+      - shot_pop_upper_right_hit
+      - shot_pop_upper_left_hit
+      - shot_pop_lower_hit
+    events_when_complete: trojankeg_pops_complete
+    restart_events: shot_popo_captured_hit
     reset_on_complete: true
     disable_on_complete: false
 
@@ -60,39 +33,55 @@ state_machines:
     states:
       start:
         label: Trojan Keg SM Starting
-      wait_for_xjs:
-        label: Waiting for HJ, BJ, and ZJ shots
-      wait_for_saucer_keg:
-        label: Waiting for Saucer Keg hit
+      wait_for_popo_captured:
+        label: waiting to lock popo
         show_when_active:
-          show: flash_trojankeg_wait_saucer
+          show: flash_trojankeg_wait_popo
           speed: 4
           loops: -1
+          priority: 1000
+      wait_for_pops:
+        label: Waiting for pops accrual
+        show_when_active:
+          show: flash_trojankeg_wait_pops
+          speed: 4
+          loops: -1
+          priority: 1000
+      wait_for_keg:
+        label: Waiting for keg hit
         events_when_started: play_hitthekeg
+        show_when_active:
+          show: flash_trojankeg_wait_keg
+          speed: 4
+          loops: -1
+          priority: 1000
       trojankeg_completed:
         label: Trojan Keg Completed
-        events_when_started: award_trojankeg_bonus
+        events_when_started: trojankeg_success
       trojankeg_inactive:
         label: Trojan Keg Inactive
 
     transitions:
       - source: start
-        target: wait_for_xjs
+        target: wait_for_popo_captured
         events: mode_trojankeg_started
-      - source: wait_for_xjs
-        target: wait_for_saucer_keg
-        events: trojankeg_xjs_complete
-      - source: wait_for_saucer_keg
+      - source: wait_for_popo_captured
+        target: wait_for_pops
+        events: shot_popo_captured_hit
+      - source: wait_for_pops
+        target: wait_for_keg
+        events: trojankeg_pops_complete
+      - source: wait_for_keg
         target: trojankeg_completed
         events: shot_kicker_mode_hit
-      - source: trojankeg_completed
-        target: wait_for_xjs
-        events: slide_slide_bonus_trojankeg_themed_removed
       # putting these in here to prevent player from getting bonus again if we see event_success, _fail, or _partial  
-      - source: wait_for_xjs
+      - source: wait_for_popo_captured
         target: trojankeg_inactive
         events: trojankeg_success, trojankeg_fail, trojankeg_partial
-      - source: wait_for_saucer_keg
+      - source: wait_for_pops
+        target: trojankeg_inactive
+        events: trojankeg_success, trojankeg_fail, trojankeg_partial
+      - source: wait_for_keg
         target: trojankeg_inactive
         events: trojankeg_success, trojankeg_fail, trojankeg_partial
 
@@ -102,7 +91,17 @@ sound_player:
       action: play
       loops: 0
       events_when_stopped: saucer_release, intro_done
-  mode_trojankeg_will_stop:
+
+  # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
+  shot_kicker_mode_hit{device.state_machines.trojankeg_state_machine.state != "wait_for_keg" and device.state_machines.trojankeg_state_machine.state != "trojankeg_completed"}:
+    voice_betterwhendrunk:
+      action: play
+      events_when_stopped: kicker_mode_eject
+  shot_kicker_rimrules_hit:
+    rimrules:
+      action: play
+      events_when_stopped: kicker_rimrules_eject
+  trojankeg_success:
     themedrinkonme:
       action: stop
     themehardasarock:
@@ -119,20 +118,25 @@ sound_player:
       action: stop
     themecomininhot:
       action: stop
-  # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
-  shot_kicker_mode_hit{device.state_machines.trojankeg_state_machine.state != "wait_for_saucer_keg" and device.state_machines.trojankeg_state_machine.state != "trojankeg_completed"}:
-    voice_betterwhendrunk:
-      action: play
-      events_when_stopped: kicker_mode_eject
-  shot_kicker_rimrules_hit:
-    rimrules:
-      action: play
-      events_when_stopped: kicker_rimrules_eject
-  trojankeg_success:
     sureasschnitzel:
       action: play
-      events_when_stopped: slide_event_result_complete
   trojankeg_fail:
+    themedrinkonme:
+      action: stop
+    themehardasarock:
+      action: stop
+    themejungleboogie:
+      action: stop
+    themealcohol:
+      action: stop
+    themebeer:
+      action: stop
+    themebeerformyhorses:
+      action: stop
+    themebyob:
+      action: stop
+    themecomininhot:
+      action: stop
     goddamnbrewery:
       action: play
       events_when_stopped: slide_event_result_complete
@@ -147,9 +151,6 @@ sound_player:
       events_when_stopped: trojankeg_bonus_audio_complete
   play_hitthekeg:
     voice_hitthekeg:
-      action: play
-  timer_round_timer_trojankeg_tick{ticks == 5}:
-    voice_hurryup:
       action: play
 
 slides:
@@ -179,23 +180,33 @@ slides:
               value: 225
               duration: 2s
       - type: text
-        text: Hit HJ + BJ + ZJ
+        text: 1. Lock Popo
         font_name: druillet
         color: 008ce5ff
         font_size: 75
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 475
+        y: top - 460
       - type: text
-        text: Then Hit Trojan Keg Saucer
+        text: 2. Then Hit All Pops
         font_name: druillet
         color: 008ce5ff
         font_size: 75
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 575
+        y: top - 560
+      - type: text
+        text: 3. Then Hit Keg
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 75
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 660
+
       - type: video
         video: bubbles
         end_behavior: loop
@@ -209,16 +220,35 @@ slides:
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 35
+        y: top - 15
       - type: text
-        text: (player|theme_mode_timer_variable)
+        text: 1. Lock Popo
         font_name: druillet
-        color: red
-        font_size: 150
+        color: 008ce5ff
+        font_size: 50
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 250
+        y: top - 225
+      - type: text
+        text: 2. Then Hit All Pops
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 300
+      - type: text
+        text: 3. Then Hit Keg
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 375
+     
       - type: text
         text: (score)
         number_grouping: true
@@ -286,7 +316,7 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
-  slide_trojankegfail:
+  slide_trojankeg_fail:
     widgets:
       - type: text
         text: TROJAN KEG
@@ -426,9 +456,10 @@ slide_player:
   mode_trojankeg_started:
     slide_trojankeg_intro:
       target: main
+      expire: 5s
     slide_mug_trojankeg:
       target: mini
-  intro_done:
+  slide_slide_trojankeg_intro_removed:
     slide_trojankeg_intro:
       target: main
       action: remove
@@ -448,22 +479,24 @@ slide_player:
     slide_trojankeg_main:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: play
+    # slide_just_background:
+    #   target: main
+    #   action: play
     slide_trojankeg_success:
       target: main
       action: play
+      expire: 3s
   trojankeg_fail:
     slide_trojankeg_main:
       target: main
       action: remove
-    slide_just_background:
+    # slide_just_background:
+    #   target: main
+    #   action: play
+    slide_trojankeg_fail:
       target: main
       action: play
-    slide_trojankegfail:
-      target: main
-      action: play
+      expire: 3s
   trojankeg_partial:
     slide_trojankeg_main:
       target: main
@@ -474,11 +507,11 @@ slide_player:
     slide_trojankeg_partial:
       target: main
       action: play
-  slide_event_result_complete:
+  slide_trojankeg_success_removed:
     slide_trojankeg_success:
       target: main
       action: remove
-    slide_trojankegfail:
+    slide_trojankeg_fail:
       target: main
       action: remove
     slide_trojankeg_partial:
@@ -487,21 +520,21 @@ slide_player:
     slide_just_background:
       target: main
       action: remove
-    
+  
 
 queue_relay_player:
-  mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks == 0 and current_player.has_current_thememode==1}:  # timer expired, player completed bonus
-    post: trojankeg_success
-    wait_for: slide_slide_trojankeg_success_removed
-  mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks == 0 and current_player.has_current_thememode==0}:  # timer expired, player did not complete bonus
+  # mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks == 0 and current_player.has_current_thememode==1}:  # timer expired, player completed bonus
+  #   post: trojankeg_success
+  #   wait_for: slide_slide_trojankeg_success_removed
+  mode_trojankeg_stopping{current_player.has_current_thememode==0}:  # ball drained, player did not complete objectives
     post: trojankeg_fail
-    wait_for: slide_slide_trojankegfail_removed
-  mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks > 0 and current_player.has_current_thememode==1}:   # timer did not expire (we drained?), but player completed bonus
-    post: trojankeg_partial
-    wait_for: slide_slide_trojankeg_partial_removed
-  mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks > 0 and current_player.has_current_thememode==0}:   # timer did not expire (we drained?), and player did not complete bonus
-    post: trojankeg_fail
-    wait_for: slide_slide_trojankegfail_removed  
+    wait_for: slide_slide_trojankeg_fail_removed
+  # mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks > 0 and current_player.has_current_thememode==1}:   # timer did not expire (we drained?), but player completed bonus
+  #   post: trojankeg_partial
+  #   wait_for: slide_slide_trojankeg_partial_removed
+  # mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks > 0 and current_player.has_current_thememode==0}:   # timer did not expire (we drained?), and player did not complete bonus
+  #   post: trojankeg_fail
+  #   wait_for: slide_slide_trojankegfail_removed  
   ball_ending:  # delay ball_ending until whicher slide is shown above finishes
     post: nothing
     wait_for: slide_event_done
@@ -516,114 +549,78 @@ event_player:
   saucer_release{device.switches.s_kicker_mode.state == 1}: kicker_mode_eject
 
 shows:
-  flash_xjs_unhit:
-    - duration: .5s
-      lights:
-        (led):
-          color: red
-          
-    - duration: .5s
-      lights:
-        (led):
-          color: off
-          
-  flash_xjs_hit:
-    - duration: -1
-      lights:
-        (led): green
   flash_trojankeg_insert:
     - duration: 1
       lights:
-        mode_trojankeg:
-          color: yellow
-          fade: .5s
+        mode_trojankeg: yellow
     - duration: 1
       lights:
-        mode_trojankeg: 
-          color: off
-          fade: .5s
-  flash_trojankeg_wait_saucer:
+        mode_trojankeg: off
+
+  flash_trojankeg_wait_popo:
     - duration: 1
       lights:
-        arrow_mode1:
-          color: red
-          fade: .5
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: off
-          fade: .5
+        arrow_popo1: green
+        arrow_popo2: off
+        arrow_popo3: off
     - duration: 1
       lights:
-        arrow_mode1:
-          color: off
-          fade: .5
-        arrow_mode2:
-          color: red
-          fade: .5
+        arrow_popo1: green
+        arrow_popo2: green
+        arrow_popo3: off
     - duration: 1
       lights:
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: red
-          fade: .5
+        arrow_popo1: green
+        arrow_popo2: green
+        arrow_popo3: green
     - duration: 1
       lights:
-        arrow_mode1:
-          color: white
-          fade: .5
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: off
-          fade: .5
+        arrow_popo1: off
     - duration: 1
       lights:
-        arrow_mode1:
-          color: off
-          fade: .5
-        arrow_mode2:
-          color: white
-          fade: .5
+        arrow_popo2: off
     - duration: 1
       lights:
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: white
-          fade: .5
+        arrow_popo3: off
+  
+  flash_trojankeg_wait_pops:
     - duration: 1
       lights:
-        arrow_mode1:
-          color: blue
-          fade: .5
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: off
-          fade: .5
+        l_pop_lower: on
+        l_pop_right: on
+        l_pop_left: on
     - duration: 1
       lights:
-        arrow_mode1:
-          color: off
-          fade: .5
-        arrow_mode2:
-          color: blue
-          fade: .5
+        l_pop_lower: off
+        l_pop_right: off
+        l_pop_left: off
+  
+  flash_trojankeg_wait_keg:
     - duration: 1
       lights:
-        arrow_mode2:
-          color: off
-          fade: .5
-        arrow_mode3:
-          color: blue
-          fade: .5
+        arrow_mode1: green
+        arrow_mode2: off
+        arrow_mode3: off
+    - duration: 1
+      lights:
+        arrow_mode1: green
+        arrow_mode2: green
+        arrow_mode3: off
+    - duration: 1
+      lights:
+        arrow_mode1: green
+        arrow_mode2: green
+        arrow_mode3: green
+    - duration: 1
+      lights:
+        arrow_mode1: off
+    - duration: 1
+      lights:
+        arrow_mode2: off
+    - duration: 1
+      lights:
+        arrow_mode3: off
+  
 
 show_player:
   mode_trojankeg_started:
@@ -639,80 +636,58 @@ show_player:
   
   # stop light shows on success/partial/fail
   trojankeg_success:
-    flash_xjs_unhit:
+    flash_trojankeg_wait_popo:
       action: stop
-    flash_xjs_hit:
+    flash_trojankeg_wait_pops:
       action: stop
-    flash_trojankeg_wait_saucer:
-      action: stop
+    flash_trojankeg_wait_keg:
+      action: stop  
     flash_gi_themed:
       action: stop
+    flash_trojankeg_insert:
+      action: stop
+
   trojankeg_partial:
-    flash_xjs_unhit:
+    flash_trojankeg_wait_popo:
       action: stop
-    flash_xjs_hit:
+    flash_trojankeg_wait_pops:
       action: stop
-    flash_trojankeg_wait_saucer:
-      action: stop
+    flash_trojankeg_wait_keg:
+      action: stop  
     flash_gi_themed:
+      action: stop
+    flash_trojankeg_insert:
       action: stop
   trojankeg_fail:
-    flash_xjs_unhit:
+    flash_trojankeg_wait_popo:
       action: stop
-    flash_xjs_hit:
+    flash_trojankeg_wait_pops:
       action: stop
-    flash_trojankeg_wait_saucer:
-      action: stop
+    flash_trojankeg_wait_keg:
+      action: stop  
     flash_gi_themed:
-      action: stop       
+      action: stop
+    flash_trojankeg_insert:
+      action: stop
 
-# timed round
-timers:
-  round_timer_trojankeg:
-    start_value: 90
-    end_value: 0
-    direction: down
-    control_events:
-      - action: start
-        event: choose_random_background_music
-      - action: stop
-        event: trojankeg_success
-      - action: stop
-        event: trojankeg_partial
-      - action: stop
-        event: trojankeg_fail
 
 variable_player:
   mode_trojankeg_started:    # init whether we completed this current bonus
     has_current_thememode:
       int: 0
       action: set
-  shot_hj_hit:
-    score: current_player.pts_hj_themed
-    bonus_numhjs: 1       # bonus tracker (HJs)
-  shot_bj_hit:
-    score: current_player.pts_bj_themed
-    bonus_numbjs: 1       # bonus tracker (BJs)
-  shot_zj_hit:
-    score: current_player.pts_zj_themed  
-    bonus_numzjs: 1       # bonus tracker (ZJs)
+
   shot_kicker_mode_hit:
     score: current_player.pts_kicker_mode_themed
     
-  timer_round_timer_trojankeg_tick:
-    theme_mode_timer_variable:
-      int: device.timers.round_timer_trojankeg.ticks
-      action: set
-  award_trojankeg_bonus:
-    score: current_player.pts_trojankeg_bonus
-    has_current_thememode:        # track that player has completed requirements for bonus
-      action: set
-      int: 1
   trojankeg_success:
     score: current_player.pts_trojankeg_success
     has_trojankeg:
       action: set
       int: 1
+    has_current_thememode:
+      int: 1
+      action: set
   trojankeg_partial:
     score: current_player.pts_trojankeg_partial
     has_trojankeg:

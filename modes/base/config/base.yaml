@@ -248,7 +248,7 @@ slides:
       video: easteregg_adult
 
 slide_player:
-  shot_horseshoe_hit{mode.dasboot.active == False and mode.volumechug.active == False}:
+  shot_horseshoe_hit{mode.dasboot.active == False and device.state_machines.volumechug_state_machine.state != "wait_for_horseshoe"}:
     slide_bonus_monkeychug:
       target: main
       priority: 1500
@@ -537,7 +537,7 @@ sound_player:
   shot_special_hit{mode.dasboot.active == False}:
     unddrinken:
       action: play
-  shot_horseshoe_hit{mode.volumechug.active == False}:
+  shot_horseshoe_hit{device.state_machines.volumechug_state_machine.state != "wait_for_horseshoe"}:
     voice_ohyea:
       action: play
   shot_tgt_ramp_boot_left_hit{mode.dasboot.active == False}:
@@ -615,35 +615,35 @@ sound_player:
   play_theme_drinkonme:
     themedrinkonme:
       action: play
-      loops: 0
+      loops: -1
   play_theme_hardasarock:
     themehardasarock:
       action: play
-      loops: 0
+      loops: -1
   play_theme_jungleboogie:
     themejungleboogie:
       action: play
-      loops: 0
+      loops: -1
   play_theme_alcohol:
     themealcohol:
       action: play
-      loops: 0
+      loops: -1
   play_theme_beer:
     themebeer:
       action: play
-      loops: 0
+      loops: -1
   play_theme_beerformyhorses:
     themebeerformyhorses:
       action: play
-      loops: 0
+      loops: -1
   play_theme_byob:
     themebyob:
       action: play
-      loops: 0
+      loops: -1
   play_theme_comininhot:
     themecomininhot:
       action: play
-      loops: 0
+      loops: -1
 
 random_event_player:
   shot_slingleft_hit:    
@@ -727,7 +727,6 @@ random_event_player:
       - play_theme_alcohol           # good  
       - play_theme_beer              # good
       - play_theme_beerformyhorses   # good
-      - play_theme_byob               # good
       - play_theme_comininhot        # good
   
 show_player:
@@ -757,7 +756,16 @@ show_player:
       action: stop
     show_germany_insert:
       action: stop
-
+    show_longpour_insert:
+      action: stop
+    show_quarters_insert:
+      action: stop
+    show_strikeout_insert:
+      action: stop
+    show_volumechug_insert:
+      action: stop
+    show_trojankeg_insert:
+      action: stop
     show_chance2x_insert:
       action: stop
     show_chance3x_insert:
@@ -833,20 +841,40 @@ show_player:
       speed: 4  
 
   # game theme mode lights
-  mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
-  mode_base_started{current_player.has_longpour==1}: show_longpour_insert
+  mode_longpour_stopped{current_player.has_longpour==1}:
+    show_longpour_insert:
+      priority: 1000
+  mode_base_started{current_player.has_longpour==1}:
+    show_longpour_insert:
+      priority: 1000
 
-  mode_quarters_stopped{current_player.has_quarters==1}: show_quarters_insert
-  mode_base_started{current_player.has_quarters==1}: show_quarters_insert
+  mode_quarters_stopped{current_player.has_quarters==1}:
+    show_quarters_insert:
+      priority: 1000
+  mode_base_started{current_player.has_quarters==1}:
+    show_quarters_insert:
+      priority: 1000
   
-  mode_strikeout_stopped{current_player.has_strikeout==1}: show_strikeout_insert
-  mode_base_started{current_player.has_strikeout==1}: show_strikeout_insert
+  mode_strikeout_stopped{current_player.has_strikeout==1}:
+    show_strikeout_insert:
+      priority: 1000
+  mode_base_started{current_player.has_strikeout==1}:
+    show_strikeout_insert:
+      priority: 1000
   
-  mode_volumechug_stopped{current_player.has_volumechug==1}: show_volumechug_insert
-  mode_base_started{current_player.has_volumechug==1}: show_volumechug_insert
+  mode_volumechug_stopped{current_player.has_volumechug==1}:
+    show_volumechug_insert:
+      priority: 1000
+  mode_base_started{current_player.has_volumechug==1}:
+    show_volumechug_insert:
+      priority: 1000
   
-  mode_trojankeg_stopped{current_player.has_trojankeg==1}: show_trojankeg_insert
-  mode_base_started{current_player.has_trojankeg==1}: show_trojankeg_insert
+  mode_trojankeg_stopped{current_player.has_trojankeg==1}:
+    show_trojankeg_insert:
+      priority: 1000
+  mode_base_started{current_player.has_trojankeg==1}:
+    show_trojankeg_insert:
+      priority: 1000
 
   # Ball Lock lights
   mode_base_started{device.switches.s_pongcup1.state == 1}: show_ball1_locked_insert
@@ -1168,7 +1196,7 @@ variable_player:
 
   # monkeychug/paddle slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a paddle Bonus slide from showing first.
   # set higher priority to make sure this processes first
-  shot_horseshoe_hit{mode.volumechug.active == False}:
+  shot_horseshoe_hit{device.state_machines.volumechug_state_machine.state != "wait_for_horseshoe"}:
     priority: 10000
     is_slide_monkeychug_active:
         int: 1

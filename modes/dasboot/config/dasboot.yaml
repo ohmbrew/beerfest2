@@ -1182,9 +1182,11 @@ show_player:
   mode_dasboot_started:
     init_lights_dasboot:
       loops: 0
+      priority: 1000
   slide_slide_dasboot_intro_active:
     flash_dasboot_intro:
       loops: 4
+      priority: 1000
     init_lights_dasboot:
       action: stop
   start_background_music:

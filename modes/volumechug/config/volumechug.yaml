@@ -1,24 +1,18 @@
 #config_version=5
 ##! mode: volumechug
 
+# VolumeChug Mode
+# Player must:
+# 1. Hit Tavern Ramp
+# 2. Then hit Boot Ramp
+# 3. Then hit Horseshoe
+
 mode:
   start_events: start_mode_volumechug
   stop_events: stop_mode_volumechug, stop_missions, slide_event_done  # this is an untimed round
   events_when_started: mode_type_mission_started
   events_when_stopped: mode_type_mission_stopped
   priority: 300
-
-# accruals:
-#   volumechug_pops_accrual:
-#     persist_state: false
-#     events:
-#       - shot_pop_upper_right_hit
-#       - shot_pop_upper_left_hit
-#       - shot_pop_lower_hit
-#     events_when_complete: volumechug_pops_complete
-#     restart_events: shot_tavern_hit
-#     reset_on_complete: true
-#     disable_on_complete: false
 
 # config volume chug successful completion state machine
 state_machines:
@@ -100,6 +94,7 @@ sound_player:
       action: stop
     themecomininhot:
       action: stop
+    
   # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
   shot_kicker_mode_hit:
     voice_betterwhendrunk:
@@ -110,6 +105,22 @@ sound_player:
       action: play
       events_when_stopped: kicker_rimrules_eject
   volumechug_success:
+    themedrinkonme:
+      action: stop
+    themehardasarock:
+      action: stop
+    themejungleboogie:
+      action: stop
+    themealcohol:
+      action: stop
+    themebeer:
+      action: stop
+    themebeerformyhorses:
+      action: stop
+    themebyob:
+      action: stop
+    themecomininhot:
+      action: stop
     sureasschnitzel:
       action: play
       events_when_stopped: slide_event_result_complete
@@ -132,9 +143,6 @@ sound_player:
       action: play
   play_shoottheboot:
     voice_shoottheboot:
-      action: play
-  timer_round_timer_volumechug_tick{ticks == 5}:
-    voice_hurryup:
       action: play
 
 slides:
@@ -164,23 +172,33 @@ slides:
               value: 225
               duration: 2s
       - type: text
-        text: Tavern Ramp Then Boot Ramp
+        text: 1. Shoot Tavern
         font_name: druillet
         color: 008ce5ff
         font_size: 75
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 475
+        y: top - 460
       - type: text
-        text: Then Hit Horseshoe
+        text: 2. Then shoot Boot Ramp
         font_name: druillet
         color: 008ce5ff
         font_size: 75
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 575
+        y: top - 560
+      - type: text
+        text: 3. Then Shoot Horseshoe
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 75
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 660
+
       - type: video
         video: bubbles
         end_behavior: loop
@@ -194,16 +212,35 @@ slides:
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 35
+        y: top - 15
       - type: text
-        text: (player|theme_mode_timer_variable)
+        text: 1. Shoot Tavern
         font_name: druillet
-        color: red
-        font_size: 150
+        color: 008ce5ff
+        font_size: 50
         anchor_x: middle
         anchor_y: top
         x: middle
-        y: top - 250
+        y: top - 225
+      - type: text
+        text: 2. Then shoot Boot Ramp
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 300
+      - type: text
+        text: 3. Then Shoot Horseshoe
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 50
+        anchor_x: middle
+        anchor_y: top
+        x: middle
+        y: top - 375
+     
       - type: text
         text: (score)
         number_grouping: true
@@ -411,12 +448,10 @@ slide_player:
   mode_volumechug_started:
     slide_volumechug_intro:
       target: main
+      expire: 5s
     slide_mug_volumechug:
       target: mini
-  intro_done:
-    slide_volumechug_intro:
-      target: main
-      action: remove
+  slide_slide_volumechug_intro_removed:
     slide_volumechug_main:
       target: main
       action: play
@@ -475,9 +510,9 @@ queue_relay_player:
   # mode_volumechug_stopping{current_player.has_current_thememode==1}:  # player completed bonus
   #   post: volumechug_success
   #   wait_for: slide_slide_volumechug_success_removed
-  # mode_volumechug_stopping{current_player.has_current_thememode==0}:  # player did not complete bonus
-  #   post: volumechug_fail
-  #   wait_for: slide_slide_volumechug_fail_removed
+  mode_volumechug_stopping{current_player.has_current_thememode==0}:  # player drained and did not complete objectives
+    post: volumechug_fail
+    wait_for: slide_slide_volumechug_fail_removed
   # mode_volumechug_stopping{device.timers.round_timer_volumechug.ticks > 0 and current_player.has_current_thememode==1}:   # timer did not expire (we drained?), but player completed bonus
   #   post: volumechug_partial
   #   wait_for: slide_slide_volumechug_partial_removed
@@ -638,10 +673,7 @@ show_player:
     flash_gi_themed:
       speed: 4
       loops: -1
-  mode_volumechug_stopping:
-    flash_volumechug_insert:
-      action: stop
-
+ 
   # stop light shows on success/partial/fail
   volumechug_success:
     flash_volumechug_wait_tavern:
@@ -652,6 +684,8 @@ show_player:
       action: stop  
     flash_gi_themed:
       action: stop
+    flash_volumechug_insert:
+      action: stop
   volumechug_partial:
     flash_volumechug_wait_tavern:
       action: stop
@@ -661,6 +695,8 @@ show_player:
       action: stop  
     flash_gi_themed:
       action: stop
+    flash_volumechug_insert:
+      action: stop
   volumechug_fail:
     flash_volumechug_wait_tavern:
       action: stop
@@ -669,6 +705,8 @@ show_player:
     flash_volumechug_wait_ramp_boot:
       action: stop  
     flash_gi_themed:
+      action: stop
+    flash_volumechug_insert:
       action: stop
 
 # timed round

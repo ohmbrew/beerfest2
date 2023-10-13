@@ -50,10 +50,7 @@ sounds:
     file: themebeerformyhorses.wav
     track: music
     volume: 1.0
-  themebyob:
-    file: themebyob.wav
-    track: music
-    volume: 1.0
+
   themecomininhot:
     file: themecomininhot.wav
     track: music
