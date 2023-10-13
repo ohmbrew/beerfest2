@@ -151,11 +151,11 @@ event_player:
   move_ball: check_result   # putting this in here to cause a delay so that the win/loss result (updates graphics and variable_player) computes before displaying win/loss (X and splash)
 
   # ball is 40x40 (anchorx center, anchory center), cup is 80x80 (anchorx center, anchory bottom)
-  check_result{current_player.ball_y < 275 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 290 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_win:
       cup_x: {value: current_player.cup_x}
       type: int
-  check_result{current_player.ball_y < 275 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 290 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_lose:
       ball_x: {value: current_player.ball_x}
       type: int
@@ -447,7 +447,7 @@ slides:
       anchor_x: middle
       anchor_y: bottom
       x: middle
-      y: bottom + 46
+      y: bottom + 61
       animations:
         update_cup:
           - property: x
@@ -583,7 +583,13 @@ slides:
           - property: opacity
             value: 0
             duration: .25s
-            timing: after_previous   
+            timing: after_previous
+    - type: image
+      image: table
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: bottom 
     - type: video
       video: bubbles
 

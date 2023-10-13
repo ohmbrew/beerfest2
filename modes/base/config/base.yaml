@@ -907,10 +907,10 @@ ball_saves:
 
   # starts when ball is ejected from rimrules or mode saucers in case it goes SDTM
   saucer_eject:
-    active_time: 5s
+    active_time: 2s
     grace_period: 2s
-    enable_events: shot_kicker_rimrules_hit, shot_kicker_mode_hit
-    timer_start_events: kicker_rimrules_eject, kicker_mode_eject
+    enable_events: shot_kicker_rimrules_hit
+    timer_start_events: kicker_rimrules_eject
     auto_launch: false
     balls_to_save: 1
     debug: true
