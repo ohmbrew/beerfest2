@@ -232,7 +232,7 @@ slides:
         x: middle
         y: top - 225
       - type: text
-        text: 2. Then Hit All Pops
+        text: 2. Hit All Pops
         font_name: druillet
         color: 008ce5ff
         font_size: 50
@@ -241,7 +241,7 @@ slides:
         x: middle
         y: top - 300
       - type: text
-        text: 3. Then Hit Keg
+        text: 3. Hit Keg
         font_name: druillet
         color: 008ce5ff
         font_size: 50

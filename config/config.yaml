@@ -33,7 +33,6 @@ window:
   exit_on_escape: True
 
 # TODO
-# - Add mini texts for VolumeChug
 # - Flash slide status for volumechug/trojankeg as shots are hit. Turn text green, check mark, etc. Something to show progress
 # - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that
 # - rubber behind strike out to dampen the hit from ball
