@@ -34,7 +34,9 @@ event_player:
   mode_vs_breakout_stopped{device.switches.s_kicker_rimrules.state == 1}:
     - flippers_normal
     - kicker_rimrules_eject
-
+  mode_trojankeg_stopped{device.switchs.s_kicker_mode.state == 1}:
+    - kicker_mode_eject
+    
   mode_vs_alltargets_stopped{device.switches.s_kicker_mode.state == 1}:
     kicker_mode_eject
   mode_vs_alltargets_stopped{device.switches.s_kicker_rimrules.state == 1}:
