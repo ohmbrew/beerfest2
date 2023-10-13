@@ -34,13 +34,14 @@ state_machines:
           show: flash_volumechug_wait_ramp_boot
           speed: 4
           loops: -1
-        events_when_started: play_shoottheboot
+        events_when_started: play_shoottheboot, show_mini_boot
       wait_for_horseshoe:
         label: Waiting for Horseshoe
         show_when_active:
           show: flash_volumechug_wait_horseshoe
           speed: 4
           loops: -1
+        events_when_started: show_mini_horseshoe
       volumechug_completed:
         label: Volume Chug Completed
         events_when_started: volumechug_success
@@ -443,14 +444,66 @@ slides:
         y: middle - 50
       - type: image
         image: minibg  
+  mini_tavern:
+    widgets:
+    - type: image
+      image: MiniText-ShootTavern
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+  mini_bootramp:
+    widgets:
+    - type: image
+      image: MiniText-ShootBootRamp
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+  mini_horseshoe:
+    widgets:
+    - type: image
+      image: MiniText-ShootHorseshoe
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
 
 slide_player:
   mode_volumechug_started:
     slide_volumechug_intro:
       target: main
       expire: 5s
-    slide_mug_volumechug:
+    mini_tavern:
       target: mini
+      action: play
   slide_slide_volumechug_intro_removed:
     slide_volumechug_main:
       target: main
@@ -461,6 +514,20 @@ slide_player:
       action: play
       priority: 1000
       expire: 2s
+  show_mini_boot:
+    mini_tavern:
+      target: mini
+      action: remove
+    mini_bootramp:
+      target: mini
+      action: play
+  show_mini_horseshoe:
+    mini_bootramp:
+      target: mini
+      action: remove
+    mini_horseshoe:
+      target: mini
+      action: play
   volumechug_success:
     slide_volumechug_main:
       target: main

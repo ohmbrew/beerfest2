@@ -47,9 +47,10 @@ state_machines:
           speed: 4
           loops: -1
           priority: 1000
+        events_when_started: show_mini_pops
       wait_for_keg:
         label: Waiting for keg hit
-        events_when_started: play_hitthekeg
+        events_when_started: play_hitthekeg, show_mini_keg
         show_when_active:
           show: flash_trojankeg_wait_keg
           speed: 4
@@ -344,9 +345,9 @@ slides:
       - type: video
         video: bubbles
         end_behavior: loop
-  slide_just_background:
-    - type: image
-      image: background 
+  # slide_just_background:
+  #   - type: image
+  #     image: background 
   slide_trojankeg_partial:        # if they hit quarters, but drained before round timer expires
     widgets:
       - type: text
@@ -429,35 +430,64 @@ slides:
             duration: .5s
     - type: image
       image: background
-  slide_mug_trojankeg:
+  mini_popo:
     widgets:
-      - type: text
-        text: SHOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle + 50
-      - type: text
-        text: KEG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
-      - type: image
-        image: minibg  
+    - type: image
+      image: MiniText-LockPopo
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+  mini_pops:
+    widgets:
+    - type: image
+      image: MiniText-ShootPops
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
+  mini_keg:
+    widgets:
+    - type: image
+      image: MiniText-ShootKeg
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 0.5s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            repeat: true
+            easing: in_out_quint
+    - type: image
+      image: beermug7
 
 slide_player:
   mode_trojankeg_started:
     slide_trojankeg_intro:
       target: main
       expire: 5s
-    slide_mug_trojankeg:
+    mini_popo:
       target: mini
   slide_slide_trojankeg_intro_removed:
     slide_trojankeg_intro:
@@ -475,6 +505,20 @@ slide_player:
     slide_bonus_trojankeg_themed:
       target: main
       action: remove
+  show_mini_pops:
+    mini_popo:
+      target: mini
+      action: remove
+    mini_pops:
+      target: mini
+      action: play
+  show_mini_keg:
+    mini_pops:
+      target: mini
+      action: remove
+    mini_keg:
+      target: mini
+      action: play
   trojankeg_success:
     slide_trojankeg_main:
       target: main
@@ -501,9 +545,9 @@ slide_player:
     slide_trojankeg_main:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: play
+    # slide_just_background:
+    #   target: main
+    #   action: play
     slide_trojankeg_partial:
       target: main
       action: play

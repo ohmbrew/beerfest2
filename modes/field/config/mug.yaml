@@ -30,6 +30,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -40,6 +51,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -50,6 +72,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -60,6 +93,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -70,6 +114,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -80,6 +135,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -90,6 +156,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
@@ -100,6 +177,17 @@ slides:
     widgets:
       - type: image
         image: MiniText-LitShotsFillMug
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         anchor_x: middle
         anchor_y: middle
         x: middle
