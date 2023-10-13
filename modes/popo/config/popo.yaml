@@ -11,7 +11,6 @@ mode:
 counters:
   popo_release_switch:
     count_events: shot_popo_released_hit
-    enable_events: mode_popo_started
     starting_count: 0
     count_complete_value: 4
     reset_on_complete: True
@@ -26,7 +25,7 @@ sound_player:
   rnd_zj:
     zj15:
       action: play
-  counter_popo_release_switch_complete{device.switches.s_popo_captured.state == 0}:
+  logicblock_popo_release_switch_complete{device.switches.s_popo_captured.state == 0}:
     voice_oprecipe:
       action: play
 
