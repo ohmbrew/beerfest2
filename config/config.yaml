@@ -32,12 +32,6 @@ window:
   show_cursor: false
   exit_on_escape: True
 
-asdlkf;j
-PongTable 3d print
-- lever changes
-  - increase height of lever from bearing to just left of solenoid coil. we can go higher in that part of lever, it doesn't interact with anything
-  - on topside of lever, complete the wall along the screw cutout path and make it same width and distance from center of screw as its opposite side wall
-
 # TODO
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
