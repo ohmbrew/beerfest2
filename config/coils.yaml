@@ -34,7 +34,7 @@ coils:
     default_pulse_ms: 8 
   c_strike_out:
     number: A0-B1-3
-    default_pulse_ms: 20
+    default_pulse_ms: 25
   c_flipper_left:
     number: A0-B1-4
     default_pulse_ms: 25
