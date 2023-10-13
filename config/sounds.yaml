@@ -256,6 +256,14 @@ sounds:
     file: eyeofthejew1.wav
     track: voice
     volume: 1.0
+  voice_10meters:
+    file: 10meters.wav
+    track: voice
+    volume: 1.0
+  voice_20meters:
+    file: 20meters.wav
+    track: voice
+    volume: 1.0 
   voice_30meters:
     file: 30meters.wav
     track: voice
@@ -517,9 +525,9 @@ sounds:
         target: music
         delay: 0
         attack: 0.3 sec
-        attenuation: -10db
-        release_point: .5 sec
-        release: 1.5 sec
+        attenuation: -50db
+        release_point: .25 sec
+        release: .25 sec
   voice_shootthedrinkoramp:
     file: Derek-ShootTheDrinkoRamp.wav
     track: voice

@@ -38,7 +38,7 @@ event_player:
   mode_vs_alltargets_stopped{device.switches.s_kicker_mode.state == 1}:
     kicker_mode_eject
   mode_vs_alltargets_stopped{device.switches.s_kicker_rimrules.state == 1}:
-    kicker_rimrules_eject
+    kicker_rimrules_eject    
 
 timers:
   monkeychug_slide_timer:   # to change is_slide_monkeychug_active player var and fire event for paddle mode to show a paddle Bonus if one is queued
@@ -101,6 +101,12 @@ counters:
     reset_events: lf4_reset
     events_when_complete: lf4_complete
     disable_on_complete: false
+  quarters:
+    count_events: shot_quarters_hit
+    starting_count: 0
+    count_complete_value: 3
+    enable_events: mode_base_started, reset_quarters
+    reset_on_complete: True
 
 queue_relay_player:
   ball_ending:
@@ -242,7 +248,7 @@ slides:
       video: easteregg_adult
 
 slide_player:
-  shot_horseshoe_hit{mode.dasboot.active == False}:
+  shot_horseshoe_hit{mode.dasboot.active == False and mode.volumechug.active == False}:
     slide_bonus_monkeychug:
       target: main
       priority: 1500
@@ -513,7 +519,7 @@ sound_player:
   shot_ramp_upf_hit: 
     2burps:
       action: play
-  spinner_tavern_spinner_active:
+  spinner_tavern_spinner_active{mode.volumechug.active == False}:
     voice_tavern:
       action: play
   shot_take_hit_hit{mode.dasboot.active == False}:
@@ -531,7 +537,7 @@ sound_player:
   shot_special_hit{mode.dasboot.active == False}:
     unddrinken:
       action: play
-  shot_horseshoe_hit:
+  shot_horseshoe_hit{mode.volumechug.active == False}:
     voice_ohyea:
       action: play
   shot_tgt_ramp_boot_left_hit{mode.dasboot.active == False}:
@@ -543,9 +549,17 @@ sound_player:
   shot_tgt_rimrules_hit{mode.dasboot.active == False}:
     voice_eyeofjew:
       action: play
-  shot_quarters_hit{mode.dasboot.active == False}:
-    voice_30meters:
+  logicblock_quarters_updated{mode.dasboot.active == False and value==1}:
+    voice_10meters:
       action: play
+  logicblock_quarters_updated{mode.dasboot.active == False and value==2}:
+     voice_20meters:
+      action: play
+  logicblock_quarters_complete{mode.dasboot.active == False}:
+     voice_30meters:
+      action: play
+      events_when_stopped: reset_quarters
+
   # halt background music while we play easteregg
   play_easteregg:
     introrepeat:
@@ -817,15 +831,20 @@ show_player:
     bong_flow_right:
       loops: 0
       speed: 4  
+
   # game theme mode lights
   mode_longpour_stopped{current_player.has_longpour==1}: show_longpour_insert
   mode_base_started{current_player.has_longpour==1}: show_longpour_insert
+
   mode_quarters_stopped{current_player.has_quarters==1}: show_quarters_insert
   mode_base_started{current_player.has_quarters==1}: show_quarters_insert
+  
   mode_strikeout_stopped{current_player.has_strikeout==1}: show_strikeout_insert
   mode_base_started{current_player.has_strikeout==1}: show_strikeout_insert
+  
   mode_volumechug_stopped{current_player.has_volumechug==1}: show_volumechug_insert
   mode_base_started{current_player.has_volumechug==1}: show_volumechug_insert
+  
   mode_trojankeg_stopped{current_player.has_trojankeg==1}: show_trojankeg_insert
   mode_base_started{current_player.has_trojankeg==1}: show_trojankeg_insert
 
@@ -1149,7 +1168,7 @@ variable_player:
 
   # monkeychug/paddle slide arbitration. Set is_slide_monkeychug_active immediately so we prevent a paddle Bonus slide from showing first.
   # set higher priority to make sure this processes first
-  shot_horseshoe_hit:
+  shot_horseshoe_hit{mode.volumechug.active == False}:
     priority: 10000
     is_slide_monkeychug_active:
         int: 1
