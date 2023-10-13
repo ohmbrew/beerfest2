@@ -13,6 +13,7 @@ counters:
     count_events: shot_popo_released_hit
     starting_count: 0
     count_complete_value: 4
+    enable_events: mode_popo_started, reset_popo_release_switch_counter
     reset_on_complete: True
 
 sound_player:
@@ -28,6 +29,7 @@ sound_player:
   logicblock_popo_release_switch_complete{device.switches.s_popo_captured.state == 0}:
     voice_oprecipe:
       action: play
+      events_when_stopped: reset_popo_release_switch_counter
 
 event_player:
   logicblock_popo_release_switch_updated{(value==1 or value==2 or value==3) and device.switches.s_popo_captured.state == 0}: pick_hjbjzj   # play one of the 3 random HJ/BJ/ZJ sound clips as long as we don't have a ball in popo lock
