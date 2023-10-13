@@ -348,7 +348,7 @@ servos:
     number: 5
     
     # these have been visually calibrated and are good
-    servo_min: 0.35       # 1105 us, far right
+    servo_min: 0.31       # 1105 us, far right
     servo_max: 0.55       # 1480 us, far left
     positions:
       1.0: diverter_left
