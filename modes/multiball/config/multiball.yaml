@@ -538,6 +538,11 @@ show_player:
       action: stop
     light_ball2_locked:
       action: stop
+  mode_dasboot_started:
+    light_ball1_locked:
+      action: stop
+    light_ball2_locked:
+      action: stop
 
 event_player:
   mode_multiball_started:

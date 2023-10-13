@@ -779,9 +779,9 @@ show_player:
     show_chance6x_insert:
       action: stop
 
-    show_ball1_locked:
+    show_ball1_locked_insert:
       action: stop
-    show_ball2_locked:
+    show_ball2_locked_insert:
       action: stop    
 
   mode_bonusv2_stopped:
@@ -881,6 +881,15 @@ show_player:
   # Ball Lock lights
   mode_base_started{device.switches.s_pongcup1.state == 1}: show_ball1_locked_insert
   mode_base_started{device.switches.s_pongcup2.state == 1}: show_ball2_locked_insert
+
+  mode_dasboot_started:
+    show_ball1_locked_insert:
+      action: stop
+    show_ball2_locked_insert:
+      action: stop
+
+  mode_dasboot_stopped{device.switches.s_pongcup1.state == 1}: show_ball1_locked_insert
+  mode_dasboot_stopped{device.switches.s_pongcup2.state == 1}: show_ball2_locked_insert
 
   # VS lights  
   mode_base_started{current_player.has_canada}: show_canada_insert
