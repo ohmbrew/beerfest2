@@ -19,11 +19,7 @@ accelerometers:
       2: accelerometer_level1x
       5: accelerometer_level2x
 
-# define servo and min/max ranges
-pololu_maestro:
-  port: /dev/ttyACM0  # lower ttyACMX is the USB command port, higher one is for TTL serial port. We use lower.
-  servo_min: 2500
-  servo_max: 9700
+
 
 # define displays
 window:
@@ -36,14 +32,17 @@ window:
   show_cursor: false
   exit_on_escape: True
 
+asdlkf;j
+PongTable 3d print
+- lever changes
+  - increase height of lever from bearing to just left of solenoid coil. we can go higher in that part of lever, it doesn't interact with anything
+  - on topside of lever, complete the wall along the screw cutout path and make it same width and distance from center of screw as its opposite side wall
+
 # TODO
-# - FlipperFlop (3x boot ramps) video/audio has Jay's whole clip!
 # - VS video mode - add them on a bike carrying the cup!
 # - In MB, prevent VS mode from starting
 # - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that
 # - rubber behind strike out to dampen the hit from ball
-# - Topper - put string of LEDs in there to light it up like it's filling up. (progressive jackpot maybe?)
-#            count boot ramp hits and fill boot during base
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
@@ -344,7 +343,11 @@ p_roc:
       ws281x_1_first_address: 327
       ws281x_1_last_address: 1041
 
-      
+# define servo and min/max ranges
+pololu_maestro:
+  port: /dev/ttyACM0  # lower ttyACMX is the USB command port, higher one is for TTL serial port. We use lower.
+  servo_min: 2500
+  servo_max: 9700 
 
 servos:
   servo_diverter:
@@ -352,7 +355,7 @@ servos:
     
     # these have been visually calibrated and are good
     servo_min: 0.35       # 1105 us, far right
-    servo_max: 0.55       # 1480 us, far left
+    servo_max: 0.58       # 1480 us, far left
     positions:
       1.0: diverter_left
       0.0: diverter_right  
