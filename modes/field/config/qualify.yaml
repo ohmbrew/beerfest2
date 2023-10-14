@@ -34,7 +34,8 @@ slide_player:
       priority: 1000
   mode_dasboot_started:
     slide_mini_shootsaucers:
-      action: stop
+      target: mini
+      action: remove
 sound_player:
   qualified_for_mode_selection:
     voice_hitthesaucers:
