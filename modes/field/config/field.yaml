@@ -229,22 +229,28 @@ random_event_player:
       - start_mode_dasboot  # Wizard Mode!
 
 
-
-  # these are called if we have < 14 mug fills
+  # these are called if we have < 14 mug fills. Only select a VS 10% of the time
   vs_or_play_betterwhendrunk_and_eject:
+    force_all: false
+    force_different: false
     events:
-      - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
-      - play_betterwhendrunk_and_eject
+      vs_select_opponent: 25  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
+      play_betterwhendrunk_and_eject: 75
+
   vs_or_play_rimrules_and_eject:
+    force_all: false
+    force_different: false
     events:
-      - vs_select_opponent
-      - play_rimrules_and_eject
+      vs_select_opponent: 25
+      play_rimrules_and_eject: 75
   
   # Randomly chooses to select a VS or launch random game mode
   vs_or_launch_random_game_mode:
+    force_all: false
+    force_different: false
     events:
-      - vs_select_opponent
-      - launch_random_game_mode
+      vs_select_opponent: 25
+      launch_random_game_mode: 75
 
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
   # Randomly chooses to select a VS or launch a random game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
