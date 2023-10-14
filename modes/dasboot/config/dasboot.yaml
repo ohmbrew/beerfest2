@@ -89,84 +89,76 @@ slides:
       image: background
   slide_dasboot_intro:
     widgets:
-      - type: text
-        text: DAS BOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
+      - type: image
+        image: MainText-DasBoot
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle
+        scale: .1
         animations:
           show_slide:
-            - property: font_size
-              value: 200
+            - property: scale
+              value: 1
               duration: 3s
             - property: opacity
               value: 0
               duration: 3s
               timing: after_previous
-      - type: text
-        text: BOOT RAMP 50M
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
+      - type: image
+        image: MainText-AllTargets10M
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle
         opacity: 0
+        scale: .1
         animations:
           dasboot_intro_slide_text1:
             - property: opacity
               value: 1
-            - property: font_size
-              value: 200
+            - property: scale
+              value: 1
               timing: after_previous
               duration: 3s
             - property: opacity
               value: 0
               duration: 3s
               timing: after_previous
-      - type: text
-        text: ALL TARGETS 10M
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
+      - type: image
+        image: MainText-BootRamp50M
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle
         opacity: 0
+        scale: .1
         animations:
           dasboot_intro_slide_text2:
             - property: opacity
               value: 1
-            - property: font_size
-              value: 200
+            - property: scale
+              value: 1
               timing: after_previous
               duration: 3s
             - property: opacity
               value: 0
               duration: 3s
               timing: after_previous
-      - type: text
-        text: ALL BONUSES 5X
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
+      - type: image
+        image: MainText-AllBonuses5X
         anchor_x: middle
         anchor_y: middle
         x: middle
         y: middle
         opacity: 0
+        scale: .1
         animations:
           dasboot_intro_slide_text3:
             - property: opacity
               value: 1
-            - property: font_size
-              value: 150
+            - property: scale
+              value: 1
               timing: after_previous
               duration: 3s
             - property: opacity
@@ -561,26 +553,14 @@ slides:
       image: background
   slide_mug_dasboot:
     widgets:
-      - type: text
-        text: ALL TARGETS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle + 50
-      - type: text
-        text: MEGA POINTS
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle - 50
       - type: image
-        image: minibg  
+        image: MiniText-DasBoot
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle + 25
+      - type: image
+        image: beermug7 
 slide_player:
   mode_dasboot_started:
     slide_dasboot_intro:

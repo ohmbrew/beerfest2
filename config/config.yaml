@@ -26,17 +26,19 @@ window:
   width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
-  resizable: false
-  borderless: true
+  resizable: true
+  borderless: false
   no_window: false
   show_cursor: false
   exit_on_escape: True
 
 # TODO
-# - Figure out how to get spinner to only register once like every 10 spins in 1 sec...timers and shit
-# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE and play "BEERFEST!" when some objective is hit in theme modes (all game theme modes except dasboot)
+# - If 2 balls are locked in pong table and Trojan Keg is started...there's a problem. Locking Popo is supposed to stay there and eject ball. but none left.
+#     - Just tested it and it popped out from Popo! Then weird things started happening tho... lol
+#   Solution: In Trojan Keg round, when shot_popo_captured is hit, treat it different if 2 balls locked in pong table - eject right away instead of locking it.
+
 # - Exploding slingshot show from quarters sling!@!!@
-# - make das boot intro graphics instead of text. with border
+
 # - Also enable Das Boot mode (for fewer pts?) for completing all six countries (well, 5 excluding USA)
 
 # - TODO: something weird happens to strikout bank. Just played at they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.
