@@ -56,6 +56,12 @@ sound_player:
   timer_round_timer_longpour_tick{ticks == 5}:
     voice_hurryup:
       action: play
+  shot_diverter_hit:
+    voice_beerfest:
+      action: play
+  shot_ramp_upf_hit:
+    voice_beerfest:
+      action: play
 
 slides:
   slide_longpour_intro:
@@ -555,7 +561,24 @@ shows:
         arrow_upf1: off
         arrow_upf2: off
         arrow_upf3: blue
-  
+  flash_all_blue_longpour:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
+
 show_player:
   mode_longpour_started:
     init_lights_themed:
@@ -588,6 +611,18 @@ show_player:
       action: stop
     flash_gi_themed:
       action: stop
+
+  # hits that we want to flash everything blue:
+  shot_diverter_hit:
+    flash_all_blue_longpour:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_ramp_upf_hit:
+    flash_all_blue_longpour:
+      priority: 5000
+      loops: 0
+      action: play
 
 # timed round
 timers:

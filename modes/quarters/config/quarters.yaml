@@ -55,6 +55,9 @@ sound_player:
   timer_round_timer_quarters_tick{ticks == 5}:
     voice_hurryup:
       action: play
+  shot_quarters_hit:
+    voice_beerfest:
+      action: play
 
 slides:
   slide_quarters_intro:
@@ -437,6 +440,23 @@ shows:
       lights:
         quarters4: off
         quarters5: white      
+  flash_all_blue_quarters:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
 
 show_player:
   mode_quarters_started:
@@ -471,6 +491,13 @@ show_player:
     flash_gi_themed:
       action: stop
 
+  # hits that we want to flash everything blue:
+  shot_quarters_hit:
+    flash_all_blue_quarters:
+      priority: 5000
+      loops: 0
+      action: play
+     
 # timed round
 timers:
   round_timer_quarters:

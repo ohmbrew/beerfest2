@@ -55,6 +55,9 @@ sound_player:
   timer_round_timer_strikeout_tick{ticks == 5}:
     voice_hurryup:
       action: play
+  bank_strikeout_complete:
+    voice_beerfest:
+      action: play
 
 slides:
   slide_strikeout_intro:
@@ -486,6 +489,24 @@ shows:
       lights:
         (led): green
 
+  flash_all_blue_strikeout:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
+
 show_player:
   mode_strikeout_started:
     init_lights_themed:
@@ -519,6 +540,13 @@ show_player:
     flash_gi_themed:
       action: stop
   
+  # hits that we want to flash everything blue:
+  bank_strikeout_complete:
+    flash_all_blue_strikeout:
+      priority: 5000
+      loops: 0
+      action: play
+
 # timed round
 timers:
   round_timer_strikeout:

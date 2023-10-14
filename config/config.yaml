@@ -33,9 +33,8 @@ window:
   exit_on_escape: True
 
 # TODO
-
-# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE when any shot that yells out "BEERFEST!" is hit in DAS BOOT mode
-# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE when some objective is hit in theme modes (e.g. quarters glass hit when gotten...)
+# - Figure out how to get spinner to only register once like every 10 spins in 1 sec...timers and shit
+# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE and play "BEERFEST!" when some objective is hit in theme modes (trojan keg, volume chug)
 # - Exploding slingshot show from quarters sling!@!!@
 # - make das boot intro graphics instead of text. with border
 # - Also enable Das Boot mode (for fewer pts?) for completing all six countries (well, 5 excluding USA)

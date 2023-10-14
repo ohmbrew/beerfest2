@@ -54,7 +54,7 @@ timers:
   flipperflop_activated:
     start_value: 1
     end_value: 0
-    tick_interval: 15s
+    tick_interval: 20s
     direction: down
     control_events:
       - action: restart
@@ -80,7 +80,7 @@ counters:
   track_flipperflop:    # track if we've hit 3 boot shots in 15 seconds #TODO make this any ramp 3x!
     enable_events: mode_base_started
     disable_events: mode_flipperflop_stopped
-    count_events: shot_diverter_hit, shot_tavern_hit, shot_ramp_upf_hit   # ANY ramp does this now, for time in flipperflop_activated seconds
+    count_events: shot_diverter_hit, shot_ramp_upf_hit   # ANY ramp does this now, for time in flipperflop_activated seconds
     count_complete_value: 3
     reset_events: timer_flipperflop_activated_complete
     events_when_complete: start_mode_flipperflop
@@ -576,13 +576,13 @@ sound_player:
   shot_tgt_rimrules_hit{mode.dasboot.active == False}:
     voice_eyeofjew:
       action: play
-  logicblock_quarters_updated{mode.dasboot.active == False and value==1}:
+  logicblock_quarters_updated{mode.dasboot.active == False and mode.quarters.active == False and value==1}:
     voice_10meters:
       action: play
-  logicblock_quarters_updated{mode.dasboot.active == False and value==2}:
+  logicblock_quarters_updated{mode.dasboot.active == False and mode.quarters.active == False and value==2}:
      voice_20meters:
       action: play
-  logicblock_quarters_complete{mode.dasboot.active == False}:
+  logicblock_quarters_complete{mode.dasboot.active == False and mode.quarters.active == False}:
      voice_30meters:
       action: play
       events_when_stopped: reset_quarters
@@ -635,7 +635,7 @@ sound_player:
   shot_pop_upper_left_hit:
     sfx_cancrush:
       action: play
-  bank_strikeout_complete:
+  bank_strikeout_complete{mode.strikeout.active == False}:  # cuz we play BEERFAST in that mode
     strikeoutcomplete:
       action: play
 
