@@ -55,6 +55,8 @@ shots:
     switch: s_upf_tgt_left
   shot_upf_tgt_right:
     switch: s_upf_tgt_right
+  shot_upf_entry:
+    switch: s_upf_entry
   shot_horseshoe:
     switch: s_horseshoe
   shot_slingquarters:

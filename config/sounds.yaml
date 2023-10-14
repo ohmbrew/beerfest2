@@ -470,8 +470,8 @@ sounds:
         delay: 0
         attack: 0.3 sec
         attenuation: -10db
-        release_point: .5 sec
-        release: 1.5 sec
+        release_point: .25s
+        release: .25s
   voice_hitthesaucers_multiball:
     file: Jay-HitTheSaucersForMultiball.wav
     track: voice
@@ -522,11 +522,11 @@ sounds:
         target: music
         delay: 0
         attack: 0.3 sec
-        attenuation: -50db
+        attenuation: -10db
         release_point: .25 sec
         release: .25 sec
-  voice_shootthedrinkoramp:
-    file: Derek-ShootTheDrinkoRamp.wav
+  voice_hithorseshoe:
+    file: HitHorseshoe.wav
     track: voice
     volume: 1.0
     ducking:
@@ -534,8 +534,8 @@ sounds:
         delay: 0
         attack: 0.3 sec
         attenuation: -10db
-        release_point: .5 sec
-        release: 1.5 sec
+        release_point: .25 sec
+        release: .25 sec
   voice_spelledmunich:
     file: Derek-MunichBonus.wav
     track: voice

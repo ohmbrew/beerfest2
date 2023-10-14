@@ -484,6 +484,28 @@ shows:
     - duration: .5s
       events: disable_knocker
   
+  show_shoot_horseshoe:
+    - duration: 1
+      lights:
+        arrow_horseshoe1: green
+        arrow_horseshoe2: off
+        arrow_horseshoe3: off
+    - duration: 1
+      lights:
+        arrow_horseshoe2: green
+    - duration: 1
+      lights:
+        arrow_horseshoe3: green
+    - duration: 1
+      lights:
+        arrow_horseshoe1: off
+    - duration: 1
+      lights:
+        arrow_horseshoe2: off
+    - duration: 1
+      lights:
+        arrow_horseshoe3: off
+
   # theme mode shows
   init_lights_themed:
     - time: 0
@@ -520,6 +542,9 @@ sound_player:
       action: play  
   shot_ramp_upf_hit: 
     2burps:
+      action: play
+  shot_upf_entry_hit:
+    voice_hithorseshoe:
       action: play
   spinner_tavern_spinner_active{mode.volumechug.active == False}:
     voice_tavern:
@@ -950,6 +975,11 @@ show_player:
         light: ball_save
         on_color: off
         off_color: off
+  shot_upf_entry_hit:
+    show_shoot_horseshoe:
+      loops: 2
+      speed: 8
+      priority: 2000
 
 ball_saves:
   # starts when playfield_active for player new ball
@@ -1163,16 +1193,6 @@ variable_player:
     bonus_numramps: 1         # bonus tracker (ramps)
 
   # Trojan Keg
-  shot_hj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
-    score: current_player.pts_hj
-    bonus_numhjs: 1       # bonus tracker (HJs)
-  shot_bj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
-    score: current_player.pts_bj
-    bonus_numbjs: 1       # bonus tracker (BJs)
-  shot_zj_hit{mode.dasboot.active == False and mode.trojankeg.active == False}:
-    score: current_player.pts_zj
-    bonus_numzjs: 1       # bonus tracker (ZJs)
-
   shot_tgt_ramp_boot_hit{mode.dasboot.active == False}:
     score: current_player.pts_tgt_ramp_boot
   shot_tgt_rimrules_hit{mode.dasboot.active == False}:

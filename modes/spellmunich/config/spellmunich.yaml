@@ -9,7 +9,7 @@ mode:
 counters:
   track_spellmunich:    # track how many times shot_tgt_ramp_boot and shot_tgt_rimrules are hit. Each hit goes toward spelling munich
     enable_events: mode_spellmunich_started
-    count_events: shot_tgt_ramp_boot__left_hit, shot_tgt_rimrules_hit
+    count_events: shot_tgt_ramp_boot_left_hit, shot_tgt_ramp_boot_right_hit, shot_tgt_rimrules_hit
     count_complete_value: 6
     events_when_hit: fill_munich_X
     events_when_complete: spelled_munich
