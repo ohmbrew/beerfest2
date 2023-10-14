@@ -63,7 +63,7 @@ shots:
   shot_sling_left: 1
   shot_sling_quarters: 26
   shot_slingleft: 465
-  shot_slingquarters: 145
+  shot_slingquarters: 163
   shot_slingright: 77
   shot_special: 114
   shot_strikeout_chugbeer: 28
@@ -142,7 +142,7 @@ switches:
   s_ramp_upf_exit: 0
   s_right_flipper: 183
   s_slingshot_left: 1391
-  s_slingshot_quarters: 388
+  s_slingshot_quarters: 406
   s_slingshot_right: 1110
   s_special: 116
   s_start: 478

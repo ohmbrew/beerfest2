@@ -1,0 +1,360 @@
+#show_version=5
+- time: 0
+  lights:
+    2x: 'FFFDFD'
+    3x: 'FFFDFD'
+    quarters4: '3E3D3D'
+    
+- time: '+1'
+  lights:
+    quarters2: 'FFFDFD'
+    quarters3: 'FFFDFD'
+    quarters4: '000000'
+    
+- time: '+1'
+  lights:
+    4x: 'FFFDFD'
+    germany_left: '020202'
+    quarters1: 'FFFDFD'
+    quarters3: 'F9F7F7'
+    
+- time: '+1'
+  lights:
+    2x: 'FDFBFB'
+    5x: 'FFFDFD'
+    germany_left: '040404'
+    germany_right: 'FEFCFC'
+    quarters3: '111111'
+    
+- time: '+1'
+  lights:
+    2x: 'FFFDFD'
+    germany_left: '000000'
+    germany_right: 'FFFDFD'
+    quarters3: '000000'
+    
+- time: '+1'
+  lights:
+    germany_right: 'F5F3F3'
+    mode_volumechug: 'FFFDFD'
+    usa_left: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    3x: 'FDFBFB'
+    germany_right: '121212'
+    mode_dasboot: 'FFFDFD'
+    mode_quarters: 'FFFDFD'
+    tobago_left: 'FFFDFD'
+    usa_right: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    2x: 'FAF8F8'
+    3x: 'D9D8D8'
+    ball1_locked: 'FFFDFD'
+    ball2_locked: 'FFFDFD'
+    germany_right: '000000'
+    mode_strikeout: 'FCFAFA'
+    mode_trojankeg: 'FFFDFD'
+    tobago_right: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    2x: 'FEFCFC'
+    3x: 'C9C7C7'
+    mode_strikeout: 'FFFDFD'
+    strikeout_bong: 'FFFDFD'
+    tobago_left: 'FBF9F9'
+    
+- time: '+1'
+  lights:
+    2x: 'FFFDFD'
+    3x: 'F6F4F4'
+    arrow_house1: 'FFFDFD'
+    arrow_house2: 'FFFDFD'
+    arrow_house3: 'FFFDFD'
+    tobago_left: '0A0A0A'
+    
+- time: '+1'
+  lights:
+    3x: 'F7F5F5'
+    strikeout_beer: 'FFFDFD'
+    tobago_left: '000000'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    lock: 'FFFDFD'
+    strikeout_shot: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    arrow_mode1: '424242'
+    arrow_upf1: 'FFFDFD'
+    arrow_upf2: 'FFFDFD'
+    startevent_mode: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    arrow_mode1: 'FFFDFD'
+    arrow_mode2: 'FFFDFD'
+    arrow_upf3: 'FFFDFD'
+    special: '6A6969'
+    
+- time: '+1'
+  lights:
+    3x: 'FEFCFC'
+    arrow_mode3: 'FFFDFD'
+    chance: 'FFFDFD'
+    special: 'FFFDFD'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    mode_quarters: 'F5F3F3'
+    tobago_right: 'FDFBFB'
+    
+- time: '+1'
+  lights:
+    3x: 'D9D7D7'
+    mode_quarters: 'D7D6D6'
+    tobago_right: 'F0EEEE'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    mode_quarters: '787777'
+    tobago_right: '939191'
+    
+- time: '+1'
+  lights:
+    3x: 'F2F0F0'
+    mode_quarters: 'DEDCDC'
+    tobago_right: '949393'
+    
+- time: '+1'
+  lights:
+    3x: 'FDFBFB'
+    mode_quarters: 'D0CECE'
+    tobago_right: '2F2E2E'
+    
+- time: '+1'
+  lights:
+    mode_quarters: '868585'
+    tobago_right: '070707'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    mode_quarters: 'C6C4C4'
+    tobago_right: '161616'
+    
+- time: '+1'
+  lights:
+    mode_quarters: 'E5E3E3'
+    tobago_right: '000000'
+    
+- time: '+1'
+  lights:
+    3x: 'F5F3F3'
+    mode_quarters: '484848'
+    tobago_right: '0C0C0C'
+    
+- time: '+1'
+  lights:
+    3x: 'EDEBEB'
+    mode_quarters: '1A1A1A'
+    tobago_right: '0F0F0F'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    mode_quarters: '505050'
+    tobago_right: '0D0C0C'
+    
+- time: '+1'
+  lights:
+    3x: 'FDFBFB'
+    mode_quarters: '939191'
+    tobago_right: '101010'
+    
+- time: '+1'
+  lights:
+    3x: 'EFEDED'
+    mode_quarters: 'A2A0A0'
+    tobago_right: '161515'
+    
+- time: '+1'
+  lights:
+    3x: 'EDEBEB'
+    mode_quarters: 'A6A4A4'
+    tobago_right: '111111'
+    
+- time: '+1'
+  lights:
+    3x: 'F5F3F3'
+    mode_quarters: '9E9D9D'
+    tobago_right: '000000'
+    
+- time: '+1'
+  lights:
+    3x: 'FFFDFD'
+    mode_quarters: '565656'
+    
+- time: '+1'
+  lights:
+    2x: '414141'
+    3x: '000000'
+    4x: 'CAC9C9'
+    mode_quarters: '000000'
+    quarters1: 'F7F5F5'
+    quarters2: 'FDFBFB'
+    usa_left: 'FDFBFB'
+    
+- time: '+1'
+  lights:
+    2x: '000000'
+    4x: '000000'
+    mode_strikeout: 'CDCBCB'
+    quarters1: '2A2A2A'
+    quarters2: '7B7A7A'
+    usa_left: '343434'
+    
+- time: '+1'
+  lights:
+    5x: 'E6E4E4'
+    mode_strikeout: '000000'
+    mode_volumechug: 'F1EFEF'
+    quarters1: '000000'
+    quarters2: '000000'
+    usa_left: '000000'
+    usa_right: 'EFEDED'
+    
+- time: '+1'
+  lights:
+    5x: '000000'
+    mode_volumechug: '000000'
+    usa_right: '100F0F'
+    
+- time: '+1'
+  lights:
+    usa_right: '000000'
+    
+- time: '+1'
+  lights:
+    mode_trojankeg: '000000'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    
+- time: '+1'
+  lights:
+    mode_dasboot: '000000'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    
+- time: '+1'
+  lights:
+    ball2_locked: '070707'
+    
+- time: '+1'
+  lights:
+    ball2_locked: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_house1: '151515'
+    
+- time: '+1'
+  lights:
+    arrow_house1: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_house2: 'DEDCDC'
+    special: '121212'
+    
+- time: '+1'
+  lights:
+    arrow_house2: '000000'
+    ball1_locked: '9D9B9B'
+    special: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_house3: 'E2E1E1'
+    ball1_locked: '000000'
+    startevent_mode: '373737'
+    strikeout_bong: 'FDFBFB'
+    
+- time: '+1'
+  lights:
+    arrow_house3: '000000'
+    startevent_mode: '000000'
+    strikeout_bong: '000000'
+    
+- time: '+1'
+  lights:
+    chance: '242424'
+    
+- time: '+1'
+  lights:
+    arrow_mode1: '000000'
+    chance: '000000'
+    
+- time: '+1'
+  lights:
+    strikeout_beer: '4F4F4F'
+    
+- time: '+1'
+  lights:
+    arrow_mode2: 'BAB8B8'
+    lock: '000000'
+    strikeout_beer: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_mode2: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_upf1: 'D3D1D1'
+    
+- time: '+1'
+  lights:
+    arrow_mode3: '000000'
+    arrow_upf1: '000000'
+    strikeout_shot: '000000'
+    
+- time: '+1'
+  lights:
+    arrow_upf2: 'F6F5F5'
+    
+- time: '+1'
+  lights:
+    arrow_upf2: '000000'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    
+- time: '+1'
+  lights:
+    arrow_upf3: '000000'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    
+#No change this frame - take another step
+#  lights:
+- time: '+1'
+    

@@ -826,8 +826,8 @@ show_player:
     show_pop_right:
       loops: 0
   shot_slingquarters_hit:
-    show_slingquarters_hit:
-      speed: 4
+    sling_explode:
+      speed: 40
       loops: 0
   shot_slingleft_hit:
     show_slingleft_hit:
