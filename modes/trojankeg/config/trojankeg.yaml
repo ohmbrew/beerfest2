@@ -47,10 +47,10 @@ state_machines:
           speed: 4
           loops: -1
           priority: 1000
-        events_when_started: show_mini_pops
+        events_when_started: show_mini_pops, play_objective_audio
       wait_for_keg:
         label: Waiting for keg hit
-        events_when_started: play_hitthekeg, show_mini_keg
+        events_when_started: show_mini_keg, play_objective_audio_with_shoot_keg_after
         show_when_active:
           show: flash_trojankeg_wait_keg
           speed: 4
@@ -150,9 +150,21 @@ sound_player:
     voice_trojankeg_megabonus:
       action: play
       events_when_stopped: trojankeg_bonus_audio_complete
+
+   # shots we want BEERFEST! and All Blue light show to play
+  play_objective_audio:
+    voice_beerfest:
+      action: play
+
+  play_objective_audio_with_shoot_keg_after:
+    voice_beerfest:
+      action: play
+      events_when_stopped: play_hitthekeg
+
   play_hitthekeg:
     voice_hitthekeg:
       action: play
+
 
 slides:
   slide_trojankeg_intro:
@@ -666,6 +678,23 @@ shows:
       lights:
         arrow_mode3: off
   
+  flash_all_blue_trojankeg:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
 
 show_player:
   mode_trojankeg_started:
@@ -715,6 +744,18 @@ show_player:
     flash_trojankeg_insert:
       action: stop
 
+  # hits that we want to flash everything blue:
+  play_objective_audio:
+    flash_all_blue_trojankeg:
+      priority: 5000
+      loops: 0
+      action: play
+
+  play_objective_audio_with_shoot_keg_after:
+    flash_all_blue_trojankeg:
+      priority: 5000
+      loops: 0
+      action: play
 
 variable_player:
   mode_trojankeg_started:    # init whether we completed this current bonus

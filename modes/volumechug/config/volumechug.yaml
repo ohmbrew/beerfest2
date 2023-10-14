@@ -34,14 +34,14 @@ state_machines:
           show: flash_volumechug_wait_ramp_boot
           speed: 4
           loops: -1
-        events_when_started: play_shoottheboot, show_mini_boot
+        events_when_started: show_mini_boot, play_objective_audio_shootthebootafter
       wait_for_horseshoe:
         label: Waiting for Horseshoe
         show_when_active:
           show: flash_volumechug_wait_horseshoe
           speed: 4
           loops: -1
-        events_when_started: show_mini_horseshoe
+        events_when_started: show_mini_horseshoe, play_objective_audio
       volumechug_completed:
         label: Volume Chug Completed
         events_when_started: volumechug_success
@@ -145,6 +145,17 @@ sound_player:
   play_shoottheboot:
     voice_shoottheboot:
       action: play
+
+  # shots we want BEERFEST! to play
+  play_objective_audio:
+    voice_beerfest:
+      action: play
+
+  play_objective_audio_shootthebootafter:
+    voice_beerfest:
+      action: play
+      events_when_stopped: play_shoottheboot
+
 
 slides:
   slide_volumechug_intro:
@@ -728,6 +739,23 @@ shows:
     - duration: 1
       lights:
         arrow_boot3: off    
+  flash_all_blue_volumechug:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
 
 show_player:
   mode_volumechug_started:
@@ -775,6 +803,19 @@ show_player:
       action: stop
     flash_volumechug_insert:
       action: stop
+
+  # hits that we want to flash everything blue:
+  play_objective_audio:
+    flash_all_blue_volumechug:
+      priority: 5000
+      loops: 0
+      action: play
+
+  play_objective_audio_shootthebootafter:
+    flash_all_blue_volumechug:
+      priority: 5000
+      loops: 0
+      action: play
 
 # timed round
 # timers:

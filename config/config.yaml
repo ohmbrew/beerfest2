@@ -34,11 +34,12 @@ window:
 
 # TODO
 # - Figure out how to get spinner to only register once like every 10 spins in 1 sec...timers and shit
-# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE and play "BEERFEST!" when some objective is hit in theme modes (trojan keg, volume chug)
+# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE and play "BEERFEST!" when some objective is hit in theme modes (all game theme modes except dasboot)
 # - Exploding slingshot show from quarters sling!@!!@
 # - make das boot intro graphics instead of text. with border
 # - Also enable Das Boot mode (for fewer pts?) for completing all six countries (well, 5 excluding USA)
 
+# - TODO: something weird happens to strikout bank. Just played at they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.
 # - rubber behind strike out to dampen the hit from ball
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
