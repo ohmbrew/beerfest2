@@ -33,9 +33,6 @@ window:
   exit_on_escape: True
 
 # TODO
-# - If 2 balls are locked in pong table and Trojan Keg is started...there's a problem. Locking Popo is supposed to stay there and eject ball. but none left.
-#     - Just tested it and it popped out from Popo! Then weird things started happening tho... lol
-#   Solution: In Trojan Keg round, when shot_popo_captured is hit, treat it different if 2 balls locked in pong table - eject right away instead of locking it.
 
 # - Exploding slingshot show from quarters sling!@!!@
 

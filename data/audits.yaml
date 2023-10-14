@@ -33,7 +33,7 @@ shots:
   shot_do_shot: 280
   shot_hj: 145
   shot_horseshoe: 590
-  shot_kicker_mode: 1791
+  shot_kicker_mode: 1795
   shot_kicker_rimrules: 139
   shot_laneleft_inner: 60
   shot_laneleft_outer: 10
@@ -46,13 +46,13 @@ shots:
   shot_paddle_e: 364
   shot_paddle_l: 366
   shot_paddle_p: 393
-  shot_plunger_lane_exit: 1937
-  shot_pongcup1: 254
-  shot_pongcup2: 97
-  shot_pop_lower: 1626
-  shot_pop_upper_left: 7452
-  shot_pop_upper_right: 586
-  shot_popo_captured: 61
+  shot_plunger_lane_exit: 1941
+  shot_pongcup1: 255
+  shot_pongcup2: 98
+  shot_pop_lower: 1627
+  shot_pop_upper_left: 7453
+  shot_pop_upper_right: 587
+  shot_popo_captured: 62
   shot_popo_release: 23
   shot_popo_released: 59
   shot_quarters: 3702
@@ -74,7 +74,7 @@ shots:
   shot_tavern_spinner: 1581
   shot_tgt_ramp_boot: 118
   shot_tgt_ramp_boot_left: 11
-  shot_tgt_ramp_boot_right: 242
+  shot_tgt_ramp_boot_right: 275
   shot_tgt_rimrules: 23
   shot_trojankeg_bj: 55
   shot_trojankeg_hj: 59
@@ -102,7 +102,7 @@ switches:
   s_flipper_right: 2812
   s_hj: 146
   s_horseshoe: 857
-  s_kicker_mode: 2391
+  s_kicker_mode: 2395
   s_kicker_rimrules: 628
   s_laneleft_inner: 81
   s_laneleft_outer: 20
@@ -123,18 +123,18 @@ switches:
   s_paddle_e: 502
   s_paddle_l: 385
   s_paddle_p: 251
-  s_plunger_lane: 3385
-  s_plunger_lane_exit: 2127
-  s_pongcup1: 255
-  s_pongcup2: 97
+  s_plunger_lane: 3390
+  s_plunger_lane_exit: 2131
+  s_pongcup1: 256
+  s_pongcup2: 98
   s_pongtable_exit: 40
   s_pongtable_front_left: 95
   s_pongtable_front_right: 87
-  s_pop_lower: 2164
+  s_pop_lower: 2165
   s_pop_upper: 141
-  s_pop_upper_left: 7512
-  s_pop_upper_right: 650
-  s_popo_captured: 63
+  s_pop_upper_left: 7513
+  s_pop_upper_right: 651
+  s_popo_captured: 64
   s_popo_release: 82
   s_quarters: 3740
   s_ramp_upf: 51
@@ -153,7 +153,7 @@ switches:
   s_tgt_popo: 6
   s_tgt_ramp_boot: 162
   s_tgt_ramp_boot_left: 11
-  s_tgt_ramp_boot_right: 242
+  s_tgt_ramp_boot_right: 275
   s_trogan_keg: 22
   s_trojankeg_left: 2176
   s_trojankeg_middle: 198
@@ -161,7 +161,7 @@ switches:
   s_trough1: 394
   s_trough2: 376
   s_trough3: 583
-  s_trough_eject: 2666
+  s_trough_eject: 2671
   s_upf_entry: 9
   s_upf_tgt_left: 197
   s_upf_tgt_right: 215

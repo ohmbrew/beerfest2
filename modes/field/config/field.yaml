@@ -61,9 +61,23 @@ sound_player:
 
 # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
 event_player:
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14)}: launch_random_game_mode
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: launch_random_game_mode
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: launch_random_game_mode    # only Das Boot is left!
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg!
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: launch_random_game_mode_without_trojankeg   # we can start Trojan Keg
+  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: launch_random_game_mode   # we can start any of the bottom row
+
   shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_betterwhendrunk_and_eject
-  shot_kicker_rimrules_hit{device.counters.count_mug_lights.value >= 14}: launch_random_game_mode
+
+  # shot_kicker_rimrules_hit{(device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: launch_random_game_mode
+  # shot_kicker_rimrules_hit{(device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone")}: launch_random_game_mode_without_trojankeg
+    
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: launch_random_game_mode
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: launch_random_game_mode    # only Das Boot is left!
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg!
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: launch_random_game_mode_without_trojankeg   # we can start Trojan Keg
+  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: launch_random_game_mode   # we can start any of the bottom row
+
   shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_rimrules_and_eject
 
   # selects either Battle or Video mode after opponent is chosen. Make sure MB is not primed (PongTable - 2 locked balls already) or running (PongTable and Popo)
@@ -85,15 +99,24 @@ event_player:
   timer_start_vs_delay_complete: (current_player.selected_vs)
   
 random_event_player:
+
   launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
     events:
       - start_mode_longpour
       - start_mode_quarters
       - start_mode_strikeout
+  launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
+      - start_mode_longpour
+      - start_mode_quarters
+      - start_mode_strikeout
+
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
     events:
-      #- start_mode_volumechug
+      - start_mode_volumechug
       - start_mode_trojankeg
+  launch_random_game_mode_without_trojankeg{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
+    events:
+      - start_mode_volumechug
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
     events:
       - start_mode_dasboot  # Wizard Mode!
