@@ -28,7 +28,9 @@
 mode:
   start_events: start_mode_vs_breakout
   stop_events: game_ended, stop_mode_vs_breakout, start_mode_bonusv2
-
+  events_when_started: mode_type_mission_started
+  events_when_stopped: mode_type_mission_stopped
+  
 counters:
   ball_count:   # keep track of which ball we're on
     enable_events: mode_vs_breakout_started

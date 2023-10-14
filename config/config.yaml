@@ -34,15 +34,14 @@ window:
 
 # TODO
 
-# - Exploding slingshot show from quarters sling!@!!@
 
-# - Also enable Das Boot mode (for fewer pts?) for completing all six countries (well, 5 excluding USA)
 
-# - TODO: something weird happens to strikout bank. Just played at they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.
+# Long Term Tasks
+# - TODO: something weird happens to strikout bank. Just played and they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.
+#   - potential fix: I added a max_reset_attempts to drop bank definition. We'll see whenever it gets stuck next time if it tries to reset it again. MPF v .55 must not have that feature yet...
 # - rubber behind strike out to dampen the hit from ball
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
-# - Add warning flashes to mode/rimrules arrows to warn player ball is exiting. And a sped up sound effect?
 # - Ramps build combos, award more points for shots after multiplier increases. Use chance lights maybe?
 
 displays:

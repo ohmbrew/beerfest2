@@ -110,7 +110,7 @@ switches:
   s_start:        
     number: A2-B0-6
     tags: start
-  s_adult:                # TODO: Verify
+  s_adult:                
     number: A2-B0-7
 
   # Bank B (J6) (A2-B1)
