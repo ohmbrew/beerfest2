@@ -34,7 +34,7 @@ mode:
   stop_events: game_ended, stop_mode_vs_alltargets, start_mode_bonusv2
   events_when_started: mode_type_mission_started
   events_when_stopped: mode_type_mission_stopped
-  
+
 timers:
   opponent_health_update:   # ensure that health meter gets update *after* we update opponent health player variable
     start_value: 1
@@ -179,6 +179,7 @@ sound_player:
     rimrules:
       action: play
       events_when_stopped: kicker_rimrules_eject
+      
   play_betterwhendrunk_and_eject:
     betterwhendrunk:
       action: play

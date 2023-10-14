@@ -153,11 +153,11 @@ event_player:
   move_ball: check_result   # putting this in here to cause a delay so that the win/loss result (updates graphics and variable_player) computes before displaying win/loss (X and splash)
 
   # ball is 40x40 (anchorx center, anchory center), cup is 80x80 (anchorx center, anchory bottom)
-  check_result{current_player.ball_y < 290 and current_player.ball_x > current_player.cup_x - 80 and current_player.ball_x < current_player.cup_x + 80}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 290 and current_player.ball_x > (current_player.cup_x - 75) and current_player.ball_x < (current_player.cup_x + 75)}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_win:
       cup_x: {value: current_player.cup_x}
       type: int
-  check_result{current_player.ball_y < 290 and ((current_player.ball_x < current_player.cup_x - 80) or (current_player.ball_x > current_player.cup_x + 80))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
+  check_result{current_player.ball_y < 290 and ((current_player.ball_x < (current_player.cup_x - 75)) or (current_player.ball_x > (current_player.cup_x + 75)))}: # ball_y (middle) is at the top of cup. check if we are within bounds of cup
     ball_result_lose:
       ball_x: {value: current_player.ball_x}
       type: int
@@ -499,6 +499,23 @@ slides:
             timing: with_previous
             duration: .1s
     - type: image
+      image: MainText-HoldFlippers
+      anchor_x: middle
+      anchor_y: top
+      x: middle
+      y: top
+      animations:
+        show_slide:
+          - property: opacity
+            value: 1
+            duration: 1s
+            easing: in_out_quint
+          - property: opacity
+            value: 0
+            duration: 1s
+            repeat: true
+            easing: in_out_quint 
+    - type: image
       image: splash1
       anchor_x: middle
       anchor_y: bottom
@@ -526,6 +543,7 @@ slides:
             value: 0
             duration: .25s
             timing: after_previous
+    
     - type: image
       image: splash2
       anchor_x: middle

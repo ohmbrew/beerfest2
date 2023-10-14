@@ -33,8 +33,10 @@ window:
   exit_on_escape: True
 
 # TODO
-
-
+# make it so that if player misses say a row 1 game theme (quarters, etc), but say has 1 as well (e.g. strikeout), then only select from those remaining that haven't been "won"
+# Add House Party light show to Strikeout
+# Add "Hit Horseshoe" audio to Volume Chug after boot ramp is made
+# Add "Hit Pops" audio to Trojan Keg
 
 # Long Term Tasks
 # - TODO: something weird happens to strikout bank. Just played and they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.

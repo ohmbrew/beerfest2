@@ -61,24 +61,29 @@ sound_player:
 
 # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
 event_player:
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: vs_or_launch_random_game_mode
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: vs_or_launch_random_game_mode    # only Das Boot is left!
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg!
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode_without_trojankeg   # we can start Trojan Keg
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode   # we can start any of the bottom row
+  # these events would be called if mode/rimrules saucers are hit and we DO HAVE our mug filled. If player is in VS, the action that is taken MUST BE HANDLED BY THAT MODE
+  # Commenting this out cuz we actually don't care if 2 balls are locked in Pong Table. We are starting multiball after!
+  # shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: vs_or_launch_random_game_mode   # no worry of not being able to lock a ball for chosen
+  # shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: vs_or_launch_random_game_mode    # only Das Boot is left!
+  # shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg with 2 balls in Pong Table
+  # shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode_without_trojankeg   # we can start Volume Chug so randomly do that
+  # shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode   # we can start any of the bottom row with 2 balls in Pong Table
 
+  # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: vs_or_launch_random_game_mode   # no worry of not being able to lock a ball for chosen
+  # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: vs_or_launch_random_game_mode    # only Das Boot is left!
+  # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg with 2 balls in Pong Table
+  # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode_without_trojankeg   # we can start Volume Chug so randomly do that
+  # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode   # we can start any of the bottom row with 2 balls in Pong Table
+
+
+  # these events would be called if mode/rimrules saucers are hit and we DO have our mug filled
+  shot_kicker_mode_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14}: vs_or_launch_random_game_mode   # don't care if 2 balls are locked in Pong Table - player is getting multiball after this!
+  shot_kicker_rimrules_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14}: vs_or_launch_random_game_mode   # don't care if 2 balls are locked in Pong Table - player is getting multiball after this!
+
+  # these events would be called if mode/rimrules saucers are hit and we DO NOT HAVE our mug filled
   shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_betterwhendrunk_and_eject
-
-  # shot_kicker_rimrules_hit{(device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: launch_random_game_mode
-  # shot_kicker_rimrules_hit{(device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone")}: launch_random_game_mode_without_trojankeg
-    
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state != "pongcupNone")}: vs_or_launch_random_game_mode
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==1)}: vs_or_launch_random_game_mode    # only Das Boot is left!
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==1)}: vs_or_play_betterwhendrunk_and_eject   # we can't start Trojan Keg!
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode_without_trojankeg   # we can start Trojan Keg
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode   # we can start any of the bottom row
-
   shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_rimrules_and_eject
+
 
   # selects either Battle or Video mode after opponent is chosen. Make sure MB is not primed (PongTable - 2 locked balls already) or running (PongTable and Popo)
   selected_opponent_canada{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_running"}: vs_select_challenge_no_mb     
@@ -99,36 +104,133 @@ event_player:
   timer_start_vs_delay_complete: (current_player.selected_vs)
   
 random_event_player:
-  vs_or_launch_random_game_mode:
-    events:
-      - vs_select_opponent
-      - launch_random_game_mode
-  vs_or_launch_random_game_mode_without_trojankeg:
-    events:
-      - vs_select_opponent
-      - launch_random_game_mode_without_trojankeg
-
-  launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
+  # BOTTOM ROW GAME THEME SELECTION
+  # Longpour: 0 Quarters: 0 Strikeout: 0 (choose from any)
+  launch_random_game_mode{current_player.has_longpour==0 and current_player.has_quarters==0 and current_player.has_strikeout==0}:
     events:
       - start_mode_longpour
       - start_mode_quarters
-      - start_mode_strikeout
-  launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
+      - start_mode_strikeou
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # launches a bottom row game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
+  # #   With these conditional events forcing choosing from bottom row, we are not limited to any bottom row game theme modes
+  # # Longpour: 0 Quarters: 0 Strikeout: 0 (choose from any)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 and current_player.has_quarters==0 and current_player.has_strikeout==0}:
+  #     - start_mode_longpour
+  #     - start_mode_quarters
+  #     - start_mode_strikeout
+
+
+  # Longpour: 0 Quarters: 0 Strikout: 1 (choose from Longpour/Quarters)
+  launch_random_game_mode{current_player.has_longpour==0 and current_player.has_quarters==0 and current_player.has_strikeout==1}:
+    events:
       - start_mode_longpour
       - start_mode_quarters
-      - start_mode_strikeout
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # Longpour: 0 Quarters: 0 Strikeout: 1 (choose from Longpour/Quarters)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 and current_player.has_quarters==0 and current_player.has_strikeout==1}:
+  #     - start_mode_longpour
+  #     - start_mode_quarters
 
-  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
+
+  # Longpour: 0 Quarters: 1 Strikeout: 0 (choose from Longpour/Strikeout)
+  launch_random_game_mode{current_player.has_longpour==0 and current_player.has_quarters==1 and current_player.has_strikeout==0}:
+    events:
+      - start_mode_longpour
+      - start_mode_strikeout
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # Longpour: 0 Quarters: 1 Strikeout: 0 (choose from Longpour/Strikeout)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 and current_player.has_quarters==1 and current_player.has_strikeout==0}:
+  #     - start_mode_longpour
+  #     - start_mode_strikeout
+
+
+  # Longpour: 0 Quarters: 1 Strikeout: 1 (choose from Longpour)
+  launch_random_game_mode{current_player.has_longpour==0 and current_player.has_quarters==1 and current_player.has_strikeout==1}:
+    events:
+      - start_mode_longpour
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!    
+  # Longpour: 0 Quarters: 1 Strikeout: 1 (choose from Longpour)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==0 and current_player.has_quarters==1 and current_player.has_strikeout==1}:
+  #     - start_mode_longpour
+
+
+  # Longpour: 1 Quarters: 0 Strikeout: 0 (choose from Quarters/Strikeout)
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==0 and current_player.has_strikeout==0}:
+    events:
+      - start_mode_quarters
+      - start_mode_strikeout
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # Longpour: 1 Quarters: 0 Strikeout: 0 (choose from Quarters/Strikeout)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==1 and current_player.has_quarters==0 and current_player.has_strikeout==0}:
+  #     - start_mode_quarters
+  #     - start_mode_strikeout
+
+
+  # Longpour: 1 Quarters: 0 Strikeout: 1 (choose from Quarters)
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==0 and current_player.has_strikeout==1}:
+    events:
+      - start_mode_quarters
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # Longpour: 1 Quarters: 0 Strikeout: 1 (choose from Quarters)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==1 and current_player.has_quarters==0 and current_player.has_strikeout==1}:
+  #     - start_mode_quarters
+
+
+  # Longpour: 1 Quarters: 1 Strikeout: 0 (choose from Strikeout)
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==0}:
+    events:
+      - start_mode_strikeout
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # Longpour: 1 Quarters: 1 Strikeout: 0 (choose from Strikeout)
+  # launch_random_game_mode_without_trojankeg{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==0}:
+  #     - start_mode_strikeout
+
+
+  # MIDDLE ROW GAME THEMES
+  # launches a middle row game theme mode
+  # VolumeChug: 0 TrojanKeg: 0 (Choose from Volumechug or TrojanKeg)
+  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 and current_player.has_trojankeg==0)}:
     events:
       - start_mode_volumechug
       - start_mode_trojankeg
-  launch_random_game_mode_without_trojankeg{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # launches a middle row game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
+  # #   With these conditional events forcing choosing from middle row, we are limited to just volume chug
+  # # VolumeChug: 0 TrojanKeg: 0 (choose from Volumechug cuz we can't play Trojankeg)
+  # launch_random_game_mode_without_trojankeg{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 and current_player.has_trojankeg==0)}:
+  #   events:
+  #     - start_mode_volumechug
+
+  # VolumeChug: 0 TrojanKeg: 1 (choose from VolumeChug)
+  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 and current_player.has_trojankeg==1)}:
     events:
       - start_mode_volumechug
+   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # VolumeChug: 0 TrojanKeg: 1
+  # launch_random_game_mode_without_trojankeg{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 and current_player.has_trojankeg==1)}:
+  #   events:
+  #     - start_mode_volumechug
+
+  # VolumeChug: 1 TrojanKeg: 0 (choose from TrojanKeg)
+  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==1 and current_player.has_trojankeg==0)}:
+    events:
+      - start_mode_trojankeg
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # # VolumeChug: 1 TrojanKeg: 0 (shouldn't get here cuz we check above, but start VS mode if this gets thru)
+  # launch_random_game_mode_without_trojankeg{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==1 and current_player.has_trojankeg==0)}:
+  #   events:
+  #     - vs_select_opponent
+
+
+  # if player has all other game theme modes, time to launch Das Boot!. We shouldn't care if Pong Table has 2 locked balls
   launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
     events:
       - start_mode_dasboot  # Wizard Mode!
 
+
+
+  # these are called if we have < 14 mug fills
   vs_or_play_betterwhendrunk_and_eject:
     events:
       - vs_select_opponent  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
@@ -138,24 +240,45 @@ random_event_player:
       - vs_select_opponent
       - play_rimrules_and_eject
   
-  # select opponent to play
+  # Randomly chooses to select a VS or launch random game mode
+  vs_or_launch_random_game_mode:
+    events:
+      - vs_select_opponent
+      - launch_random_game_mode
+
+  # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
+  # Randomly chooses to select a VS or launch a random game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
+  # vs_or_launch_random_game_mode_without_trojankeg:
+  #   events:
+  #     #- vs_select_opponent
+  #     - launch_random_game_mode_without_trojankeg
+
+  # SELECTING OPPONENT
+  # First check if player has beaten all 5 other countries
   vs_select_opponent{current_player.has_germany==1 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_tobago==1 and current_player.has_ireland==1}:
     events:
-      - start_mode_dasboot  # only one, player starts das boot after completing all 6 countries!
+      - start_mode_dasboot  # player starts das boot after completing all 5 countries!
 
+
+  # TODO - make this so it selects from un-won countries
+  # select countries other than Germany if player doesn't have Germany yet
   vs_select_opponent{current_player.has_germany == 0}:
     events:
       - selected_opponent_canada
       - selected_opponent_scotland
       - selected_opponent_ireland
       - selected_opponent_tobago
+  # select Germany if all other countries have been beaten
   vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
     events:
       - selected_opponent_germany
+
+  # select a VS challenge and we're not in multiball, don't care which one
   vs_select_challenge_no_mb:
     events:
       - selected_vs_alltargets
       - selected_vs_breakout
+  # select a VS challeng but we're in multiball, so we don't want to select breakout
   vs_select_challenge_mb:
     events:
       - selected_vs_alltargets  
