@@ -715,6 +715,24 @@ shows:
           color: off
           fade: .5s
 
+  flash_all_blue_dasboot:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
+
 show_player:
   mode_dasboot_started:
     init_lights_dasboot:
@@ -731,7 +749,68 @@ show_player:
       action: stop
     flash_dasboot_insert:
       speed: 2
-  
+  # hits that we want to flash everything blue:
+  shot_chance_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_special_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_take_hit_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_chug_beer_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_do_shot_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_quarters_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_ramp_boot_left_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_ramp_boot_right_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_rimrules_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_upf_tgt_left_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_upf_tgt_right_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_horseshoe_hit:
+    flash_all_blue_dasboot:
+      priority: 5000
+      loops: 0
+      action: play
+
 variable_player:
   shot_diverter_hit:
     score: current_player.pts_dasboot_boot_bonus

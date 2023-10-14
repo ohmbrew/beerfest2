@@ -592,7 +592,7 @@ show_player:
 # timed round
 timers:
   round_timer_longpour:
-    start_value: 60
+    start_value: 45
     end_value: 0
     direction: down
     control_events:

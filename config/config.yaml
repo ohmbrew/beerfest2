@@ -33,7 +33,13 @@ window:
   exit_on_escape: True
 
 # TODO
-# - play "hit horseshoe!" and flash lights when upper PF entry switch is hit. currently not doing anything with that
+
+# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE when any shot that yells out "BEERFEST!" is hit in DAS BOOT mode
+# - Flash ALL PLAYFIELD AND GI LIGHTS BLUE when some objective is hit in theme modes (e.g. quarters glass hit when gotten...)
+# - Exploding slingshot show from quarters sling!@!!@
+# - make das boot intro graphics instead of text. with border
+# - Also enable Das Boot mode (for fewer pts?) for completing all six countries (well, 5 excluding USA)
+
 # - rubber behind strike out to dampen the hit from ball
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
