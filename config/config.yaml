@@ -33,6 +33,7 @@ window:
   exit_on_escape: True
 
 # TODO
+# SEVERE: I started longpour in multiball mode, 
 # Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
 # Make in-game bonuses (Multiball, Spell Munich, Drinko (old...), etc.) have image text
 
