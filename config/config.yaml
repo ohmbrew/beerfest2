@@ -26,15 +26,15 @@ window:
   width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
-  resizable: true
-  borderless: false
+  resizable: false
+  borderless: true
   no_window: false
   show_cursor: false
   exit_on_escape: True
 
 # TODO
-# Use images instead of text during theme mode rounds. Completed Longpour/Quarters. Finish the rest. Also make other text that we can on those slides images too.
-# working on getting Longpour perfect. Then will copy that over to all other rounds. Centering things, making sure flag background fits, etc.
+# Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
+# Make in-game bonuses (Multiball, Spell Munich, Drinko (old...), etc.) have image text
 
 # Add special "Champion of Beerfest!" slide at end of Das Boot
 

@@ -32,12 +32,13 @@ slides:
         video: DasBootReady
 
 slide_player:
+  # Commenting this out because it seems to like to freeze the game on start...
   # entry video
-  mode_field_started{players[0].is_entryvideo_played == 0}:
-    entry_video:
-      action: play
-      target: main
-      expire: 5s
+  # mode_field_started{players[0].is_entryvideo_played == 0}:
+  #   entry_video:
+  #     action: play
+  #     target: main
+  #     expire: 5s
 
 sound_player:
   # welcome audio
