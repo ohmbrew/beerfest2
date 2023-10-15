@@ -91,10 +91,6 @@ slides:
     widgets:
       - type: image
         image: MainText-DasBoot
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle
         scale: .1
         animations:
           show_slide:
@@ -107,10 +103,6 @@ slides:
               timing: after_previous
       - type: image
         image: MainText-AllTargets10M
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle
         opacity: 0
         scale: .1
         animations:
@@ -127,10 +119,6 @@ slides:
               timing: after_previous
       - type: image
         image: MainText-BootRamp50M
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle
         opacity: 0
         scale: .1
         animations:
@@ -147,10 +135,6 @@ slides:
               timing: after_previous
       - type: image
         image: MainText-AllBonuses5X
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: middle
         opacity: 0
         scale: .1
         animations:
@@ -165,22 +149,26 @@ slides:
               value: 0
               duration: 4s
               timing: after_previous
-      - type: image
-        image: background-flag
       - type: video
         video: dasboot-intro
       
   slide_dasboot_main:
     widgets:
-      - type: text
-        text: DAS BOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 300
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-DasBootTitle
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 1s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 1s
+              repeat: true
+              easing: in_out_quint
       - type: text
         text: (score)
         number_grouping: true
@@ -189,9 +177,9 @@ slides:
         color: 008ce5ff
         font_size: 125
         anchor_x: middle
-        anchor_y: top
+        anchor_y: middle
         x: middle
-        y: top - 450
+        y: middle
       - type: text
         text: Ball (ball)
         font_name: druillet
@@ -206,15 +194,10 @@ slides:
         end_behavior: loop
   slide_dasboot_success:
     widgets:
-      - type: text
-        text: DAS BOOT
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-DasBootTitle
       - type: text
         text: SUCCESS
         font_name: druillet
@@ -223,51 +206,42 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 250
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 100
-              duration: .5s
+              value: 200
+              duration: 1s
       - type: text
-        text: (player|pts_dasboot_success)
+        text: (player|pts_quarters_success)
         number_grouping: true
         min_digits: 1
         font_name: druillet
         color: 008ce5ff
         font_size: 10
         anchor_x: middle
-        anchor_y: middle
+        anchor_y: bottom
         x: middle
-        y: top - 450
+        y: bottom + 25
         animations:
           show_slide:
             - property: font_size
-              value: 225
-              duration: .5s
+              value: 150
+              duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
   # Bonus slides
   dasboot_slide_bonus_boot:
     widgets:
-    - type: text
-      text: DAS BOOT
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-DasBootTitle
     - type: text
       text: MEGA BONUS
       font_size: 150
       font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
       color: 008ce5ff
     - type: text
       text: (player|pts_dasboot_boot_bonus)
@@ -275,18 +249,18 @@ slides:
       min_digits: 1
       font_size: 10
       font_name: druillet
-      anchor_x: center
-      anchor_y: top
+      anchor_x: middle
+      anchor_y: bottom
       x: middle
-      y: top - 425
+      y: bottom + 25
       color: 008ce5ff
       animations:
         show_slide:
           - property: font_size
-            value: 200
+            value: 150
             duration: .5s
     - type: image
-      image: background
+      image: background      
   dasboot_slide_bonus_upf1:
     widgets:
     - type: text
@@ -559,6 +533,17 @@ slides:
         image: MiniText-DasBoot
         anchor_x: middle
         anchor_y: middle
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
         x: middle
         y: middle + 25
       - type: image
@@ -714,6 +699,7 @@ shows:
         gi:
           color: off
           fade: .5s
+  
 
 show_player:
   mode_dasboot_started:
@@ -799,15 +785,6 @@ variable_player:
     bonus_numramps: 1         # bonus tracker (ramps)
 
   # Target Bonuses (and Bonus Bonuses)
-  shot_hj_hit:
-    score: current_player.pts_dasboot_target_bonus
-    bonus_numhjs: 1       # bonus tracker (HJs)
-  shot_bj_hit:
-    score: current_player.pts_dasboot_target_bonus
-    bonus_numbjs: 1       # bonus tracker (BJs)
-  shot_zj_hit:
-    score: current_player.pts_dasboot_target_bonus
-    bonus_numzjs: 1       # bonus tracker (ZJs)
   shot_chance_hit:
     score: current_player.pts_dasboot_target_bonus
     bonus_numchance: 1    # bonus tracker (chance multiplier)
@@ -848,9 +825,6 @@ variable_player:
     score: current_player.pts_dasboot_target_bonus
   upf_bonus1_award:
     score: current_player.pts_upf_bonus1 * current_player.dasboot_bonus_multiplier        # means we got bonus1
-    dasboot_bonustext_drinkbonus1:   # set text string for our bonus value
-      int: current_player.pts_upf_bonus1 * current_player.dasboot_bonus_multiplier
-      action: set
   upf_bonus2_award:
     score: current_player.pts_upf_bonus2 * current_player.dasboot_bonus_multiplier           # means we got bonus2
     dasboot_bonustext_drinkbonus2:   # set text string for our bonus value

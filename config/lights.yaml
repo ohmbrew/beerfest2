@@ -32,19 +32,19 @@ lights:
   canada_left:
     previous: arrow_tavern1
     type: grb
-    tags: playfield
+    tags: playfield, country
   canada_right:
     previous: canada_left
     type: grb
-    tags: playfield
+    tags: playfield, country
   ireland_right:
     previous: canada_right
     type: grb
-    tags: playfield
+    tags: playfield, country
   ireland_left:
     previous: ireland_right
     type: grb
-    tags: playfield
+    tags: playfield, country
   arrow_popo3:
     previous: ireland_left
     type: grb
@@ -60,11 +60,11 @@ lights:
   germany_left:
     previous: arrow_popo1
     type: grb
-    tags: playfield
+    tags: playfield, country
   germany_right:
     previous: germany_left
     type: grb
-    tags: playfield
+    tags: playfield, country
   quarters1:
     previous: germany_right
     type: grb
@@ -116,23 +116,23 @@ lights:
   mode_trojankeg:
     previous: mode_dasboot
     type: grb
-    tags: playfield
+    tags: playfield, mode
   mode_strikeout:
     previous: mode_trojankeg
     type: grb
-    tags: playfield
+    tags: playfield, mode
   mode_quarters:
     previous: mode_strikeout
     type: grb
-    tags: playfield
+    tags: playfield, mode
   mode_longpour:
     previous: mode_quarters
     type: grb
-    tags: playfield
+    tags: playfield, mode
   mode_volumechug:
     previous: mode_longpour
     type: grb
-    tags: playfield
+    tags: playfield, mode
   6x:
     previous: mode_volumechug
     type: grb
@@ -320,27 +320,27 @@ lights:
   usa_right:
     previous: ball2_locked
     type: grb
-    tags: playfield
+    tags: playfield, country
   usa_left:
     previous: usa_right
     type: grb
-    tags: playfield
+    tags: playfield, country
   tobago_left:
     previous: usa_left
     type: grb
-    tags: playfield
+    tags: playfield, country
   tobago_right:
     previous: tobago_left
     type: grb
-    tags: playfield
+    tags: playfield, country
   scotland_right:
     previous: tobago_right
     type: grb
-    tags: playfield
+    tags: playfield, country
   scotland_left:
     previous: scotland_right
     type: grb
-    tags: playfield
+    tags: playfield, country
   extra_ball:
     previous: scotland_left
     type: grb

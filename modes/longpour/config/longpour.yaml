@@ -13,7 +13,7 @@ sound_player:
     voice_longpour_intro:
       action: play
       loops: 0
-      events_when_stopped: saucer_release, intro_done
+      events_when_stopped: saucer_release
   mode_longpour_will_stop:
     themedrinkonme:
       action: stop
@@ -66,52 +66,25 @@ sound_player:
 slides:
   slide_longpour_intro:
     widgets:
-      - type: text
-        text: Beerfest Event
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
-      - type: text
-        text: LONG POUR
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: top - 325
+      - type: image
+        image: MainText-BeerfestEvent
+      - type: image
+        image: MainText-LongPourIntro
+        scale: .1
         animations:
           show_slide:
-            - property: font_size
-              value: 225
-              duration: 2s
-      - type: text
-        text: Hit Those Ramps
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 500
+            - property: scale
+              value: 1
+              duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
   slide_longpour_main:
     widgets:
-      - type: text
-        text: LONG POUR
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 150
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-LongPourTitle
       - type: text
         text: (player|theme_mode_timer_variable)
         font_name: druillet
@@ -129,9 +102,9 @@ slides:
         color: 008ce5ff
         font_size: 125
         anchor_x: middle
-        anchor_y: top
+        anchor_y: middle
         x: middle
-        y: top - 450
+        y: middle
       - type: text
         text: Ball (ball)
         font_name: druillet
@@ -146,15 +119,10 @@ slides:
         end_behavior: loop
   slide_longpour_success:
     widgets:
-      - type: text
-        text: LONG POUR
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-LongPourTitle
       - type: text
         text: SUCCESS
         font_name: druillet
@@ -163,12 +131,12 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 250
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 100
-              duration: .5s
+              value: 200
+              duration: 1s
       - type: text
         text: (player|pts_longpour_success)
         number_grouping: true
@@ -177,28 +145,23 @@ slides:
         color: 008ce5ff
         font_size: 10
         anchor_x: middle
-        anchor_y: middle
+        anchor_y: bottom
         x: middle
-        y: top - 450
+        y: bottom + 25
         animations:
           show_slide:
             - property: font_size
-              value: 225
-              duration: .5s
+              value: 150
+              duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
   slide_longpour_fail:
     widgets:
-      - type: text
-        text: LONG POUR
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-LongPourTitle
       - type: text
         text: FAIL
         font_name: druillet
@@ -207,29 +170,21 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 325
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 225
+              value: 200
               duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
-  slide_just_background:
-    - type: image
-      image: background 
   slide_longpour_partial:        # if they hit one or more ramps, but drained before round timer expires
     widgets:
-      - type: text
-        text: LONG POUR
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-LongPourTitle
       - type: text
         text: SUCCESS
         font_name: druillet
@@ -238,12 +193,12 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 250
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 100
-              duration: .5s
+              value: 200
+              duration: 1s
       - type: text
         text: (player|pts_longpour_partial)
         number_grouping: true
@@ -252,36 +207,27 @@ slides:
         color: 008ce5ff
         font_size: 10
         anchor_x: middle
-        anchor_y: middle
+        anchor_y: bottom
         x: middle
-        y: top - 450
+        y: bottom + 25
         animations:
           show_slide:
             - property: font_size
-              value: 225
-              duration: .5s
+              value: 150
+              duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
   slide_bonus_longpour_ramps_themed:
     widgets:
-    - type: text
-      text: LONGPOUR
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-LongPourTitle
     - type: text
       text: MEGA BONUS
       font_size: 150
       font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
       color: 008ce5ff
     - type: text
       text: (player|pts_longpour_ramps_themed)
@@ -289,16 +235,16 @@ slides:
       min_digits: 1
       font_size: 10
       font_name: druillet
-      anchor_x: center
-      anchor_y: top
+      anchor_x: middle
+      anchor_y: bottom
       x: middle
-      y: top - 425
+      y: bottom + 25
       color: 008ce5ff
       animations:
         show_slide:
           - property: font_size
-            value: 200
-            duration: .5s
+            value: 150
+            duration: 1s
     - type: image
       image: background
   slide_mini_shootramps:
@@ -324,13 +270,11 @@ slide_player:
   mode_longpour_started:
     slide_longpour_intro:
       target: main
+      expire: 4s
     slide_mini_shootramps:
       target: mini
       priority: 1000
-  intro_done:
-    slide_longpour_intro:
-      target: main
-      action: remove
+  slide_slide_longpour_intro_removed:
     slide_longpour_main:
       target: main
       action: play
@@ -338,9 +282,6 @@ slide_player:
     slide_longpour_main:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: play
     slide_longpour_success:
       target: main
       action: play
@@ -348,9 +289,6 @@ slide_player:
     slide_longpour_main:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: play
     slide_longpour_fail:
       target: main
       action: play
@@ -358,9 +296,6 @@ slide_player:
     slide_longpour_main:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: play
     slide_longpour_partial:
       target: main
       action: play
@@ -389,10 +324,6 @@ slide_player:
     slide_longpour_partial:
       target: main
       action: remove
-    slide_just_background:
-      target: main
-      action: remove
-    
 
 queue_relay_player:
   mode_longpour_stopping{device.timers.round_timer_longpour.ticks == 0 and current_player.has_current_thememode==1}:  # timer expired, player completed bonus
@@ -627,7 +558,7 @@ show_player:
 # timed round
 timers:
   round_timer_longpour:
-    start_value: 5
+    start_value: 10
     end_value: 0
     direction: down
     control_events:

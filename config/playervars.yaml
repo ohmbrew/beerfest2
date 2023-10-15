@@ -15,19 +15,19 @@ player_vars:
   # track all themed mode statuses
   # TODO: setting longpour, quarters, strikeout to 1 so I can test volumechug and trojankeg modes quicker
   has_longpour:
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_quarters:
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_strikeout:
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_volumechug:
     initial_value: 0
     value_type: int
   has_trojankeg:
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_dasboot:
     initial_value: 0
@@ -35,16 +35,16 @@ player_vars:
 
   # track VS countries
   has_canada:         # top left
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_scotland:       # top right
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_ireland:        # middle left
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_tobago:         # middle right
-    initial_value: 1
+    initial_value: 0
     value_type: int
   has_germany:        # bottom left - should be selected last
     initial_value: 0
@@ -295,6 +295,21 @@ player_vars:
     initial_value: 5
     value_type: int
     
+  # double Das Boot
+  pts_doubledasboot_boot_bonus:
+    initial_value: 100000000
+    value_type: int
+  pts_doubledasboot_target_bonus:
+    initial_value: 20000000
+    value_type: int
+  pts_doubledasboot_success:
+    initial_value: 50000000
+    value_type: int
+  doubledasboot_bonus_multiplier:
+    initial_value: 10
+    value_type: int
+
+
   # bonus calculation values
   pts_quarters_bonus:
     initial_value: 7500
@@ -332,6 +347,29 @@ player_vars:
     initial_value: 0
     value_type: int
 
+  # bonus calculations for text on slides
+  doubledasboot_bonustext_monkeychug:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_upfbonus1:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_upfbonus2:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_hammered:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_spellbeer:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_spellmunich:
+    initial_value: 0
+    value_type: int
+  doubledasboot_bonustext_strikeoutcomplete:
+    initial_value: 0
+    value_type: int
+
   # additional point variations
   flipperflop_pts:
     initial_value: 5000000
@@ -362,6 +400,10 @@ player_vars:
     value_type: int
 
   is_welcome_played:
+    initial_value: 0
+    value_type: int
+
+  is_entryvideo_played:
     initial_value: 0
     value_type: int
 

@@ -1,0 +1,898 @@
+#config_version=5
+##! mode: doubledasboot
+
+mode:
+  start_events: start_mode_doubledasboot
+  stop_events: stop_mode_doubledasboot, stop_missions   # NOT a timed round
+  events_when_started: mode_type_mission_started
+  events_when_stopped: mode_type_mission_stopped
+  priority: 5000
+
+sound_player:
+  start_background_music:
+    music_bubbles:
+      action: play
+      loops: -1
+  mode_doubledasboot_will_stop:
+    music_bubbles:
+      action: stop
+  # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
+  shot_kicker_mode_hit:
+    voice_betterwhendrunk:
+      action: play
+      events_when_stopped: kicker_mode_eject
+  shot_kicker_rimrules_hit:
+    rimrules:
+      action: play
+      events_when_stopped: kicker_rimrules_eject
+  event_doubledasboot_success:
+    sureasschnitzel:
+      action: play
+      events_when_stopped: slide_event_result_complete
+  
+  # das boot specific audio
+  
+
+  shot_chance_hit:
+    voice_beerfest:
+      action: play
+  shot_special_hit:
+    voice_beerfest:
+      action: play
+  shot_take_hit_hit:
+    voice_beerfest:
+      action: play
+  shot_chug_beer_hit:
+    voice_beerfest:
+      action: play
+  shot_do_shot_hit:
+    voice_beerfest:
+      action: play
+  shot_quarters_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_ramp_boot_left_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_ramp_boot_right_hit:
+    voice_beerfest:
+      action: play
+  shot_tgt_rimrules_hit:
+    voice_beerfest:
+      action: play
+  shot_upf_tgt_left_hit:
+    voice_beerfest:
+      action: play
+  shot_upf_tgt_right_hit:
+    voice_beerfest:
+      action: play
+  shot_horseshoe_hit:
+    voice_beerfest:
+      action: play
+
+ 
+
+# timer used to animate das boot intro slide text. Counts up by 1 every 5 secs. Used to start text animations in slide_dasboot_intro
+timers:
+  doubledasboot_intro_timer:
+    start_value: 0
+    end_value: 4
+    direction: up
+    tick_interval: 7s
+    control_events:
+      - action: start
+        event: slide_slide_doubledasboot_intro_active
+  
+slides:
+  slide_doubledasboot_intro:
+    widgets:
+      - type: image
+        image: MainText-DoubleDasBoot
+        scale: .1
+        animations:
+          show_slide:
+            - property: scale
+              value: 1
+              duration: 2s
+            - property: opacity
+              value: 0
+              duration: 4s
+              timing: after_previous
+      - type: image
+        image: MainText-AllTargets20M
+        opacity: 0
+        scale: .1
+        animations:
+          doubledasboot_intro_slide_text1:
+            - property: opacity
+              value: 1
+            - property: scale
+              value: 1
+              timing: after_previous
+              duration: 2s
+            - property: opacity
+              value: 0
+              duration: 4s
+              timing: after_previous
+      - type: image
+        image: MainText-BootRamp100M
+        opacity: 0
+        scale: .1
+        animations:
+          doubledasboot_intro_slide_text2:
+            - property: opacity
+              value: 1
+            - property: scale
+              value: 1
+              timing: after_previous
+              duration: 2s
+            - property: opacity
+              value: 0
+              duration: 4s
+              timing: after_previous
+      - type: image
+        image: MainText-AllBonuses10X
+        opacity: 0
+        scale: .1
+        animations:
+          doubledasboot_intro_slide_text3:
+            - property: opacity
+              value: 1
+            - property: scale
+              value: 1
+              timing: after_previous
+              duration: 2s
+            - property: opacity
+              value: 0
+              duration: 4s
+              timing: after_previous
+      - type: image
+        image: background-flag
+      - type: video
+        video: dasboot-intro
+      
+  slide_doubledasboot_main:
+    widgets:
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-DoubleDasBootTitle
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 1s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 1s
+              repeat: true
+              easing: in_out_quint
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 1
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 125
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle
+      - type: text
+        text: Ball (ball)
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 65
+        anchor_x: middle
+        anchor_y: bottom
+        x: middle
+        y: bottom + 35
+      - type: video
+        video: bubbles
+        end_behavior: loop
+  slide_doubledasboot_success:
+    widgets:
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-DasBootTitle
+      - type: text
+        text: SUCCESS
+        font_name: druillet
+        color: green
+        font_size: 10
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 50
+        animations:
+          show_slide:
+            - property: font_size
+              value: 200
+              duration: 1s
+      - type: text
+        text: (player|pts_doubledasboot_success)
+        number_grouping: true
+        min_digits: 1
+        font_name: druillet
+        color: 008ce5ff
+        font_size: 10
+        anchor_x: middle
+        anchor_y: bottom
+        x: middle
+        y: bottom + 25
+        animations:
+          show_slide:
+            - property: font_size
+              value: 150
+              duration: 1s
+      - type: video
+        video: bubbles
+        end_behavior: loop
+  # Bonus slides
+  doubledasboot_slide_bonus_boot:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-DoubleDasBootTitle
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      color: 008ce5ff
+    - type: text
+      text: (player|pts_doubledasboot_boot_bonus)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: bottom + 25
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 150
+            duration: .5s
+    - type: image
+      image: background      
+
+  doubledasboot_slide_bonus_upf1:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_upfbonus1)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_upf2:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_upfbonus2)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_hammered:
+    widgets:
+    - type: text
+      text: D-R-I-N-K-O
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: HAMMERED MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_hammered)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_monkeychug:
+    widgets:
+    - type: text
+      text: MONKEY CHUG
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_monkeychug)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .25s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_spellbeer:
+    widgets:
+    - type: text
+      text: Spell B-E-E-R
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_spellbeer)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_spellmunich:
+    widgets:
+    - type: text
+      text: Spell M-U-N-I-C-H
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_spellmunich)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  doubledasboot_slide_bonus_strikeout:
+    widgets:
+    - type: text
+      text: Strikeout
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 35
+      color: 008ce5ff
+    - type: text
+      text: MEGA BONUS
+      font_size: 150
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 210
+      color: 008ce5ff
+    - type: text
+      text: (player|doubledasboot_bonustext_strikeoutcomplete)
+      number_grouping: true
+      min_digits: 1
+      font_size: 10
+      font_name: druillet
+      anchor_x: center
+      anchor_y: top
+      x: middle
+      y: top - 425
+      color: 008ce5ff
+      animations:
+        show_slide:
+          - property: font_size
+            value: 200
+            duration: .5s
+    - type: image
+      image: background
+  slide_mug_doubledasboot:
+    widgets:
+      - type: image
+        image: MiniText-DoubleDasBoot
+        anchor_x: middle
+        anchor_y: middle
+        animations:
+          show_slide:
+            - property: opacity
+              value: 1
+              duration: 0.5s
+              easing: in_out_quint
+            - property: opacity
+              value: 0
+              duration: 0.5s
+              repeat: true
+              easing: in_out_quint
+        x: middle
+        y: middle + 25
+      - type: image
+        image: beermug7 
+slide_player:
+  mode_doubledasboot_started:
+    slide_doubledasboot_intro:
+      target: main
+      action: play
+      expire: 30.1s
+      priority: 700
+    slide_mug_doubledasboot:
+      target: mini
+  timer_doubledasboot_intro_timer_complete:   # there was like a 1 sec lag from loading main slide from intro. Used timer completion instead, which ends slightly sooner than video in intro slide
+    slide_doubledasboot_main:
+      target: main
+      priority: 700
+      action: play
+  event_doubledasboot_success:
+    slide_doubledasboot_main:
+      target: main
+      action: remove
+    slide_doubledasboot_success:
+      target: main
+      action: play
+  slide_event_result_complete:
+    slide_doubledasboot_success:
+      target: main
+      action: remove
+
+  # Bonus slides
+  shot_diverter_hit:
+    doubledasboot_slide_bonus_boot:
+      target: main
+      priority: 1000
+      expire: 2s
+  upf_bonus1_award:
+    doubledasboot_slide_bonus_upf1:
+      target: main
+      priority: 1000
+      expire: 2s
+  upf_bonus2_award:
+    doubledasboot_slide_bonus_upf2:
+      target: main
+      priority: 1000
+      expire: 2s
+  upf_hammered_award:
+    doubledasboot_slide_bonus_hammered:
+      target: main
+      priority: 1000
+      expire: 2s
+  shot_horseshoe_hit:
+    doubledasboot_slide_bonus_monkeychug:
+      target: main
+      priority: 1000
+      expire: 2s
+  bank_strikeout_complete:
+    doubledasboot_slide_bonus_strikeout:
+      target: main
+      priority: 1000
+      expire: 2s
+  spellbeer_group_hit_complete:
+    doubledasboot_slide_bonus_spellbeer:
+      target: main
+      priority: 1000
+      expire: 2s
+  spelled_munich:
+    doubledasboot_slide_bonus_spellmunich:
+      target: main
+      priority: 1000
+      expire: 2s
+
+queue_relay_player:
+  mode_doubledasboot_stopping:  # not a timed round, the ball drained
+    post: event_doubledasboot_success
+    wait_for: slide_slide_doubledasboot_success_removed
+  ball_ending:  # delay ball_ending until whichever slide is shown above finishes
+    post: nothing
+    wait_for: slide_event_done
+
+event_player:
+  timer_doubledasboot_intro_timer_complete: start_background_music
+  slide_slide_doubledasboot_main_active: saucer_release
+  slide_slide_doubledasboot_success_removed: slide_event_done
+  # used for slide animations
+  timer_doubledasboot_intro_timer_tick{device.timers.doubledasboot_intro_timer.ticks == 1}: doubledasboot_intro_slide_text1
+  timer_doubledasboot_intro_timer_tick{device.timers.doubledasboot_intro_timer.ticks == 2}: doubledasboot_intro_slide_text2
+  timer_doubledasboot_intro_timer_tick{device.timers.doubledasboot_intro_timer.ticks == 3}: doubledasboot_intro_slide_text3
+  timer_doubledasboot_intro_timer_tick{device.timers.doubledasboot_intro_timer.ticks == 4}: doubledasboot_intro_slide_text4
+  saucer_release{device.switches.s_kicker_rimrules.state == 1}: kicker_rimrules_eject
+  saucer_release{device.switches.s_kicker_mode.state == 1}: kicker_mode_eject
+
+shows:
+  init_lights_doubledasboot:
+    - time: 0
+      lights:
+        playfield: off
+        gi: off
+        l_pop_lower: off
+        l_pop_right: off
+        l_pop_left: off
+    - duration: -1
+
+  flash_doubledasboot_intro:
+    - duration: 3.75s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: 3s
+          priority: 1000
+        gi:
+          color: 008ce5
+          fade: 3s
+          priority: 1000
+
+    - duration: 3.75s
+      lights:
+        playfield:
+          color: off
+          fade: 3s
+          priority: 1000
+        gi:
+          color: off
+          fade: 3s
+          priority: 1000
+
+  flash_doubledasboot_insert:
+    - duration: 1
+      lights:
+        mode_dasboot:
+          color: green
+          fade: .5s
+    - duration: 1
+      lights:
+        mode_dasboot: 
+          color: off
+          fade: .5s
+
+  flash_all_blue_doubledasboot:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
+  
+
+show_player:
+  mode_doubledasboot_started:
+    init_lights_doubledasboot:
+      loops: 0
+      priority: 900
+  slide_slide_doubledasboot_intro_active:
+    flash_doubledasboot_intro:
+      loops: 4
+      priority: 1000
+    init_lights_doubledasboot:
+      action: stop
+  start_background_music:
+    flash_doubledasboot_intro:
+      action: stop
+    flash_doubledasboot_insert:
+      speed: 2
+  # hits that we want to flash everything blue:
+  shot_chance_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_special_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_take_hit_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_chug_beer_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_do_shot_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_quarters_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_ramp_boot_left_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_ramp_boot_right_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_tgt_rimrules_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_upf_tgt_left_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_upf_tgt_right_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+  shot_horseshoe_hit:
+    flash_all_blue_doubledasboot:
+      priority: 5000
+      loops: 0
+      action: play
+
+variable_player:
+  shot_diverter_hit:
+    score: current_player.pts_doubledasboot_boot_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  # Target Bonuses (and Bonus Bonuses)
+  shot_chance_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+    bonus_numchance: 1    # bonus tracker (chance multiplier)
+  shot_special_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+
+  # strikeout
+  shot_take_hit_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  shot_chug_beer_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  shot_do_shot_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  bank_strikeout_complete:
+    score: current_player.pts_strikeout_complete * current_player.doubledasboot_bonus_multiplier
+    doubledasboot_bonustext_strikeoutcomplete:
+      int: current_player.pts_strikeout_complete * current_player.doubledasboot_bonus_multiplier
+      action: set
+    bonus_numstrikeouts: 1    # bonus tracker (strikeouts)
+
+  # quarters
+  shot_quarters_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+    bonus_numquarters: 1      # bonus tracker (quarters)
+
+  # longpour
+  shot_tavern_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  shot_ramp_upf_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+    bonus_numramps: 1         # bonus tracker (ramps)
+
+  shot_tgt_ramp_boot_right_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  shot_tgt_rimrules_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  upf_bonus1_award:
+    score: current_player.pts_upf_bonus1 * current_player.doubledasboot_bonus_multiplier        # means we got bonus1
+  upf_bonus2_award:
+    score: current_player.pts_upf_bonus2 * current_player.doubledasboot_bonus_multiplier           # means we got bonus2
+    # dasboot_bonustext_drinkbonus2:   # set text string for our bonus value
+    #   int: current_player.pts_upf_bonus2 * current_player.doubledasboot_bonus_multiplier
+    #   action: set
+  upf_hammered_award:
+    score: current_player.pts_upf_hammered * current_player.doubledasboot_bonus_multiplier
+    # dasboot_bonustext_hammered:   # set text string for our bonus value
+    #   int: current_player.pts_upf_hammered * current_player.doubledasboot_bonus_multiplier
+    #   action: set
+  shot_upf_tgt_left_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  shot_upf_tgt_right_hit:
+    score: current_player.pts_doubledasboot_target_bonus
+  shot_horseshoe_hit:          # horseshoe - hard shot!
+    score: current_player.pts_doubledasboot_target_bonus * current_player.doubledasboot_bonus_multiplier
+    doubledasboot_bonustext_monkeychug:   # set text string for our bonus value
+      int: current_player.pts_doubledasboot_target_bonus * current_player.doubledasboot_bonus_multiplier
+      action: set
+
+  spellbeer_group_hit_complete:
+    score: current_player.pts_spell_beer * current_player.doubledasboot_bonus_multiplier
+    doubledasboot_bonustext_spellbeer:   # set text string for our bonus value
+      int: current_player.pts_spell_beer * current_player.doubledasboot_bonus_multiplier
+      action: set
+
+  spelled_munich:
+    score: current_player.pts_spell_munich * current_player.doubledasboot_bonus_multiplier
+    doubledasboot_bonustext_spellmunich:
+      int: current_player.pts_spell_munich * current_player.doubledasboot_bonus_multiplier
+      action: set
+
+  # reset our VS opponent status (if full) or game theme modes (if full) before das boot mode stops
+  # for game theme modes, just check if we have volumechug and trojankeg
+  mode_doubledasboot_stopping{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    has_longpour:
+      int: 0
+      action: set
+    has_quarters:
+      int: 0
+      action: set
+    has_strikeout:
+      int: 0
+      action: set
+    has_volumechug:
+      int: 0
+      action: set
+    has_trojankeg:
+      int: 0
+      action: set
+    has_dasboot:
+      int: 0
+      action: set
+
+  # for VS opponents, just check if we have Germany
+  mode_doubledasboot_stopping{current_player.has_germany==1}:
+    has_canada:
+      int: 0
+      action: set
+    has_scotland:
+      int: 0
+      action: set
+    has_ireland:
+      int: 0
+      action: set
+    has_tobago:
+      int: 0
+      action: set
+    has_germany:
+      int: 0
+      action: set

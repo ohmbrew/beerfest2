@@ -23,7 +23,24 @@ timers:
         event: selected_vs_breakout
       # Add new VS challenges here
 
+slides:
+  entry_video:
+    widgets:
+      - type: image
+        image: background-flag
+      - type: video
+        video: DasBootReady
+
+slide_player:
+  # entry video
+  mode_field_started{players[0].is_entryvideo_played == 0}:
+    entry_video:
+      action: play
+      target: main
+      expire: 5s
+
 sound_player:
+  # welcome audio
   mode_field_started{players[0].is_welcome_played == 0}:
     voice_welcome:
       action: play
@@ -39,6 +56,7 @@ sound_player:
       action: play
       track: music
       loops: -1
+  
   mode_field_will_stop:
     introrepeat:
       action: stop
@@ -223,10 +241,15 @@ random_event_player:
   #     - vs_select_opponent
 
 
-  # if player has all other game theme modes, time to launch Das Boot!. We shouldn't care if Pong Table has 2 locked balls
-  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+  # First check for DOUBLE DAS BOOT! player must have all game theme modes AND all countries (only check for Germany since they're always played last)
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1 and current_player.has_germany==1}:
     events:
-      - start_mode_dasboot  # Wizard Mode!
+      - start_mode_doubledasboot  # player starts DOUBLE DAS BOOT after completing all 5 countries AND all game mode themes!
+
+   # Check if player has both volumechug and trojankeg but not yet beaten germany.
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1 and current_player.has_germany==0}:
+    events:
+      - start_mode_dasboot  # player starts DOUBLE DAS BOOT after completing all 5 countries AND all game mode themes!   
 
 
   # these are called if we have < 14 mug fills. Only select a VS 10% of the time
@@ -234,23 +257,22 @@ random_event_player:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 50  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
-      play_betterwhendrunk_and_eject: 50
-
+      vs_select_opponent: 10  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
+      play_betterwhendrunk_and_eject: 90
   vs_or_play_rimrules_and_eject:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 50
-      play_rimrules_and_eject: 50
+      vs_select_opponent: 10
+      play_rimrules_and_eject: 90
   
-  # Randomly chooses to select a VS or launch random game mode
+  # Randomly chooses to select a VS or launch random game mode. Make it 33/67
   vs_or_launch_random_game_mode:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 99
-      launch_random_game_mode: 1
+      vs_select_opponent: 33
+      launch_random_game_mode: 67
 
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
   # Randomly chooses to select a VS or launch a random game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
@@ -262,8 +284,13 @@ random_event_player:
 
 
   # SELECTING OPPONENT
-  # First check if player has beaten Germany. That means they've also beaten all the other opponents
-  vs_select_opponent{current_player.has_germany==1}:
+  # Check if we have a DOUBLE DAS BOOT!
+  vs_select_opponent{current_player.has_germany==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    events:
+      - start_mode_doubledasboot  # player starts DOUBLE DAS BOOT after completing all 5 countries AND all game mode themes!
+
+  # Check if player has beaten Germany but not yet filled up mode tower. That means they've also beaten all the other opponents
+  vs_select_opponent{current_player.has_germany==1 and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
     events:
       - start_mode_dasboot  # player starts das boot after completing all 5 countries!
 
@@ -391,6 +418,11 @@ variable_player:
       int: 1
       action: set
   
+  slide_entry_video_active:
+    is_entryvideo_played:
+      int: 1
+      action: set
+
   # selecting opponent
   selected_opponent_canada:
     opponent:

@@ -561,6 +561,22 @@ shows:
       lights:
         arrow_horseshoe3: off
 
+  flash_countries_green:
+    - duration: 1s
+      lights:
+        country: green
+    - duration: 1s
+      lights:
+        country: off
+
+  flash_gamethemes_green:
+    - duration: 1s
+      lights:
+        mode: green
+    - duration: 1s
+      lights:
+        mode: off
+
   # theme mode shows
   init_lights_themed:
     - time: 0
@@ -967,6 +983,10 @@ show_player:
       action: stop
     show_ball2_locked_insert:
       action: stop
+    flash_countries_green:
+      action: stop
+    flash_gamethemes_green:
+      action: stop
 
   mode_dasboot_stopped{device.switches.s_pongcup1.state == 1}: show_ball1_locked_insert
   mode_dasboot_stopped{device.switches.s_pongcup2.state == 1}: show_ball2_locked_insert
@@ -996,6 +1016,19 @@ show_player:
   timer_wait_lightchance_complete{current_player.bonus_numchance == 4}: show_chance4x_insert
   timer_wait_lightchance_complete{current_player.bonus_numchance == 5}: show_chance5x_insert
   timer_wait_lightchance_complete{current_player.bonus_numchance == 6}: show_chance6x_insert
+
+  # das boot is ready - check for which is active
+  slide_das_boot_ready_active{current_player.has_germany==1}:
+    flash_countries_green:
+      priority: 6000
+      loops: -1
+      speed: 2
+
+  slide_das_boot_ready_active{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    flash_gamethemes_green:
+      priority: 6000
+      loops: -1
+      speed: 2
 
   ball_save_ball_start_timer_start:
     show_ball_save:

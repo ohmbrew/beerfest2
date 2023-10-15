@@ -177,99 +177,25 @@ sound_player:
 slides:
   slide_trojankeg_intro:
     widgets:
-      - type: text
-        text: Beerfest Event
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
-      - type: text
-        text: TROJAN KEG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 10
-        anchor_x: middle
-        anchor_y: middle
-        x: middle
-        y: top - 325
+      - type: image
+        image: MainText-BeerfestEvent
+      - type: image
+        image: MainText-TrojanKegIntro
+        scale: .1
         animations:
           show_slide:
-            - property: font_size
-              value: 225
-              duration: 2s
-      - type: text
-        text: 1. Lock Popo
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 75
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 460
-      - type: text
-        text: 2. Then Hit All Pops
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 75
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 560
-      - type: text
-        text: 3. Then Hit Keg
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 75
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 660
-
+            - property: scale
+              value: 1
+              duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
   slide_trojankeg_main:
     widgets:
-      - type: text
-        text: TROJAN KEG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 150
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 15
-      - type: text
-        text: 1. Lock Popo
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 225
-      - type: text
-        text: 2. Hit All Pops
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 300
-      - type: text
-        text: 3. Hit Keg
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 50
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 375
-     
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-TrojanKegTitle
       - type: text
         text: (score)
         number_grouping: true
@@ -278,9 +204,9 @@ slides:
         color: 008ce5ff
         font_size: 125
         anchor_x: middle
-        anchor_y: top
+        anchor_y: middle
         x: middle
-        y: top - 450
+        y: middle
       - type: text
         text: Ball (ball)
         font_name: druillet
@@ -295,15 +221,10 @@ slides:
         end_behavior: loop
   slide_trojankeg_success:
     widgets:
-      - type: text
-        text: TROJAN KEG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-TrojanKegTitle
       - type: text
         text: SUCCESS
         font_name: druillet
@@ -312,42 +233,37 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 250
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 100
+              value: 200
               duration: .5s
       - type: text
-        text: (player|pts_trojankeg_success)
+        text: (player|pts_volumechug_success)
         number_grouping: true
         min_digits: 1
         font_name: druillet
         color: 008ce5ff
         font_size: 10
         anchor_x: middle
-        anchor_y: middle
+        anchor_y: bottom
         x: middle
-        y: top - 450
+        y: bottom + 25
         animations:
           show_slide:
             - property: font_size
-              value: 225
+              value: 150
               duration: .5s
       - type: video
         video: bubbles
         end_behavior: loop
   slide_trojankeg_fail:
     widgets:
-      - type: text
-        text: TROJAN KEG
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
-        anchor_x: middle
-        anchor_y: top
-        x: middle
-        y: top - 35
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-TrojanKegTitle
       - type: text
         text: FAIL
         font_name: druillet
@@ -356,29 +272,25 @@ slides:
         anchor_x: middle
         anchor_y: middle
         x: middle
-        y: top - 325
+        y: middle - 50
         animations:
           show_slide:
             - property: font_size
-              value: 225
+              value: 200
               duration: 1s
       - type: video
         video: bubbles
         end_behavior: loop
-  # slide_just_background:
-  #   - type: image
-  #     image: background 
   slide_trojankeg_partial:        # if they hit quarters, but drained before round timer expires
     widgets:
-      - type: text
-        text: Beerfest Event
-        font_name: druillet
-        color: 008ce5ff
-        font_size: 100
+      - type: image
+        image: background-flag
+      - type: image
+        image: MainText-TrojanKegTitle
         anchor_x: middle
-        anchor_y: top
+        anchor_y: middle
         x: middle
-        y: top - 35
+        y: middle
       - type: text
         text: SUCCESS
         font_name: druillet
@@ -414,42 +326,43 @@ slides:
         end_behavior: loop
   slide_bonus_trojankeg_themed:
     widgets:
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-TrojanKegTitle
     - type: text
-      text: Trojan Keg
-      font_size: 150
+      text: SUCCESS
       font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
-    - type: text
-      text: (player|pts_trojankeg_bonus)
-      number_grouping: true
-      min_digits: 1
+      color: green
       font_size: 10
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
+      anchor_x: middle
+      anchor_y: middle
       x: middle
-      y: top - 425
-      color: 008ce5ff
+      y: middle - 50
       animations:
         show_slide:
           - property: font_size
             value: 200
             duration: .5s
-    - type: image
-      image: background
+    - type: text
+      text: (player|pts_trojankeg_partial)
+      number_grouping: true
+      min_digits: 1
+      font_name: druillet
+      color: 008ce5ff
+      font_size: 10
+      anchor_x: middle
+      anchor_y: bottom
+      x: middle
+      y: bottom + 25
+      animations:
+        show_slide:
+          - property: font_size
+            value: 150
+            duration: .5s
+    - type: video
+      video: bubbles
+      end_behavior: loop
   mini_popo:
     widgets:
     - type: image
@@ -543,9 +456,6 @@ slide_player:
     slide_trojankeg_main:
       target: main
       action: remove
-    # slide_just_background:
-    #   target: main
-    #   action: play
     slide_trojankeg_success:
       target: main
       action: play
@@ -554,9 +464,6 @@ slide_player:
     slide_trojankeg_main:
       target: main
       action: remove
-    # slide_just_background:
-    #   target: main
-    #   action: play
     slide_trojankeg_fail:
       target: main
       action: play
@@ -565,9 +472,7 @@ slide_player:
     slide_trojankeg_main:
       target: main
       action: remove
-    # slide_just_background:
-    #   target: main
-    #   action: play
+
     slide_trojankeg_partial:
       target: main
       action: play
@@ -580,11 +485,7 @@ slide_player:
       action: remove
     slide_trojankeg_partial:
       target: main
-      action: remove
-    slide_just_background:
-      target: main
-      action: remove
-  
+      action: remove  
 
 queue_relay_player:
   # mode_trojankeg_stopping{device.timers.round_timer_trojankeg.ticks == 0 and current_player.has_current_thememode==1}:  # timer expired, player completed bonus
