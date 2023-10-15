@@ -97,6 +97,10 @@ slides:
         font_name: druillet
         color: 008ce5ff
         font_size: 125
+        anchor_x: middle
+        anchor_y: middle
+        x: middle
+        y: middle - 150
       - type: text
         text: Ball (ball)
         font_name: druillet
@@ -429,7 +433,7 @@ show_player:
 # timed round
 timers:
   round_timer_quarters:
-    start_value: 10
+    start_value: 45
     end_value: 0
     direction: down
     control_events:
