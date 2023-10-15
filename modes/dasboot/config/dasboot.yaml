@@ -100,10 +100,10 @@ slides:
           show_slide:
             - property: scale
               value: 1
-              duration: 3s
+              duration: 2s
             - property: opacity
               value: 0
-              duration: 3s
+              duration: 4s
               timing: after_previous
       - type: image
         image: MainText-AllTargets10M
@@ -120,10 +120,10 @@ slides:
             - property: scale
               value: 1
               timing: after_previous
-              duration: 3s
+              duration: 2s
             - property: opacity
               value: 0
-              duration: 3s
+              duration: 4s
               timing: after_previous
       - type: image
         image: MainText-BootRamp50M
@@ -140,10 +140,10 @@ slides:
             - property: scale
               value: 1
               timing: after_previous
-              duration: 3s
+              duration: 2s
             - property: opacity
               value: 0
-              duration: 3s
+              duration: 4s
               timing: after_previous
       - type: image
         image: MainText-AllBonuses5X
@@ -160,14 +160,16 @@ slides:
             - property: scale
               value: 1
               timing: after_previous
-              duration: 3s
+              duration: 2s
             - property: opacity
               value: 0
-              duration: 3s
+              duration: 4s
               timing: after_previous
+      - type: image
+        image: background-flag
       - type: video
         video: dasboot-intro
-
+      
   slide_dasboot_main:
     widgets:
       - type: text
@@ -879,4 +881,44 @@ variable_player:
     score: current_player.pts_spell_munich * current_player.dasboot_bonus_multiplier
     dasboot_bonustext_spellmunich:
       int: current_player.pts_spell_munich * current_player.dasboot_bonus_multiplier
+      action: set
+
+  # reset our VS opponent status (if full) or game theme modes (if full) before das boot mode stops
+  # for game theme modes, just check if we have volumechug and trojankeg
+  mode_dasboot_stopping{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    has_longpour:
+      int: 0
+      action: set
+    has_quarters:
+      int: 0
+      action: set
+    has_strikeout:
+      int: 0
+      action: set
+    has_volumechug:
+      int: 0
+      action: set
+    has_trojankeg:
+      int: 0
+      action: set
+    has_dasboot:
+      int: 0
+      action: set
+
+  # for VS opponents, just check if we have Germany
+  mode_dasboot_stopping{current_player.has_germany==1}:
+    has_canada:
+      int: 0
+      action: set
+    has_scotland:
+      int: 0
+      action: set
+    has_ireland:
+      int: 0
+      action: set
+    has_tobago:
+      int: 0
+      action: set
+    has_germany:
+      int: 0
       action: set

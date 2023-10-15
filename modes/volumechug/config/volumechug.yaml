@@ -41,7 +41,7 @@ state_machines:
           show: flash_volumechug_wait_horseshoe
           speed: 4
           loops: -1
-        events_when_started: show_mini_horseshoe, play_objective_audio
+        events_when_started: show_mini_horseshoe, play_objective_audio_shoothorseshoeafter
       volumechug_completed:
         label: Volume Chug Completed
         events_when_started: volumechug_success
@@ -145,6 +145,9 @@ sound_player:
   play_shoottheboot:
     voice_shoottheboot:
       action: play
+  play_hithorseshoe:
+    voice_hithorseshoe:
+      action: play
 
   # shots we want BEERFEST! to play
   play_objective_audio:
@@ -156,7 +159,11 @@ sound_player:
       action: play
       events_when_stopped: play_shoottheboot
 
-
+  play_objective_audio_shoothorseshoeafter:
+    voice_beerfest:
+      action: play
+      events_when_stopped: play_hithorseshoe
+  
 slides:
   slide_volumechug_intro:
     widgets:

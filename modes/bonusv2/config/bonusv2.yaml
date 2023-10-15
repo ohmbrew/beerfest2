@@ -124,7 +124,14 @@ shows:
       shows: init_lights_bonus
     - time: '+5.25'
       events: drain_audio_complete
-  
+  show_pinball:
+    - time: 0
+      slides:
+        video_pinball_slide:
+          target: main
+      shows: init_lights_bonus
+    - time: '+4'
+      events: drain_audio_complete
   init_lights_bonus:
     - time: 0
       lights:
@@ -160,6 +167,9 @@ show_player:
   drain_play_nipple:
     show_nipple:
       loops: 0
+  drain_play_pinball:
+    show_pinball:
+      loops: 0   
   slide_slide_bonus_quarters_active:
     flash_bonus_lights:
       loops: 0
@@ -192,6 +202,7 @@ random_event_player:
       - drain_play_cantdrinkabeer
       - drain_play_firstbeer
       - drain_play_nipple
+      - drain_play_pinball
 
 slide_player:
   mode_bonusv2_started:

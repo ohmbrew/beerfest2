@@ -449,28 +449,37 @@ shows:
           color: off
           fade: .5s
 
-  flash_strikeout_prop:
+  strikeout_house_chase:
     - duration: 1s
       lights:
-        strikeout_shot:
-          color: red
-          
-        strikeout_beer:
-          color: red
-          
-        strikeout_bong:
-          color: red
-          
+        arrow_house1: 008ce5
+        arrow_house2: off
+        arrow_house3: off          
     - duration: 1s
       lights:
-        strikeout_shot:
-          color: off
-          
-        strikeout_beer:
-          color: off
-          
-        strikeout_bong:
-          color: off
+        arrow_house1: 008ce5
+        arrow_house2: 008ce5
+        arrow_house3: off     
+    - duration: 1s
+      lights:
+        arrow_house1: 008ce5
+        arrow_house2: 008ce5
+        arrow_house3: 008ce5     
+    - duration: 1s
+      lights:
+        arrow_house1: off
+        arrow_house2: 008ce5
+        arrow_house3: 008ce5     
+    - duration: 1s
+      lights:
+        arrow_house1: off
+        arrow_house2: off
+        arrow_house3: 008ce5     
+    - duration: 1s
+      lights:
+        arrow_house1: off
+        arrow_house2: off
+        arrow_house3: off     
           
 
   flash_strikeout_unhit:
@@ -515,7 +524,7 @@ show_player:
     flash_strikeout_insert:
       speed: 2
   mode_strikeout_started.2:
-    flash_strikeout_prop:
+    strikeout_house_chase:
       speed: 4
 
   choose_random_background_music:
@@ -525,17 +534,17 @@ show_player:
 
   # stop light shows on success/partial/fail
   strikeout_success:
-    flash_strikeout_prop:
+    strikeout_house_chase:
       action: stop
     flash_gi_themed:
       action: stop
   strikeout_partial:
-    flash_strikeout_prop:
+    strikeout_house_chase:
       action: stop
     flash_gi_themed:
       action: stop
   strikeout_fail:
-    flash_strikeout_prop:
+    strikeout_house_chase:
       action: stop
     flash_gi_themed:
       action: stop

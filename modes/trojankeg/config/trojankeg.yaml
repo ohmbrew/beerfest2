@@ -47,7 +47,7 @@ state_machines:
           speed: 4
           loops: -1
           priority: 1000
-        events_when_started: show_mini_pops, play_objective_audio
+        events_when_started: show_mini_pops, play_objective_audio_with_hitpops_after
       wait_for_keg:
         label: Waiting for keg hit
         events_when_started: show_mini_keg, play_objective_audio_with_shoot_keg_after
@@ -165,6 +165,14 @@ sound_player:
     voice_hitthekeg:
       action: play
 
+  play_objective_audio_with_hitpops_after:
+    voice_beerfest:
+      action: play
+      events_when_stopped: play_hitpops
+
+  play_hitpops:
+    voice_hitpops:
+      action: play   
 
 slides:
   slide_trojankeg_intro:

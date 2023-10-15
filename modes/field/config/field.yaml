@@ -110,7 +110,7 @@ random_event_player:
     events:
       - start_mode_longpour
       - start_mode_quarters
-      - start_mode_strikeou
+      - start_mode_strikeout
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
   # # launches a bottom row game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
   # #   With these conditional events forcing choosing from bottom row, we are not limited to any bottom row game theme modes
@@ -203,7 +203,7 @@ random_event_player:
   #     - start_mode_volumechug
 
   # VolumeChug: 0 TrojanKeg: 1 (choose from VolumeChug)
-  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==0 and current_player.has_trojankeg==1)}:
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==0 and current_player.has_trojankeg==1}:
     events:
       - start_mode_volumechug
    # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
@@ -213,7 +213,7 @@ random_event_player:
   #     - start_mode_volumechug
 
   # VolumeChug: 1 TrojanKeg: 0 (choose from TrojanKeg)
-  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1) and (current_player.has_volumechug==1 and current_player.has_trojankeg==0)}:
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==0}:
     events:
       - start_mode_trojankeg
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
@@ -224,7 +224,7 @@ random_event_player:
 
 
   # if player has all other game theme modes, time to launch Das Boot!. We shouldn't care if Pong Table has 2 locked balls
-  launch_random_game_mode{(current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1)}:
+  launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
     events:
       - start_mode_dasboot  # Wizard Mode!
 
@@ -234,23 +234,23 @@ random_event_player:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 25  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
-      play_betterwhendrunk_and_eject: 75
+      vs_select_opponent: 50  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
+      play_betterwhendrunk_and_eject: 50
 
   vs_or_play_rimrules_and_eject:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 25
-      play_rimrules_and_eject: 75
+      vs_select_opponent: 50
+      play_rimrules_and_eject: 50
   
   # Randomly chooses to select a VS or launch random game mode
   vs_or_launch_random_game_mode:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 25
-      launch_random_game_mode: 75
+      vs_select_opponent: 99
+      launch_random_game_mode: 1
 
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
   # Randomly chooses to select a VS or launch a random game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
@@ -259,31 +259,119 @@ random_event_player:
   #     #- vs_select_opponent
   #     - launch_random_game_mode_without_trojankeg
 
+
+
   # SELECTING OPPONENT
-  # First check if player has beaten all 5 other countries
-  vs_select_opponent{current_player.has_germany==1 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_tobago==1 and current_player.has_ireland==1}:
+  # First check if player has beaten Germany. That means they've also beaten all the other opponents
+  vs_select_opponent{current_player.has_germany==1}:
     events:
       - start_mode_dasboot  # player starts das boot after completing all 5 countries!
 
+  # Next check if player has all countries except Germany. We play Germany last.
+  vs_select_opponent{current_player.has_germany==0 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_germany
 
-  # TODO - make this so it selects from un-won countries
-  # select countries other than Germany if player doesn't have Germany yet
-  vs_select_opponent{current_player.has_germany == 0}:
+  # Player is not ready for Germany (at least 1 of the countries == 0 from above including Germany). Choose un-beaten opponent by checking all possible combinations...can't think of another way
+  # Canada: 0 Scotland: 0 Ireland: 0 Tobago: 0 (choose any 4)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==0 and current_player.has_ireland==0 and current_player.has_tobago==0}:
     events:
       - selected_opponent_canada
       - selected_opponent_scotland
       - selected_opponent_ireland
       - selected_opponent_tobago
-  # select Germany if all other countries have been beaten
-  vs_select_opponent{current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+
+  # Canada: 0 Scotland: 0 Ireland: 0 Tobago: 1 (Choose Canada, Scotland, Ireland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==0 and current_player.has_ireland==0 and current_player.has_tobago==1}:
     events:
-      - selected_opponent_germany
+      - selected_opponent_canada
+      - selected_opponent_scotland
+      - selected_opponent_ireland
+
+  # Canada: 0 Scotland: 0 Ireland: 1 Tobago: 0 (Choose Canada, Scotland, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==0 and current_player.has_ireland==1 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_scotland
+      - selected_opponent_tobago
+
+  # Canada: 0 Scotland: 0 Ireland: 1 Tobago: 1 (Choose Canada, Scotland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==0 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_scotland
+
+  # Canada: 0 Scotland: 1 Ireland: 0 Tobago: 0 (Choose Canada, Ireland, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==1 and current_player.has_ireland==0 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_ireland
+      - selected_opponent_tobago
+
+  # Canada: 0 Scotland: 1 Ireland: 0 Tobago: 1 (Choose Canada, Ireland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==1 and current_player.has_ireland==0 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_ireland
+
+  # Canada: 0 Scotland: 1 Ireland: 1 Tobago: 0 (Choose Canada, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_canada
+      - selected_opponent_tobago
+
+  # Canada: 0 Scotland: 1 Ireland: 1 Tobago: 1 (Choose Canada)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==0 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_canada
+
+  # Canada: 1 Scotland: 0 Ireland: 0 Tobago: 0 (Choose Scotland, Ireland, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==0 and current_player.has_ireland==0 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_scotland
+      - selected_opponent_ireland
+      - selected_opponent_tobago
+
+  # Canada: 1 Scotland: 0 Ireland: 0 Tobago: 1 (Choose Scotland, Ireland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==0 and current_player.has_ireland==0 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_scotland
+      - selected_opponent_ireland
+
+  # Canada: 1 Scotland: 0 Ireland: 1 Tobago: 0 (Choose Scotland, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==0 and current_player.has_ireland==1 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_scotland
+      - selected_opponent_tobago
+
+  # Canada: 1 Scotland: 0 Ireland: 1 Tobago: 1 (Choose Scotland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==0 and current_player.has_ireland==1 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_scotland
+
+  # Canada: 1 Scotland: 1 Ireland: 0 Tobago: 0 (Choose Ireland, Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==0 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_ireland
+      - selected_opponent_tobago
+
+  # Canada: 1 Scotland: 1 Ireland: 0 Tobago: 1 (Choose Ireland)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==0 and current_player.has_tobago==1}:
+    events:
+      - selected_opponent_ireland
+
+  # Canada: 1 Scotland: 1 Ireland: 1 Tobago: 0 (Choose Tobago)
+  vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==0}:
+    events:
+      - selected_opponent_tobago
+  
+
 
   # select a VS challenge and we're not in multiball, don't care which one
   vs_select_challenge_no_mb:
     events:
       - selected_vs_alltargets
-      - selected_vs_breakout
+      #- selected_vs_breakout
   # select a VS challeng but we're in multiball, so we don't want to select breakout
   vs_select_challenge_mb:
     events:

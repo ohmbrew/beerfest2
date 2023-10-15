@@ -132,7 +132,13 @@ slides:
     - type: image
       image: background-flag
     - type: video
-      video: nipple 
+      video: nipple
+  video_pinball_slide:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: video
+      video: BrokenPinball 
   slide_bonus_monkeychug:
     widgets:
     - type: text
@@ -247,7 +253,26 @@ slides:
     widgets:
     - type: video
       video: easteregg_adult
-
+  das_boot_ready:
+    widgets:
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-DasBootIsReady
+      scale: .1
+      anchor_x: middle
+      anchor_y: middle
+      x: middle
+      y: middle
+      animations:
+        show_slide:
+          - property: scale
+            value: 1
+            duration: 3s 
+    - type: video
+      video: DasBootReady
+    expire: 5s
+      
 slide_player:
   shot_horseshoe_hit{mode.dasboot.active == False and device.state_machines.volumechug_state_machine.state != "wait_for_horseshoe"}:
     slide_bonus_monkeychug:
@@ -277,6 +302,37 @@ slide_player:
       target: main
       priority: 20000
       expire: 11.16s
+
+  # Show DasBootReady slide if we've stopped volumechug or trojan keg game theme modes and they're both complete (Das Boot is next)
+  mode_volumechug_stopped{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    das_boot_ready:
+      target: main 
+      action: play
+  mode_trojankeg_stopped{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    das_boot_ready:
+      target: main 
+      action: play
+  mode_base_started{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+    das_boot_ready:
+      target: main
+      action: play
+
+  # Show DasBootReady slide if we've stopped VS Battle or Video modes and all 5 country opponents are complete (Germany is always last so just check that)
+  mode_vs_alltargets_stopped{current_player.has_germany==1}:
+    das_boot_ready:
+      target: main 
+      action: play
+  mode_vs_breakout_stopped{current_player.has_germany==1}:
+    das_boot_ready:
+      target: main 
+      action: play
+  mode_base_started{current_player.has_germany==1}:
+    das_boot_ready:
+      target: main
+      action: play
+
+  
+
 # shows to light lights when paddle sensor has been hit
 shows:
   show_init_base:
