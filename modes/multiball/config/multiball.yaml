@@ -437,6 +437,7 @@ state_machines:
         events_when_started:
           - disable_popo_lock
           - eject_popo    # {device.switches.s_popo_captured.state == 1}    # eject ball if one is there
+          - enable_pt_lock
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
@@ -457,18 +458,24 @@ state_machines:
       - source: start
         target: ball_captured
         events: mode_multiball_started{device.switches.s_popo_captured.state == 1}
+      - source: start
+        target: do_not_capture
+        events: mode_multiball_started{device.state_machines.multiball.state == "pongtable_cupNone"} 
+
       - source: ready_for_capture
         target: ball_captured
         events: shot_popo_captured_hit
       - source: ready_for_capture
         target: do_not_capture
         events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+
       - source: ball_captured
         target: multiball_popo_running
         events: slide_multiball_slide_popo_removed
       - source: ball_captured
         target: do_not_capture
         events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+
       - source: do_not_capture
         target: do_not_capture
         events: shot_popo_captured_hit
@@ -478,6 +485,7 @@ state_machines:
       - source: do_not_capture
         target: ball_captured
         events: multiball_multiball_ended{device.switches.s_popo_captured.state == 1}  
+
       - source: multiball_popo_running
         target: ready_for_capture
         events: multiball_popo_multiball_ended{device.state_machines.multiball.state != "pongtable_cupNone"}
