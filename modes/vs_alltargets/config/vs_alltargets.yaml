@@ -41,14 +41,18 @@ timers:
     end_value: 0
     direction: down
     tick_interval: .1s
+    restart_on_complete: false
     control_events:
       - action: restart
         event: dec_opponent_health
+      - action: stop
+        event: stop_update_timers
   player_health_update:    # ensure that player health meter gets update *after* we update player health player variable
     start_value: 1
     end_value: 0
     direction: down
     tick_interval: .1s
+    restart_on_complete: false
     control_events:
       - action: restart
         event: dec_player_health
@@ -58,6 +62,7 @@ timers:
     start_value: 15
     end_value: 0
     direction: down
+    restart_on_complete: false
     tick_interval: 3s     # that's 1 shot every 3 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
     control_events:
       - action: restart
