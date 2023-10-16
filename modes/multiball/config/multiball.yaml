@@ -339,7 +339,7 @@ multiball_locks:
     balls_to_lock: 1
     locked_ball_counting_strategy: physical_only
     enable_events: enable_pt_lock
-    disable_events: start_multiball
+    disable_events: disable_ptlock1, start_multiball
 
   pt_lock2:
     debug: true
@@ -347,7 +347,7 @@ multiball_locks:
     balls_to_lock: 1
     locked_ball_counting_strategy: physical_only
     enable_events: enable_pt_lock
-    disable_events: start_multiball, disable_ptlock2
+    disable_events: disable_ptlock2, start_multiball 
 
   popo_lock:
     debug: true
@@ -547,10 +547,10 @@ show_player:
 event_player:
   mode_multiball_started:
     - enable_popo_lock
-  shot_pongcup1_hit:
+  shot_pongcup1_hit{device.state_machines.multiball.state != "multiball_running"}:
     - pongtable_movetocup2
     - multiball_sink1
-  shot_pongcup2_hit{device.state_machines.multiball_popo.state == "ready_for_capture"}:
+  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state == "ready_for_capture"}:
     - pongtable_movetocupNone
     - multiball_sink2
 

@@ -33,7 +33,9 @@ window:
   exit_on_escape: True
 
 # TODO
-# SEVERE: I started longpour in multiball mode, 
+# SEVERE: I started longpour in multiball mode, an the first shot I hit to UPF and attempted to "lock" a ball - the lock video played, ball lock 1 lit, but it released it. Cuz it's MB within a theme mode? Shouldn't elim that...
+#  After that happened, even after longpour ended, I would try and lock a ball in pongcup 1, it would play ball locked video, but then immediately release the ball.
+
 # Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
 # Make in-game bonuses (Multiball, Spell Munich, Drinko (old...), etc.) have image text
 
