@@ -259,14 +259,14 @@ random_event_player:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 10  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
-      play_betterwhendrunk_and_eject: 90
+      vs_select_opponent: 33  # after opponent and challenge are randomly set (player var strings are good), it starts the selected VS challenge
+      play_betterwhendrunk_and_eject: 67
   vs_or_play_rimrules_and_eject:
     force_all: false
     force_different: false
     events:
-      vs_select_opponent: 10
-      play_rimrules_and_eject: 90
+      vs_select_opponent: 33
+      play_rimrules_and_eject: 67
   
   # Randomly chooses to select a VS or launch random game mode. Make it 33/67
   vs_or_launch_random_game_mode:
@@ -281,8 +281,8 @@ random_event_player:
     force_all: false
     force_different: false
     events:
-      selected_vs_alltargets: 75
-      selected_vs_breakout: 25
+      selected_vs_alltargets: 70
+      selected_vs_breakout: 30
 
   # select a VS challeng but we're in multiball, so we don't want to select breakout
   vs_select_challenge_mb:
