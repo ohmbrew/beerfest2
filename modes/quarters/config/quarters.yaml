@@ -261,7 +261,7 @@ slide_player:
   mode_quarters_started:
     slide_quarters_intro:
       target: main
-      expire: 4s
+      expire: 5s
     slide_mini_shootshotglass:
       target: mini
       priority: 1000
