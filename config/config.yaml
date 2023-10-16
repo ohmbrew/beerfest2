@@ -34,7 +34,8 @@ window:
   exit_on_escape: True
 
 # TODO
-# Fixed PT multiball. I prevented showing PT lock shows and ball lock lights if PT MB is in "multiball running state" and player sinks pong cup 2. Also added state transitions to popo MB to get it out of "do not capture" when PT MB ends
+# SEVERE. Ball was not released and PT did not move to ball 2 when ball was captured in pongcup1. This was during a VS Battle mode
+
 # Still need to work on Popo. It was not ejecting a ball when released_hit event though there was a ball in there. Added in a state transition from start -> captured if MB mode starts and there's a ball in there
 #   like if player 1 captured popo, ball ended, and player 2 is up. Before, it would go to ready_for_capture. Now it goes to ball_captured. Also added a enable_pt_lock when in do_not_capture
 

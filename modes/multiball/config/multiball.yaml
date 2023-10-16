@@ -152,6 +152,11 @@ shows:
       lights:
         ball2_locked: 008ce5  
     - duration: -1
+  clear_ballx_locked:
+    - duration: 1
+      lights:
+        ball1_locked: off
+        ball2_locked: off
 
 slides:
   multiball_sink1_clean:
@@ -364,7 +369,7 @@ state_machines:
         label: PongTable lock not enabled
       pongtable_cup1:
         label: PongTable Cup 1 Active
-        events_when_started: enable_pt_lock, clear_multiball_shows
+        events_when_started: enable_pt_lock
         show_when_active:
           show: pongtable_show
           show_tokens:
@@ -400,10 +405,11 @@ state_machines:
         events: mode_multiball_started{device.switches.s_pongcup1.state == 0}
       - source: start
         target: pongtable_cup2
-        events: mode_multiball_started{device.switches.s_pongcup1.state == 1}
+        events: mode_multiball_started{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 0}
       - source: start
         target: pongtable_cupNone
         events: mode_multiball_started{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1}    
+
       - source: pongtable_cup1
         target: pongtable_cup2
         events: pongtable_movetocup2
@@ -423,10 +429,9 @@ state_machines:
         label: Popo lock not enabled
       ready_for_capture:
         label: Popo capture area ready for ball
-        events_when_started: enable_popo_lock, enable_pt_lock, clear_multiball_shows
+        events_when_started: enable_popo_lock
       ball_captured:
         label: Popo capture area contains a ball
-        events_when_started: disable_ptlock2
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
@@ -437,7 +442,6 @@ state_machines:
         events_when_started:
           - disable_popo_lock
           - eject_popo    # {device.switches.s_popo_captured.state == 1}    # eject ball if one is there
-          - enable_pt_lock
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
@@ -445,7 +449,7 @@ state_machines:
         #   loops: 0
       multiball_popo_running:
         label: Popo multiball running
-        events_when_started: disable_popo_lock, disable_ptlock2, start_multiball_popo
+        events_when_started: disable_popo_lock, start_multiball_popo
 
     transitions:
       # for reference - conditional event DEVICE. not DEVICES.
@@ -460,7 +464,7 @@ state_machines:
         events: mode_multiball_started{device.switches.s_popo_captured.state == 1}
       - source: start
         target: do_not_capture
-        events: mode_multiball_started{device.state_machines.multiball.state == "pongtable_cupNone"} 
+        events: mode_multiball_started{device.switches.s_pongcup1.state == 1 and device.switches.s_pongcup2.state == 1} 
 
       - source: ready_for_capture
         target: ball_captured
@@ -488,10 +492,10 @@ state_machines:
 
       - source: multiball_popo_running
         target: ready_for_capture
-        events: multiball_popo_multiball_ended{device.state_machines.multiball.state != "pongtable_cupNone"}
+        events: multiball_popo_multiball_ended{device.switches.s_pongcup2.state == 0}
       - source: multiball_popo_running
         target: do_not_capture
-        events: multiball_popo_multiball_ended{device.state_machines.multiball.state == "pongtable_cupNone"}
+        events: multiball_popo_multiball_ended{device.switches.s_pongcup2.state == 1}
 
 sound_player:
   slide_multiball_sink2_removed:
@@ -555,23 +559,24 @@ show_player:
       action: stop
     light_ball2_locked:
       action: stop
+    clear_ballx_locked:
+      action: stop
   mode_dasboot_started:
     light_ball1_locked:
       action: stop
     light_ball2_locked:
       action: stop
+    clear_ballx_locked:
+      action: stop
 
 event_player:
-  mode_multiball_started:
-    - enable_popo_lock
   shot_pongcup1_hit{device.state_machines.multiball.state != "multiball_running"}:
     - pongtable_movetocup2
     - multiball_sink1
-  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state == "ready_for_capture"}:
+  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running" and device.switches.s_popo_captured.state == 0}:
     - pongtable_movetocupNone
     - multiball_sink2
-
-  shot_pongcup2_hit{device.state_machines.multiball_popo.state != "ready_for_capture"}: release_cup2
+  shot_pongcup2_hit{device.state_machines.multiball.state == "multiball_running" or device.switches.s_popo_captured.state == 1}: release_cup2
 
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball
