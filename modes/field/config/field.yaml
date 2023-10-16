@@ -124,14 +124,16 @@ event_player:
   
 random_event_player:
   # Want to change this to choose un-beaten bottom row game themes 67% of time, and un-beaten middle row 33% of time.
-  # if we have at least 1 unbeaten theme in bottom row, then choose bottom row vs middle row based on the below %s
-  launch_random_game_mode{current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0}:
+  # if we have at least 1 unbeaten theme in bottom row AND middle row, then choose bottom row vs middle row based on the below %s
+  launch_random_game_mode{(current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0) and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:
     events:
-      force_all: false
-      force_different: false
-      events:
-        rnd_game_theme_bottom_row: 60   # lean towards choosing a bottom row slightly but still give opportunity to get a middler rower
-        rnd_game_theme_middle_row: 40
+      rnd_game_theme_bottom_row: 60   # lean towards choosing a bottom row slightly but still give opportunity to get a middler rower
+      rnd_game_theme_middle_row: 40
+
+  # if we have at least 1 unbeaten theme in bottom row AND both middle row themes are beaten, then just choose from bottom row
+  launch_random_game_mode{(current_player.has_longpour==0 or current_player.has_quarters==0 or current_player.has_strikeout==0) and (current_player.has_volumechug==1 or current_player.has_trojankeg==1)}:
+    events:
+      - rnd_game_theme_bottom_row
 
   # if we've beaten all of lower row and have unbeaten middle row themes, then always select middle row unbeaten random theme
   launch_random_game_mode{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and (current_player.has_volumechug==0 or current_player.has_trojankeg==0)}:

@@ -32,7 +32,7 @@ slide_player:
   mode_flipperflop_started:
     flipperflop_activated:
       target: main
-      priority: 1000
+      priority: 11000
   voice_flipperflop_active_complete:
     flipperflop_activated:
       target: main

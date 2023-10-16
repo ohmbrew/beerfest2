@@ -69,7 +69,11 @@ sounds:
     track: voice
     volume: 1.0
 
-  
+  music_2burps:
+    file: 2burps.wav
+    track: music
+    volume: 1.0
+
   voice_ohyea:
     file: buckcherry-ohyea.wav
     track: voice
@@ -390,9 +394,9 @@ sounds:
         target: music
         delay: 0
         attack: 0.3 sec
-        attenuation: -6db
-        release_point: .5 sec
-        release: 1.5 sec
+        attenuation: -30db
+        release_point: .25 sec
+        release: .25 sec
   voice_multiball:
     file: Jay-MunichMultiball.wav
     track: voice

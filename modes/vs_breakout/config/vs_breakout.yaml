@@ -169,8 +169,7 @@ event_player:
   timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 0}:
     vs_result_lose
   timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 1}:
-    - vs_result_win1
-    - vs_result_win
+    vs_result_lose
   timer_ball_result_sound_delay_complete{device.counters.ball_count.value == 3 and device.counters.win_count.value == 2}:
     - vs_result_win2
     - vs_result_win
@@ -414,16 +413,10 @@ slides:
             value: 175
             duration: .25s
             timing: with_previous
-    - type: text
-      text: VIDEO MODE
-      font_size: 25
-      font_name: druillet
-      anchor_x: middle
-      anchor_y: middle
-      x: middle
-      y: middle - 59
-      color: 008ce5ff
+    - type: image
+      image: MainText-VideoMode
       opacity: 0
+      scale: .1
       animations:
         show_slide:
           - property: opacity
@@ -433,10 +426,10 @@ slides:
             value: 1
             duration: 0
             timing: after_previous
-          - property: font_size
-            value: 125
+          - property: scale
+            value: 1
             duration: .25s
-            timing: with_previous
+            timing: with_previous       
     - type: text
       text: FLIPPERS MOVE CUP
       font_size: 25

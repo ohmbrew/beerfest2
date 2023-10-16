@@ -7,29 +7,33 @@ player:
     top: []
     total: 0
 shots:
-  shot_chug_beer: 9
-  shot_diverter: 3
-  shot_do_shot: 9
-  shot_horseshoe: 6
-  shot_kicker_mode: 38
+  shot_chug_beer: 11
+  shot_diverter: 5
+  shot_do_shot: 11
+  shot_horseshoe: 9
+  shot_kicker_mode: 80
   shot_kicker_rimrules: 1
   shot_laneleft_inner: 7
   shot_laneleft_outer: 8
   shot_laneright_inner: 8
   shot_laneright_outer: 6
-  shot_leftflipper: 18
-  shot_plunger_lane_exit: 37
+  shot_leftflipper: 31
+  shot_plunger_lane_exit: 69
   shot_pongcup1: 1
   shot_pongcup2: 1
-  shot_pop_lower: 640
-  shot_pop_upper_right: 1
-  shot_quarters: 2
-  shot_ramp_upf: 7
-  shot_rightflipper: 20
-  shot_strikeout_chugbeer: 3
-  shot_strikeout_doshot: 3
-  shot_strikeout_takehit: 3
-  shot_take_hit: 9
+  shot_pop_lower: 1314
+  shot_pop_upper_left: 2
+  shot_pop_upper_right: 3
+  shot_popo_captured: 2
+  shot_popo_released: 1
+  shot_quarters: 14
+  shot_ramp_upf: 28
+  shot_rightflipper: 30
+  shot_strikeout_chugbeer: 5
+  shot_strikeout_doshot: 5
+  shot_strikeout_takehit: 5
+  shot_take_hit: 11
+  shot_tavern: 2
   shot_tgt_ramp_boot_left: 3
   shot_tgt_ramp_boot_right: 39
   shot_upf_tgt_left: 25
@@ -37,14 +41,14 @@ shots:
 switches:
   s_adult: 0
   s_chance: 0
-  s_chug_beer: 9
-  s_diverter: 3
-  s_do_shot: 9
-  s_drain: 11
-  s_flipper_left: 18
-  s_flipper_right: 20
-  s_horseshoe: 6
-  s_kicker_mode: 38
+  s_chug_beer: 11
+  s_diverter: 5
+  s_do_shot: 11
+  s_drain: 33
+  s_flipper_left: 31
+  s_flipper_right: 30
+  s_horseshoe: 9
+  s_kicker_mode: 81
   s_kicker_rimrules: 1
   s_laneleft_inner: 7
   s_laneleft_outer: 8
@@ -54,32 +58,32 @@ switches:
   s_open2: 0
   s_open3: 0
   s_orbit_exit: 0
-  s_plunger_lane: 32
-  s_plunger_lane_exit: 37
+  s_plunger_lane: 64
+  s_plunger_lane_exit: 69
   s_pongcup1: 1
   s_pongcup2: 1
-  s_pop_lower: 640
-  s_pop_upper_left: 0
-  s_pop_upper_right: 1
-  s_popo_captured: 0
-  s_popo_release: 0
-  s_quarters: 2
-  s_ramp_upf: 7
+  s_pop_lower: 1314
+  s_pop_upper_left: 2
+  s_pop_upper_right: 3
+  s_popo_captured: 2
+  s_popo_release: 1
+  s_quarters: 14
+  s_ramp_upf: 28
   s_slingshot_left: 0
   s_slingshot_quarters: 0
   s_slingshot_right: 0
   s_special: 0
   s_start: 0
-  s_take_hit: 9
+  s_take_hit: 11
   s_target_rimrules: 0
-  s_tavern_spinner: 0
+  s_tavern_spinner: 2
   s_tgt_popo: 0
   s_tgt_ramp_boot_left: 3
   s_tgt_ramp_boot_right: 39
   s_trough1: 0
-  s_trough2: 0
-  s_trough3: 9
-  s_trough_eject: 32
+  s_trough2: 1
+  s_trough3: 19
+  s_trough_eject: 64
   s_upf_entry: 0
   s_upf_tgt_left: 25
   s_upf_tgt_right: 23

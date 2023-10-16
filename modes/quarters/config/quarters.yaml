@@ -12,8 +12,6 @@ sound_player:
   mode_quarters_started:
     voice_quarters_intro:
       action: play
-      loops: 0
-      events_when_stopped: saucer_release, intro_done
   mode_quarters_will_stop:
     themedrinkonme:
       action: stop
@@ -329,7 +327,9 @@ queue_relay_player:
     wait_for: slide_event_done
 
 event_player:
-  slide_slide_quarters_intro_removed: choose_random_background_music
+  slide_slide_quarters_intro_removed:
+    - choose_random_background_music
+    - saucer_release
   slide_slide_quarters_success_removed: slide_event_done
   slide_slide_quarters_fail_removed: slide_event_done
   slide_slide_quarters_partial_removed: slide_event_done

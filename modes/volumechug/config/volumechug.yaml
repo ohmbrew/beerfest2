@@ -77,7 +77,6 @@ sound_player:
     voice_volumechug_intro:
       action: play
       loops: 0
-      events_when_stopped: saucer_release, intro_done
   mode_volumechug_will_stop:
     themedrinkonme:
       action: stop
@@ -134,7 +133,7 @@ sound_player:
       action: play
       events_when_stopped: slide_event_result_complete
   shot_diverter_hit{device.state_machines.volumechug_state_machine.state != "wait_for_ramp_boot"}:
-    2burps:
+    music_2burps:
       action: play
   award_volumechug_bonus:
     voice_volumechug_megabonus:
@@ -497,7 +496,9 @@ queue_relay_player:
     wait_for: slide_event_done
 
 event_player:
-  slide_slide_volumechug_intro_removed: choose_random_background_music
+  slide_slide_volumechug_intro_removed:
+    - choose_random_background_music
+    - saucer_release
   slide_slide_volumechug_success_removed: slide_event_done
   slide_slide_volumechug_fail_removed: slide_event_done
   slide_slide_volumechug_partial_removed: slide_event_done

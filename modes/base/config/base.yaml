@@ -276,15 +276,15 @@ slide_player:
       expire: 11.16s
 
   # Show DasBootReady slide if we've stopped volumechug or trojan keg game theme modes and they're both complete (Das Boot is next)
-  mode_volumechug_stopped{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+  mode_volumechug_stopped{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
     das_boot_ready:
       target: main 
       action: play
-  mode_trojankeg_stopped{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+  mode_trojankeg_stopped{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
     das_boot_ready:
       target: main 
       action: play
-  mode_base_started{current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
+  mode_base_started{current_player.has_longpour==1 and current_player.has_quarters==1 and current_player.has_strikeout==1 and current_player.has_volumechug==1 and current_player.has_trojankeg==1}:
     das_boot_ready:
       target: main
       action: play
@@ -592,10 +592,10 @@ shows:
 
 sound_player:
   shot_diverter_hit{mode.volumechug.active == False and device.counters.track_flipperflop.value < 2}:
-    2burps:
+    music_2burps:
       action: play  
   shot_ramp_upf_hit: 
-    2burps:
+    music_2burps:
       action: play
   shot_upf_entry_hit:
     voice_hithorseshoe:

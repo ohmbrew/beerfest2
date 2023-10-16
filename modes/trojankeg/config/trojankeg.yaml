@@ -91,7 +91,6 @@ sound_player:
     voice_trojankeg_intro:
       action: play
       loops: 0
-      events_when_stopped: saucer_release, intro_done
 
   # Field, and any of the Game Modes (Quarters, Strike Out, etc.) must implement their own listeners on shot_kicker_mode_hit or shot_kicker_rimrules_hit.
   shot_kicker_mode_hit{device.state_machines.trojankeg_state_machine.state != "wait_for_keg" and device.state_machines.trojankeg_state_machine.state != "trojankeg_completed"}:
@@ -505,7 +504,9 @@ queue_relay_player:
     wait_for: slide_event_done
 
 event_player:
-  slide_slide_trojankeg_intro_removed: choose_random_background_music
+  slide_slide_trojankeg_intro_removed:
+    - choose_random_background_music
+    - saucer_release
   slide_slide_trojankeg_success_removed: slide_event_done
   slide_slide_trojankeg_fail_removed: slide_event_done
   slide_slide_trojankeg_partial_removed: slide_event_done

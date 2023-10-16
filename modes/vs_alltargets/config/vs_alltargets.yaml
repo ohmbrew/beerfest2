@@ -363,16 +363,10 @@ slides:
             value: 175
             duration: .25s
             timing: with_previous
-    - type: text
-      text: BATTLE MODE
-      font_size: 25
-      font_name: druillet
-      anchor_x: middle
-      anchor_y: middle
-      x: middle
-      y: middle - 100
-      color: 008ce5ff
+    - type: image
+      image: MainText-BattleMode
       opacity: 0
+      scale: .1
       animations:
         show_slide:
           - property: opacity
@@ -382,8 +376,8 @@ slides:
             value: 1
             duration: 0
             timing: after_previous
-          - property: font_size
-            value: 200
+          - property: scale
+            value: 1
             duration: .25s
             timing: with_previous        
     - type: video
