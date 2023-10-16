@@ -264,6 +264,7 @@ slide_player:
   mode_strikeout_started:
     slide_strikeout_intro:
       target: main
+      expire: 5s
     slide_mini_shootdroptargets:
       target: mini
       priority: 2000
