@@ -9,7 +9,7 @@ hardware:
 accelerometers:
   accelerometer:
     number: 1
-    
+
     level_x: 0
     level_y: 0
     level_z: 0
@@ -34,8 +34,9 @@ window:
   exit_on_escape: True
 
 # TODO
-# SEVERE: I started longpour in multiball mode, an the first shot I hit to UPF and attempted to "lock" a ball - the lock video played, ball lock 1 lit, but it released it. Cuz it's MB within a theme mode? Shouldn't elim that...
-#  After that happened, even after longpour ended, I would try and lock a ball in pongcup 1, it would play ball locked video, but then immediately release the ball.
+# Fixed PT multiball. I prevented showing PT lock shows and ball lock lights if PT MB is in "multiball running state" and player sinks pong cup 2. Also added state transitions to popo MB to get it out of "do not capture" when PT MB ends
+# Still need to work on Popo. It was not ejecting a ball when released_hit event though there was a ball in there. Added in a state transition from start -> captured if MB mode starts and there's a ball in there
+#   like if player 1 captured popo, ball ended, and player 2 is up. Before, it would go to ready_for_capture. Now it goes to ball_captured
 
 # Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
 # Make in-game bonuses (Multiball, Spell Munich, Drinko (old...), etc.) have image text

@@ -453,7 +453,10 @@ state_machines:
       #  events: mode_multiball_started{device.ball_devices.bd_lock.balls==2}
       - source: start
         target: ready_for_capture
-        events: mode_multiball_started
+        events: mode_multiball_started{device.switches.s_popo_captured.state == 0}
+      - source: start
+        target: ball_captured
+        events: mode_multiball_started{device.switches.s_popo_captured.state == 1}
       - source: ready_for_capture
         target: ball_captured
         events: shot_popo_captured_hit
