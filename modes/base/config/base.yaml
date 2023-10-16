@@ -141,24 +141,10 @@ slides:
       video: BrokenPinball 
   slide_bonus_monkeychug:
     widgets:
-    - type: text
-      text: MONKEY CHUG
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-MonkeyChugBonus
     - type: text
       text: (player|pts_horseshoe)
       number_grouping: true
@@ -180,24 +166,10 @@ slides:
   
   slide_bonus_strikeout:
     widgets:
-    - type: text
-      text: Strikeout
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-StrikeoutBonus
     - type: text
       text: (player|pts_strikeout_complete)
       number_grouping: true

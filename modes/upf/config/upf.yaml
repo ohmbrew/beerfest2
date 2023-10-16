@@ -36,7 +36,6 @@ accruals:
     events:
       - shot_upf_tgt_left_hit
       - shot_upf_tgt_right_hit
-      - shot_horseshoe_hit
     events_when_complete: award_upf_bonus
     reset_on_complete: true
     disable_on_complete: false
@@ -86,24 +85,10 @@ state_machines:
 slides:
   slide_bonus_upf1:
     widgets:
-    - type: text
-      text: PADDLE
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-PaddleBonus
     - type: text
       text: (player|pts_upf_bonus1)
       number_grouping: true
@@ -124,24 +109,10 @@ slides:
       video: bubbles
   slide_bonus_upf2:
     widgets:
-    - type: text
-      text: PADDLE
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-PaddleBonus
     - type: text
       text: (player|pts_upf_bonus2)
       number_grouping: true
@@ -162,24 +133,10 @@ slides:
       video: bubbles
   slide_bonus_hammered:
     widgets:
-    - type: text
-      text: E = MC
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: HAMMERED BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-EMCHammeredBonus
     - type: text
       text: (player|pts_upf_hammered)
       number_grouping: true
@@ -264,6 +221,17 @@ shows:
       lights:
         arrow_horseshoe3: green
     - duration: -1
+  show_light_upf_hammered:
+    - duration: 1
+      lights:
+        arrow_horseshoe1: green
+        arrow_horseshoe2: green
+        arrow_horseshoe3: green
+    - duration: 1
+      lights:
+        arrow_horseshoe1: off
+        arrow_horseshoe2: off
+        arrow_horseshoe3: off
 
 show_player:
   mode_upf_started{device.accruals.upf_bonus_accrual.value[0]}: show_light_horseshoe1
@@ -274,10 +242,10 @@ show_player:
   mode_upf_started{device.accruals.upf_bonus_accrual.value[1] == 0}:
     show_light_horseshoe2:
       action: stop
-  mode_upf_started{device.accruals.upf_bonus_accrual.value[2]}: show_light_horseshoe3
-  mode_upf_started{device.accruals.upf_bonus_accrual.value[2] == 0}:
-    show_light_horseshoe3:
-      action: stop
+  # mode_upf_started{device.accruals.upf_bonus_accrual.value[2]}: show_light_horseshoe3
+  # mode_upf_started{device.accruals.upf_bonus_accrual.value[2] == 0}:
+  #   show_light_horseshoe3:
+  #     action: stop
 
   mode_upf_started{device.state_machines.upf.state == "wait_for_upf1"}:
     show_light_horseshoe1:
@@ -322,6 +290,8 @@ show_player:
       action: stop
   upf_hammered_award:
     show_light_upf_hammered:
+      loops: 4
+      priority: 1000
       speed: 4
 
 

@@ -263,24 +263,10 @@ slides:
       image: background      
   dasboot_slide_bonus_upf1:
     widgets:
-    - type: text
-      text: D-R-I-N-K-O
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-PaddleBonus
     - type: text
       text: (player|dasboot_bonustext_upfbonus1)
       number_grouping: true
@@ -301,24 +287,10 @@ slides:
       image: background
   dasboot_slide_bonus_upf2:
     widgets:
-    - type: text
-      text: D-R-I-N-K-O
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-PaddleBonus
     - type: text
       text: (player|dasboot_bonustext_upfbonus2)
       number_grouping: true
@@ -339,24 +311,10 @@ slides:
       image: background
   dasboot_slide_bonus_hammered:
     widgets:
-    - type: text
-      text: D-R-I-N-K-O
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: HAMMERED MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-EMCHammeredBonus
     - type: text
       text: (player|dasboot_bonustext_hammered)
       number_grouping: true
@@ -377,24 +335,10 @@ slides:
       image: background
   dasboot_slide_bonus_monkeychug:
     widgets:
-    - type: text
-      text: MONKEY CHUG
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-MonkeyChugBonus
     - type: text
       text: (player|dasboot_bonustext_monkeychug)
       number_grouping: true
@@ -415,24 +359,10 @@ slides:
       image: background
   dasboot_slide_bonus_spellbeer:
     widgets:
-    - type: text
-      text: Spell B-E-E-R
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-SpelledBeerBonus
     - type: text
       text: (player|dasboot_bonustext_spellbeer)
       number_grouping: true
@@ -453,24 +383,10 @@ slides:
       image: background
   dasboot_slide_bonus_spellmunich:
     widgets:
-    - type: text
-      text: Spell M-U-N-I-C-H
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-SpelledMunichBonus
     - type: text
       text: (player|dasboot_bonustext_spellmunich)
       number_grouping: true
@@ -491,24 +407,10 @@ slides:
       image: background
   dasboot_slide_bonus_strikeout:
     widgets:
-    - type: text
-      text: Strikeout
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: MEGA BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-StrikeoutBonus
     - type: text
       text: (player|dasboot_bonustext_strikeoutcomplete)
       number_grouping: true
@@ -583,17 +485,17 @@ slide_player:
   upf_bonus1_award:
     dasboot_slide_bonus_upf1:
       target: main
-      priority: 1000
+      priority: 2000
       expire: 2s
   upf_bonus2_award:
     dasboot_slide_bonus_upf2:
       target: main
-      priority: 1000
+      priority: 2000
       expire: 2s
   upf_hammered_award:
     dasboot_slide_bonus_hammered:
       target: main
-      priority: 1000
+      priority: 2000
       expire: 2s
   shot_horseshoe_hit:
     dasboot_slide_bonus_monkeychug:
@@ -825,9 +727,12 @@ variable_player:
     score: current_player.pts_dasboot_target_bonus
   upf_bonus1_award:
     score: current_player.pts_upf_bonus1 * current_player.dasboot_bonus_multiplier        # means we got bonus1
+    dasboot_bonustext_upfbonus1:   # set text string for our bonus value
+      int: current_player.pts_upf_bonus1 * current_player.dasboot_bonus_multiplier
+      action: set
   upf_bonus2_award:
     score: current_player.pts_upf_bonus2 * current_player.dasboot_bonus_multiplier           # means we got bonus2
-    dasboot_bonustext_drinkbonus2:   # set text string for our bonus value
+    dasboot_bonustext_upfbonus2:   # set text string for our bonus value
       int: current_player.pts_upf_bonus2 * current_player.dasboot_bonus_multiplier
       action: set
   upf_hammered_award:

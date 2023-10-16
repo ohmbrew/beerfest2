@@ -237,40 +237,32 @@ slides:
     expire: 4.75s
   multiball_slide:
     widgets:
-    - type: text
-      text: MULTIBALL
-      font_size: 10
-      font_name: druillet
-      anchor_x: center
-      anchor_y: center
-      x: middle
-      y: middle
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-MunichMultiball
+      scale: .1
       animations:
         show_slide:
-          - property: font_size
-            value: 200
+          - property: scale
+            value: 1
             duration: .5s
     - type: video
       video: bubbles
   multiball_slide_popo:
     widgets:
-    - type: text
-      text: MULTIBALL
-      font_size: 10
-      font_name: druillet
-      anchor_x: center
-      anchor_y: center
-      x: middle
-      y: middle
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-PopoMultiball
+      scale: .1
       animations:
         show_slide:
-          - property: font_size
-            value: 200
+          - property: scale
+            value: 1
             duration: .5s
-    - type: image
-      image: background
+    - type: video
+      video: bubbles
   slide_mini_mb_shootsaucers:
     widgets:
     - type: image

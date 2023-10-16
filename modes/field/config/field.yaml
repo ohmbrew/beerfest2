@@ -399,7 +399,7 @@ random_event_player:
   vs_select_challenge_no_mb:
     events:
       - selected_vs_alltargets
-      #- selected_vs_breakout
+      - selected_vs_breakout
   # select a VS challeng but we're in multiball, so we don't want to select breakout
   vs_select_challenge_mb:
     events:

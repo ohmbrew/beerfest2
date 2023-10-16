@@ -21,38 +21,10 @@ event_player:
 slides:
   flipperflop_activated:
     widgets:
-    - type: text
-      text: DRUNKEN
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: FLIPPER FLOP!
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
-    - type: text
-      text: All Targets 1M
-      font_size: 10
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 425
-      color: 008ce5ff
-      animations:
-        show_slide:
-          - property: font_size
-            value: 200
-            duration: .5s
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-FlipperFlop
     - type: image
       image: background
 

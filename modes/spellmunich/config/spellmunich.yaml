@@ -18,24 +18,10 @@ counters:
 slides:
   slide_bonus_spellmunich:
     widgets:
-    - type: text
-      text: Spell M-U-N-I-C-H
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-SpelledMunichBonus
     - type: text
       text: (player|pts_spell_munich)
       number_grouping: true

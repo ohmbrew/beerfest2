@@ -27,26 +27,20 @@ window:
   width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
-  resizable: false
-  borderless: true
+  resizable: true
+  borderless: false
   no_window: false
   show_cursor: false
   exit_on_escape: True
 
 # TODO
-# SEVERE? Mode didn't register that I sunk kicker_mode during a VS Battle. I had 2 balls locked in Pong Table. So no balls to play lol. Used magnet to get out. dropped it again. Still nothing.
-
-# Ball Search after X # of seconds.
-
-
-# Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
 
 # Add special "Champion of Beerfest!" slide at end of Das Boot
 
 # Long Term Tasks
 # - TODO: something weird happens to strikout bank. Just played and they all dropped back down after a reset and MPF didn't re-trigger coil. Lights were blinking red like the game thought the drops were still up.
 #   - potential fix: I added a max_reset_attempts to drop bank definition. We'll see whenever it gets stuck next time if it tries to reset it again. MPF v .55 must not have that feature yet...
-# - rubber behind strike out to dampen the hit from ball
+#   - I think the issue was mechanical. Broke more drop targets. I put weatherstrip padding behind them. Slo Mo video shows them being slammed into it from direct flip from left flipper!!!
 # - Adjust difficulty of VS and Theme modes. Carousel maybe? Higher risk higher pts? Increasing pts per shot? Progressive round theme bonuses
 # - End theme modes if player hit certain # of shots (e.g. quarters)
 # - Ramps build combos, award more points for shots after multiplier increases. Use chance lights maybe?

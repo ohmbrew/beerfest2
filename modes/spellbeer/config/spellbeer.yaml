@@ -8,24 +8,10 @@ mode:
 slides:
   slide_bonus_spellbeer:
     widgets:
-    - type: text
-      text: Spell B-E-E-R
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 35
-      color: 008ce5ff
-    - type: text
-      text: BONUS
-      font_size: 150
-      font_name: druillet
-      anchor_x: center
-      anchor_y: top
-      x: middle
-      y: top - 210
-      color: 008ce5ff
+    - type: image
+      image: background-flag
+    - type: image
+      image: MainText-SpelledBeerBonus
     - type: text
       text: (player|pts_spell_beer)
       number_grouping: true
