@@ -205,6 +205,23 @@ shows:
       lights:
         (led_left): off
         (led_right): off
+  flash_all_blue_alltargets:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
 
 show_player:
   mode_vs_alltargets_started:
@@ -255,8 +272,14 @@ show_player:
         led_left: (current_player.opponent_left)
         led_right: (current_player.opponent_right)
         color: green
-
-
+  timer_player_health_update_complete:            # engage shaker when we are hit
+    shaker_half:
+      loops: 0
+  logicblock_count_opponent_hits_updated:         # flash all blue when we hit opponent
+    flash_all_blue_alltargets:
+      priority: 5000
+      loops: 0
+      
 slides:
   vs_alltargets_mini:
     - type: image

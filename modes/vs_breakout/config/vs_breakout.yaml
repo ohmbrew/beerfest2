@@ -256,6 +256,24 @@ shows:
       lights:
         (led_left): off
         (led_right): off
+  flash_all_blue_breakout:
+    - duration: .5s
+      lights:
+        playfield:
+          color: 008ce5
+          fade: .1s
+        gi:
+          color: 008ce5
+          fade: .1s
+    - duration: .5s
+      lights:
+        playfield:
+          color: off
+          fade: .5s
+        gi:
+          color: off
+          fade: .5s
+
 
 show_player:
   mode_vs_breakout_started:
@@ -306,6 +324,13 @@ show_player:
         led_left: (current_player.opponent_left)
         led_right: (current_player.opponent_right)
         color: green
+  ball_result_win:
+    shaker_half:
+      loops: 0
+    flash_all_blue_breakout:
+      priority: 5000
+      loops: 0
+
 
 slides:
   vs_breakout_mini:
