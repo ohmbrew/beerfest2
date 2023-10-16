@@ -65,7 +65,7 @@ timers:
       - action: stop
         event: vs_result_win
       - action: stop
-        event: stop_update_timers  
+        event: stop_update_timers
   update_vs_pos:
     start_value: 1
     end_value: 0
