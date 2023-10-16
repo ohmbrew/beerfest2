@@ -34,13 +34,12 @@ window:
   exit_on_escape: True
 
 # TODO
-# SEVERE. Ball was not released and PT did not move to ball 2 when ball was captured in pongcup1. This was during a VS Battle mode
+# SEVERE? Mode didn't register that I sunk kicker_mode during a VS Battle. I had 2 balls locked in Pong Table. So no balls to play lol. Used magnet to get out. dropped it again. Still nothing.
 
-# Still need to work on Popo. It was not ejecting a ball when released_hit event though there was a ball in there. Added in a state transition from start -> captured if MB mode starts and there's a ball in there
-#   like if player 1 captured popo, ball ended, and player 2 is up. Before, it would go to ready_for_capture. Now it goes to ball_captured. Also added a enable_pt_lock when in do_not_capture
+# Ball Search after X # of seconds.
+
 
 # Game Theme modes mostly have image text. There are some Double and Single das boot bonus slides that still need text.
-# Make in-game bonuses (Multiball, Spell Munich, Drinko (old...), etc.) have image text
 
 # Add special "Champion of Beerfest!" slide at end of Das Boot
 
@@ -646,7 +645,9 @@ sound_player:
 playfields:
   playfield:
     tags: default
+    enable_ball_search: true
     default_source_device: bd_plunger_lane
+    ball_search_timeout: 15s
 
 counters:
   has_highscore:
