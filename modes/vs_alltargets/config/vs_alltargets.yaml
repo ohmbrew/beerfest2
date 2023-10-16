@@ -92,7 +92,7 @@ counters:
   count_opponent_hits:
     direction: down
     starting_count: 15
-    
+
     count_events: >
       shot_pop_lower_hit, shot_pop_upper_right_hit, shot_pop_upper_left_hit,
       shot_chance_hit, shot_special_hit,
@@ -181,8 +181,8 @@ sound_player:
       action: play
       events_when_stopped: kicker_rimrules_eject
       
-  play_betterwhendrunk_and_eject:
-    betterwhendrunk:
+  play_betterwhendrunk_and_eject_vs:
+    voice_betterwhendrunk:
       action: play
       events_when_stopped: kicker_mode_eject
     
