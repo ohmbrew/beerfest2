@@ -66,7 +66,7 @@ timers:
     tick_interval: 3s     # that's 1 shot every 3 secs for player to beat opponent. TODO: IDK, what's been feedback after expos?
     control_events:
       - action: restart
-        event: slide_vs_alltargets_status_active
+        event: slide_vs_alltargets_intro_removed
       - action: stop
         event: vs_result_win
       - action: stop
