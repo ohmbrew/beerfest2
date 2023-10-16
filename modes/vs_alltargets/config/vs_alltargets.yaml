@@ -273,13 +273,13 @@ show_player:
         led_right: (current_player.opponent_right)
         color: green
   timer_player_health_update_complete:            # engage shaker when we are hit
-    shaker_half:
+    show_shaker_half:
       loops: 0
   logicblock_count_opponent_hits_updated:         # flash all blue when we hit opponent
     flash_all_blue_alltargets:
       priority: 5000
       loops: 0
-      
+
 slides:
   vs_alltargets_mini:
     - type: image
