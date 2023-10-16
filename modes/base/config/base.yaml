@@ -505,6 +505,17 @@ shows:
       coils:
         c_shaker: disable
   
+  show_shaker_half:
+    - duration: .5s
+      coils:
+        c_shaker:
+          action: enable
+          pulse_ms: 2
+          hold_power: 0.1           
+    - duration: .1s
+      coils:
+        c_shaker: disable
+
   show_knocker:
     - duration: .5s
       events: enable_knocker

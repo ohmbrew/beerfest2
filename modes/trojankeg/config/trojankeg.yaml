@@ -658,13 +658,15 @@ show_player:
     flash_all_blue_trojankeg:
       priority: 5000
       loops: 0
-      action: play
+    show_shaker_half:
+      loops: 0
 
   play_objective_audio_with_shoot_keg_after:
     flash_all_blue_trojankeg:
       priority: 5000
       loops: 0
-      action: play
+    show_shaker_half:
+      loops: 0
 
 variable_player:
   mode_trojankeg_started:    # init whether we completed this current bonus

@@ -704,13 +704,15 @@ show_player:
     flash_all_blue_volumechug:
       priority: 5000
       loops: 0
-      action: play
+    show_shaker_half:
+      loops: 0
 
   play_objective_audio_shootthebootafter:
     flash_all_blue_volumechug:
       priority: 5000
       loops: 0
-      action: play
+    show_shaker_half:
+      loops: 0
 
 # timed round
 # timers:

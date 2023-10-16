@@ -253,6 +253,7 @@ random_event_player:
       - start_mode_dasboot  # player starts DOUBLE DAS BOOT after completing all 5 countries AND all game mode themes!   
 
 
+  # Set Randomness of VS vs plain eject from saucers when < 14 mug fills, VS vs Game Them when > 14, and Battle vs Video mode when selecting a VS challenge
   # these are called if we have < 14 mug fills. Only select a VS 10% of the time
   vs_or_play_betterwhendrunk_and_eject:
     force_all: false
@@ -274,6 +275,21 @@ random_event_player:
     events:
       vs_select_opponent: 33
       launch_random_game_mode: 67
+
+  # select a VS challenge and we're not in multiball, don't care which one
+  vs_select_challenge_no_mb:
+    force_all: false
+    force_different: false
+    events:
+      selected_vs_alltargets: 75
+      selected_vs_breakout: 25
+
+  # select a VS challeng but we're in multiball, so we don't want to select breakout
+  vs_select_challenge_mb:
+    events:
+      - selected_vs_alltargets  
+
+
 
   # # Commenting this out because we don't care if we launch a game theme mode if 2 balls are locked in pong table - player is getting multiball after this!
   # Randomly chooses to select a VS or launch a random game theme mode not including Trojan Keg in case we had 2 balls locked in Pong Table
@@ -392,18 +408,6 @@ random_event_player:
   vs_select_opponent{current_player.has_germany == 0 and current_player.has_canada==1 and current_player.has_scotland==1 and current_player.has_ireland==1 and current_player.has_tobago==0}:
     events:
       - selected_opponent_tobago
-  
-
-
-  # select a VS challenge and we're not in multiball, don't care which one
-  vs_select_challenge_no_mb:
-    events:
-      - selected_vs_alltargets
-      - selected_vs_breakout
-  # select a VS challeng but we're in multiball, so we don't want to select breakout
-  vs_select_challenge_mb:
-    events:
-      - selected_vs_alltargets  
 
 show_player:
   mode_field_started:
