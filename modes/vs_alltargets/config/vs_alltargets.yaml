@@ -85,7 +85,7 @@ random_event_player:
     force_different: false
     events:
       rnd_vs_alltargets_kicker_action_result_instachug: 10
-      play_betterwhendrunk_and_eject: 90
+      play_betterwhendrunk_and_eject_vs: 90
 
 # counter counts targets hit against opponent. If it gets to 0 before player health does, then player wins VS mode
 counters:
