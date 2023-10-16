@@ -27,8 +27,8 @@ window:
   width: 1846             # width of main LCD: 1366    width of mini LCD: 480     Total: 1846
   height: 800            # height of main LCD: 768   height of mini LCD: 800    Total: 1568
   fullscreen: false
-  resizable: true
-  borderless: false
+  resizable: false
+  borderless: true
   no_window: false
   show_cursor: false
   exit_on_escape: True
