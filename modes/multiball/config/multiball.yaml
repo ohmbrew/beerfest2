@@ -469,6 +469,12 @@ state_machines:
       - source: do_not_capture
         target: do_not_capture
         events: shot_popo_captured_hit
+      - source: do_not_capture
+        target: ready_for_capture
+        events: multiball_multiball_ended{device.switches.s_popo_captured.state == 0}
+      - source: do_not_capture
+        target: ball_captured
+        events: multiball_multiball_ended{device.switches.s_popo_captured.state == 1}  
       - source: multiball_popo_running
         target: ready_for_capture
         events: multiball_popo_multiball_ended{device.state_machines.multiball.state != "pongtable_cupNone"}
