@@ -625,31 +625,43 @@ show_player:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_special_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_take_hit_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_chug_beer_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_do_shot_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_quarters_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_tgt_ramp_boot_left_hit:
     flash_all_blue_dasboot:
       priority: 5000
@@ -660,26 +672,36 @@ show_player:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_tgt_rimrules_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_upf_tgt_left_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_upf_tgt_right_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
   shot_horseshoe_hit:
     flash_all_blue_dasboot:
       priority: 5000
       loops: 0
       action: play
+    show_shaker_half:
+      loops: 0
 
 variable_player:
   shot_diverter_hit:
