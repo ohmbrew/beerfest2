@@ -1222,7 +1222,9 @@ variable_player:
     has_a_highscore:
       int: 0
       action: set
-
+    score:
+      int: 200000001
+      action: set
   shot_chance_hit{mode.dasboot.active == False}:
     score: current_player.pts_chance
     bonus_numchance: 1    # bonus tracker (chance multiplier)

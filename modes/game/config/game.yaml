@@ -44,11 +44,17 @@ widget_player:
       slide: base_slide
     background_widget:
       slide: base_slide
-
+  multiplayer_game{current_player.is_skillshot_active == 1}:
+    skillshot_player_widget:
+      slide: multiplayer_slide
+    skillshot_ball_widget:
+      slide: multiplayer_slide
   add_skillshot_widgets{game.num_players == 1}:
     base_score_widget:
       action: remove
     base_ball_widget:
+      slide: base_slide
+    mp_score_widget_p1_large:
       slide: base_slide
     skillshot_video_widget:
       slide: base_slide
@@ -64,30 +70,13 @@ widget_player:
   add_skillshot_widgets{game.num_players >= 2}:
     base_score_widget:
       action: remove
-    base_player_widget:
-      action: remove
     base_ball_widget:
       action: remove
     skillshot_player_widget:
       slide: multiplayer_slide
     skillshot_ball_widget:
       slide: multiplayer_slide
-    mp_score_widget_p1_small:
-      action: remove
-    mp_score_widget_p2_small:
-      action: remove
-    mp_score_widget_p3_small:
-      action: remove
-    mp_score_widget_p4_small:
-      action: remove
-    mp_score_widget_p1_large:
-      action: remove
-    mp_score_widget_p2_large:
-      action: remove
-    mp_score_widget_p3_large:
-      action: remove
-    mp_score_widget_p4_large:
-      action: remove
+    
     skillshot_video_widget:
       slide: multiplayer_slide
     skillshot_title_widget:
@@ -104,6 +93,8 @@ widget_player:
     skillshot_player_widget:
       action: remove
     skillshot_ball_widget:
+      action: remove
+    mp_score_widget_p1_large:
       action: remove
     skillshot_video_widget:
       action: remove
@@ -345,7 +336,7 @@ widgets:
       y: bottom + 35
       font_name: druillet
       color: 008ce5ff
-      font_size: 100
+      font_size: 50
       anchor_x: middle
       anchor_y: bottom
       z: 69
@@ -356,7 +347,7 @@ widgets:
       y: bottom + 35
       font_name: druillet
       color: 008ce5ff
-      font_size: 100
+      font_size: 50
       anchor_x: middle
       anchor_y: bottom
       z: 69

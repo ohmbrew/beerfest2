@@ -185,7 +185,7 @@ sound_player:
     rimrules:
       action: play
       events_when_stopped: kicker_rimrules_eject
-      
+  
   play_betterwhendrunk_and_eject_vs:
     voice_betterwhendrunk:
       action: play
