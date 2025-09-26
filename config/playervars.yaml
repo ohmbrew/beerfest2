@@ -444,6 +444,9 @@ player_vars:
   pts_vs_alltargets_win:
     initial_value: 5000000
     value_type: int
+  pts_vs_win:
+    initial_value: 5000000
+    value_type: int
   pts_vs_breakout_1ball:
     initial_value: 1000000
     value_type: int

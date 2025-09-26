@@ -34,16 +34,17 @@ variable_player:
       action: set
       # below calculates a total based on total multiplier (bonus_numchance) times the multiplicative sum of the other bonuses based on above subtotal calculations
       int: current_player.bonus_numchance * ((current_player.bonus_numquarters * current_player.pts_quarters_bonus) + (current_player.bonus_numhjs * current_player.pts_hjs_bonus) + (current_player.bonus_numbjs * current_player.pts_bjs_bonus) + (current_player.bonus_numzjs * current_player.pts_zjs_bonus) + (current_player.bonus_numstrikeouts * current_player.pts_strikeouts_bonus) + (current_player.bonus_numramps * current_player.pts_ramps_bonus))
+    score:    # update player score
+      action: set
+      int: current_player.score + current_player.bonus_total
   flipper_cancel:         # player hit both flippers, skip to bonus total slide
     bonus_canceled:
       int: 1
       action: set
 
-  # when bonus mode is about to stop, update our total score and reset all bonus counters
+  # when bonus mode is about to stop, reset all bonus counters
   mode_bonusv2_will_stop:
-    score:    # update player score
-      action: set
-      int: current_player.score + current_player.bonus_total
+    
     # clear all counters associated with bonuses
     bonus_numquarters:
       action: set
@@ -589,8 +590,19 @@ slides:
         animations:
           show_slide:
             - property: font_size
-              value: 175
+              value: 150
               duration: .25s
+      - type: text
+        text: (player|score)
+        number_grouping: true
+        min_digits: 1
+        font_size: 100
+        font_name: druillet
+        color: 008ce5ff
+        anchor_y: bottom
+        anchor_x: middle
+        x: middle
+        y: bottom + 25
       - type: video
         video: bubbles
 

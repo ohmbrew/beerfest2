@@ -311,9 +311,11 @@ keyboard:
   2:
     event: pongcup_2
   3:
-    event: release_cup1
+    event: pongcup_0
   4:
-    event: release_cup2
+    event: pongcup_2_release
+  5:
+    event: pongcup_1_release
   b:
     switch: s_flipper_left
   n:
@@ -340,33 +342,35 @@ p_roc:
 # define servo and min/max ranges
 pololu_maestro:
   port: /dev/ttyACM0  # lower ttyACMX is the USB command port, higher one is for TTL serial port. We use lower.
-  servo_min: 2500
-  servo_max: 9700 
+  servo_min: 2000
+  servo_max: 10000 
 
 servos:
   servo_diverter:
     number: 5
     
     # these have been visually calibrated and are good
-    servo_min: 0.32       # 1105 us, far right
-    servo_max: 0.55       # 1480 us, far left
+    servo_min: 0.34       # 1105 us, far right
+    servo_max: 0.54       # 1480 us, far left
     positions:
       1.0: diverter_left
-      0.0: diverter_right  
-    reset_position: 0.0
+      0.05: diverter_right  
+    reset_position: 0.1
     reset_events: mode_attract_started
     debug: true
 
   servo_pongtable:
     number: 3
     # these have been visually calibrated and are good
-    servo_min: 0.09    # at min, pong cup 1 is at front
-    servo_max: 0.84     # at max, pong cup 2 is at front
+    servo_min: 0.00    # at min, pong cup 1 is at front
+    servo_max: 1.0     # at max, pong cup 2 is at front
     positions:
-      0.0: pongcup_1
-      0.5: pongcup_0
-      1.0: pongcup_2
-    reset_position: 0.0
+      0.0: pongcup_1_release
+      0.05: pongcup_1
+      0.65: pongcup_2_release
+      0.72: pongcup_2
+      1.0: pongcup_0
+    reset_position: 0.05
     reset_events: machine_reset_phase_3, service_mode_entered
 
 sound_system:
@@ -477,23 +481,28 @@ ball_devices:
   bd_kicker_mode:
     ball_switches: s_kicker_mode
     eject_coil: c_kicker_mode
+    eject_targets: playfield
     eject_timeouts: 1s
   bd_kicker_rimrules:
     ball_switches: s_kicker_rimrules
     eject_coil: c_kicker_rimrules
+    eject_targets: playfield
     eject_timeouts: 1s
   bd_pongcup1:
     ball_switches: s_pongcup1
     eject_coil: c_pongcup1
+    eject_targets: playfield
     eject_timeouts: 2s
   bd_pongcup2:
     ball_switches: s_pongcup2
     eject_coil: c_pongcup2
+    eject_targets: playfield
     eject_timeouts: 2s
   bd_popo:
     ball_switches: s_popo_captured
     eject_coil: c_popo_eject
-    eject_timeouts: 2s
+    eject_targets: playfield
+    eject_timeouts: 1s
 
 ball_holds:
   kicker_mode:
@@ -552,6 +561,9 @@ show_player:
     pongtable_show:
       show_tokens:
         cup: 1
+      loops: 0
+  pongcup_2_release_show:
+    pongtable_release_cup_2_show:
       loops: 0
   drain_gameover_nohighscore:
     show_gameover_nohighscore:
@@ -637,7 +649,7 @@ playfields:
     tags: default
     enable_ball_search: true
     default_source_device: bd_plunger_lane
-    ball_search_timeout: 15s
+    ball_search_timeout: 25s
 
 counters:
   has_highscore:

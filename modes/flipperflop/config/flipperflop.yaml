@@ -7,7 +7,7 @@ mode:
 
 timers:
   mode_timer_flipperflop:
-    start_value: 15
+    start_value: 10
     end_value: 0
     direction: down
     control_events:

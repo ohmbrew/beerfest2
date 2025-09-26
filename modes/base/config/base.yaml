@@ -77,10 +77,10 @@ timers:
 
 counters:
   track_flipperflop:    # track if we've hit 3 boot shots in 15 seconds
-    enable_events: mode_base_started
-    disable_events: mode_flipperflop_stopped
+    enable_events: mode_base_started_dummy_cuz_flipperflop_is_perm_disabled
+    disable_events: mode_base_started # mode_flipperflop_stopped
     count_events: shot_diverter_hit, shot_ramp_upf_hit   # ANY ramp does this now, for time in flipperflop_activated seconds
-    count_complete_value: 3
+    count_complete_value: 5
     reset_events: timer_flipperflop_activated_complete
     events_when_complete: start_mode_flipperflop
     disable_on_complete: false

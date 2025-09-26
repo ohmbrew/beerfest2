@@ -371,9 +371,8 @@ random_event_player:
     force_all: false
     force_different: false
     events:
-      selected_vs_alltargets: 70
-      selected_vs_breakout: 30
-
+      selected_vs_alltargets: 85
+      selected_vs_breakout: 15
   # select a VS challeng but we're in multiball, so we don't want to select breakout
   vs_select_challenge_mb:
     events:
