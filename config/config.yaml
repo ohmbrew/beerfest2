@@ -366,11 +366,11 @@ servos:
     servo_max: 1.0     # at max, pong cup 2 is at front
     positions:
       0.0: pongcup_1_release
-      0.05: pongcup_1
+      0.1: pongcup_1
       0.65: pongcup_2_release
-      0.72: pongcup_2
+      0.77: pongcup_2
       1.0: pongcup_0
-    reset_position: 0.05
+    reset_position: 0.1
     reset_events: machine_reset_phase_3, service_mode_entered
 
 sound_system:

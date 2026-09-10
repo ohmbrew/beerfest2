@@ -49,13 +49,21 @@ widget_player:
       slide: multiplayer_slide
     skillshot_ball_widget:
       slide: multiplayer_slide
+    # Skillshot - single player
+  # Hide normal score/ball display and show only compact player/ball identity.
   add_skillshot_widgets{game.num_players == 1}:
     base_score_widget:
       action: remove
     base_ball_widget:
-      slide: base_slide
+      action: remove
     mp_score_widget_p1_large:
+      action: remove
+
+    skillshot_player_widget:
       slide: base_slide
+    skillshot_ball_widget:
+      slide: base_slide
+
     skillshot_video_widget:
       slide: base_slide
     skillshot_title_widget:
@@ -67,20 +75,40 @@ widget_player:
     skillshot_arrow2:
       slide: base_slide
 
+  # Skillshot - multiplayer
+  # Remove every normal corner score and show only compact player/ball identity.
   add_skillshot_widgets{game.num_players >= 2}:
     base_score_widget:
       action: remove
     base_ball_widget:
       action: remove
+
+    mp_score_widget_p1_small:
+      action: remove
+    mp_score_widget_p1_large:
+      action: remove
+    mp_score_widget_p2_small:
+      action: remove
+    mp_score_widget_p2_large:
+      action: remove
+    mp_score_widget_p3_small:
+      action: remove
+    mp_score_widget_p3_large:
+      action: remove
+    mp_score_widget_p4_small:
+      action: remove
+    mp_score_widget_p4_large:
+      action: remove
+
     skillshot_player_widget:
       slide: multiplayer_slide
     skillshot_ball_widget:
       slide: multiplayer_slide
-    
+
     skillshot_video_widget:
       slide: multiplayer_slide
     skillshot_title_widget:
-      slide: multiplayer_slide   
+      slide: multiplayer_slide
     skillshot_hitwhengreen:
       slide: multiplayer_slide
     skillshot_arrow1:
@@ -238,7 +266,7 @@ widget_player:
     background_widget:
       slide: multiplayer_slide
 
-  # player 2 has entered the chat
+    # Player 2 has entered the chat
   player_added{num==2 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p1_large:
       slide: multiplayer_slide
@@ -246,13 +274,16 @@ widget_player:
       slide: multiplayer_slide
     background_widget:
       slide: multiplayer_slide
+
   player_added{num==2 and current_player.is_skillshot_active == 1}:
-    mp_score_widget_p1_large:
-      slide: multiplayer_slide
-    mp_score_widget_p2_small:
-      slide: multiplayer_slide
     background_widget:
       slide: multiplayer_slide
+
+    skillshot_player_widget:
+      slide: multiplayer_slide
+    skillshot_ball_widget:
+      slide: multiplayer_slide
+
     skillshot_video_widget:
       slide: multiplayer_slide
     skillshot_title_widget:
@@ -263,19 +294,18 @@ widget_player:
       slide: multiplayer_slide
     skillshot_arrow2:
       slide: multiplayer_slide
-      
+
   # Player 3 has entered the chat
-  player_added{num==3}:
+  player_added{num==3 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p3_small:
       slide: multiplayer_slide
 
-  # Player 4 has entered the chat
-  player_added{num==4}:
+  player_added{num==4 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p4_small:
       slide: multiplayer_slide
   
   # Player Turns: Swap scores -> names when turn starts, revert when turn ends
-  player_turn_started{number==1}:
+  player_turn_started{number==1 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p1_small:
       action: remove
     mp_score_widget_p1_large:
@@ -286,7 +316,7 @@ widget_player:
     mp_score_widget_p1_large:
       action: remove
   
-  player_turn_started{number==2}:
+  player_turn_started{number==2 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p2_small:
       action: remove
     mp_score_widget_p2_large:
@@ -297,7 +327,7 @@ widget_player:
     mp_score_widget_p2_large:
       action: remove
 
-  player_turn_started{number==3}:
+  player_turn_started{number==3 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p3_small:
       action: remove
     mp_score_widget_p3_large:
@@ -308,7 +338,7 @@ widget_player:
     mp_score_widget_p3_large:
       action: remove
 
-  player_turn_started{number==4}:
+  player_turn_started{number==4 and current_player.is_skillshot_active == 0}:
     mp_score_widget_p4_small:
       action: remove
     mp_score_widget_p4_large:

@@ -207,6 +207,7 @@ event_player:
   shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1] > 0}: skill_success_full
   shot_plunger_lane_exit_hit{device.lights.gi_back5.color[1] > 0 and device.lights.gi_back6.color[1] == 0}: skill_success_partial
   shot_plunger_lane_exit_hit{device.lights.gi_back6.color[1]==0 and device.lights.gi_back5.color[1]==0}: skill_fail
+  timer_skillshot_timeout_complete: skill_fail
 
 shows:
   show_gi_back_chase:
