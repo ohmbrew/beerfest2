@@ -342,9 +342,11 @@ multiball_locks:
     debug: true
     lock_devices: bd_pongcup2
     balls_to_lock: 1
-    locked_ball_counting_strategy: physical_only
+    balls_to_replace: 0
+    locked_ball_counting_strategy: no_virtual
+    reset_count_for_current_player_events: start_multiball
     enable_events: enable_pt_lock
-    disable_events: disable_ptlock2, start_multiball 
+    disable_events: disable_ptlock2, start_multiball
 
   popo_lock:
     debug: true
@@ -429,11 +431,15 @@ state_machines:
         #   show_tokens:
         #     cup: 2
         #   loops: 0
+      # added a state to wait for multiball show before ejecting popo (if we need to)
+      ball_captured_waiting_for_pt_show:
+        label: Popo contains a ball waiting for Pong Table lock show to finish
+
       do_not_capture:
         label: two balls already locked in pong table MB - do not hold onto any balls in popo
         events_when_started:
           - disable_popo_lock
-          - eject_popo{device.switches.s_popo_captured.state == 1}    # eject ball if one is there
+          - eject_popo    # eject ball if one is there
         # show_when_active:
         #   show: pongtable_show
         #   show_tokens:
@@ -468,9 +474,14 @@ state_machines:
       - source: ball_captured
         target: multiball_popo_running
         events: slide_multiball_slide_popo_removed
+
       - source: ball_captured
+        target: ball_captured_waiting_for_pt_show   # wait for multiball show to finish
+        events: pongtable_movetocupNone             
+
+      - source: ball_captured_waiting_for_pt_show
         target: do_not_capture
-        events: pongtable_movetocupNone             # do not want Popo to keep ball if we have 2 already locked in pong table
+        events: slide_multiball_sink2_removed
 
       - source: do_not_capture
         target: do_not_capture
@@ -562,14 +573,20 @@ show_player:
       action: stop
 
 event_player:
+
   shot_pongcup1_hit{device.state_machines.multiball.state != "multiball_running"}:
     - pongtable_movetocup2
     - multiball_sink1
-  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running" and device.switches.s_popo_captured.state == 0}:
+
+  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running"}:
     - pongtable_movetocupNone
     - multiball_sink2
-  shot_pongcup2_hit{device.state_machines.multiball.state != "multiball_running" and device.switches.s_popo_captured.state == 1}: pongcup_2_release_show
-  shot_pongcup2_hit{device.state_machines.multiball.state == "multiball_running" or device.switches.s_popo_captured.state == 1}: pongcup_2_release_show
+
+  shot_pongcup2_hit{device.state_machines.multiball.state == "multiball_running"}:
+    pongcup_2_release_show
+
+  slide_multiball_sink2_removed{device.switches.s_popo_captured.state == 0}:
+    pt2_request_replacement_ball
 
   slide_multiball_sink1_clean_removed: multiball_ready_for_next_ball
   slide_multiball_sink1_adult_removed: multiball_ready_for_next_ball

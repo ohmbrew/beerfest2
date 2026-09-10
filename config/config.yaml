@@ -477,6 +477,8 @@ ball_devices:
     eject_targets: playfield
     mechanical_eject: true
     eject_timeouts: 5s
+    request_ball_events:
+      - pt2_request_replacement_ball
     debug: true
   bd_kicker_mode:
     ball_switches: s_kicker_mode
