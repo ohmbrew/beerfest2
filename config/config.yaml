@@ -52,7 +52,8 @@ displays:
     width: 480
     height: 800
     
-
+custom_code:
+  - code.pt2_replacement.PT2Replacement
 
 config:
   - lights.yaml
@@ -477,8 +478,6 @@ ball_devices:
     eject_targets: playfield
     mechanical_eject: true
     eject_timeouts: 5s
-    request_ball_events:
-      - pt2_request_replacement_ball
     debug: true
   bd_kicker_mode:
     ball_switches: s_kicker_mode

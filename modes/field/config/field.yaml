@@ -94,32 +94,38 @@ event_player:
   # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==1 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode_without_trojankeg   # we can start Volume Chug so randomly do that
   # shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value >= 14) and (device.state_machines.multiball.state == "pongcupNone" and current_player.has_trojankeg==0 and current_player.has_volumechug==0)}: vs_or_launch_random_game_mode   # we can start any of the bottom row with 2 balls in Pong Table
 
-
-  # these events would be called if mode/rimrules saucers are hit and we DO have our mug filled
-  shot_kicker_mode_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14}: vs_or_launch_random_game_mode   # don't care if 2 balls are locked in Pong Table - player is getting multiball after this!
-  shot_kicker_rimrules_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14}: vs_or_launch_random_game_mode   # don't care if 2 balls are locked in Pong Table - player is getting multiball after this!
-
-  # these events would be called if mode/rimrules saucers are hit and we DO NOT HAVE our mug filled
-  shot_kicker_mode_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_betterwhendrunk_and_eject
-  shot_kicker_rimrules_hit{(current_player.is_in_vs == 0) and (device.counters.count_mug_lights.value < 14)}: vs_or_play_rimrules_and_eject
+  # PT multiball primed: saucers are reserved exclusively for starting PT multiball.
+  # Mug fill does not matter. Skip all VS/theme lotteries.
+  shot_kicker_mode_hit{current_player.is_in_vs == 0 and device.state_machines.multiball.state == "pongtable_cupNone"}: play_betterwhendrunk_and_eject
+  shot_kicker_rimrules_hit{current_player.is_in_vs == 0 and device.state_machines.multiball.state == "pongtable_cupNone"}: play_rimrules_and_eject
 
 
-  # selects either Battle or Video mode after opponent is chosen. Make sure MB is not primed (PongTable - 2 locked balls already) or running (PongTable and Popo)
-  selected_opponent_canada{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_running"}: vs_select_challenge_no_mb     
-  selected_opponent_canada{device.state_machines.multiball.state == "pongcupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_running"}: vs_select_challenge_mb
+  # PT multiball NOT primed + full mug: normal VS/theme selection.
+  shot_kicker_mode_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14 and device.state_machines.multiball.state != "pongtable_cupNone"}: vs_or_launch_random_game_mode
+  shot_kicker_rimrules_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value >= 14 and device.state_machines.multiball.state != "pongtable_cupNone"}: vs_or_launch_random_game_mode
 
-  selected_opponent_scotland{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball.state != "multiball_running"}: vs_select_challenge_no_mb
-  selected_opponent_scotland{device.state_machines.multiball.state == "pongcupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_running"}: vs_select_challenge_mb
 
-  selected_opponent_ireland{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball.state != "multiball_running"}: vs_select_challenge_no_mb
-  selected_opponent_ireland{device.state_machines.multiball.state == "pongcupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_running"}: vs_select_challenge_mb
+  # PT multiball NOT primed + mug not full: normal VS/audio/eject lottery.
+  shot_kicker_mode_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value < 14 and device.state_machines.multiball.state != "pongtable_cupNone"}: vs_or_play_betterwhendrunk_and_eject
+  shot_kicker_rimrules_hit{current_player.is_in_vs == 0 and device.counters.count_mug_lights.value < 14 and device.state_machines.multiball.state != "pongtable_cupNone"}: vs_or_play_rimrules_and_eject
+  
+  # selects either Battle or Video mode after opponent is chosen.
+  # Use Battle-only selection if PT multiball is primed/running or Popo multiball is running.
+  selected_opponent_canada{device.state_machines.multiball.state != "pongtable_cupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_popo_running"}: vs_select_challenge_no_mb
+  selected_opponent_canada{device.state_machines.multiball.state == "pongtable_cupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_popo_running"}: vs_select_challenge_mb
 
-  selected_opponent_tobago{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball.state != "multiball_running"}: vs_select_challenge_no_mb
-  selected_opponent_tobago{device.state_machines.multiball.state == "pongcupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_running"}: vs_select_challenge_mb
+  selected_opponent_scotland{device.state_machines.multiball.state != "pongtable_cupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_popo_running"}: vs_select_challenge_no_mb
+  selected_opponent_scotland{device.state_machines.multiball.state == "pongtable_cupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_popo_running"}: vs_select_challenge_mb
 
-  selected_opponent_germany{device.state_machines.multiball.state != "pongcupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball.state != "multiball_running"}: vs_select_challenge_no_mb
-  selected_opponent_germany{device.state_machines.multiball.state == "pongcupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_running"}: vs_select_challenge_mb
+  selected_opponent_ireland{device.state_machines.multiball.state != "pongtable_cupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_popo_running"}: vs_select_challenge_no_mb
+  selected_opponent_ireland{device.state_machines.multiball.state == "pongtable_cupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_popo_running"}: vs_select_challenge_mb
 
+  selected_opponent_tobago{device.state_machines.multiball.state != "pongtable_cupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_popo_running"}: vs_select_challenge_no_mb
+  selected_opponent_tobago{device.state_machines.multiball.state == "pongtable_cupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_popo_running"}: vs_select_challenge_mb
+
+  selected_opponent_germany{device.state_machines.multiball.state != "pongtable_cupNone" and device.state_machines.multiball.state != "multiball_running" and device.state_machines.multiball_popo.state != "multiball_popo_running"}: vs_select_challenge_no_mb
+  selected_opponent_germany{device.state_machines.multiball.state == "pongtable_cupNone" or device.state_machines.multiball.state == "multiball_running" or device.state_machines.multiball_popo.state == "multiball_popo_running"}: vs_select_challenge_mb
+  
   timer_start_vs_delay_complete: (current_player.selected_vs)
   
 random_event_player:
